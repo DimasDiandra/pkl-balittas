@@ -19,9 +19,18 @@ Route::get('/', function () {
     return view('welcome');
 });
 
+<<<<<<< HEAD
 Route::get('/upload', [UploadController::class, 'upload']);
 Route::post('/upload/proses', [UploadController::class, 'proses_upload']);
 
 Auth::routes();
 
 Route::get('/home', [App\Http\Controllers\HomeController::class, 'index'])->name('home');
+=======
+//HEAD
+Route::get('/upload', [UploadController::class, 'upload']);
+Route::post('/upload/proses', [UploadController::class, 'proses_upload']);
+=======
+##cek push
+// 123b3f877d7ff6f12d62334e9f273bc49e49fb55
+>>>>>>> 510acd08a550fbb6bd429789529db7e5cd2efd89
