@@ -19,9 +19,9 @@ Route::get('/', function () {
     return view('welcome');
 });
 
-<<<<<<< HEAD
+//HEAD
 Route::get('/upload', [UploadController::class, 'upload']);
 Route::post('/upload/proses', [UploadController::class, 'proses_upload']);
 =======
 ##cek push
->>>>>>> 123b3f877d7ff6f12d62334e9f273bc49e49fb55
+// 123b3f877d7ff6f12d62334e9f273bc49e49fb55
