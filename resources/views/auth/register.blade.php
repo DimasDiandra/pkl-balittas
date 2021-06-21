@@ -2,7 +2,7 @@
 
 @section('content')
     <div class="container">
-        <div class="row justify-content-center mt-5">
+        <div class="row justify-content-center mt-2">
             <div class="col-md-10">
                 <div class="row">
                     <div class="col-md-6">
