@@ -5,7 +5,7 @@
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1">
 
-    <title>BALITTAS</title>
+    <title>Balai Penelitian Tanaman Pemanis dan Serat</title>
 
     <!-- Fonts -->
     <link href="https://fonts.googleapis.com/css?family=Nunito:200,600" rel="stylesheet" type="text/css">
@@ -98,7 +98,6 @@
         .col-md-8>img {
             margin-bottom: 30px;
         }
-
     </style>
 </head>
 
@@ -118,17 +117,17 @@
             </div>
 
             @if (Route::has('login'))
-                <div class="links">
-                    @auth
-                        <a href="{{ url('/home') }}" class="btn btn-primary">BALITTAS</a>
-                    @else
-                        <a href="{{ route('login') }}" class="btn btn-primary">Login</a>
+            <div class="links">
+                @auth
+                <a href="{{ url('/home') }}" class="btn btn-primary">BALITTAS</a>
+                @else
+                <a href="{{ route('login') }}" class="btn btn-primary">Login</a>
 
-                        @if (Route::has('register'))
-                            <a href="{{ route('register') }}" class="btn btn-primary">Register</a>
-                        @endif
-                    @endauth
-                </div>
+                @if (Route::has('register'))
+                <a href="{{ route('register') }}" class="btn btn-primary">Register</a>
+                @endif
+                @endauth
+            </div>
             @endif
         </div>
     </div>

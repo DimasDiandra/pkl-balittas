@@ -1,0 +1,60 @@
+body, html {
+    height: 100%;
+  }
+  
+  * {
+    box-sizing: border-box;
+  }
+  
+  .bg-image {
+    /* The image used */
+    background-image: url('../assets/background.jpg');
+    opacity: 0.8;
+    /* Add the blur effect */
+    filter: blur(8px);
+    -webkit-filter: blur(8px);
+    
+  
+    /* Full height */
+    height: 100%;
+  
+    /* Center and scale the image nicely */
+    background-position: center;
+    background-repeat: no-repeat;
+    background-size: cover;
+  }
+  
+  /* Position text in the middle of the page/image */
+  .bg-box {
+    background-color: rgb(0,0,0); /* Fallback color */
+    background-color: rgba(0, 0, 0, 0.4); /* Black w/opacity/see-through */
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    z-index: 2;
+    height: 100%;
+    width: 100%;
+    padding: 20px;
+    padding-left: 100px;
+    padding-right: 100px;
+    text-align: center;
+  }
+
+  .center {
+    padding-top: 70px;
+  }
+
+  h1{
+    color: white;
+    font-size: 72px;
+    font-family: Regis;
+    src: url('/fonts/OptimusPrinceps.tff');
+    margin-bottom: 0%;
+  }
+  h2{
+    color: white;
+    font-size: 24px;
+    font-weight: lighter;
+    margin-bottom: 25px;
+  }
