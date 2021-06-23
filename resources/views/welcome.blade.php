@@ -5,7 +5,7 @@
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1">
 
-    <title>Balai Penelitian Tanaman Pemanis dan Serat</title>
+    <title>BALITTAS</title>
 
     <!-- Fonts -->
     <link href="https://fonts.googleapis.com/css?family=Nunito:200,600" rel="stylesheet" type="text/css">
@@ -14,17 +14,54 @@
     <style>
         html,
         body {
-            /* background: url('http://balittas.litbang.pertanian.go.id/images/stories/2012/apl.jpg');
             background-position: center center;
             background-repeat: no-repeat;
             background-size: cover;
             height: 100vh;
-            width: 100%; */
+            width: 100%;
             background-color: #ffffff;
-            color: #636b6f;
+            color: #ffffff;
             font-family: 'Times New Roman', serif;
             font-weight: 200;
             height: 100vh;
+            margin: 0;
+        }
+
+        * {
+            box-sizing: border-box;
+        }
+
+        .bg-box {
+            background-color: rgb(0, 0, 0);
+            /* Fallback color */
+            background-color: rgba(0, 0, 0, 0.4);
+            /* Black w/opacity/see-through */
+            position: absolute;
+            top: 50%;
+            left: 50%;
+            transform: translate(-50%, -50%);
+            z-index: 2;
+            height: 100%;
+            width: 100%;
+            padding: 50px;
+            text-align: center;
+            
+            font-family: 'Times New Roman', serif;
+        }
+
+        .bg-image {
+            /* The image used */
+            background-image: url('../assets/background.jpg');
+            opacity: 0.8;
+            /* Add the blur effect */
+            filter: blur(8px);
+            -webkit-filter: blur(8px);
+            /* Full height */
+            height: 100%;
+            /* Center and scale the image nicely */
+            background-position: center ;
+            background-repeat: no-repeat;
+            background-size: cover;
             margin: 0;
         }
 
@@ -33,10 +70,11 @@
             font-size: 16px;
             color: #FFC963;
             box-shadow: 0px 10px 20px rgba(134, 142, 150, 0.3);
-            border: 2px solid black;
+            border: 2px solid white;
             border-radius: 8px;
             padding-left: 30px;
             padding-right: 30px;
+            
         }
 
         .btn-primary:hover,
@@ -78,10 +116,10 @@
         }
 
         .links>a {
-            color: #0a0a0a;
+            color: #ffffff;
             padding: 16px 22px;
             display: inline-block;
-            width: 100px;
+            width: 160px;
             text-align: center;
             vertical-align: middle;
             font-size: 15px;
@@ -93,6 +131,7 @@
 
         .m-b-md {
             margin-bottom: 30px;
+            color: white;
         }
 
         .col-md-8>img {
@@ -102,8 +141,10 @@
 </head>
 
 <body>
-    <div class="flex-center position-ref full-height">
-        <div class="content">
+    <div class="bg-image"></div>
+
+    <div class="bg-box">
+        <div class="center">
             <div class="title m-b-md">
                 BALITTAS
             </div>
