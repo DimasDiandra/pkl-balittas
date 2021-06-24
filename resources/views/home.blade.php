@@ -5,7 +5,7 @@
     <div class="row">
         <div class="col-md-12">
             <div class="card">
-                <div class="card-header">{{ __('Dashboard') }}</div>
+                <div class="card-header">{{ __('Selamat Datang,') }} {{ Auth::user()->name }}</div>
 
                 <div class="card-body">
                     @if (session('status'))
@@ -54,7 +54,7 @@
                                     <h6 class="m-0 font-weight-bold text-primary">Evaluasi</h6>
                                 </div>
                                 <div class="card-body">
-                                    <a href="#" class="btn btn-primary">Evaluasi</a>
+                                    <a href="/report" class="btn btn-primary">Evaluasi</a>
                                 </div>
 
                             </div>
