@@ -23,7 +23,8 @@
                                 <div class="card-header py-3">
                                     <h6 class="m-0 font-weight-bold text-primary">Perencanaan</h6>
                                 </div>
-                                <div class="card-body">
+                                <div class="card-body perencanaan">
+                                    <p>Upload Data Perencanaan</p>
                                     <a href="#" class="btn btn-primary">Perencanaan</a>
                                 </div>
 
@@ -53,7 +54,8 @@
                                 <div class="card-header py-3">
                                     <h6 class="m-0 font-weight-bold text-primary">Evaluasi</h6>
                                 </div>
-                                <div class="card-body">
+                                <div class="card-body evaluasi">
+                                    <p>Upload Data Evaluasi</p>
                                     <a href="/report" class="btn btn-primary">Evaluasi</a>
                                 </div>
 

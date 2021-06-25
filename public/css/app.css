@@ -44,6 +44,7 @@
   box-sizing: border-box;
 }
 
+
 html {
   font-family: sans-serif;
   line-height: 1.15;
@@ -4373,6 +4374,14 @@ input[type=button].btn-block {
   border-top: 0;
 }
 
+.perencanaan{
+  justify-content: center;
+  text-align: center;
+}
+.evaluasi{
+  justify-content: center;
+  text-align: center;
+}
 .card-body {
   flex: 1 1 auto;
   min-height: 1px;
