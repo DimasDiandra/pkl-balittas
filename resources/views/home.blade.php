@@ -14,7 +14,7 @@
                     </div>
                     @endif
                     
-                    <div class="row">
+                    <div class="row  justify-content-center">
                         <!-- Card History-->
                         
                         <div class="col-lg-3">
@@ -31,7 +31,7 @@
                             </div>
 
                         </div>
-                        <div class="col-lg-3">
+                        <div class="col-lg-4">
 
                             <div class="card shadow" style="height: 40vh;">
                                 <div class="card-header py-2">
@@ -46,7 +46,7 @@
 
                         </div>
                     </div>
-                    <div class="row">
+                    <div class="row  justify-content-center">
                         <!-- Card History-->
                         <div class="col-lg-3">
 
@@ -62,15 +62,16 @@
                             </div>
 
                         </div>
-                        <div class="col-lg-3">
+                        <div class="col-lg-4">
 
-                            <div class="card shadow" style="height: 25vh;">
+                            <div class="card shadow" style="height: 30vh;">
                                 <div class="card-header py-2">
                                     <h6 class="m-0 font-weight-bold text-primary">Download Template</h6>
                                 </div>
                                 <div class="card-body">
                                     <p>document 1</p>
                                     <p>document 2</p>
+                                    <p>document 3</p>
                                 </div>
 
                             </div>
