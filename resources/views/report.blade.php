@@ -90,7 +90,7 @@
                     <div class="row">
                         <!-- Card History-->
 
-                        <div class="col-lg-4">
+                        <div class="col-lg-3">
 
                             <div class="card shadow" style="height: 70vh;">
                                 <div class="card-header py-3">
@@ -107,7 +107,7 @@
                         <!-- End Of Card History -->
 
                         <!-- Card Upload-->
-                        <div class="col-lg-5">
+                        <div class="col-lg-6">
 
                             <div class="card shadow mb-4" style="height: 70vh;">
                                 <div class="card-header py-3">
@@ -138,6 +138,7 @@
                                             <input type="file" class="form-control-file" id="exampleFormControlFile1">
                                         </div>
                                     </form>
+                                    <a href="#" class="btn btn-primary">Submit</a>
                                 </div>
                             </div>
 
