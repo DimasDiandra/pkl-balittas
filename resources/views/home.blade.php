@@ -25,7 +25,7 @@
                                 </div>
                                 <div class="card-body perencanaan">
                                     <p>Upload Data Perencanaan</p>
-                                    <a href="#" class="btn btn-primary">Perencanaan</a>
+                                    <a href="/upload" class="btn btn-primary">Perencanaan</a>
                                 </div>
 
                             </div>
