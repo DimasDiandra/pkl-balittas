@@ -1,6 +1,7 @@
 @extends('layouts.app')
 
 @section('content')
+
 <div class="container">
     <div class="row">
         <div class="col-md-12">
@@ -13,10 +14,10 @@
                         {{ session('status') }}
                     </div>
                     @endif
-                    
+
                     <div class="row  justify-content-center">
                         <!-- Card History-->
-                        
+
                         <div class="col-lg-3">
 
                             <div class="card shadow" style="height:30vh;">
@@ -68,18 +69,42 @@
                                 <div class="card-header py-2">
                                     <h6 class="m-0 font-weight-bold text-primary">Download Template</h6>
                                 </div>
-                                <div class="card-body">
-                                    <p>document 1</p>
-                                    <p>document 2</p>
-                                    <p>document 3</p>
-                                </div>
+                                <div class="card-body evaluasi">
+                                    <p>Data Template</p>
+                                    <a href="#" class="btn btn-primary" data-toggle="modal" data-target="#myModal">Download</a>
+                                    <!-- Modal -->
+                                    <div id="myModal" class="modal fade" role="dialog">
+                                        <div class="modal-dialog modal-lg">
+                                            <div class="modal-content">
 
+                                                <!-- Ini adalah Bagian Header Modal -->
+                                                <div class="modal-header">
+                                                    <h4 class="modal-title">Download Template</h4>
+                                                    <button type="button" class="close" data-dismiss="modal">&times;</button>
+                                                </div>
+
+                                                <!-- Ini adalah Bagian Body Modal -->
+                                                <div class="modal-body">
+                                                    isi data yang bisa didownload
+                                                </div>
+
+                                                <!-- Ini adalah Bagian Footer Modal -->
+                                                <div class="modal-footer">
+                                                    <button type="button" class="btn btn-danger" data-dismiss="modal">Tutup</button>
+                                                </div>
+
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
                             </div>
 
                         </div>
+
                     </div>
                 </div>
             </div>
         </div>
     </div>
-    @endsection
+</div>
+@endsection
