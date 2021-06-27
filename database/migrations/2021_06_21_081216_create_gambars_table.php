@@ -15,8 +15,11 @@ class CreateGambarsTable extends Migration
     {
         Schema::create('gambars', function (Blueprint $table) {
             $table->increments('id');
-            $table->string('file');
-            $table->string('keterangan');
+            $table->string('matriks');
+            $table->string('rab');
+            $table->string('kak');
+            $table->string('proposal');
+            $table->string('analisis');
             $table->timestamps();
         });
     }
