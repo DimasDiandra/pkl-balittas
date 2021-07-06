@@ -170,7 +170,7 @@
                             <!-- Card Upload-->
                             <div class="col-lg-6">
 
-                                <div class="card shadow mb-4" style="height: 60vh;">
+                                <div class="card shadow mb-4" >
                                     <div class="card-header py-3">
                                         <h6 class="m-0 font-weight-bold text-primary">Kelengkapan Document</h6>
                                     </div>
