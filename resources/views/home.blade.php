@@ -32,10 +32,10 @@
                             </div>
 
                         </div>
-                        <div class="col-lg-4">
+                        <div class="col-lg-3">
 
-                            <div class="card shadow" style="height: 40vh;">
-                                <div class="card-header py-2">
+                            <div class="card shadow" style="height: 30vh;">
+                                <div class="card-header py-3">
                                     <h6 class="m-0 font-weight-bold text-primary">Pengumuman</h6>
                                 </div>
                                 <div class="card-body">
@@ -63,10 +63,10 @@
                             </div>
 
                         </div>
-                        <div class="col-lg-4">
+                        <div class="col-lg-3">
 
                             <div class="card shadow" style="height: 30vh;">
-                                <div class="card-header py-2">
+                                <div class="card-header py-3">
                                     <h6 class="m-0 font-weight-bold text-primary">Download Template</h6>
                                 </div>
                                 <div class="card-body evaluasi">
