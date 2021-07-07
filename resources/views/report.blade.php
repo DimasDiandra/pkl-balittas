@@ -1,7 +1,6 @@
 <link href="{{asset('/css/sb-admin-2.css')}}" rel="stylesheet">
 <link href="{{asset('/css/dragndrop.css')}}" rel="stylesheet">
 
-
 <!DOCTYPE html>
 <html lang="en">
 
@@ -171,11 +170,21 @@
                                     <form>
                                         <div class="drop-zone">
                                             <span class="drop-zone__prompt"> Drop File Here or Click to Upload</span>
-                                            <input type="file" name="file" class="drop-zone__input">
+                                            <input type="file" name="namaFile" class="drop-zone__input">
+                                        </div>
+                                        <div style="margin-top: 10px">
+                                            <select class="custom-select" id="jenisFile">
+                                                <option selected>Jenis File</option>
+                                                <option value="1">Laporan Bulanan</option>
+                                                <option value="2">Laporan Triwulan</option>
+                                                <option value="3">Laporan Tengah Tahun</option>
+                                                <option value="4">Laporan Akhir Tahun</option>
+                                                <option value="5">Foto</option>
+                                            </select>
                                         </div>
                                     </form>
                                     <div>
-                                        <a href="#" class="btn btn-primary">Submit</a>
+                                        <a href="/upload/proses" class="btn btn-primary">Submit</a>
                                     </div>
                                 </div>
                             </div>
