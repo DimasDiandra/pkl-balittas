@@ -233,9 +233,9 @@
                         </div>
                         <div class="row">
                             <!-- Card History-->
-                            <div class="col-lg-10">
+                            <div class="col-lg-11">
 
-                                <div class="card shadow history-perencanaan" style="height:40vh;">
+                                <div class="card shadow history-perencanaan">
                                     <div class="card-header py-3">
                                         <h6 class="m-0 font-weight-bold text-primary">History Perencanaan</h6>
                                     </div>

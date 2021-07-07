@@ -17,11 +17,11 @@ class UploadController extends Controller
     public function proses_upload(Request $request)
     {
         $this->validate($request, [
-            'matriks' => 'required|file|mimes:docx,pdf,|max:2048',
-            'rab' => 'required|file|mimes:docx,pdf,|max:2048',
-            'kak' => 'required|file|mimes:docx,pdf,|max:2048',
-            'proposal' => 'required|file|mimes:docx,pdf,|max:2048',
-            'analisis' => 'required|file|mimes:docx,pdf,|max:2048',
+            'matriks' => 'required|file|mimes:docx,pdf,|max:15000',
+            'rab' => 'required|file|mimes:xlsx,xls,|max:15000',
+            'kak' => 'required|file|mimes:docx,pdf,|max:15000',
+            'proposal' => 'required|file|mimes:docx,pdf,|max:15000',
+            'analisis' => 'required|file|mimes:xlsx,xls,|max:15000',
             
         ]);
 
