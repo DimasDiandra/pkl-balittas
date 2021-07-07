@@ -25,8 +25,6 @@
 </head>
 
 <body id="page-top">
-    <script src="{{ asset('/js/app.js') }}"></script>
-    <script src="{{ asset('/js/dragndrop.js') }}"></script>
 
     <!-- Page Wrapper -->
     <div id="wrapper">
@@ -170,36 +168,15 @@
                                     <h6 class="m-0 font-weight-bold text-primary">Upload Report</h6>
                                 </div>
                                 <div class="card-body">
-                                    <div class="drop-zone">
-                                        <span class="drop-zone__prompt"> Drop File Here or Click to Upload</span>
-                                        <!-- <div class="drop-zone__thumb" data-label="file.txt"></div> -->
-                                        <input type="file" name="file" class="drop-zone__input">
+                                    <form>
+                                        <div class="drop-zone">
+                                            <span class="drop-zone__prompt"> Drop File Here or Click to Upload</span>
+                                            <input type="file" name="file" class="drop-zone__input">
+                                        </div>
+                                    </form>
+                                    <div>
+                                        <a href="#" class="btn btn-primary">Submit</a>
                                     </div>
-                                    <!-- <form>
-                                        <div class="form-group">
-                                            <label for="exampleFormControlFile1">Laporan Bulanan</label>
-                                            <input type="file" class="form-control-file" id="exampleFormControlFile1">
-                                        </div>
-                                    </form>
-                                    <form>
-                                        <div class="form-group">
-                                            <label for="exampleFormControlFile1">Laporan Triwulan</label>
-                                            <input type="file" class="form-control-file" id="exampleFormControlFile1">
-                                        </div>
-                                    </form>
-                                    <form>
-                                        <div class="form-group">
-                                            <label for="exampleFormControlFile1">Laporan Tengah Tahun</label>
-                                            <input type="file" class="form-control-file" id="exampleFormControlFile1">
-                                        </div>
-                                    </form>
-                                    <form>
-                                        <div class="form-group">
-                                            <label for="exampleFormControlFile1">Laporan Akhir Tahun</label>
-                                            <input type="file" class="form-control-file" id="exampleFormControlFile1">
-                                        </div>
-                                    </form> -->
-                                    <a href="#" class="btn btn-primary">Submit</a>
                                 </div>
                             </div>
 
@@ -270,6 +247,9 @@
             </div>
         </div>
     </div>
+
+    <script src="{{ asset('/js/app.js') }}"></script>
+    <script src="{{ asset('/js/dragndrop.js') }}"></script>
 
 </body>
 
