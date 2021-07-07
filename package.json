@@ -25,6 +25,8 @@
         "vue-template-compiler": "^2.6.12"
     },
     "dependencies": {
-        "@popperjs/core": "^2.9.2"
+        "@jkryszto/mdb-for-laravel": "^1.0.0",
+        "@popperjs/core": "^2.9.2",
+        "mdbootstrap": "^4.19.2"
     }
 }
