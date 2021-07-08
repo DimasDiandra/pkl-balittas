@@ -146,9 +146,11 @@
                         <div class="col-lg-3">
 
                             <div class="card shadow" style="height: 70vh;">
+
                                 <div class="card-header py-3">
                                     <h6 class="m-0 font-weight-bold text-primary">Report History</h6>
                                 </div>
+
                                 <div class="card-body">
                                     <p>nanti history disini
                                     </p>
@@ -167,7 +169,7 @@
                                     <h6 class="m-0 font-weight-bold text-primary">Upload Report</h6>
                                 </div>
                                 <div class="card-body">
-                                    <form>
+                                    <form action="/UploadReport/proses" method="POST" enctype="multipart/form-data">
                                         <div class="drop-zone">
                                             <span class="drop-zone__prompt"> Drop File Here or Click to Upload</span>
                                             <input type="file" name="namaFile" class="drop-zone__input">
@@ -182,10 +184,10 @@
                                                 <option value="5">Foto</option>
                                             </select>
                                         </div>
+                                        <div style="margin-top: 10px; float : right">
+                                            <a type="submit" value="upload" class="btn btn-primary">Submit</a>
+                                        </div>
                                     </form>
-                                    <div>
-                                        <a href="/upload/proses" class="btn btn-primary">Submit</a>
-                                    </div>
                                 </div>
                             </div>
 
