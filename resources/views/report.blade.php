@@ -150,8 +150,18 @@
                                     <h6 class="m-0 font-weight-bold text-primary">Report History</h6>
                                 </div>
                                 <div class="card-body">
-                                    <p>nanti history disini
-                                    </p>
+                                    <!-- table -->
+                                    <table class="table table-bordered table-striped">
+                                        <tbody>
+                                            @foreach($report as $r)
+                                            <tr>
+                                                <td><img width="24px" src="{{ url('/data_file/'.$r->file) }}"></td>
+                                                <td>{{$r->keterangan}}</td>
+                                                <!-- <td><a class="btn btn-danger" href="/upload/hapus/{{ $r->id }}">HAPUS</a></td> -->
+                                            </tr>
+                                            @endforeach
+                                        </tbody>
+                                    </table>
                                 </div>
 
                             </div>
@@ -167,25 +177,29 @@
                                     <h6 class="m-0 font-weight-bold text-primary">Upload Report</h6>
                                 </div>
                                 <div class="card-body">
-                                    <form>
+                                    <form action="/report/upload" method="POST" enctype="multipart/form-data">
+                                        {{ csrf_field() }}
                                         <div class="drop-zone">
                                             <span class="drop-zone__prompt"> Drop File Here or Click to Upload</span>
-                                            <input type="file" name="namaFile" class="drop-zone__input">
+                                            <input type="file" name="file" class="drop-zone__input">
                                         </div>
                                         <div style="margin-top: 10px">
-                                            <select class="custom-select" id="jenisFile">
+                                            <select class="custom-select" name="keterangan">
                                                 <option selected>Jenis File</option>
-                                                <option value="1">Laporan Bulanan</option>
-                                                <option value="2">Laporan Triwulan</option>
-                                                <option value="3">Laporan Tengah Tahun</option>
-                                                <option value="4">Laporan Akhir Tahun</option>
-                                                <option value="5">Foto</option>
+                                                <option value="Laporan Bulanan">Laporan Bulanan</option>
+                                                <option value="Laporan Triwulan">Laporan Triwulan</option>
+                                                <option value="Laporan Tengah Tahun">Laporan Tengah Tahun</option>
+                                                <option value="Laporan Akhir Tahun">Laporan Akhir Tahun</option>
+                                                <option value="Foto">Foto</option>
                                             </select>
                                         </div>
+                                        <!-- <? //$name = "test" 
+                                                ?>
+                                        <input type="hidden" value="name"> -->
+                                        <div>
+                                            <input class="btn btn-primary" style="float:right; margin-top: 10px;" type="submit">
+                                        </div>
                                     </form>
-                                    <div>
-                                        <a href="/upload/proses" class="btn btn-primary">Submit</a>
-                                    </div>
                                 </div>
                             </div>
 

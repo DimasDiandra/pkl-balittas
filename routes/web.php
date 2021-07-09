@@ -25,4 +25,7 @@ Route::post('/upload/proses', [UploadController::class, 'proses_upload']);
 Auth::routes();
 
 Route::get('/home', [App\Http\Controllers\HomeController::class, 'index'])->name('home');
+
+//report
 Route::get('/report', [App\Http\Controllers\ReportController::class, 'report']);
+Route::post('/report/upload', [App\Http\Controllers\ReportController::class, 'report_upload']);
