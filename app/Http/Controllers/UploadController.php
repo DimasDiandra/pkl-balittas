@@ -32,11 +32,11 @@ class UploadController extends Controller
         $file3 = $request->file('proposal');
         $file4 = $request->file('analisis');
 
-        $nama_file = date('Y-m-d H-is') . "_" . $file->getClientOriginalName();
-        $nama_file1 = date('Y-m-d H-is') . "_" . $file1->getClientOriginalName();
-        $nama_file2 = date('Y-m-d H-is') . "_" . $file2->getClientOriginalName();
-        $nama_file3 = date('Y-m-d H-is') . "_" . $file3->getClientOriginalName();
-        $nama_file4 = date('Y-m-d H-is') . "_" . $file4->getClientOriginalName();
+        $nama_file = date('Y-m-d H-i-s') . "_" . $file->getClientOriginalName();
+        $nama_file1 = date('Y-m-d H-i-s') . "_" . $file1->getClientOriginalName();
+        $nama_file2 = date('Y-m-d H-i-s') . "_" . $file2->getClientOriginalName();
+        $nama_file3 = date('Y-m-d H-i-s') . "_" . $file3->getClientOriginalName();
+        $nama_file4 = date('Y-m-d H-i-s') . "_" . $file4->getClientOriginalName();
 
         // isi dengan nama folder tempat kemana file diupload
         $tujuan_upload = 'data_file';
