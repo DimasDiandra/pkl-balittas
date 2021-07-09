@@ -33,6 +33,7 @@
 
             <!-- Main Content -->
             <div id="content">
+                <!-- Nabvar -->
                 <div id="app">
                     <nav class="navbar navbar-expand-md navbar-light bg-white shadow-sm">
                         <div class="container">
@@ -143,7 +144,7 @@
                     <div class="row">
                         <!-- Card History-->
 
-                        <div class="col-lg-3">
+                        <div class="col-lg-5">
 
                             <div class="card shadow" style="height: 70vh;">
 
@@ -153,12 +154,13 @@
 
                                 <div class="card-body">
                                     <!-- table -->
-                                    <table class="table table-bordered table-striped">
+                                    <table class="table table-sm table-hover">
                                         <tbody>
                                             @foreach($report as $r)
                                             <tr>
-                                                <td><img width="24px" src="{{ url('/data_file/'.$r->file) }}"></td>
-                                                <td>{{$r->keterangan}}</td>
+                                                <td>{{$r->created_at}}</td>
+                                                <td width=50% class=align-middle>{{$r->file}}</td>
+                                                <td width=30%>{{$r->keterangan}}</td>
                                                 <!-- <td><a class="btn btn-danger" href="/upload/hapus/{{ $r->id }}">HAPUS</a></td> -->
                                             </tr>
                                             @endforeach
@@ -172,18 +174,16 @@
                         <!-- End Of Card History -->
 
                         <!-- Card Upload-->
-                        <div class="col-lg-6">
+                        <div class="col-lg-5">
 
                             <div class="card shadow mb-4" style="height: 70vh;">
                                 <div class="card-header py-3">
                                     <h6 class="m-0 font-weight-bold text-primary">Upload Report</h6>
                                 </div>
                                 <div class="card-body">
-                                    <<<<<<< HEAD <form action="/report/upload" method="POST" enctype="multipart/form-data">
+                                    <form action="/report/upload" method="POST" enctype="multipart/form-data">
                                         {{ csrf_field() }}
-                                        =======
                                         <form action="/UploadReport/proses" method="POST" enctype="multipart/form-data">
-                                            >>>>>>> c561ee9e11dd6a96f45cd1e76e793edf09b5a54e
                                             <div class="drop-zone">
                                                 <span class="drop-zone__prompt"> Drop File Here or Click to Upload</span>
                                                 <input type="file" name="file" class="drop-zone__input">
@@ -212,7 +212,7 @@
                         <!-- End Of Card Upload -->
 
                         <!-- Card Download-->
-                        <div class="col-lg-3">
+                        <div class="col-lg-2">
 
                             <div class="card shadow mb-4" style="height: 70vh;">
                                 <div class="card-header py-3">
