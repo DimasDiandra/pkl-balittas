@@ -240,7 +240,7 @@
                                         <h6 class="m-0 font-weight-bold text-primary">History Perencanaan</h6>
                                     </div>
                                     <div class="card-body evaluasi">
-                                        <table class="table table-bordered table-striped">
+                                        <table class="table table-responsive table-bordered table-striped">
                                             <thead>
                                                 <tr>
                                                     <th width="1%">Matriks</th>

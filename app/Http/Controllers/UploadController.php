@@ -32,19 +32,19 @@ class UploadController extends Controller
         $file3 = $request->file('proposal');
         $file4 = $request->file('analisis');
 
-        $nama_file = time() . "_" . $file->getClientOriginalName();
-        $nama_file1 = time() . "_" . $file1->getClientOriginalName();
-        $nama_file2 = time() . "_" . $file2->getClientOriginalName();
-        $nama_file3 = time() . "_" . $file3->getClientOriginalName();
-        $nama_file4 = time() . "_" . $file4->getClientOriginalName();
+        $nama_file = date('Y-m-d H-is') . "_" . $file->getClientOriginalName();
+        $nama_file1 = date('Y-m-d H-is') . "_" . $file1->getClientOriginalName();
+        $nama_file2 = date('Y-m-d H-is') . "_" . $file2->getClientOriginalName();
+        $nama_file3 = date('Y-m-d H-is') . "_" . $file3->getClientOriginalName();
+        $nama_file4 = date('Y-m-d H-is') . "_" . $file4->getClientOriginalName();
 
         // isi dengan nama folder tempat kemana file diupload
         $tujuan_upload = 'data_file';
-        $file->move($tujuan_upload, $nama_file);
-        $file1->move($tujuan_upload, $nama_file1);
-        $file2->move($tujuan_upload, $nama_file2);
-        $file3->move($tujuan_upload, $nama_file3);
-        $file4->move($tujuan_upload, $nama_file4);
+        $file->move('File Matriks/', $nama_file);
+        $file1->move('File RAB/', $nama_file1);
+        $file2->move('File KAK/', $nama_file2);
+        $file3->move('File Proposal/', $nama_file3);
+        $file4->move('File Analisis/', $nama_file4);
 
         Gambar::create([
             'matriks' => $nama_file,

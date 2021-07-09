@@ -146,9 +146,11 @@
                         <div class="col-lg-3">
 
                             <div class="card shadow" style="height: 70vh;">
+
                                 <div class="card-header py-3">
                                     <h6 class="m-0 font-weight-bold text-primary">Report History</h6>
                                 </div>
+
                                 <div class="card-body">
                                     <!-- table -->
                                     <table class="table table-bordered table-striped">
@@ -177,29 +179,32 @@
                                     <h6 class="m-0 font-weight-bold text-primary">Upload Report</h6>
                                 </div>
                                 <div class="card-body">
-                                    <form action="/report/upload" method="POST" enctype="multipart/form-data">
+                                    <<<<<<< HEAD <form action="/report/upload" method="POST" enctype="multipart/form-data">
                                         {{ csrf_field() }}
-                                        <div class="drop-zone">
-                                            <span class="drop-zone__prompt"> Drop File Here or Click to Upload</span>
-                                            <input type="file" name="file" class="drop-zone__input">
-                                        </div>
-                                        <div style="margin-top: 10px">
-                                            <select class="custom-select" name="keterangan">
-                                                <option selected>Jenis File</option>
-                                                <option value="Laporan Bulanan">Laporan Bulanan</option>
-                                                <option value="Laporan Triwulan">Laporan Triwulan</option>
-                                                <option value="Laporan Tengah Tahun">Laporan Tengah Tahun</option>
-                                                <option value="Laporan Akhir Tahun">Laporan Akhir Tahun</option>
-                                                <option value="Foto">Foto</option>
-                                            </select>
-                                        </div>
-                                        <!-- <? //$name = "test" 
-                                                ?>
+                                        =======
+                                        <form action="/UploadReport/proses" method="POST" enctype="multipart/form-data">
+                                            >>>>>>> c561ee9e11dd6a96f45cd1e76e793edf09b5a54e
+                                            <div class="drop-zone">
+                                                <span class="drop-zone__prompt"> Drop File Here or Click to Upload</span>
+                                                <input type="file" name="file" class="drop-zone__input">
+                                            </div>
+                                            <div style="margin-top: 10px">
+                                                <select class="custom-select" name="keterangan">
+                                                    <option selected>Jenis File</option>
+                                                    <option value="Laporan Bulanan">Laporan Bulanan</option>
+                                                    <option value="Laporan Triwulan">Laporan Triwulan</option>
+                                                    <option value="Laporan Tengah Tahun">Laporan Tengah Tahun</option>
+                                                    <option value="Laporan Akhir Tahun">Laporan Akhir Tahun</option>
+                                                    <option value="Foto">Foto</option>
+                                                </select>
+                                            </div>
+                                            <!-- <? //$name = "test" 
+                                                    ?>
                                         <input type="hidden" value="name"> -->
-                                        <div>
-                                            <input class="btn btn-primary" style="float:right; margin-top: 10px;" type="submit">
-                                        </div>
-                                    </form>
+                                            <div>
+                                                <input class="btn btn-primary" style="float:right; margin-top: 10px;" type="submit">
+                                            </div>
+                                        </form>
                                 </div>
                             </div>
 
