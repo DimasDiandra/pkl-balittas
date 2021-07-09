@@ -27,7 +27,7 @@ class ReportController extends Controller
         $file = $request->file('file');
 
         //nama file
-        echo $file->getClientOriginalName();
+        $namafile = $file->getClientOriginalName();
 
 
 
@@ -40,7 +40,7 @@ class ReportController extends Controller
         //upload ke db
         uploadReport::create([
             // 'name' => $request->name,
-            'file' => $file,
+            'file' => $namafile,
             'keterangan' => $request->keterangan,
         ]);
 
