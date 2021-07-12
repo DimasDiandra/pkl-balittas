@@ -2,7 +2,9 @@
 
 use Illuminate\Support\Facades\Route;
 
+use App\Http\Controllers\HomeController;
 use App\Http\Controllers\UploadController;
+use App\Http\Controllers\ReportController;
 
 /*
 |--------------------------------------------------------------------------
@@ -24,8 +26,11 @@ Route::post('/upload/proses', [UploadController::class, 'proses_upload']);
 
 Auth::routes();
 
-Route::get('/home', [App\Http\Controllers\HomeController::class, 'index'])->name('home');
+Route::get('/home', [HomeController::class, 'index'])->name('home');
 
 //report
-Route::get('/report', [App\Http\Controllers\ReportController::class, 'report']);
-Route::post('/report/upload', [App\Http\Controllers\ReportController::class, 'report_upload']);
+Route::get('/report', [ReportController::class, 'report']);
+Route::post('/report/upload', [ReportController::class, 'report_upload']);
+
+Route::get('view', [App\Http\Controllers\FileController::class, 'getFile']);
+Route::get('get/{filename}', [FileController::class, 'getfile']);

@@ -1,0 +1,24 @@
+.bg{
+    background-color: 	#DCDCDC;
+}
+.row{
+    margin-left: auto;
+}
+.row-main{
+    height: 50%;
+}
+
+.col-padding{
+    padding-left: 32px;
+    padding-top: 16px;
+
+}
+.sidebar {
+    width: 50%;
+    height: 100%;
+    background-color: #fff;
+}
+
+.main-row {
+    height: 50%;
+}
