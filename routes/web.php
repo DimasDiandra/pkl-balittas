@@ -34,3 +34,10 @@ Route::post('/report/upload', [ReportController::class, 'report_upload']);
 
 Route::get('view', [App\Http\Controllers\FileController::class, 'getFile']);
 Route::get('get/{filename}', [FileController::class, 'getfile']);
+
+
+Route::get('/admin', function (){return view('admin.home');});
+Route::get('/admin/user', function (){return view('admin.datauser');});
+Route::get('/admin/perencanaan', function (){return view('admin.perencanaan');});
+Route::get('/admin/evaluasi', function (){return view('admin.evaluasi');});
+Route::get('/admin/template', function (){return view('admin.datatemplate');});
