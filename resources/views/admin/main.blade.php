@@ -1,4 +1,5 @@
 <!doctype html>
+
 <head>
     <meta charset="utf-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
@@ -15,10 +16,11 @@
     <link rel="stylesheet" href="{{ asset('style/assets/css/cs-skin-elastic.css') }}">
     <link rel="stylesheet" href="{{ asset('style/assets/scss/style.css') }}">
     <link href='https://fonts.googleapis.com/css?family=Open+Sans:400,600,700,800' rel='stylesheet' type='text/css'>
-    
+
 </head>
+
 <body>
-    
+
     <script src="{{ asset('style/assets/js/vendor/jquery-2.1.4.min.js') }}"></script>
     <script src="{{ asset('style/assets/js/popper.min.js') }}"></script>
     <script src="{{ asset('style/assets/js/plugins.js') }}"></script>
@@ -63,7 +65,7 @@
         <header id="header" class="header">
             <div class="header-menu">
                 <div class="col-sm-7">
-                    <a id="menuToggle" class="menutoggle pull-left"><i class="fa fa fa-tasks"></i></a>    
+                    <a id="menuToggle" class="menutoggle pull-left"><i class="fa fa fa-tasks"></i></a>
                 </div>
                 <div class="col-sm-5">
                     <div class="user-area dropdown float-right">
@@ -85,10 +87,11 @@
         </header><!-- /header -->
 
         @yield('breadcrumbs')
-        
+
         @yield('content')
-        
-    </div>    
+
+    </div>
 
 </body>
+
 </html>

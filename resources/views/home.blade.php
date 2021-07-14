@@ -85,20 +85,20 @@
 
                                                 <!-- Ini adalah Bagian Body Modal -->
                                                 <div class="modal-body">
-                                                <table class="table table-bordered table-striped">
-                                            <thead>
-                                                <tr>
-                                                    <th>No.</th>
-                                                    <th>File Name</th>
-                                                    <th>Download</th>
-                                                    
-                                                    {{-- <th >OPSI</th> --}}
-                                                </tr>
-                                            </thead>
-                                            <tbody>
-                                                <!-- Isi dari keluaran data -->
-                                            </tbody>
-                                        </table>
+                                                    <table class="table table-bordered table-striped">
+                                                        <thead>
+                                                            <tr>
+                                                                <th>No.</th>
+                                                                <th>File Name</th>
+                                                                <th>Download</th>
+
+                                                                {{-- <th >OPSI</th> --}}
+                                                            </tr>
+                                                        </thead>
+                                                        <tbody>
+                                                            <!-- Isi dari keluaran data -->
+                                                        </tbody>
+                                                    </table>
                                                 </div>
 
                                                 <!-- Ini adalah Bagian Footer Modal -->
