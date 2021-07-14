@@ -44,13 +44,13 @@
                     <ul class="list-unstyled components">
                         <p>{{ __('Halo,') }} {{ Auth::user()->name }}</p>
                         <li>
-                            <a href="">Home</a>
+                            <a href="/home">Home</a>
                         </li>
                         <li>
-                            <a href="#">Perencanaan</a>
+                            <a href="/upload">Perencanaan</a>
                         </li>
                         <li class="active">
-                            <a href="#">Report</a>
+                            <a href="/report">Report</a>
                         </li>
                     </ul>
 
