@@ -217,15 +217,13 @@
                                 </div>
                             </div>
                            <!-- Card Download-->
-                        <div class="col-lg-3">
-
-                            <div class="card shadow mb-4" style="height: 60vh;">
+                        <div class="col-lg-3 ">
+                            <div class="card shadow mb-4">
                                 <div class="card-header py-3">
-                                    <h6 class="m-0 font-weight-bold text-primary">Download File</h6>
+                                    <h6 class="m-0 font-weight-bold text-primary">Ajukan Revisi</h6>
                                 </div>
-                                <div class="card-body">
-                                    <p>Data File User yang Downloadable
-                                    </p>
+                                <div class="card-body">                                    
+                                    <a href="/revisi" class="btn btn-primary">Ajukan Revisi</a>
                                 </div>
                             </div>
 

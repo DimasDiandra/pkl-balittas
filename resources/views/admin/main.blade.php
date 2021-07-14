@@ -43,6 +43,9 @@
                         <a href="/admin/user"> <i class="menu-icon fa fa-puzzle-piece"></i>User </a>
                     </li>
                     <li>
+                        <a href="/admin/pengumuman"> <i class="menu-icon fa fa-puzzle-piece"></i>Pengumuman </a>
+                    </li>
+                    <li>
                         <a href="/admin/perencanaan"> <i class="menu-icon fa fa-puzzle-piece"></i>Perencanaan </a>
                     </li>
                     <li>

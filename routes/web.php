@@ -28,6 +28,8 @@ Auth::routes();
 
 Route::get('/home', [HomeController::class, 'index'])->name('home');
 
+Route::get('/revisi', function (){return view('revisi');});
+
 //report
 Route::get('/report', [ReportController::class, 'report']);
 Route::post('/report/upload', [ReportController::class, 'report_upload']);
@@ -41,3 +43,4 @@ Route::get('/admin/user', function (){return view('admin.datauser');});
 Route::get('/admin/perencanaan', function (){return view('admin.perencanaan');});
 Route::get('/admin/evaluasi', function (){return view('admin.evaluasi');});
 Route::get('/admin/template', function (){return view('admin.datatemplate');});
+Route::get('/admin/pengumuman', function (){return view('admin.tambahpengumuman');});
