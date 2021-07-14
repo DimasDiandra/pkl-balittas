@@ -81,9 +81,9 @@
                         <div class="row" style="padding-bottom: 16px;">
                             <!-- Card Laporan-->
 
-                            <div class="col-lg-3">
+                            <div class="column w-30 p-r-16">
 
-                                <div class="card shadow" style="height: 100%;">
+                                <div class="card shadow h-100">
                                     <div class="card-header py-3">
                                         <h6 class="m-0 font-weight-bold text-primary">Laporan</h6>
                                     </div>
@@ -98,9 +98,9 @@
                             <!-- End Of Card Laporan -->
 
                             <!-- Card Upload-->
-                            <div class="col-lg-6">
+                            <div class="column w-50 p-r-16">
 
-                                <div class="card shadow">
+                                <div class="card shadow h-100">
                                     <div class="card-header py-3">
                                         <h6 class="m-0 font-weight-bold text-primary">Kelengkapan Document</h6>
                                     </div>
@@ -148,8 +148,8 @@
                             </div>
 
                             <!-- Card Revisi-->
-                            <div class="col-lg-3 ">
-                                <div class="card shadow mb-4" style="height: 100%;">
+                            <div class="column w-20">
+                                <div class="card shadow mb-4 h-100">
                                     <div class="card-header py-3">
                                         <h6 class="m-0 font-weight-bold text-primary">Ajukan Revisi</h6>
                                     </div>

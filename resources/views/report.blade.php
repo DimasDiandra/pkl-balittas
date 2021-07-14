@@ -44,13 +44,13 @@
                     <ul class="list-unstyled components">
                         <p>{{ __('Halo,') }} {{ Auth::user()->name }}</p>
                         <li>
-                            <a href="">Home</a>
+                            <a href="/home">Home</a>
                         </li>
                         <li>
-                            <a href="#">Perencanaan</a>
+                            <a href="/upload">Perencanaan</a>
                         </li>
                         <li class="active">
-                            <a href="#">Report</a>
+                            <a href="/report">Report</a>
                         </li>
                     </ul>
 
@@ -66,6 +66,7 @@
                         </form>
                     </ul>
                 </nav>
+                <!-- end of sidebar -->
                 <!-- Begin Page Content -->
                 <div class="container-fluid">
 
@@ -75,7 +76,7 @@
                     <div class="row" style="padding-bottom:16px">
 
                         <!-- Card Upload-->
-                        <div class="column" style="width: 70%; padding-right:16px">
+                        <div class="column w-70 p-r-16">
 
                             <div class="card shadow mb-4" style="height: 100%;">
                                 <div class="card-header py-3">
@@ -113,7 +114,7 @@
                         <!-- End Of Card Upload -->
 
                         <!-- Card Download-->
-                        <div class="column" style="width: 30%;">
+                        <div class="column w-30">
 
                             <div class="card shadow mb-4" style="height: 100%;">
                                 <div class="card-header py-3">
@@ -132,9 +133,9 @@
                     <div class="row">
                         <!-- Card History-->
 
-                        <div class="column" style="width: 100%;">
+                        <div class="column w-100">
 
-                            <div class="card shadow" style="height: 70vh;">
+                            <div class="card shadow">
 
                                 <div class="card-header py-3">
                                     <h6 class="m-0 font-weight-bold text-primary">Report History</h6>
@@ -179,25 +180,6 @@
     <a class="scroll-to-top rounded" href="#page-top">
         <i class="fas fa-angle-up"></i>
     </a>
-
-    <!-- Logout Modal-->
-    <div class="modal fade" id="logoutModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
-        <div class="modal-dialog" role="document">
-            <div class="modal-content">
-                <div class="modal-header">
-                    <h5 class="modal-title" id="exampleModalLabel">Ready to Leave?</h5>
-                    <button class="close" type="button" data-dismiss="modal" aria-label="Close">
-                        <span aria-hidden="true">×</span>
-                    </button>
-                </div>
-                <div class="modal-body">Select "Logout" below if you are ready to end your current session.</div>
-                <div class="modal-footer">
-                    <button class="btn btn-secondary" type="button" data-dismiss="modal">Cancel</button>
-                    <a class="btn btn-primary" href="login.html">Logout</a>
-                </div>
-            </div>
-        </div>
-    </div>
 
     <!-- script -->
     <script src="{{ asset('/js/app.js') }}"></script>
