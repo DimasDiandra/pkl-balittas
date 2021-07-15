@@ -40,25 +40,18 @@ Route::get('view', [App\Http\Controllers\FileController::class, 'getFile']);
 Route::get('get/{filename}', [FileController::class, 'getfile']);
 
 
-Route::get('/admin', function () {
+Route::middleware('role:admin')->get('/admin', function(){
     return view('admin.home');
+})->name('admin');
+Route::middleware('role:admin')->prefix('admin')->group(function () {
+    Route::get('/admin', function () {return view('admin.home');})->name('admin');
+    Route::get('/user', function () {return view('admin.datauser');});
+    Route::get('/perencanaan', function () {return view('admin.perencanaan');});
+    Route::get('/evaluasi', function () {return view('admin.evaluasi');});
+    Route::get('/template', function () {return view('admin.datatemplate');});
+    Route::get('/pengumuman', function () {return view('admin.tambahpengumuman');});
 });
-Route::get('/admin/user', function () {
-    return view('admin.datauser');
-});
-Route::get('/admin/perencanaan', function () {
-    return view('admin.perencanaan');
-});
-Route::get('/admin/evaluasi', function () {
-    return view('admin.evaluasi');
-});
-Route::get('/admin/template', function () {
-    return view('admin.datatemplate');
-});
-Route::get('/admin/pengumuman', function () {
-    return view('admin.tambahpengumuman');
-});
-\
+
 Route::get('/sidebar', function () {
     return view('sidebar');
 });
