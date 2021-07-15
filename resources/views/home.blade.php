@@ -48,6 +48,11 @@
                         <li class="active">
                             <a href="/home">Home</a>
                         </li>
+                        @if(\Auth::user()->role == 1)
+                        <li>
+                            <a href="/admin">Admin</a>
+                        </li>
+                        @endif
                         <li>
                             <a href="/upload">Perencanaan</a>
                         </li>
