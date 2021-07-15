@@ -39,7 +39,7 @@
             <div id="main-menu" class="main-menu collapse navbar-collapse">
                 <ul class="nav navbar-nav">
                     <li>
-                        <a href="/home"> <i class="menu-icon fa fa-dashboard"></i>Home </a>
+                        <a href="/admin"> <i class="menu-icon fa fa-dashboard"></i>Home </a>
                     </li>
                     <li>
                         <a href="/admin/user"> <i class="menu-icon fa fa-puzzle-piece"></i>User </a>
