@@ -45,7 +45,7 @@ Route::middleware('role:admin')->get('/admin', function(){
 })->name('admin');
 Route::middleware('role:admin')->prefix('admin')->group(function () {
     Route::get('/admin', function () {return view('admin.home');})->name('admin');
-    Route::get('/user', function () {return view('admin.datauser');});
+    Route::get('/user', [App\Http\Controllers\UserController::class, 'index']);
     Route::get('/perencanaan', function () {return view('admin.perencanaan');});
     Route::get('/evaluasi', function () {return view('admin.evaluasi');});
     Route::get('/template', function () {return view('admin.datatemplate');});
