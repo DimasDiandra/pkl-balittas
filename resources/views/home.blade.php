@@ -47,7 +47,7 @@
                         <p>{{ __('Halo,') }} {{ Auth::user()->name }}</p>
                         <li class="active">
                             <a href="/home">Home</a>
-                        </li>
+                        </li>                       
                         <li>
                             <a href="/upload">Perencanaan</a>
                         </li>
