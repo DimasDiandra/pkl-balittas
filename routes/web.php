@@ -18,7 +18,10 @@ use Illuminate\Support\Facades\Auth;
 */
 
 Route::get('/', function () {
-    return view('auth/login');
+    if (Route::has('login')) {
+        return view('home');
+    } else
+        return view('auth/login');
 });
 
 Auth::routes();
