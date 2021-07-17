@@ -17,12 +17,9 @@ use Illuminate\Support\Facades\Auth;
 |
 */
 
-Route::get('/', function () {
-    if (Route::has('login')) {
-        return view('home');
-    } else
-        return view('auth/login');
-});
+Route::get('/', ['middleware' => 'guest', function () {
+    return view('auth/login');
+}]);
 
 Auth::routes();
 
@@ -66,6 +63,7 @@ Route::middleware('role:admin')->prefix('admin')->group(function () {
         return view('admin.tambahpengumuman');
     });
 });
+
 Route::get('/admin/user', function () {
     return view('admin.datauser');
 });
