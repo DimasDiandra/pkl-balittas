@@ -43,7 +43,7 @@ Route::get('view', [App\Http\Controllers\FileController::class, 'getFile']);
 Route::get('get/{filename}', [FileController::class, 'getfile']);
 
 
-Route::middleware('role:admin')->get('/admin', function(){
+Route::middleware('role:admin')->get('/admin', function () {
     return view('admin.home');
 })->name('admin');
 Route::middleware('role:admin')->prefix('admin')->group(function () {

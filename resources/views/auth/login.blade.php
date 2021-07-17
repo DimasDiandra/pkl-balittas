@@ -11,6 +11,7 @@
 </head>
 
 <body class="my-login-page">
+
     <div class="bg-image"></div>
     <section class="bg-box h-100">
         <div class="container h-100">
@@ -19,6 +20,7 @@
                     <div class="brand">
                         <img src="assets/pkl.png" alt="logo">
                     </div>
+                    <!-- login form -->
                     <div class="card fat">
                         <div class="card-body">
                             <h4 class="card-title">Login</h4>
@@ -50,9 +52,12 @@
                                 </div>
 
                                 <div class="form-group">
-                                    <div class="custom-checkbox custom-control">
-                                        <input type="checkbox" name="remember" id="remember" class="custom-control-input">
-                                        <label for="remember" class="custom-control-label">Remember Me</label>
+                                    <div class="form-check">
+                                        <input class="form-check-input" type="checkbox" name="remember" id="remember" {{ old('remember') ? 'checked' : '' }}>
+
+                                        <label class="form-check-label" for="remember">
+                                            {{ __('Remember Me') }}
+                                        </label>
                                     </div>
                                 </div>
 
@@ -70,6 +75,8 @@
                     <div class="footer" style="color: white;">
                         Copyright &copy; 2017 &mdash; Your Company
                     </div>
+                    <!-- end of login form -->
+
                 </div>
             </div>
         </div>

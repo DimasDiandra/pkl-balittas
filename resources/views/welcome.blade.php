@@ -11,9 +11,9 @@
     <link href="https://fonts.googleapis.com/css?family=Nunito:200,600" rel="stylesheet" type="text/css">
 
     <link href="{{asset('/css/homeawal.css')}}" rel="stylesheet">
-<script src="{{ asset('/js/app.js') }}">
+    <script src="{{ asset('/js/app.js') }}">
 
-</script>
+    </script>
 </head>
 
 <body>
