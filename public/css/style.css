@@ -107,6 +107,13 @@ a[data-toggle="collapse"] {
     position: relative;
 }
 
+.sidebar-name{
+    padding-top: 16px;
+    color: #fff;
+    padding-left: 10px;
+    padding-bottom: 32px;
+}
+
 .dropdown-toggle::after {
     display: block;
     position: absolute;
@@ -122,7 +129,10 @@ ul ul a {
 }
 
 ul.CTAs {
+    position: absolute;
     padding: 20px;
+    width: 100%;
+    bottom: 0px;
 }
 
 ul.CTAs a {
@@ -144,6 +154,10 @@ a.article:hover {
     color: #fff !important;
 }
 
+.header{
+    font-weight: 600; 
+    font-size: 25px;
+}
 
 /* ---------------------------------------------------
     CONTENT STYLE
@@ -195,7 +209,7 @@ body{
 }
 
 .bg-c-blue {
-    background: linear-gradient(45deg,#4099ff,#73b4ff);
+    background: #7386d5;
 }
 
 .bg-c-green {
@@ -257,3 +271,111 @@ body{
 .p-r-16{
     padding-right: 16px;
 }
+
+.bg-image {
+    /* The image used */
+    background-image: url('../assets/background.jpg');
+    opacity: 0.8;
+    /* Add the blur effect */
+    filter: blur(3px);
+    -webkit-filter: blur(3px);
+    /* Full height */
+    height: 100%;
+    /* Center and scale the image nicely */
+    background-position: center;
+    background-repeat: no-repeat;
+    background-size: cover;
+    margin: 0;
+}
+
+.bg-box {
+    background-color: rgb(0, 0, 0);
+    /* Fallback color */
+    background-color: rgba(0, 0, 0, 0.4);
+    /* Black w/opacity/see-through */
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    z-index: 2;
+    height: 100%;
+    width: 100%;
+}
+
+html,body {
+	height: 100%;
+}
+
+body.my-login-page {
+	background-color: #f7f9fb;
+	font-size: 14px;
+}
+
+.my-login-page .brand {
+	width: 90px;
+	height: 90px;
+	overflow: hidden;
+	border-radius: 50%;
+	margin: 40px auto;
+	box-shadow: 0 4px 8px rgba(0,0,0,.05);
+	position: relative;
+	z-index: 1;
+}
+
+.my-login-page .brand img {
+	width: 100%;
+}
+
+.my-login-page .card-wrapper {
+	width: 400px;
+}
+
+.my-login-page .card {
+	border-color: transparent;
+	box-shadow: 0 4px 8px rgba(0,0,0,.05);
+}
+
+.my-login-page .card.fat {
+	padding: 10px;
+}
+
+.my-login-page .card .card-title {
+	margin-bottom: 30px;
+}
+
+.my-login-page .form-control {
+	border-width: 2.3px;
+}
+
+.my-login-page .form-group label {
+	width: 100%;
+}
+
+.my-login-page .btn.btn-block {
+	padding: 12px 10px;
+}
+
+.my-login-page .footer {
+	margin: 40px 0;
+	color: #888;
+	text-align: center;
+}
+
+@media screen and (max-width: 425px) {
+	.my-login-page .card-wrapper {
+		width: 90%;
+		margin: 0 auto;
+	}
+}
+
+@media screen and (max-width: 320px) {
+	.my-login-page .card.fat {
+		padding: 0;
+	}
+
+	.my-login-page .card.fat .card-body {
+		padding: 15px;
+	}
+}
+
+

@@ -30,6 +30,8 @@
     --danger: #e74a3b;
     --light: #f8f9fc;
     --dark: #5a5c69;
+    --main: #7386D5;
+    --main2: #a7b3e5;
     --breakpoint-xs: 0;
     --breakpoint-sm: 576px;
     --breakpoint-md: 768px;
@@ -2240,19 +2242,24 @@ fieldset:disabled a.btn {
 }
 .btn-primary {
     color: #fff;
-    background-color: #4e73df;
+    background-color: var(--main);
+    /* background-color: #4e73df; */
     border-color: #4e73df;
 }
 .btn-primary:hover {
     color: #fff;
-    background-color: #2e59d9;
-    border-color: #2653d4;
+    background-color: var(--main2);
+    /* background-color: #2e59d9; */
+    /* border-color: #2653d4; */
+    border-color: #8d9ddd;
 }
 .btn-primary.focus,
 .btn-primary:focus {
     color: #fff;
-    background-color: #2e59d9;
-    border-color: #2653d4;
+    background-color: var(--main2);
+    border-color: #8d9ddd;
+    /* background-color: #2e59d9;
+    border-color: #2653d4; */
     box-shadow: 0 0 0 0.2rem rgba(105, 136, 228, 0.5);
 }
 .btn-primary.disabled,
@@ -4265,7 +4272,7 @@ input[type="submit"].btn-block {
 .card-header {
     padding: 0.75rem 1.25rem;
     margin-bottom: 0;
-    background-color: #f8f9fc;
+    background-color: var(--main);
     border-bottom: 1px solid #e3e6f0;
 }
 .card-header:first-child {
@@ -8839,7 +8846,8 @@ button.bg-dark:hover {
     color: #fff !important;
 }
 .text-primary {
-    color: #4e73df !important;
+    color: var(--white) !important;
+    /* color: #4e73df !important; */
 }
 a.text-primary:focus,
 a.text-primary:hover {

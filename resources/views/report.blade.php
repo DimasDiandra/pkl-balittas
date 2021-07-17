@@ -80,7 +80,7 @@
 
                             <div class="card shadow mb-4" style="height: 100%;">
                                 <div class="card-header py-3">
-                                    <h6 class="m-0 font-weight-bold text-primary">Upload Report</h6>
+                                    <h6 class="m-0 text-primary">Upload Report</h6>
                                 </div>
                                 <div class="card-body">
                                     <form action="/report/upload" method="POST" enctype="multipart/form-data">
@@ -118,7 +118,7 @@
 
                             <div class="card shadow mb-4" style="height: 100%;">
                                 <div class="card-header py-3">
-                                    <h6 class="m-0 font-weight-bold text-primary">Report Template</h6>
+                                    <h6 class="m-0  text-primary">Report Template</h6>
                                 </div>
                                 <div class="card-body">
                                     <p>Template disini
@@ -138,7 +138,7 @@
                             <div class="card shadow">
 
                                 <div class="card-header py-3">
-                                    <h6 class="m-0 font-weight-bold text-primary">Report History</h6>
+                                    <h6 class="m-0  text-primary">Report History</h6>
                                 </div>
 
                                 <div class="card-body">

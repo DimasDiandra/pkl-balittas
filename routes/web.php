@@ -5,7 +5,7 @@ use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\HomeController;
 use App\Http\Controllers\UploadController;
 use App\Http\Controllers\ReportController;
-
+use Illuminate\Support\Facades\Auth;
 /*
 |--------------------------------------------------------------------------
 | Web Routes
@@ -18,15 +18,17 @@ use App\Http\Controllers\ReportController;
 */
 
 Route::get('/', function () {
-    return view('welcome');
+    return view('auth/login');
 });
-
-Route::get('/upload', [UploadController::class, 'upload']);
-Route::post('/upload/proses', [UploadController::class, 'proses_upload']);
 
 Auth::routes();
 
 Route::get('/home', [HomeController::class, 'index'])->name('home');
+
+Route::get('/upload', [UploadController::class, 'upload']);
+Route::post('/upload/proses', [UploadController::class, 'proses_upload']);
+
+
 
 Route::get('/revisi', function () {
     return view('revisi');
@@ -58,7 +60,7 @@ Route::get('/admin/template', function () {
 Route::get('/admin/pengumuman', function () {
     return view('admin.tambahpengumuman');
 });
-\
+
 Route::get('/sidebar', function () {
     return view('sidebar');
 });

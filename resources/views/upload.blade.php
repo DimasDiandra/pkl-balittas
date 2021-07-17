@@ -85,7 +85,7 @@
 
                                 <div class="card shadow h-100">
                                     <div class="card-header py-3">
-                                        <h6 class="m-0 font-weight-bold text-primary">Laporan</h6>
+                                        <h6 class="m-0  text-primary">Laporan</h6>
                                     </div>
                                     <div class="card-body">
                                         <p>nama user upload 1
@@ -102,7 +102,7 @@
 
                                 <div class="card shadow h-100">
                                     <div class="card-header py-3">
-                                        <h6 class="m-0 font-weight-bold text-primary">Kelengkapan Document</h6>
+                                        <h6 class="m-0  text-primary">Kelengkapan Document</h6>
                                     </div>
                                     <div class="card-body">
                                         @if (count($errors) > 0)
@@ -115,27 +115,27 @@
 
                                         <form action="/upload/proses" method="POST" enctype="multipart/form-data">
                                             {{ csrf_field() }}
-
+                                            <!-- <input type="hidden" name="matriks" value="NULL"> -->
                                             <div class="form-group">
                                                 <b>File Matriks</b><br />
                                                 <input type="file" name="matriks">
                                             </div>
-
+                                            <!-- <input type="hidden" name="rab" value="NULL"> -->
                                             <div class="form-group">
                                                 <b>File RAB</b><br />
                                                 <input type="file" name="rab">
                                             </div>
-
+                                            <!-- <input type="hidden" name="kak" value="NULL"> -->
                                             <div class="form-group">
                                                 <b>File KAK</b><br />
                                                 <input type="file" name="kak">
                                             </div>
-
+                                            <!-- <input type="hidden" name="proposal" value="NULL"> -->
                                             <div class="form-group">
                                                 <b>File Proposal</b><br />
                                                 <input type="file" name="proposal">
                                             </div>
-
+                                            <!-- <input type="hidden" name="analisis" value="NULL"> -->
                                             <div class="form-group">
                                                 <b>File Analisis Resiko</b><br />
                                                 <input type="file" name="analisis">
@@ -151,7 +151,7 @@
                             <div class="column w-20">
                                 <div class="card shadow mb-4 h-100">
                                     <div class="card-header py-3">
-                                        <h6 class="m-0 font-weight-bold text-primary">Ajukan Revisi</h6>
+                                        <h6 class="m-0  text-primary">Ajukan Revisi</h6>
                                     </div>
                                     <div class="card-body">
                                         <a href="/revisi" class="btn btn-primary">Ajukan Revisi</a>
@@ -167,7 +167,7 @@
 
                                 <div class="card shadow history-perencanaan">
                                     <div class="card-header py-3">
-                                        <h6 class="m-0 font-weight-bold text-primary">History Perencanaan</h6>
+                                        <h6 class="m-0  text-primary">History Perencanaan</h6>
                                     </div>
                                     <div class="card-body evaluasi">
                                         <table class="table table-responsive table-bordered table-striped">
