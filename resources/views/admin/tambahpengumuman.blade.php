@@ -25,7 +25,11 @@
 
 @section('content')
 <div class="content mt-3">
-
+     @if (session('success'))
+        <div class="alert alert-success">
+            {{ session('success') }}
+        </div>
+    @endif
     <div class="animated fadeIn">
         <div class="card">
             <div class="card-header">
@@ -34,7 +38,7 @@
                 </div>
                 <div class="pull-right">
                     <!-- Button trigger modal -->
-                    <a href="#" class="btn btn-success btn-sm" data-toggle="modal" data-target="#myModal" ><i class="fa fa-plus">Tambah</i></a>
+                    <a href="" class="btn btn-success btn-sm" data-toggle="modal" data-target="#myModal" ><i class="fa fa-plus">Tambah</i></a>
                 </div> 
             </div>
             
@@ -49,15 +53,15 @@
                         </tr>
                     </thead>
                     <tbody>
-                        {{-- @foreach($userdata as $data)
+                        @foreach($pengumuman as $data)
                         <tr>
                             <td>{{ $loop->iteration }}</td>
-                            <td>{{ $data->name }}</td>
-                            <td>{{ $data->email }}</td>
+                            <td>{{ $data->judul }}</td>
+                            <td>{{ $data->isi_pengumuman }}</td>
                             <td class="text-center"><a href="" class="btn btn-primary btn-sm"><i class="fa fa-pencil"></i></a></td>
                         </tr>
         
-                        @endforeach --}}
+                        @endforeach
                     </tbody>
                 </table>
             </div>
@@ -75,24 +79,27 @@
                 </div>
 
                 <!-- Ini adalah Bagian Body Modal -->
-                <div class="modal-body">
-                    <form>
+                <form action="{{ url('admin/pengumuman') }}" method="post">
+                    @csrf
+                    <div class="modal-body">
                         <div class="mb-3">
-                          <label for="judulpengumuman" class="form-label">Judul Pengumuman</label>
-                          <input type="text" class="form-control" id="judulpengumuman" placeholder="Isikan Judul Pengumuman Disini">
+                          <label for="judul" class="form-label">Judul Pengumuman</label>
+                          <input type="text" name="judul" class="form-control" id="judulpengumuman" placeholder="Isikan Judul Pengumuman Disini">
                         </div>
                         <div class="mb-3">
-                          <label for="isipengumuman" class="form-label">Isi Pengumuman</label>
-                          <input type="text" class="form-control" id="isipengumuman" placeholder="Isikan Judul Pengumuman Disini">
+                          <label for="isi_pengumuman" class="form-label">Isi Pengumuman</label>
+                          <textarea name="isi_pengumuman" class="form-control" id="isi_pengumuman" placeholder="Isikan Pengumuman Disini"></textarea>
                         </div>
-                        <button type="submit" class="btn btn-primary">Submit</button>
-                      </form>
-                </div>
+                        
+                    </div>
+                    <!-- Ini adalah Bagian Footer Modal -->
+                    <div class="modal-footer">
+                        <button type="button" class="btn btn-danger" data-dismiss="modal">Tutup</button>
+                        <button type="submit" class="btn btn-primary">Tambah</button>
+                    </div>
+                </form>
 
-                <!-- Ini adalah Bagian Footer Modal -->
-                <div class="modal-footer">
-                    <button type="button" class="btn btn-danger" data-dismiss="modal">Tutup</button>
-                </div>
+                
             </div>
         </div>
     </div>

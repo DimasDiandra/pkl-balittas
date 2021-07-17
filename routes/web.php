@@ -5,6 +5,7 @@ use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\HomeController;
 use App\Http\Controllers\UploadController;
 use App\Http\Controllers\ReportController;
+use App\Http\Controllers\PengumumanController;
 use Illuminate\Support\Facades\Auth;
 /*
 |--------------------------------------------------------------------------
@@ -59,27 +60,12 @@ Route::middleware('role:admin')->prefix('admin')->group(function () {
     Route::get('/template', function () {
         return view('admin.datatemplate');
     });
-    Route::get('/pengumuman', function () {
-        return view('admin.tambahpengumuman');
-    });
+    // Route::get('/pengumuman', function () {return view('admin.tambahpengumuman');});
 });
 
-// Route::get('/admin/user', function () {
-//     return view('admin.datauser');
-// });
-// Route::get('/admin/perencanaan', function () {
-//     return view('admin.perencanaan');
-// });
-// Route::get('/admin/evaluasi', function () {
-//     return view('admin.evaluasi');
-// });
-// Route::get('/admin/template', function () {
-//     return view('admin.datatemplate');
-// });
-// Route::get('/admin/pengumuman', function () {
-//     return view('admin.tambahpengumuman');
-// });
+Route::get('/sidebar', function () {
+    return view('sidebar');
+});
 
-// Route::get('/sidebar', function () {
-//     return view('sidebar');
-// });
+Route::get('/admin/pengumuman', [PengumumanController::class, 'show']);
+Route::post('/admin/pengumuman', [PengumumanController::class, 'store']);

@@ -3,8 +3,10 @@
 namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
+use App\Models\User;
+use Illuminate\Support\Facades\Auth;
 
-use App\Gambar;
+use App\Models\Gambar;
 
 class UploadController extends Controller
 {
@@ -36,6 +38,10 @@ class UploadController extends Controller
 
         ]);
 
+        $id = Auth::id();
+        $user = User::find($id);
+        // dd($user->name);
+
         // menyimpan data file yang diupload ke variabel $file
         $file = $request->file('matriks');
         $file1 = $request->file('rab');
@@ -58,6 +64,7 @@ class UploadController extends Controller
         $file4->move('File Analisis/', $nama_file4);
 
         Gambar::create([
+            'user' => $user->name,
             'matriks' => $nama_file,
             'rab' => $nama_file1,
             'kak' => $nama_file2,

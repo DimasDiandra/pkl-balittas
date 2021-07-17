@@ -17,7 +17,6 @@
                         <div class="card-body">
                             <form method="POST" action="{{ route('register') }}">
                                 @csrf
-
                                 <div class="form-group row">
                                     <label for="name" class="col-md-12 col-form-label">{{ __('Name') }}</label>
 
@@ -57,6 +56,14 @@
                                             <strong>{{ $errors->first('password') }}</strong>
                                         </span>
                                         @endif
+                                    </div>
+                                </div>
+
+                                <div class="form-group row">
+                                    <label for="password-confirm" class="col-md-12 col-form-label">{{ __('Confirm Password') }}</label>
+
+                                    <div class="col-md-12">
+                                        <input id="password-confirm" type="password" class="form-control" name="password_confirmation" required>
                                     </div>
                                 </div>
 

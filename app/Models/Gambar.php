@@ -1,33 +1,12 @@
 <?php
 
-use Illuminate\Support\Facades\Schema;
-use Illuminate\Database\Schema\Blueprint;
-use Illuminate\Database\Migrations\Migration;
+namespace App\Models;
 
-class CreateGambarsTable extends Migration
+use Illuminate\Database\Eloquent\Model;
+
+class Gambar extends Model
 {
-    /**
-     * Run the migrations.
-     *
-     * @return void
-     */
-    public function up()
-    {
-        Schema::create('gambars', function (Blueprint $table) {
-            $table->increments('id');
-            $table->string('file');
-            $table->string('keterangan');
-            $table->timestamps();
-        });
-    }
+    protected $table = "gambars";
 
-    /**
-     * Reverse the migrations.
-     *
-     * @return void
-     */
-    public function down()
-    {
-        Schema::dropIfExists('gambarss');
-    }
+    protected $fillable = ['user','matriks', 'rab', 'kak', 'proposal', 'analisis'];
 }
