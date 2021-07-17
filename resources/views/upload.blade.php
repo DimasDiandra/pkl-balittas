@@ -173,6 +173,7 @@
                                         <table class="table table-responsive table-bordered table-striped">
                                             <thead>
                                                 <tr>
+                                                    <th width="1%">Name</th>
                                                     <th width="1%">Matriks</th>
                                                     <th width="1%">RAB</th>
                                                     <th width="1%">KAK</th>
@@ -184,6 +185,7 @@
                                             <tbody>
                                                 @foreach ($gambar as $g)
                                                 <tr>
+                                                    <td>{{ $g->user }}</td>
                                                     <td>{{ $g->matriks }}</td>
                                                     <td>{{ $g->rab }}</td>
                                                     <td>{{ $g->kak }}</td>
