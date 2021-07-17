@@ -64,22 +64,22 @@ Route::middleware('role:admin')->prefix('admin')->group(function () {
     });
 });
 
-Route::get('/admin/user', function () {
-    return view('admin.datauser');
-});
-Route::get('/admin/perencanaan', function () {
-    return view('admin.perencanaan');
-});
-Route::get('/admin/evaluasi', function () {
-    return view('admin.evaluasi');
-});
-Route::get('/admin/template', function () {
-    return view('admin.datatemplate');
-});
-Route::get('/admin/pengumuman', function () {
-    return view('admin.tambahpengumuman');
-});
+// Route::get('/admin/user', function () {
+//     return view('admin.datauser');
+// });
+// Route::get('/admin/perencanaan', function () {
+//     return view('admin.perencanaan');
+// });
+// Route::get('/admin/evaluasi', function () {
+//     return view('admin.evaluasi');
+// });
+// Route::get('/admin/template', function () {
+//     return view('admin.datatemplate');
+// });
+// Route::get('/admin/pengumuman', function () {
+//     return view('admin.tambahpengumuman');
+// });
 
-Route::get('/sidebar', function () {
-    return view('sidebar');
-});
+// Route::get('/sidebar', function () {
+//     return view('sidebar');
+// });
