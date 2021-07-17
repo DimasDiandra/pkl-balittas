@@ -47,6 +47,7 @@
                             </a>
                         </div>
 
+<<<<<<< HEAD
                         <ul class="list-unstyled components">
                             <p>{{ __('Halo,') }} {{ Auth::user()->name }}</p>
                             <li class="active">
@@ -63,6 +64,39 @@
                         <ul class="list-unstyled CTAs">
                             <li>
                                 <a href="{{ route('logout') }}" onclick="event.preventDefault();
+=======
+    <!-- Page Wrapper -->
+    <div id="wrapper">
+
+        <!-- Content Wrapper -->
+        <div id="content-wrapper" class="d-flex flex-column">
+            <!-- Main Content -->
+            <div id="content" class="wrapper">
+                <!-- Sidebar  -->
+                <nav id="sidebar">
+                    <div class="sidebar-header">
+                        <a class="navbar-brand" style="font-weight: 600; font-size: 25px;" href="{{ url('/') }}">
+                            BALITTAS
+                        </a>
+                    </div>
+
+                    <ul class="list-unstyled components">
+                        <p>{{ __('Halo,') }} {{ Auth::user()->name }}</p>
+                        <li class="active">
+                            <a href="/home">Home</a>
+                        </li>                       
+                        <li>
+                            <a href="/upload">Perencanaan</a>
+                        </li>
+                        <li>
+                            <a href="/report">Report</a>
+                        </li>
+                    </ul>
+
+                    <ul class="list-unstyled CTAs">
+                        <li>
+                            <a href="{{ route('logout') }}" onclick="event.preventDefault();
+>>>>>>> 8d28d41b7a5e0a86d9acd6cf0512006fece9df77
                                                                      document.getElementById('logout-form').submit();" class="btn-danger">
                                     {{ __('Logout') }}</a>
                             </li>
