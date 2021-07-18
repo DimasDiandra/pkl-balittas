@@ -42,7 +42,7 @@ class TemplatesController extends Controller
         ]);
 
         if ($request->hasfile('nama_file')) {            
-            $nama_file = round(microtime(true) * 1000).'-'.str_replace(' ','-',$request->file('nama_file')->getClientOriginalName());
+            $nama_file = $request->file('nama_file')->getClientOriginalName();
             $request->file('nama_file')->move(public_path('data_template'), $nama_file);
              Templates::create(
                     [                        

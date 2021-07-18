@@ -111,6 +111,7 @@
                                 <th width="1%">KAK</th>
                                 <th width="1%">Proposal</th>
                                 <th width="1%">Analisis Resiko</th>
+                                <th width="1%">Tanggal Upload</th>
                                 {{-- <th width="1%">OPSI</th> --}}
                             </tr>
                         </thead>
@@ -123,6 +124,7 @@
                                 <td>{{ $g->kak }}</td>
                                 <td>{{ $g->proposal }}</td>
                                 <td>{{ $g->analisis }}</td>
+                                <td>{{ $g->created_at }}</td>
                                 {{-- <td><a class="btn btn-danger"
                                             href="/upload/hapus/{{ $g->id }}">HAPUS</a></td> --}}
                             </tr>

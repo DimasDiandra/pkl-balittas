@@ -83,7 +83,7 @@
                                     <td>{{$r->created_at}}</td>
                                     <td width=40% class=align-middle>{{$r->file}}</td>
                                     <input type="hidden" name="path" value=" {{$r->path}}">
-                                    <td width=30%>{{$r->path}}</td>
+                                    {{-- <td width=30%>{{$r->path}}</td> --}}
                                     <td>
                                         <button type="submit" class="btn btn-primary">
                                             <i class="menu-icon fa fa-download"></i> Download
@@ -91,7 +91,7 @@
 
                                     </td>
                                 </form>
-                                <!-- <td><a class="btn btn-danger" href="/upload/hapus/{{ $r->id }}">HAPUS</a></td> -->
+                                {{-- <!-- <td><a class="btn btn-danger" href="/upload/hapus/{{ $r->id }}">HAPUS</a></td> --> --}}
                             </tr>
                             @endforeach
                         </tbody>
