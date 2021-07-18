@@ -380,3 +380,8 @@ body.my-login-page {
 		padding: 15px;
 	}
 }
+
+.link{
+    text-decoration: underline;
+    color: cornflowerblue;
+}

@@ -9,5 +9,5 @@ class uploadReport extends Model
 {
     protected $table = "reports";
 
-    protected $fillable = ['nama', 'file', 'keterangan'];
+    protected $fillable = ['name', 'file', 'keterangan', 'path'];
 }

@@ -21,28 +21,24 @@
                 <div class="card-body">
                     <form action="/report/upload" method="POST" enctype="multipart/form-data">
                         {{ csrf_field() }}
-                        <form action="/UploadReport/proses" method="POST" enctype="multipart/form-data">
-                            <div class="drop-zone">
-                                <span class="drop-zone__prompt"> Drop File Here or Click to Upload</span>
-                                <input type="file" name="file" class="drop-zone__input">
-                            </div>
-                            <div style="margin-top: 10px">
-                                <select class="custom-select" name="keterangan">
-                                    <option selected>Jenis File</option>
-                                    <option value="Laporan Bulanan">Laporan Bulanan</option>
-                                    <option value="Laporan Triwulan">Laporan Triwulan</option>
-                                    <option value="Laporan Tengah Tahun">Laporan Tengah Tahun</option>
-                                    <option value="Laporan Akhir Tahun">Laporan Akhir Tahun</option>
-                                    <option value="Foto">Foto</option>
-                                </select>
-                            </div>
-                            <!-- <? //$name = "test" 
-                                    ?>
-                                        <input type="hidden" value="name"> -->
-                            <div>
-                                <input class="btn btn-primary" style="float:right; margin-top: 10px;" type="submit">
-                            </div>
-                        </form>
+                        <div class="drop-zone">
+                            <span class="drop-zone__prompt"> Drop File Here or Click to Upload</span>
+                            <input type="file" name="file" class="drop-zone__input">
+                        </div>
+                        <div style="margin-top: 10px">
+                            <select class="custom-select" name="keterangan">
+                                <option selected value="Kosong">Jenis File</option>
+                                <option value="Laporan Bulanan">Laporan Bulanan</option>
+                                <option value="Laporan Triwulan">Laporan Triwulan</option>
+                                <option value="Laporan Tengah Tahun">Laporan Tengah Tahun</option>
+                                <option value="Laporan Akhir Tahun">Laporan Akhir Tahun</option>
+                                <option value="Foto">Foto</option>
+                            </select>
+                        </div>
+                        <div>
+                            <input class="btn btn-primary" style="float:right; margin-top: 10px;" type="submit">
+                        </div>
+                    </form>
                 </div>
             </div>
 
@@ -79,13 +75,22 @@
 
                 <div class="card-body">
                     <!-- table -->
-                    <table class="table table-sm table-hover">
+                    <table class="table table-sm table-hover" id="reportTable">
                         <tbody>
                             @foreach($report as $r)
                             <tr>
-                                <td>{{$r->created_at}}</td>
-                                <td width=50% class=align-middle>{{$r->file}}</td>
-                                <td width=30%>{{$r->keterangan}}</td>
+                                <form action="/report/download" method="GET">
+                                    <td>{{$r->created_at}}</td>
+                                    <td width=40% class=align-middle>{{$r->file}}</td>
+                                    <input type="hidden" name="path" value=" {{$r->path}}">
+                                    <td width=30%>{{$r->path}}</td>
+                                    <td>
+                                        <button type="submit" class="btn btn-primary">
+                                            <i class="menu-icon fa fa-download"></i> Download
+                                        </button>
+
+                                    </td>
+                                </form>
                                 <!-- <td><a class="btn btn-danger" href="/upload/hapus/{{ $r->id }}">HAPUS</a></td> -->
                             </tr>
                             @endforeach
@@ -100,3 +105,7 @@
     </div>
 </div>
 @endsection
+
+<script>
+    $('#reportTable').DataTable();
+</script>

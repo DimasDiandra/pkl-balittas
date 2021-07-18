@@ -19,6 +19,7 @@ class CreateUploadReportsTable extends Migration
             $table->string('name');
             $table->string('file');
             $table->string('keterangan');
+            $table->string9('path');
         });
     }
 
@@ -29,6 +30,6 @@ class CreateUploadReportsTable extends Migration
      */
     public function down()
     {
-        Schema::dropIfExists('upload_reports');
+        Schema::dropIfExists('report');
     }
 }

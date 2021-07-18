@@ -38,6 +38,7 @@ Route::get('/revisi', function () {
 //report
 Route::get('/report', [ReportController::class, 'report']);
 Route::post('/report/upload', [ReportController::class, 'report_upload']);
+Route::get('/report/download', [ReportController::class, 'report_download']);
 
 Route::get('view', [App\Http\Controllers\FileController::class, 'getFile']);
 Route::get('get/{filename}', [FileController::class, 'getfile']);
