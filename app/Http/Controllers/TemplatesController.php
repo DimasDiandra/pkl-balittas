@@ -38,7 +38,7 @@ class TemplatesController extends Controller
     public function store(Request $request)
     {
         $request->validate([
-            'nama_file' => 'required|file|max:2000'
+            'nama_file' => 'required|file|max:15000'
         ]);
 
         if ($request->hasfile('nama_file')) {            
@@ -103,4 +103,13 @@ class TemplatesController extends Controller
     {
         //
     }
+
+    public function delete($id)
+	{
+		try {
+			Templates::where('id', $id)->delete();
+		} catch (\Exception $e) {
+		}
+		return redirect('admin/template');
+	}
 }
