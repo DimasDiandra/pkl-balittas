@@ -48,19 +48,18 @@ Route::middleware('role:admin')->get('/admin', function () {
     return view('admin.home');
 })->name('admin');
 Route::middleware('role:admin')->prefix('admin')->group(function () {
-    Route::get('/admin', function () {
-        return view('admin.home');
-    })->name('admin');
+    Route::get('/admin', function () {return view('admin.home');})->name('admin');
+
+    // List data User
     Route::get('/user', [App\Http\Controllers\UserController::class, 'index']);
-    Route::get('/perencanaan', function () {
-        return view('admin.perencanaan');
-    });
-    Route::get('/evaluasi', function () {
-        return view('admin.evaluasi');
-    });
-    Route::get('/template', function () {
-        return view('admin.datatemplate');
-    });
+    Route::get('/user/{id}', [App\Http\Controllers\UserController::class, 'edit']);
+    Route::put('/user/{id}', [App\Http\Controllers\UserController::class, 'update']);
+    Route::delete('/user/{id}', [App\Http\Controllers\UserController::class, 'delete']);
+
+
+    Route::get('/perencanaan', function () {return view('admin.perencanaan');});
+    Route::get('/evaluasi', function () {return view('admin.evaluasi');});
+    Route::get('/template', function () {return view('admin.datatemplate');});
     // Route::get('/pengumuman', function () {return view('admin.tambahpengumuman');});
 });
 
