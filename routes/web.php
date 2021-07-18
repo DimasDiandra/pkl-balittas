@@ -3,7 +3,7 @@
 use Illuminate\Support\Facades\Route;
 
 use App\Http\Controllers\HomeController;
-use App\Http\Controllers\UploadController;
+use App\Http\Controllers\PerencanaanController;
 use App\Http\Controllers\ReportController;
 use App\Http\Controllers\PengumumanController;
 use App\Http\Controllers\TemplatesController;
@@ -25,12 +25,13 @@ Route::get('/', ['middleware' => 'guest', function () {
 
 Auth::routes();
 
+//Home
 Route::get('/home', [HomeController::class, 'index'])->name('home');
 
-Route::get('/upload', [UploadController::class, 'upload']);
-Route::post('/upload/proses', [UploadController::class, 'proses_upload']);
-
-
+//Perencanaan
+Route::get('/perencanaan', [PerencanaanController::class, 'perencanaan']);
+Route::post('/perencanaan/proses', [PerencanaanController::class, 'perencanaan_upload']);
+Route::get('/perencanaan/download', [PerencanaanController::class, 'perencanaan_download']);
 
 Route::get('/revisi', function () {
     return view('revisi');
@@ -44,12 +45,14 @@ Route::get('/report/download', [ReportController::class, 'report_download']);
 Route::get('view', [App\Http\Controllers\FileController::class, 'getFile']);
 Route::get('get/{filename}', [FileController::class, 'getfile']);
 
-
+//Admin
 Route::middleware('role:admin')->get('/admin', function () {
     return view('admin.home');
 })->name('admin');
 Route::middleware('role:admin')->prefix('admin')->group(function () {
-    Route::get('/admin', function () {return view('admin.home');})->name('admin');
+    Route::get('/admin', function () {
+        return view('admin.home');
+    })->name('admin');
     // List data User
     Route::get('/user', [App\Http\Controllers\UserController::class, 'index']);
     Route::get('/user/{id}', [App\Http\Controllers\UserController::class, 'edit']);
@@ -65,16 +68,18 @@ Route::middleware('role:admin')->prefix('admin')->group(function () {
 
     // Template Admin
     Route::get('template', [TemplatesController::class, 'show']);
-    Route::post('template',[TemplatesController::class, 'store']);
+    Route::post('template', [TemplatesController::class, 'store']);
     Route::delete('template/{id}', [TemplatesController::class, 'delete']);
 
-    Route::get('/perencanaan', function () {return view('admin.perencanaan');});
-    Route::get('/evaluasi', function () {return view('admin.evaluasi');});
+    Route::get('/perencanaan', function () {
+        return view('admin.perencanaan');
+    });
+    Route::get('/evaluasi', function () {
+        return view('admin.evaluasi');
+    });
     // Route::get('/pengumuman', function () {return view('admin.tambahpengumuman');});
 });
 
 Route::get('/sidebar', function () {
     return view('sidebar');
 });
-
-

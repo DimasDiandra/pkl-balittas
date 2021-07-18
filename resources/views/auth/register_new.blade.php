@@ -5,13 +5,18 @@
     <meta charset="utf-8">
     <meta name="author" content="Kodinger">
     <meta name="viewport" content="width=device-width,initial-scale=1">
-    <title>My Login Page &mdash; Bootstrap 4 Login Page Snippet</title>
-    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
-    <link rel="stylesheet" type="text/css" href="css/style.css">
+    <title>Register &mdash; Balittas</title>
+    <link rel="stylesheet" href="{{ asset('style/assets/css/normalize.css') }}">
+    <link rel="stylesheet" href="{{ asset('style/assets/css/bootstrap.min.css') }}">
+    <link rel="stylesheet" href="{{ asset('style/assets/css/font-awesome.min.css') }}">
+    <link rel="stylesheet" href="{{ asset('style/assets/scss/style.css') }}">
+    <link rel="stylesheet" href="css/style.css">
+    <link rel="stylesheet" href="css/dragndrop.css">
 </head>
 
 <body class="my-login-page">
-    <section class="h-100">
+    <div class="bg-image"></div>
+    <section class="bg-box">
         <div class="container h-100">
             <div class="row justify-content-md-center h-100">
                 <div class="card-wrapper">

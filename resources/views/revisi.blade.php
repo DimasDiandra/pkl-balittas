@@ -2,17 +2,36 @@
 
 @section('title', 'Revisi')
 
+@section('breadcrumbs')
+<div class="breadcrumbs">
+    <div class="col-sm-4">
+        <div class="page-header float-left">
+            <div class="page-title">
+                <h1>Perencanaan</h1>
+            </div>
+        </div>
+    </div>
+    <div class="col-sm-8">
+        <div class="page-header float-right">
+            <div class="page-title">
+                <ol class="breadcrumb text-right">
+                    <li class="active"><i class="fa fa-map"></i></li>
+                </ol>
+            </div>
+        </div>
+    </div>
+</div>
+@endsection
+
 @section('content')
 <!-- Begin Page Content -->
 <div class="container-fluid">
 
-    <!-- Page Heading -->
-    <h1 class="h3 mb-4 text-gray-800">Revisi</h1>
 
     <div class="row" style="padding-bottom:16px">
 
         <!-- Card Upload-->
-        <div class="column w-70 p-r-16">
+        <div class="col-sm-8">
 
             <div class="card shadow mb-4" style="height: 100%;">
                 <div class="card-header py-3">
@@ -46,7 +65,7 @@
         <!-- End Of Card Upload -->
 
         <!-- Card Download-->
-        <div class="column w-30">
+        <div class="col-sm-4">
 
             <div class="card shadow mb-4" style="height: 100%;">
                 <div class="card-header py-3">
@@ -65,7 +84,7 @@
     <div class="row">
         <!-- Card History-->
 
-        <div class="column w-100">
+        <div class="col">
 
             <div class="card shadow">
 
@@ -81,17 +100,17 @@
                             <tr>
                                 <form action="/report/download" method="GET">
                                     <td>{{$r->created_at}}</td>
-                                    <td width=40% class=align-middle>{{$r->file}}</td>
-                                    <input type="hidden" name="path" value=" {{$r->path}}">
-                                    <td width=30%>{{$r->path}}</td>
-                                    <td>
-                                        <button type="submit" class="btn btn-primary">
-                                            <i class="menu-icon fa fa-download"></i> Download
-                                        </button>
+                            <td width=40% class=align-middle>{{$r->file}}</td>
+                            <input type="hidden" name="path" value=" {{$r->path}}">
+                            <td width=30%>{{$r->path}}</td>
+                            <td>
+                                <button type="submit" class="btn btn-primary">
+                                    <i class="menu-icon fa fa-download"></i> Download
+                                </button>
 
-                                    </td>
-                                </form>
-                                 <td><a class="btn btn-danger" href="/upload/hapus/{{ $r->id }}">HAPUS</a></td> 
+                            </td>
+                            </form>
+                            <td><a class="btn btn-danger" href="/upload/hapus/{{ $r->id }}">HAPUS</a></td>
                             </tr>
                             @endforeach --}}
                         </tbody>
@@ -104,8 +123,8 @@
         <!-- End Of Card History -->
     </div>
 </div>
-@endsection
 
 <script>
     $('#reportTable').DataTable();
 </script>
+@endsection

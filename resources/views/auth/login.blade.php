@@ -5,9 +5,13 @@
     <meta charset="utf-8">
     <meta name="author" content="Kodinger">
     <meta name="viewport" content="width=device-width,initial-scale=1">
-    <title>Login Balittas</title>
-    <link rel="stylesheet" type="text/css" href="css/style.css">
-    <link rel="stylesheet" href="css/sb-admin-2.min.css">
+    <title>Login &mdash; Balittas</title>
+    <link rel="stylesheet" href="{{ asset('style/assets/css/normalize.css') }}">
+    <link rel="stylesheet" href="{{ asset('style/assets/css/bootstrap.min.css') }}">
+    <link rel="stylesheet" href="{{ asset('style/assets/css/font-awesome.min.css') }}">
+    <link rel="stylesheet" href="{{ asset('style/assets/scss/style.css') }}">
+    <link rel="stylesheet" href="css/style.css">
+    <link rel="stylesheet" href="css/dragndrop.css">
 </head>
 
 <body class="my-login-page">

@@ -2,7 +2,7 @@
 
 namespace App\Http\Controllers;
 
-use App\Models\uploadReport;
+use App\Models\Report;
 use App\Models\User;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
@@ -18,7 +18,7 @@ class ReportController extends Controller
 
     public function report()
     {
-        $report = uploadReport::orderBy('created_at', 'DESC')->get();
+        $report = Report::orderBy('created_at', 'DESC')->get();
         return view('report', ['report' => $report]);
     }
 
@@ -47,7 +47,7 @@ class ReportController extends Controller
         $path = Storage::putFileAs('public/report', $file, $namafile);
 
         //upload ke db
-        uploadReport::create([
+        Report::create([
             'path' => $path,
             'file' => $namafile,
             'keterangan' => $request->keterangan,

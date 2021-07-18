@@ -25,41 +25,41 @@
 
 @section('content')
 <div class="content mt-3">
-        <div class="row  justify-content-center">
-            <div class="col-lg-3">
-                <div class="card shadow" style="height:20vh;">
-                    <div class="card-header py-3">
-                        <h6 class="m-0 font-weight-bold text-primary">Data User</h6>
-                    </div>
-                    <div class="card-body perencanaan">
-                        
-                        <a href="/admin/user" class="btn btn-primary">Data User</a>
-                    </div>
+    <div class="row  justify-content-center">
+        <div class="col-lg-3">
+            <div class="card shadow" style="height:20vh;">
+                <div class="card-header py-3">
+                    <h6 class="m-0 font-weight-bold text-primary">Data User</h6>
                 </div>
-            </div>
-            <div class="col-lg-3">
-                <div class="card shadow" style="height:20vh;">
-                    <div class="card-header py-3">
-                        <h6 class="m-0 font-weight-bold text-primary">Pengumuman</h6>
-                    </div>
-                    <div class="card-body perencanaan">
-                        
-                        <a href="/admin/pengumuman" class="btn btn-primary">Pengumuman</a>
-                    </div>
-                </div>
-            </div>
-            <div class="col-lg-3">
-                <div class="card shadow" style="height:20vh;">
-                    <div class="card-header py-3">
-                        <h6 class="m-0 font-weight-bold text-primary">Perencanaan</h6>
-                    </div>
-                    <div class="card-body perencanaan">
-                        
-                        <a href="/admin/perencanaan" class="btn btn-primary">Perencanaan</a>
-                    </div>
+                <div class="card-body perencanaan">
+
+                    <a href="/admin/user" class="btn btn-primary">Data User</a>
                 </div>
             </div>
         </div>
+        <div class="col-lg-3">
+            <div class="card shadow" style="height:20vh;">
+                <div class="card-header py-3">
+                    <h6 class="m-0 font-weight-bold text-primary">Pengumuman</h6>
+                </div>
+                <div class="card-body perencanaan">
+
+                    <a href="/admin/pengumuman" class="btn btn-primary">Pengumuman</a>
+                </div>
+            </div>
+        </div>
+        <div class="col-lg-3">
+            <div class="card shadow" style="height:20vh;">
+                <div class="card-header py-3">
+                    <h6 class="m-0 font-weight-bold text-primary">Perencanaan</h6>
+                </div>
+                <div class="card-body perencanaan">
+
+                    <a href="/admin/perencanaan" class="btn btn-primary">Perencanaan</a>
+                </div>
+            </div>
+        </div>
+    </div>
 </div>
 <div class="content mt-3">
     <div class="row  justify-content-center">
@@ -69,7 +69,7 @@
                     <h6 class="m-0 font-weight-bold text-primary">Evaluasi</h6>
                 </div>
                 <div class="card-body perencanaan">
-                    
+
                     <a href="/admin/evaluasi" class="btn btn-primary">Evaluasi</a>
                 </div>
             </div>
@@ -80,12 +80,12 @@
                     <h6 class="m-0 font-weight-bold text-primary">Data Template</h6>
                 </div>
                 <div class="card-body perencanaan">
-                    
+
                     <a href="/admin/template" class="btn btn-primary">Data Template</a>
                 </div>
             </div>
         </div>
     </div>
-</div>   
+</div>
 
 @endsection
