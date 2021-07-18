@@ -6,6 +6,7 @@ use App\Http\Controllers\HomeController;
 use App\Http\Controllers\UploadController;
 use App\Http\Controllers\ReportController;
 use App\Http\Controllers\PengumumanController;
+use App\Http\Controllers\TemplatesController;
 use Illuminate\Support\Facades\Auth;
 /*
 |--------------------------------------------------------------------------
@@ -56,10 +57,16 @@ Route::middleware('role:admin')->prefix('admin')->group(function () {
     Route::put('/user/{id}', [App\Http\Controllers\UserController::class, 'update']);
     Route::delete('/user/{id}', [App\Http\Controllers\UserController::class, 'delete']);
 
+    // Pengumuman Admin
+    Route::get('/pengumuman', [PengumumanController::class, 'show']);
+    Route::post('/pengumuman', [PengumumanController::class, 'store']);
+
+    // Template Admin
+    Route::get('template', [TemplatesController::class, 'show']);
+    Route::post('template',[TemplatesController::class, 'store']);
 
     Route::get('/perencanaan', function () {return view('admin.perencanaan');});
     Route::get('/evaluasi', function () {return view('admin.evaluasi');});
-    Route::get('/template', function () {return view('admin.datatemplate');});
     // Route::get('/pengumuman', function () {return view('admin.tambahpengumuman');});
 });
 
@@ -67,5 +74,4 @@ Route::get('/sidebar', function () {
     return view('sidebar');
 });
 
-Route::get('/admin/pengumuman', [PengumumanController::class, 'show']);
-Route::post('/admin/pengumuman', [PengumumanController::class, 'store']);
+
