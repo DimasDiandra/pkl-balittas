@@ -1,134 +1,111 @@
-@extends('layouts.app')
+@extends('main')
+
+@section('title', 'Revisi')
 
 @section('content')
-
+<!-- Begin Page Content -->
 <div class="container-fluid">
 
     <!-- Page Heading -->
-    <h1 class="h3 mb-4 text-gray-800">Ajukan Revisi</h1>
+    <h1 class="h3 mb-4 text-gray-800">Revisi</h1>
 
-    <div class="row">
-        <!-- Card History-->
-
-        <div class="col-lg-3">
-
-            <div class="card shadow" style="height: 60vh;">
-                <div class="card-header py-3">
-                    <h6 class="m-0 font-weight-bold text-primary">Laporan</h6>
-                </div>
-                <div class="card-body">
-                    <p>nama user upload 1
-                    </p>
-                </div>
-
-            </div>
-
-        </div>
-        <!-- End Of Card History -->
+    <div class="row" style="padding-bottom:16px">
 
         <!-- Card Upload-->
-        <div class="col-lg-6">
+        <div class="column w-70 p-r-16">
 
-            <div class="card shadow mb-4" >
+            <div class="card shadow mb-4" style="height: 100%;">
                 <div class="card-header py-3">
-                    <h6 class="m-0 font-weight-bold text-primary">Kelengkapan Document</h6>
+                    <h6 class="m-0 text-primary">Upload Revisi</h6>
                 </div>
                 <div class="card-body">
-                    @if (count($errors) > 0)
-                        <div class="alert alert-danger">
-                            @foreach ($errors->all() as $error)
-                                {{ $error }} <br />
-                            @endforeach
-                        </div>
-                    @endif
-
-                    <form action="/upload/proses" method="POST" enctype="multipart/form-data">
+                    <form action="/report/upload" method="POST" enctype="multipart/form-data">
                         {{ csrf_field() }}
-
-                        <div class="form-group">
-                            <b>File Matriks</b><br />
-                            <input type="file" name="matriks">
+                        <div class="drop-zone">
+                            <span class="drop-zone__prompt"> Drop File Here or Click to Upload</span>
+                            <input type="file" name="file" class="drop-zone__input">
                         </div>
-
-                        <div class="form-group">
-                            <b>File RAB</b><br />
-                            <input type="file" name="rab">
+                        <div style="margin-top: 10px">
+                            <select class="custom-select" name="keterangan">
+                                <option selected value="Kosong">Jenis File</option>
+                                <option value="Laporan Bulanan">Laporan Bulanan</option>
+                                <option value="Laporan Triwulan">Laporan Triwulan</option>
+                                <option value="Laporan Tengah Tahun">Laporan Tengah Tahun</option>
+                                <option value="Laporan Akhir Tahun">Laporan Akhir Tahun</option>
+                                <option value="Foto">Foto</option>
+                            </select>
                         </div>
-
-                        <div class="form-group">
-                            <b>File KAK</b><br />
-                            <input type="file" name="kak">
+                        <div>
+                            <input class="btn btn-primary" style="float:right; margin-top: 10px;" type="submit">
                         </div>
-
-                        <div class="form-group">
-                            <b>File Proposal</b><br />
-                            <input type="file" name="proposal">
-                        </div>
-
-                        <div class="form-group">
-                            <b>File Analisis Resiko</b><br />
-                            <input type="file" name="analisis">
-                        </div>
-
-                        <input type="submit" value="Upload" class="btn btn-primary">
                     </form>
                 </div>
             </div>
-        </div>
-       <!-- Card Download-->
-    <div class="col-lg-3 ">
-        <div class="card shadow mb-4">
-            <div class="card-header py-3">
-                <h6 class="m-0 font-weight-bold text-primary">Ajukan Revisi</h6>
-            </div>
-            <div class="card-body">                                    
-                <a href="/revisi" class="btn btn-primary">Ajukan Revisi</a>
-            </div>
-        </div>
 
+        </div>
+        <!-- End Of Card Upload -->
+
+        <!-- Card Download-->
+        <div class="column w-30">
+
+            <div class="card shadow mb-4" style="height: 100%;">
+                <div class="card-header py-3">
+                    <h6 class="m-0  text-primary">Report Template</h6>
+                </div>
+                <div class="card-body">
+                    <p>Template disini
+                    </p>
+                </div>
+            </div>
+
+        </div>
+        <!-- End Of Card Upload -->
     </div>
-    </div>
+
     <div class="row">
         <!-- Card History-->
-        <div class="col-lg-11">
 
-            <div class="card shadow history-perencanaan">
+        <div class="column w-100">
+
+            <div class="card shadow">
+
                 <div class="card-header py-3">
-                    <h6 class="m-0 font-weight-bold text-primary">History Perencanaan</h6>
+                    <h6 class="m-0  text-primary">RevisiHistory</h6>
                 </div>
-                <div class="card-body evaluasi">
-                    <table class="table table-responsive table-bordered table-striped">
-                        <thead>
+
+                <div class="card-body">
+                    <!-- table -->
+                    <table class="table table-sm table-hover" id="reportTable">
+                        <tbody>
+                            {{-- @foreach($report as $r)
                             <tr>
-                                <th width="1%">Matriks</th>
-                                <th width="1%">RAB</th>
-                                <th width="1%">KAK</th>
-                                <th width="1%">Proposal</th>
-                                <th width="1%">Analisis Resiko</th>
-                                {{-- <th width="1%">OPSI</th> --}}
+                                <form action="/report/download" method="GET">
+                                    <td>{{$r->created_at}}</td>
+                                    <td width=40% class=align-middle>{{$r->file}}</td>
+                                    <input type="hidden" name="path" value=" {{$r->path}}">
+                                    <td width=30%>{{$r->path}}</td>
+                                    <td>
+                                        <button type="submit" class="btn btn-primary">
+                                            <i class="menu-icon fa fa-download"></i> Download
+                                        </button>
+
+                                    </td>
+                                </form>
+                                 <td><a class="btn btn-danger" href="/upload/hapus/{{ $r->id }}">HAPUS</a></td> 
                             </tr>
-                        </thead>
-                        {{--<tbody>
-                            @foreach ($gambar as $g)
-                                <tr>
-                                    <td>{{ $g->matriks }}</td>
-                                    <td>{{ $g->rab }}</td>
-                                    <td>{{ $g->kak }}</td>
-                                    <td>{{ $g->proposal }}</td>
-                                    <td>{{ $g->analisis }}</td>
-                                    {{-- <td><a class="btn btn-danger"
-                                            href="/upload/hapus/{{ $g->id }}">HAPUS</a></td> 
-                                </tr>
-                            @endforeach
-                        </tbody>--}}
+                            @endforeach --}}
+                        </tbody>
                     </table>
                 </div>
 
             </div>
 
         </div>
+        <!-- End Of Card History -->
     </div>
-
 </div>
-
 @endsection
+
+<script>
+    $('#reportTable').DataTable();
+</script>

@@ -11,7 +11,7 @@
         <div class="row justify-content-center h-100">
             <!-- template -->
             <div class="column w-40 p-r-16">
-                <div class="card shadow" style="height: 90vh;">
+                <div class="card shadow" style="height: 67vh;">
                     <div class="card-header py-3">
                         <h6 class="m-0 text-primary">Pengumuman</h6>
                     </div>
@@ -38,6 +38,16 @@
                         <div class="card-block">
                             <a href="/report" class="stretched-link">
                                 <h4 class="m-b-20">Report</h4>
+                            </a>
+                        </div>
+                    </div>
+                </div>
+                <!-- revisi -->
+                <div class="column">
+                    <div class="card bg-c-blue order-card shadow mb-4">
+                        <div class="card-block">
+                            <a href="/revisi" class="stretched-link">
+                                <h4 class="m-b-20">Revisi</h4>
                             </a>
                         </div>
                     </div>

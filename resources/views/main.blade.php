@@ -54,6 +54,9 @@
                         <li class="{{ Request::is('report') ? 'active' : '' }}">
                             <a href="/report"> <i class="menu-icon fa fa-flag"></i> Report</a>
                         </li>
+                        <li class="{{ Request::is('revisi') ? 'active' : '' }}">
+                            <a href="/revisi"> <i class="menu-icon fa fa-repeat"></i> Revisi</a>
+                        </li>
                     </ul>
 
                     <ul class="list-unstyled CTAs">
