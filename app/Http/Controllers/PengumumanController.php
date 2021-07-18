@@ -65,37 +65,36 @@ class PengumumanController extends Controller
 		return view ('admin.tambahpengumuman', compact('pengumuman'));
     }
 
-    /**
-     * Show the form for editing the specified resource.
-     *
-     * @param  int  $id
-     * @return \Illuminate\Http\Response
-     */
     public function edit($id)
-    {
-        //
-    }
+	{
+		$title = 'Edit ';
+		$data = Pengumuman::find($id);
 
-    /**
-     * Update the specified resource in storage.
-     *
-     * @param  \Illuminate\Http\Request  $request
-     * @param  int  $id
-     * @return \Illuminate\Http\Response
-     */
-    public function update(Request $request, $id)
-    {
-        //
-    }
+		return view('admin.editpengumuman', compact('title', 'data'));
+	}
 
-    /**
-     * Remove the specified resource from storage.
-     *
-     * @param  int  $id
-     * @return \Illuminate\Http\Response
-     */
-    public function destroy($id)
-    {
-        //
-    }
+	public function update(Request $request, $id)
+	{
+		try {
+			// update data kedalam table users
+			$pengumuman['judul'] = $request->judul;
+			$pengumuman['isi_pengumuman'] = $request->isi_pengumuman;
+			$pengumuman['updated_at'] = date('Y-m-d H:i:s');
+
+			Pengumuman::where('id', $id)->update($pengumuman);
+		} catch (\Exception $e) {
+		}
+
+		return redirect('admin/pengumuman');
+	}
+
+	public function delete($id)
+	{
+		try {
+			Pengumuman::where('id', $id)->delete();
+		} catch (\Exception $e) {
+		}
+		return redirect('admin/pengumuman');
+	}
+
 }

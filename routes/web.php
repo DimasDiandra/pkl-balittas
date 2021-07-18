@@ -59,6 +59,9 @@ Route::middleware('role:admin')->prefix('admin')->group(function () {
     // Pengumuman Admin
     Route::get('/pengumuman', [PengumumanController::class, 'show']);
     Route::post('/pengumuman', [PengumumanController::class, 'store']);
+    Route::get('/pengumuman/{id}', [PengumumanController::class, 'edit']);
+    Route::put('/pengumuman/{id}', [PengumumanController::class, 'update']);
+    Route::delete('/pengumuman/{id}', [PengumumanController::class, 'delete']);
 
     // Template Admin
     Route::get('template', [TemplatesController::class, 'show']);

@@ -58,7 +58,15 @@
                             <td>{{ $loop->iteration }}</td>
                             <td>{{ $data->judul }}</td>
                             <td>{{ $data->isi_pengumuman }}</td>
-                            <td class="text-center"><a href="" class="btn btn-primary btn-sm"><i class="fa fa-pencil"></i></a></td>
+                            <td class="text-center">
+                                <a href="{{ url('admin/pengumuman/' .$data->id) }}" class="btn btn-warning btn-xs btn-edit" id="edit"><i class="fa fa-pencil-square-o"></i></a>
+
+                                            <form action="{{ url('admin/pengumuman/' .$data->id) }}" method="post" class="d-inline" onsubmit="return confirm('Yakin hapus pengumuman?')">
+                                                @method('delete')
+                                                @csrf
+                                                <button href="{{ url('pengumuman/'.$data->id) }}" class="btn btn-danger btn-xs btn-hapus" id="delete"><i class="fa fa-trash-o"></i></button>
+                                            </form>
+                            </td>
                         </tr>
         
                         @endforeach
