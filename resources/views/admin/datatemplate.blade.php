@@ -57,8 +57,6 @@
 							<td>{{ $loop->iteration }}</td>
 							<td>{{ $f->nama_file }}</td>
                             <td class="text-center"><a href="" ><i class="btn btn-danger">Hapus</i></a></td>
-                            
-							
 						</tr>
 						@endforeach
                     </tbody>

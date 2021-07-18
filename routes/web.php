@@ -50,7 +50,6 @@ Route::middleware('role:admin')->get('/admin', function () {
 })->name('admin');
 Route::middleware('role:admin')->prefix('admin')->group(function () {
     Route::get('/admin', function () {return view('admin.home');})->name('admin');
-
     // List data User
     Route::get('/user', [App\Http\Controllers\UserController::class, 'index']);
     Route::get('/user/{id}', [App\Http\Controllers\UserController::class, 'edit']);

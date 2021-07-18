@@ -19,7 +19,7 @@ class CreateUploadReportsTable extends Migration
             $table->string('name');
             $table->string('file');
             $table->string('keterangan');
-            $table->string9('path');
+            $table->string('path');
         });
     }
 
