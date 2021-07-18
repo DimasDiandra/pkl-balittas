@@ -56,7 +56,19 @@
 						<tr>
 							<td>{{ $loop->iteration }}</td>
 							<td>{{ $f->nama_file }}</td>
+<<<<<<< HEAD
                             <td class="text-center"><a href="" ><i class="btn btn-danger">Hapus</i></a></td>
+=======
+                            <td class="text-center">
+                                <form action="{{ url('admin/template/' .$f->id) }}" method="post" class="d-inline" onsubmit="return confirm('Yakin hapus template?')">
+                                    @method('delete')
+                                    @csrf
+                                    <button href="{{ url('template/'.$f->id) }}" class="btn btn-danger btn-xs btn-hapus" id="delete"><i class="fa fa-trash-o"></i></button>
+                                </form>
+                            </td>
+                            
+							
+>>>>>>> dd5dcdbbc9a5271cf272b3442fe28b59cb1bc8f1
 						</tr>
 						@endforeach
                     </tbody>
