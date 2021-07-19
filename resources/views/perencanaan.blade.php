@@ -183,7 +183,7 @@
 
                 <!-- Ini adalah Bagian Body Modal -->
                 <div class="modal-body">
-                    <table class="table" id="matriksTable">
+                    <table class="table" id="table">
                         <thead>
                             <tr>
                                 <th width=10%>No.</th>
@@ -197,6 +197,7 @@
                             <tr>
                                 <form action="/perencanaan/download" method="GET">
                                     <td>{{ $loop->iteration }}</td>
+                                    <input type="hidden" name="path" value=" {{$f->path}}">
                                     <td>{{ $f->file }}</td>
                                     <td>
                                         <button type="submit" class="btn btn-primary">
@@ -219,8 +220,209 @@
         </div>
     </div>
 
+    <!-- RAB -->
+    <div id="rabcard" class="modal fade" role="dialog">
+        <div class="modal-dialog modal-lg">
+            <div class="modal-content">
+
+                <!-- Ini adalah Bagian Header Modal -->
+                <div class="modal-header">
+                    <h4 class="modal-title">Download Template</h4>
+                    <button type="button" class="close" data-dismiss="modal">&times;</button>
+                </div>
+
+                <!-- Ini adalah Bagian Body Modal -->
+                <div class="modal-body">
+                    <table class="table" id="table">
+                        <thead>
+                            <tr>
+                                <th width=10%>No.</th>
+                                <th width=70%>File Name</th>
+                                <th>Download</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            <!-- Isi dari keluaran data -->
+                            @foreach($rab as $f)
+                            <tr>
+                                <form action="/perencanaan/download" method="GET">
+                                    <td>{{ $loop->iteration }}</td>
+                                    <input type="hidden" name="path" value=" {{$f->path}}">
+                                    <td>{{ $f->file }}</td>
+                                    <td>
+                                        <button type="submit" class="btn btn-primary">
+                                            <i class="menu-icon fa fa-download"></i> Download
+                                        </button>
+                                    </td>
+                                </form>
+                            </tr>
+                            @endforeach
+                        </tbody>
+                    </table>
+                </div>
+
+                <!-- Ini adalah Bagian Footer Modal -->
+                <div class="modal-footer">
+                    <button type="button" class="btn btn-danger" data-dismiss="modal">Tutup</button>
+                </div>
+
+            </div>
+        </div>
+    </div>
+
+    <!-- KAK -->
+    <div id="kakcard" class="modal fade" role="dialog">
+        <div class="modal-dialog modal-lg">
+            <div class="modal-content">
+
+                <!-- Ini adalah Bagian Header Modal -->
+                <div class="modal-header">
+                    <h4 class="modal-title">Download Template</h4>
+                    <button type="button" class="close" data-dismiss="modal">&times;</button>
+                </div>
+
+                <!-- Ini adalah Bagian Body Modal -->
+                <div class="modal-body">
+                    <table class="table" id="table">
+                        <thead>
+                            <tr>
+                                <th width=10%>No.</th>
+                                <th width=70%>File Name</th>
+                                <th>Download</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            <!-- Isi dari keluaran data -->
+                            @foreach($kak as $f)
+                            <tr>
+                                <form action="/perencanaan/download" method="GET">
+                                    <td>{{ $loop->iteration }}</td>
+                                    <input type="hidden" name="path" value=" {{$f->path}}">
+                                    <td>{{ $f->file }}</td>
+                                    <td>
+                                        <button type="submit" class="btn btn-primary">
+                                            <i class="menu-icon fa fa-download"></i> Download
+                                        </button>
+                                    </td>
+                                </form>
+                            </tr>
+                            @endforeach
+                        </tbody>
+                    </table>
+                </div>
+
+                <!-- Ini adalah Bagian Footer Modal -->
+                <div class="modal-footer">
+                    <button type="button" class="btn btn-danger" data-dismiss="modal">Tutup</button>
+                </div>
+
+            </div>
+        </div>
+    </div>
+
+    <!-- Proposal -->
+    <div id="procard" class="modal fade" role="dialog">
+        <div class="modal-dialog modal-lg">
+            <div class="modal-content">
+
+                <!-- Ini adalah Bagian Header Modal -->
+                <div class="modal-header">
+                    <h4 class="modal-title">Download Template</h4>
+                    <button type="button" class="close" data-dismiss="modal">&times;</button>
+                </div>
+
+                <!-- Ini adalah Bagian Body Modal -->
+                <div class="modal-body">
+                    <table class="table" id="table">
+                        <thead>
+                            <tr>
+                                <th width=10%>No.</th>
+                                <th width=70%>File Name</th>
+                                <th>Download</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            <!-- Isi dari keluaran data -->
+                            @foreach($proposal as $f)
+                            <tr>
+                                <form action="/perencanaan/download" method="GET">
+                                    <td>{{ $loop->iteration }}</td>
+                                    <input type="hidden" name="path" value=" {{$f->path}}">
+                                    <td>{{ $f->file }}</td>
+                                    <td>
+                                        <button type="submit" class="btn btn-primary">
+                                            <i class="menu-icon fa fa-download"></i> Download
+                                        </button>
+                                    </td>
+                                </form>
+                            </tr>
+                            @endforeach
+                        </tbody>
+                    </table>
+                </div>
+
+                <!-- Ini adalah Bagian Footer Modal -->
+                <div class="modal-footer">
+                    <button type="button" class="btn btn-danger" data-dismiss="modal">Tutup</button>
+                </div>
+
+            </div>
+        </div>
+    </div>
+
+    <!-- RAB -->
+    <div id="anacard" class="modal fade" role="dialog">
+        <div class="modal-dialog modal-lg">
+            <div class="modal-content">
+
+                <!-- Ini adalah Bagian Header Modal -->
+                <div class="modal-header">
+                    <h4 class="modal-title">Download Template</h4>
+                    <button type="button" class="close" data-dismiss="modal">&times;</button>
+                </div>
+
+                <!-- Ini adalah Bagian Body Modal -->
+                <div class="modal-body">
+                    <table class="table" id="table">
+                        <thead>
+                            <tr>
+                                <th width=10%>No.</th>
+                                <th width=70%>File Name</th>
+                                <th>Download</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            <!-- Isi dari keluaran data -->
+                            @foreach($analisis as $f)
+                            <tr>
+                                <form action="/perencanaan/download" method="GET">
+                                    <td>{{ $loop->iteration }}</td>
+                                    <input type="hidden" name="path" value=" {{$f->path}}">
+                                    <td>{{ $f->file }}</td>
+                                    <td>
+                                        <button type="submit" class="btn btn-primary">
+                                            <i class="menu-icon fa fa-download"></i> Download
+                                        </button>
+                                    </td>
+                                </form>
+                            </tr>
+                            @endforeach
+                        </tbody>
+                    </table>
+                </div>
+
+                <!-- Ini adalah Bagian Footer Modal -->
+                <div class="modal-footer">
+                    <button type="button" class="btn btn-danger" data-dismiss="modal">Tutup</button>
+                </div>
+
+            </div>
+        </div>
+    </div>
+
+    <!-- script download -->
     <script>
-        $('#matriksTable').DataTable();
+        $('#table').DataTable();
     </script>
 
 
