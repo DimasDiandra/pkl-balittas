@@ -187,7 +187,9 @@
                         <thead>
                             <tr>
                                 <th width=10%>No.</th>
-                                <th width=70%>File Name</th>
+                                <th width=20%>User</th>
+                                <th width=40%>File Name</th>
+                                <th width=20%>Date Upload</th>
                                 <th>Download</th>
                             </tr>
                         </thead>
@@ -198,7 +200,9 @@
                                 <form action="/perencanaan/download" method="GET">
                                     <td>{{ $loop->iteration }}</td>
                                     <input type="hidden" name="path" value=" {{$f->path}}">
+                                    <td>{{ $f->name }}</td>
                                     <td>{{ $f->file }}</td>
+                                    <td>{{ $f->created_at }}</td>
                                     <td>
                                         <button type="submit" class="btn btn-primary">
                                             <i class="menu-icon fa fa-download"></i> Download
@@ -237,7 +241,9 @@
                         <thead>
                             <tr>
                                 <th width=10%>No.</th>
-                                <th width=70%>File Name</th>
+                                <th width=20%>User</th>
+                                <th width=40%>File Name</th>
+                                <th width=20%>Date Upload</th>
                                 <th>Download</th>
                             </tr>
                         </thead>
@@ -248,7 +254,9 @@
                                 <form action="/perencanaan/download" method="GET">
                                     <td>{{ $loop->iteration }}</td>
                                     <input type="hidden" name="path" value=" {{$f->path}}">
+                                    <td>{{ $f->name }}</td>
                                     <td>{{ $f->file }}</td>
+                                    <td>{{ $f->created_at }}</td>
                                     <td>
                                         <button type="submit" class="btn btn-primary">
                                             <i class="menu-icon fa fa-download"></i> Download
@@ -287,7 +295,9 @@
                         <thead>
                             <tr>
                                 <th width=10%>No.</th>
-                                <th width=70%>File Name</th>
+                                <th width=20%>User</th>
+                                <th width=40%>File Name</th>
+                                <th width=20%>Date Upload</th>
                                 <th>Download</th>
                             </tr>
                         </thead>
@@ -298,7 +308,9 @@
                                 <form action="/perencanaan/download" method="GET">
                                     <td>{{ $loop->iteration }}</td>
                                     <input type="hidden" name="path" value=" {{$f->path}}">
+                                    <td>{{ $f->name }}</td>
                                     <td>{{ $f->file }}</td>
+                                    <td>{{ $f->created_at }}</td>
                                     <td>
                                         <button type="submit" class="btn btn-primary">
                                             <i class="menu-icon fa fa-download"></i> Download
@@ -337,7 +349,9 @@
                         <thead>
                             <tr>
                                 <th width=10%>No.</th>
-                                <th width=70%>File Name</th>
+                                <th width=20%>User</th>
+                                <th width=40%>File Name</th>
+                                <th width=20%>Date Upload</th>
                                 <th>Download</th>
                             </tr>
                         </thead>
@@ -348,7 +362,9 @@
                                 <form action="/perencanaan/download" method="GET">
                                     <td>{{ $loop->iteration }}</td>
                                     <input type="hidden" name="path" value=" {{$f->path}}">
+                                    <td>{{ $f->name }}</td>
                                     <td>{{ $f->file }}</td>
+                                    <td>{{ $f->created_at }}</td>
                                     <td>
                                         <button type="submit" class="btn btn-primary">
                                             <i class="menu-icon fa fa-download"></i> Download
@@ -387,7 +403,9 @@
                         <thead>
                             <tr>
                                 <th width=10%>No.</th>
-                                <th width=70%>File Name</th>
+                                <th width=20%>User</th>
+                                <th width=40%>File Name</th>
+                                <th width=20%>Date Upload</th>
                                 <th>Download</th>
                             </tr>
                         </thead>
@@ -398,7 +416,9 @@
                                 <form action="/perencanaan/download" method="GET">
                                     <td>{{ $loop->iteration }}</td>
                                     <input type="hidden" name="path" value=" {{$f->path}}">
+                                    <td>{{ $f->name }}</td>
                                     <td>{{ $f->file }}</td>
+                                    <td>{{ $f->created_at }}</td>
                                     <td>
                                         <button type="submit" class="btn btn-primary">
                                             <i class="menu-icon fa fa-download"></i> Download
