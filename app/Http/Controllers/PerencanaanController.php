@@ -3,6 +3,7 @@
 namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\DB;
 use App\Models\User;
 use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\Storage;
@@ -20,6 +21,29 @@ class PerencanaanController extends Controller
     {
         $this->middleware('auth');
     }
+
+    public function index()
+	{
+		// $title = 'Data peserta';
+		// $data = User::orderBy('name','asc')->get();
+		// return view('admin.datauser',compact('title','data'));
+
+		$userdata = DB::table('users')->get();
+		return view('admin.perencanaan', compact('userdata'));
+	}
+
+    public function edit($id)
+	{
+        $analisis = Analisis::get();
+        $matriks = Matriks::get();
+        $proposal = Proposal::get();
+        $rab = RAB::get();
+        $kak = KAK::get();
+
+        return view('admin.editperencanaan', ['analisis' => $analisis, 'kak' => $kak, 'matriks' => $matriks, 'proposal' => $proposal, 'rab' => $rab]);
+
+		// return view('admin.editperencanaan', compact('title', 'data'));
+	}
 
     public function perencanaan()
     {

@@ -74,9 +74,12 @@ Route::middleware('role:admin')->prefix('admin')->group(function () {
     Route::post('template', [TemplatesController::class, 'store']);
     Route::delete('template/{id}', [TemplatesController::class, 'delete']);
 
-    Route::get('/perencanaan', function () {
-        return view('admin.perencanaan');
-    });
+    
+    //Perencanaan
+    Route::get('/perencanaan', [PerencanaanController::class, 'index']);
+    Route::get('/perencanaan/{id}', [PerencanaanController::class, 'edit']);
+
+
     Route::get('/evaluasi', function () {
         return view('admin.evaluasi');
     });
