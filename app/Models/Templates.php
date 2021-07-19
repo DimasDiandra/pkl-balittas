@@ -8,5 +8,5 @@ class Templates extends Model
 {
     protected $table = "templates";
 
-    protected $fillable = ['nama_file'];
+    protected $fillable = ['nama_file','path'];
 }

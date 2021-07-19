@@ -28,6 +28,9 @@ Auth::routes();
 //Home
 Route::get('/home', [HomeController::class, 'index'])->name('home');
 
+//Template
+Route::get('/home/download', [TemplatesController::class, 'template_download']);
+
 //Perencanaan
 Route::get('/perencanaan', [PerencanaanController::class, 'perencanaan']);
 Route::post('/perencanaan/proses', [PerencanaanController::class, 'perencanaan_upload']);
