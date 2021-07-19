@@ -18,7 +18,6 @@ class Perencanaan extends Migration
             $table->timestamps();
             $table->string('name');
             $table->string('file');
-            $table->string('keterangan');
             $table->string('path');
         });
         Schema::create('rab', function (Blueprint $table) {
@@ -26,7 +25,6 @@ class Perencanaan extends Migration
             $table->timestamps();
             $table->string('name');
             $table->string('file');
-            $table->string('keterangan');
             $table->string('path');
         });
         Schema::create('kak', function (Blueprint $table) {
@@ -34,7 +32,6 @@ class Perencanaan extends Migration
             $table->timestamps();
             $table->string('name');
             $table->string('file');
-            $table->string('keterangan');
             $table->string('path');
         });
         Schema::create('proposal', function (Blueprint $table) {
@@ -42,7 +39,6 @@ class Perencanaan extends Migration
             $table->timestamps();
             $table->string('name');
             $table->string('file');
-            $table->string('keterangan');
             $table->string('path');
         });
         Schema::create('analisis', function (Blueprint $table) {
@@ -50,7 +46,6 @@ class Perencanaan extends Migration
             $table->timestamps();
             $table->string('name');
             $table->string('file');
-            $table->string('keterangan');
             $table->string('path');
         });
     }

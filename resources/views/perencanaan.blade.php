@@ -152,12 +152,12 @@
                             </div>
                         </div>
                     </div>
-                    <!-- button Analisa -->
+                    <!-- button Analisis -->
                     <div class="col">
                         <div class="card order-card shadow">
                             <div class="card-block bg-primary">
                                 <a href="#" class="stretched-link" data-toggle="modal" data-target="#anacard">
-                                    <h4 class="m-b-20 white">File Analisa<i class="fa fa-file float-right"></i></h4>
+                                    <h4 class="m-b-20 white">File Analisis<i class="fa fa-file float-right"></i></h4>
                                 </a>
                             </div>
                         </div>
@@ -177,7 +177,7 @@
 
                 <!-- Ini adalah Bagian Header Modal -->
                 <div class="modal-header">
-                    <h4 class="modal-title">Download Template</h4>
+                    <h4 class="modal-title">Download File Matriks</h4>
                     <button type="button" class="close" data-dismiss="modal">&times;</button>
                 </div>
 
@@ -227,7 +227,7 @@
 
                 <!-- Ini adalah Bagian Header Modal -->
                 <div class="modal-header">
-                    <h4 class="modal-title">Download Template</h4>
+                    <h4 class="modal-title">Download File RAB</h4>
                     <button type="button" class="close" data-dismiss="modal">&times;</button>
                 </div>
 
@@ -277,7 +277,7 @@
 
                 <!-- Ini adalah Bagian Header Modal -->
                 <div class="modal-header">
-                    <h4 class="modal-title">Download Template</h4>
+                    <h4 class="modal-title">Download File KAK</h4>
                     <button type="button" class="close" data-dismiss="modal">&times;</button>
                 </div>
 
@@ -327,7 +327,7 @@
 
                 <!-- Ini adalah Bagian Header Modal -->
                 <div class="modal-header">
-                    <h4 class="modal-title">Download Template</h4>
+                    <h4 class="modal-title">Download File Proposal</h4>
                     <button type="button" class="close" data-dismiss="modal">&times;</button>
                 </div>
 
@@ -370,14 +370,14 @@
         </div>
     </div>
 
-    <!-- RAB -->
+    <!-- Analisis -->
     <div id="anacard" class="modal fade" role="dialog">
         <div class="modal-dialog modal-lg">
             <div class="modal-content">
 
                 <!-- Ini adalah Bagian Header Modal -->
                 <div class="modal-header">
-                    <h4 class="modal-title">Download Template</h4>
+                    <h4 class="modal-title">Download File Analisis</h4>
                     <button type="button" class="close" data-dismiss="modal">&times;</button>
                 </div>
 
