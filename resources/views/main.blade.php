@@ -80,7 +80,7 @@
                     </div>
 
                     <div id="language-select">
-                        <p>Admin</p>
+                        <p>{{ Auth::user()->name }}</p>
                     </div>
 
                 </div>

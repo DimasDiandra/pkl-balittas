@@ -6,6 +6,7 @@ use App\Models\Templates;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\DB;
+use Illuminate\Support\Facades\Storage;
 
 class TemplatesController extends Controller
 {
@@ -40,19 +41,36 @@ class TemplatesController extends Controller
         $request->validate([
             'nama_file' => 'required|file|max:15000'
         ]);
+        $file = $request->file('nama_file');
+        $namafile = $file->getClientOriginalName();
+        
+        $path = Storage::putFileAs('public/data_template', $file, $namafile);
+        // $file->move('data_template/',$namafile);
 
-        if ($request->hasfile('nama_file')) {            
-            $nama_file = $request->file('nama_file')->getClientOriginalName();
-            $request->file('nama_file')->move(public_path('data_template'), $nama_file);
-             Templates::create(
-                    [                        
-                        'nama_file' =>$nama_file
-                    ]
-                );
-                return redirect('admin/template')->with('success','Template Ditambahkan');
-        }else{
-            echo'Gagal';
-        }
+        Templates::create(
+            [                        
+                'nama_file' =>$namafile,
+                'path'=>$path,
+            ]
+        );
+        return redirect('admin/template')->with('success','Template Ditambahkan');
+
+        // $request->validate([
+        //     'nama_file' => 'required|file|max:15000'
+        // ]);
+
+        // if ($request->hasfile('nama_file')) {            
+        //     $nama_file = $request->file('nama_file')->getClientOriginalName();
+        //     $request->file('nama_file')->move(public_path('data_template'), $nama_file);
+        //      Templates::create(
+        //             [                        
+        //                 'nama_file' =>$nama_file
+        //             ]
+        //         );
+        //         return redirect('admin/template')->with('success','Template Ditambahkan');
+        // }else{
+        //     echo'Gagal';
+        // }
         
 
        
@@ -112,4 +130,20 @@ class TemplatesController extends Controller
 		}
 		return redirect('admin/template');
 	}
+    
+    public function template_download(Request $request)
+    {
+        $this->validate($request, [
+            'path' => 'required'
+        ]);
+        $path = $request->path;
+
+        try {
+            // return $path;
+            return Storage::disk('local')->download($path);
+        } catch (\Exception $e) {
+            return $e->getMessage();
+        }
+        // return redirect()->back();
+    }
 }

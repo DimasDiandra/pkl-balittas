@@ -108,7 +108,7 @@
 
             <!-- Ini adalah Bagian Body Modal -->
             <div class="modal-body">
-                <table class="table table-bordered table-striped">
+                <table class="table table-bordered table-striped" id="templateTable">
                     <thead>
                         <tr>
                             <th>No.</th>
@@ -119,12 +119,19 @@
                     <tbody>
                         <!-- Isi dari keluaran data -->
                         @foreach($file as $f)
-                        <tr>
-                            <td>{{ $loop->iteration }}</td>
-                            <td>{{ $f->nama_file }}</td>
-                            <td class="text-center"><a href=""><i class="btn btn-success">Download</i></a></td>
-                        </tr>
-                        @endforeach
+                            <tr>
+                                <form action="/home/download" method="GET">
+                                    <td>{{ $loop->iteration }}</td>
+                                    <input type="hidden" name="path" value=" {{$f->path}}">
+                                    <td>{{ $f->nama_file }}</td>
+                                    <td>
+                                        <button type="submit" class="btn btn-primary">
+                                            <i class="menu-icon fa fa-download"></i> Download
+                                        </button>
+                                    </td>
+                                </form>
+                            </tr>
+                            @endforeach
                     </tbody>
                 </table>
             </div>
@@ -138,5 +145,8 @@
     </div>
 </div>
 
+<script>
+    $('#templateTable').DataTable();
+</script>
 
 @endsection
