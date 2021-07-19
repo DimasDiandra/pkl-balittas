@@ -43,9 +43,9 @@
             <!-- perencanaan -->
             <div class="col">
                 <div class="card order-card shadow">
-                    <div class="card-block">
-                        <a href="/upload" class="stretched-link">
-                            <h4 class="m-b-20">Perencanaan</h4>
+                    <div class="card-block bg-primary">
+                        <a href="/perencanaan" class="stretched-link">
+                            <h4 class="m-b-20 white">Perencanaan <i class="fa fa-map float-right"></i></h4>
                         </a>
                     </div>
                 </div>
@@ -53,9 +53,9 @@
             <!-- report  -->
             <div class="col">
                 <div class="card order-card shadow">
-                    <div class="card-block">
+                    <div class="card-block bg-primary">
                         <a href="/report" class="stretched-link">
-                            <h4 class="m-b-20">Report</h4>
+                            <h4 class="m-b-20 white">Report <i class="fa fa-flag float-right"></i></h4>
                         </a>
                     </div>
                 </div>
@@ -63,9 +63,9 @@
             <!-- revisi -->
             <div class="col">
                 <div class="card order-card shadow">
-                    <div class="card-block">
+                    <div class="card-block bg-primary">
                         <a href="/revisi" class="stretched-link">
-                            <h4 class="m-b-20">Revisi</h4>
+                            <h4 class="m-b-20 white">Revisi <i class="fa fa-repeat float-right"></i></h4>
                         </a>
                     </div>
                 </div>
@@ -73,9 +73,9 @@
             <!-- template -->
             <div class="col">
                 <div class="card order-card shadow">
-                    <div class="card-block">
+                    <div class="card-block bg-primary">
                         <a href="#" class="stretched-link" data-toggle="modal" data-target="#myModal">
-                            <h4 class="m-b-20">Download Template</h4>
+                            <h4 class="m-b-20 white">Download Template <i class="fa fa-file float-right"></i></h4>
                         </a>
                     </div>
                 </div>

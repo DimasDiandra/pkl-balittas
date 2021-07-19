@@ -115,9 +115,9 @@
                     <!-- button matriks -->
                     <div class="col">
                         <div class="card order-card shadow">
-                            <div class="card-block">
+                            <div class="card-block bg-primary">
                                 <a href="#" class="stretched-link" data-toggle="modal" data-target="#matrikscard">
-                                    <h4 class="m-b-20">File Matriks</h4>
+                                    <h4 class="m-b-20 white">File Matriks<i class="fa fa-file float-right"></i></h4>
                                 </a>
                             </div>
                         </div>
@@ -125,9 +125,9 @@
                     <!-- button RAB -->
                     <div class="col">
                         <div class="card order-card shadow">
-                            <div class="card-block">
+                            <div class="card-block bg-primary">
                                 <a href="#" class="stretched-link" data-toggle="modal" data-target="#rabcard">
-                                    <h4 class="m-b-20">File RAB</h4>
+                                    <h4 class="m-b-20 white">File RAB<i class="fa fa-file float-right"></i></h4>
                                 </a>
                             </div>
                         </div>
@@ -135,9 +135,9 @@
                     <!-- button KAK -->
                     <div class="col">
                         <div class="card order-card shadow">
-                            <div class="card-block">
+                            <div class="card-block bg-primary">
                                 <a href="#" class="stretched-link" data-toggle="modal" data-target="#kakcard">
-                                    <h4 class="m-b-20">File KAK</h4>
+                                    <h4 class="m-b-20 white">File KAK<i class="fa fa-file float-right"></i></h4>
                                 </a>
                             </div>
                         </div>
@@ -145,9 +145,9 @@
                     <!-- button Proposal -->
                     <div class="col">
                         <div class="card order-card shadow">
-                            <div class="card-block">
+                            <div class="card-block bg-primary">
                                 <a href="#" class="stretched-link" data-toggle="modal" data-target="#procard">
-                                    <h4 class="m-b-20">File Proposal</h4>
+                                    <h4 class="m-b-20 white">File Proposal<i class="fa fa-file float-right"></i></h4>
                                 </a>
                             </div>
                         </div>
@@ -155,9 +155,9 @@
                     <!-- button Analisa -->
                     <div class="col">
                         <div class="card order-card shadow">
-                            <div class="card-block">
+                            <div class="card-block bg-primary">
                                 <a href="#" class="stretched-link" data-toggle="modal" data-target="#anacard">
-                                    <h4 class="m-b-20">File Analisa</h4>
+                                    <h4 class="m-b-20 white">File Analisa<i class="fa fa-file float-right"></i></h4>
                                 </a>
                             </div>
                         </div>
