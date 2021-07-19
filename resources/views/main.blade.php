@@ -34,7 +34,7 @@
                 <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#main-menu" aria-controls="main-menu" aria-expanded="false" aria-label="Toggle navigation">
                     <i class="fa fa-bars"></i>
                 </button>
-                <a class="navbar-brand" href="/admin">Balittas</a>
+                <a class="navbar-brand" href="/">Balittas</a>
                 <a class="navbar-brand hidden" href="">B</a>
             </div>
 
@@ -80,7 +80,8 @@
                     </div>
 
                     <div id="language-select">
-                        <p>Admin</p>
+                        <p>
+                            {{ Auth::user()->name }}</p>
                     </div>
 
                 </div>
