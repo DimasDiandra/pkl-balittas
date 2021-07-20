@@ -116,9 +116,7 @@
                         </tbody>
                     </table>
                 </div>
-
             </div>
-
         </div>
         <!-- End Of Card History -->
     </div>
@@ -127,4 +125,5 @@
 <script>
     $('#reportTable').DataTable();
 </script>
+
 @endsection

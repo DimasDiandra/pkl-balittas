@@ -4,6 +4,7 @@ namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\DB;
+use App\Models\Pengumuman;
 
 class HomeController extends Controller
 {
@@ -26,6 +27,7 @@ class HomeController extends Controller
     {
         // dd(session()->all());
         $file = DB::table('templates')->get();
-        return view('home', compact('file'));
+        $pengumuman = Pengumuman::orderBy('created_at', 'DESC')->get();;
+        return view('home', compact('file', 'pengumuman'));
     }
 }

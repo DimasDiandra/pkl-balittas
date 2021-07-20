@@ -34,8 +34,22 @@
                     <h6 class="m-0 text-primary">Pengumuman</h6>
                 </div>
                 <div class="card-body">
-                    <p>Pengumuman disini
-                    </p>
+                    <table class="table">
+                        @foreach($pengumuman as $f)
+                        <tr>
+                            <form action="/home/download" method="GET">
+                                <td>
+                                    <a href="">
+                                        {{ $f->judul }}
+                                    </a>
+                                </td>
+                                <td class="float-right">
+                                    {{$f->created_at}}
+                                </td>
+                            </form>
+                        </tr>
+                        @endforeach
+                    </table>
                 </div>
             </div>
         </div>
@@ -119,19 +133,19 @@
                     <tbody>
                         <!-- Isi dari keluaran data -->
                         @foreach($file as $f)
-                            <tr>
-                                <form action="/home/download" method="GET">
-                                    <td>{{ $loop->iteration }}</td>
-                                    <input type="hidden" name="path" value=" {{$f->path}}">
-                                    <td>{{ $f->nama_file }}</td>
-                                    <td>
-                                        <button type="submit" class="btn btn-primary">
-                                            <i class="menu-icon fa fa-download"></i> Download
-                                        </button>
-                                    </td>
-                                </form>
-                            </tr>
-                            @endforeach
+                        <tr>
+                            <form action="/home/download" method="GET">
+                                <td>{{ $loop->iteration }}</td>
+                                <input type="hidden" name="path" value=" {{$f->path}}">
+                                <td>{{ $f->nama_file }}</td>
+                                <td>
+                                    <button type="submit" class="btn btn-primary">
+                                        <i class="menu-icon fa fa-download"></i> Download
+                                    </button>
+                                </td>
+                            </form>
+                        </tr>
+                        @endforeach
                     </tbody>
                 </table>
             </div>
