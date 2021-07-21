@@ -94,7 +94,7 @@
         <div class="col-sm-3">
             <div class="card shadow mb-4 h-100">
                 <div class="card-header py-3">
-                    <h6 class="m-0  text-primary">Ajukan Revisi</h6>
+                    <h6 class="m-0  text-primary">Ajukan Revisi Anggaran</h6>
                 </div>
                 <div class="card-body">
                     <a href="/revisi" class="btn btn-primary">Ajukan Revisi</a>

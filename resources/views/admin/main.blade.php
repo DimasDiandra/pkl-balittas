@@ -53,7 +53,7 @@
                         <a href="/admin/perencanaan"> <i class="menu-icon fa fa-puzzle-piece"></i>Perencanaan </a>
                     </li>
                     <li>
-                        <a href="/admin/evaluasi"> <i class="menu-icon fa fa-puzzle-piece"></i>Evaluasi </a>
+                        <a href="/admin/evaluasi"> <i class="menu-icon fa fa-puzzle-piece"></i>Monitoring dan Evaluasi </a>
                     </li>
                     <li>
                         <a href="/admin/template"> <i class="menu-icon fa fa-puzzle-piece"></i>Data Template </a>

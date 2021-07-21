@@ -7,7 +7,7 @@
     <div class="col-sm-4">
         <div class="page-header float-left">
             <div class="page-title">
-                <h1>Report</h1>
+                <h1>Monitoring dan Evaluasi</h1>
             </div>
         </div>
     </div>
@@ -36,7 +36,7 @@
 
             <div class="card shadow mb-4" style="height: 100%;">
                 <div class="card-header py-3">
-                    <h6 class="m-0 text-primary">Upload Report</h6>
+                    <h6 class="m-0 text-primary">Upload Monitoring dan Evaluasi</h6>
                 </div>
                 <div class="card-body">
                     <form action="/report/upload" method="POST" enctype="multipart/form-data">
@@ -52,6 +52,8 @@
                                 <option value="Laporan Triwulan">Laporan Triwulan</option>
                                 <option value="Laporan Tengah Tahun">Laporan Tengah Tahun</option>
                                 <option value="Laporan Akhir Tahun">Laporan Akhir Tahun</option>
+                                <option value="Laporan Destudi">Laporan Destudi</option>
+                                <option value="Laporan Renaksi">Laporan Renaksi</option>
                                 <option value="Foto">Foto</option>
                             </select>
                         </div>
@@ -66,7 +68,7 @@
         <!-- End Of Card Upload -->
 
         <!-- Card Download-->
-        <div class="col-sm-4">
+        {{-- <div class="col-sm-4">
 
             <div class="card shadow mb-4" style="height: 100%;">
                 <div class="card-header py-3">
@@ -78,7 +80,7 @@
                 </div>
             </div>
 
-        </div>
+        </div> --}}
         <!-- End Of Card Upload -->
     </div>
 

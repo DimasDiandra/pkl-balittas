@@ -47,7 +47,7 @@
                         <a href="/perencanaan"> <i class="menu-icon fa fa-map"></i>Perencanaan </a>
                     </li>
                     <li class="{{ Request::is('report') ? 'active' : '' }}">
-                        <a href="/report"> <i class="menu-icon fa fa-flag"></i>Report </a>
+                        <a href="/report"> <i class="menu-icon fa fa-flag"></i>Monitoring dan Evaluasi</a>
                     </li>
                     <li class="{{ Request::is('revisi') ? 'active' : '' }}">
                         <a href="/revisi"> <i class="menu-icon fa fa-repeat"></i>Revisi </a>

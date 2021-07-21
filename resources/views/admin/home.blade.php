@@ -66,11 +66,11 @@
         <div class="col-lg-3">
             <div class="card shadow" style="height:20vh;">
                 <div class="card-header py-3">
-                    <h6 class="m-0 font-weight-bold text-primary">Evaluasi</h6>
+                    <h6 class="m-0 font-weight-bold text-primary">Monitoring dan Evaluasi</h6>
                 </div>
                 <div class="card-body perencanaan">
 
-                    <a href="/admin/evaluasi" class="btn btn-primary">Evaluasi</a>
+                    <a href="/admin/evaluasi" class="btn btn-primary">Monitoring dan Evaluasi</a>
                 </div>
             </div>
         </div>

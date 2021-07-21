@@ -69,7 +69,7 @@
                 <div class="card order-card shadow">
                     <div class="card-block bg-primary">
                         <a href="/report" class="stretched-link">
-                            <h4 class="m-b-20 white">Report <i class="fa fa-flag float-right"></i></h4>
+                            <h4 class="m-b-20 white">Monitoring dan Evaluasi <i class="fa fa-flag float-right"></i></h4>
                         </a>
                     </div>
                 </div>
