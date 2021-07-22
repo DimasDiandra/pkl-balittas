@@ -4,7 +4,7 @@ use Illuminate\Database\Migrations\Migration;
 use Illuminate\Database\Schema\Blueprint;
 use Illuminate\Support\Facades\Schema;
 
-class Perencanaan extends Migration
+class Monev extends Migration
 {
     /**
      * Run the migrations.
@@ -13,9 +13,10 @@ class Perencanaan extends Migration
      */
     public function up()
     {
-        Schema::create('matriks', function (Blueprint $table) {
+        Schema::create('laporan_bulanan', function (Blueprint $table) {
             $table->id();
             $table->timestamps();
+            $table->string('name');
             $table->string('file');
             $table->string('path');
             $table->string('status');
@@ -25,9 +26,11 @@ class Perencanaan extends Migration
             $table->foreign('user_id')->references('id')->on('users');
             $table->foreign('projek_id')->references('id')->on('projek');
         });
-        Schema::create('rab', function (Blueprint $table) {
+
+        Schema::create('laporan_triwulan', function (Blueprint $table) {
             $table->id();
             $table->timestamps();
+            $table->string('name');
             $table->string('file');
             $table->string('path');
             $table->string('status');
@@ -37,9 +40,11 @@ class Perencanaan extends Migration
             $table->foreign('user_id')->references('id')->on('users');
             $table->foreign('projek_id')->references('id')->on('projek');
         });
-        Schema::create('kak', function (Blueprint $table) {
+
+        Schema::create('laporan_TengahTahun', function (Blueprint $table) {
             $table->id();
             $table->timestamps();
+            $table->string('name');
             $table->string('file');
             $table->string('path');
             $table->string('status');
@@ -49,9 +54,11 @@ class Perencanaan extends Migration
             $table->foreign('user_id')->references('id')->on('users');
             $table->foreign('projek_id')->references('id')->on('projek');
         });
-        Schema::create('proposal', function (Blueprint $table) {
+
+        Schema::create('laporan_AkhirTahun', function (Blueprint $table) {
             $table->id();
             $table->timestamps();
+            $table->string('name');
             $table->string('file');
             $table->string('path');
             $table->string('status');
@@ -61,9 +68,10 @@ class Perencanaan extends Migration
             $table->foreign('user_id')->references('id')->on('users');
             $table->foreign('projek_id')->references('id')->on('projek');
         });
-        Schema::create('analisis', function (Blueprint $table) {
+        Schema::create('laporan_Renaksi', function (Blueprint $table) {
             $table->id();
             $table->timestamps();
+            $table->string('name');
             $table->string('file');
             $table->string('path');
             $table->string('status');

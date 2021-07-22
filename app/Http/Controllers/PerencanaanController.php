@@ -3,7 +3,6 @@
 namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
-use Illuminate\Support\Facades\DB;
 use App\Models\User;
 use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\Storage;
@@ -14,6 +13,8 @@ use App\Models\Matriks;
 use App\Models\Proposal;
 use App\Models\RAB;
 
+use function PHPUnit\Framework\fileExists;
+
 class PerencanaanController extends Controller
 {
 
@@ -22,29 +23,6 @@ class PerencanaanController extends Controller
         $this->middleware('auth');
     }
 
-    public function index()
-	{
-		// $title = 'Data peserta';
-		// $data = User::orderBy('name','asc')->get();
-		// return view('admin.datauser',compact('title','data'));
-
-		$userdata = DB::table('users')->get();
-		return view('admin.perencanaan', compact('userdata'));
-	}
-
-    public function edit($id)
-	{
-        $analisis = Analisis::get();
-        $matriks = Matriks::get();
-        $proposal = Proposal::get();
-        $rab = RAB::get();
-        $kak = KAK::get();
-
-        return view('admin.editperencanaan', ['analisis' => $analisis, 'kak' => $kak, 'matriks' => $matriks, 'proposal' => $proposal, 'rab' => $rab]);
-
-		// return view('admin.editperencanaan', compact('title', 'data'));
-	}
-
     public function perencanaan()
     {
         $analisis = Analisis::get();
@@ -52,7 +30,8 @@ class PerencanaanController extends Controller
         $proposal = Proposal::get();
         $rab = RAB::get();
         $kak = KAK::get();
-        return view('perencanaan', ['analisis' => $analisis, 'kak' => $kak, 'matriks' => $matriks, 'proposal' => $proposal, 'rab' => $rab]);
+        $user = User::get();
+        return view('perencanaan', ['analisis' => $analisis, 'kak' => $kak, 'matriks' => $matriks, 'proposal' => $proposal, 'rab' => $rab, 'user' => $user]);
     }
 
     public function perencanaan_upload(Request $request)
@@ -71,6 +50,11 @@ class PerencanaanController extends Controller
 
         ]);
 
+        //get user
+        $id = Auth::id();
+        $user = User::find($id);
+        $path = "public/$user->name";
+
         //variable file
         $matriks = $request->file('matriks');
         $rab = $request->file('rab');
@@ -78,55 +62,70 @@ class PerencanaanController extends Controller
         $proposal = $request->file('proposal');
         $analisis = $request->file('analisis');
 
-        //nama file
-        $namaFileMatriks = $matriks->getClientOriginalName();
-        $namaFileRab = $rab->getClientOriginalName();
-        $namaFileKak = $kak->getClientOriginalName();
-        $namaFileProposal = $proposal->getClientOriginalName();
-        $namaFileAnalisis = $analisis->getClientOriginalName();
 
-        //get user
-        $id = Auth::id();
-        $user = User::find($id);
+        // upload ke db
+        // matriks
+        if (file_exists($matriks)) {
+            $namaFileMatriks = $matriks->getClientOriginalName();
+            $pathMatriks = Storage::putFileAs($path, $matriks, $namaFileMatriks);
+            Matriks::create([
+                'path' => $pathMatriks,
+                'file' => $namaFileMatriks,
+                'user_id' => $user->id,
+                'projek_id' => '1',
+                'status' => '1'
+            ]);
+        };
+        // rab
+        if (file_exists($rab)) {
+            $namaFileRab = $rab->getClientOriginalName();
+            $pathRab = Storage::putFileAs($path, $rab, $namaFileRab);
 
-        //storage
-        $pathMatriks = Storage::putFileAs('public/matriks', $matriks, $namaFileMatriks);
-        $pathRab = Storage::putFileAs('public/rab', $rab, $namaFileRab);
-        $pathKak = Storage::putFileAs('public/kak', $kak, $namaFileKak);
-        $pathProposal = Storage::putFileAs('public/proposal', $proposal, $namaFileProposal);
-        $pathAnalisis = Storage::putFileAs('public/analisis', $analisis, $namaFileAnalisis);
+            RAB::create([
+                'path' => $pathRab,
+                'file' => $namaFileRab,
+                'user_id' => $user->id,
+                'projek_id' => '1',
+                'status' => '1'
+            ]);
+        };
+        // kak
+        if (file_exists($kak)) {
+            $namaFileKak = $kak->getClientOriginalName();
+            $pathKak = Storage::putFileAs($path, $kak, $namaFileKak);
 
-        //upload ke db
-        Matriks::create([
-            'path' => $pathMatriks,
-            'file' => $namaFileMatriks,
-            'keterangan' => $request->keterangan,
-            'name' => $user->name,
-        ]);
-        RAB::create([
-            'path' => $pathRab,
-            'file' => $namaFileRab,
-            'keterangan' => $request->keterangan,
-            'name' => $user->name,
-        ]);
-        KAK::create([
-            'path' => $pathKak,
-            'file' => $namaFileKak,
-            'keterangan' => $request->keterangan,
-            'name' => $user->name,
-        ]);
-        Proposal::create([
-            'path' => $pathProposal,
-            'file' => $namaFileProposal,
-            'keterangan' => $request->keterangan,
-            'name' => $user->name,
-        ]);
-        Analisis::create([
-            'path' => $pathAnalisis,
-            'file' => $namaFileAnalisis,
-            'keterangan' => $request->keterangan,
-            'name' => $user->name,
-        ]);
+            KAK::create([
+                'path' => $pathKak,
+                'file' => $namaFileKak,
+                'user_id' => $user->id,
+                'projek_id' => '1',
+                'status' => '1'
+            ]);
+        };
+        // proposal
+        if (file_exists($proposal)) {
+            $namaFileProposal = $proposal->getClientOriginalName();
+            $pathProposal = Storage::putFileAs($path, $proposal, $namaFileProposal);
+            Proposal::create([
+                'path' => $pathProposal,
+                'file' => $namaFileProposal,
+                'user_id' => $user->id,
+                'projek_id' => '1',
+                'status' => '1'
+            ]);
+        };
+        // analisis
+        if (file_exists($analisis)) {
+            $namaFileAnalisis = $analisis->getClientOriginalName();
+            $pathAnalisis = Storage::putFileAs($path, $analisis, $namaFileAnalisis);
+            Analisis::create([
+                'path' => $pathAnalisis,
+                'file' => $namaFileAnalisis,
+                'user_id' => $user->id,
+                'projek_id' => '1',
+                'status' => '1'
+            ]);
+        };
         return redirect()->back();
     }
 

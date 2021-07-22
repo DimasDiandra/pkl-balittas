@@ -94,7 +94,7 @@
         <div class="col-sm-3">
             <div class="card shadow mb-4 h-100">
                 <div class="card-header py-3">
-                    <h6 class="m-0  text-primary">Ajukan Revisi Anggaran</h6>
+                    <h6 class="m-0  text-primary">Ajukan Revisi</h6>
                 </div>
                 <div class="card-body">
                     <a href="/revisi" class="btn btn-primary">Ajukan Revisi</a>
@@ -187,7 +187,6 @@
                         <thead>
                             <tr>
                                 <th width=10%>No.</th>
-                                <th width=20%>User</th>
                                 <th width=40%>File Name</th>
                                 <th width=20%>Date Upload</th>
                                 <th>Download</th>
@@ -196,11 +195,11 @@
                         <tbody>
                             <!-- Isi dari keluaran data -->
                             @foreach($matriks as $f)
+                            @if($f->user_id==Auth::user()->id)
                             <tr>
                                 <form action="/perencanaan/download" method="GET">
                                     <td>{{ $loop->iteration }}</td>
                                     <input type="hidden" name="path" value=" {{$f->path}}">
-                                    <td>{{ $f->name }}</td>
                                     <td>{{ $f->file }}</td>
                                     <td>{{ $f->created_at }}</td>
                                     <td>
@@ -210,6 +209,7 @@
                                     </td>
                                 </form>
                             </tr>
+                            @endif
                             @endforeach
                         </tbody>
                     </table>
@@ -241,7 +241,6 @@
                         <thead>
                             <tr>
                                 <th width=10%>No.</th>
-                                <th width=20%>User</th>
                                 <th width=40%>File Name</th>
                                 <th width=20%>Date Upload</th>
                                 <th>Download</th>
@@ -250,11 +249,11 @@
                         <tbody>
                             <!-- Isi dari keluaran data -->
                             @foreach($rab as $f)
+                            @if($f->user_id==Auth::user()->id)
                             <tr>
                                 <form action="/perencanaan/download" method="GET">
                                     <td>{{ $loop->iteration }}</td>
                                     <input type="hidden" name="path" value=" {{$f->path}}">
-                                    <td>{{ $f->name }}</td>
                                     <td>{{ $f->file }}</td>
                                     <td>{{ $f->created_at }}</td>
                                     <td>
@@ -264,6 +263,7 @@
                                     </td>
                                 </form>
                             </tr>
+                            @endif
                             @endforeach
                         </tbody>
                     </table>
@@ -295,7 +295,6 @@
                         <thead>
                             <tr>
                                 <th width=10%>No.</th>
-                                <th width=20%>User</th>
                                 <th width=40%>File Name</th>
                                 <th width=20%>Date Upload</th>
                                 <th>Download</th>
@@ -304,11 +303,11 @@
                         <tbody>
                             <!-- Isi dari keluaran data -->
                             @foreach($kak as $f)
+                            @if($f->user_id==Auth::user()->id)
                             <tr>
                                 <form action="/perencanaan/download" method="GET">
                                     <td>{{ $loop->iteration }}</td>
                                     <input type="hidden" name="path" value=" {{$f->path}}">
-                                    <td>{{ $f->name }}</td>
                                     <td>{{ $f->file }}</td>
                                     <td>{{ $f->created_at }}</td>
                                     <td>
@@ -318,6 +317,7 @@
                                     </td>
                                 </form>
                             </tr>
+                            @endif
                             @endforeach
                         </tbody>
                     </table>
@@ -349,7 +349,6 @@
                         <thead>
                             <tr>
                                 <th width=10%>No.</th>
-                                <th width=20%>User</th>
                                 <th width=40%>File Name</th>
                                 <th width=20%>Date Upload</th>
                                 <th>Download</th>
@@ -358,11 +357,11 @@
                         <tbody>
                             <!-- Isi dari keluaran data -->
                             @foreach($proposal as $f)
+                            @if($f->user_id==Auth::user()->id)
                             <tr>
                                 <form action="/perencanaan/download" method="GET">
                                     <td>{{ $loop->iteration }}</td>
                                     <input type="hidden" name="path" value=" {{$f->path}}">
-                                    <td>{{ $f->name }}</td>
                                     <td>{{ $f->file }}</td>
                                     <td>{{ $f->created_at }}</td>
                                     <td>
@@ -372,6 +371,7 @@
                                     </td>
                                 </form>
                             </tr>
+                            @endif
                             @endforeach
                         </tbody>
                     </table>
@@ -403,7 +403,6 @@
                         <thead>
                             <tr>
                                 <th width=10%>No.</th>
-                                <th width=20%>User</th>
                                 <th width=40%>File Name</th>
                                 <th width=20%>Date Upload</th>
                                 <th>Download</th>
@@ -412,11 +411,11 @@
                         <tbody>
                             <!-- Isi dari keluaran data -->
                             @foreach($analisis as $f)
+                            @if($f->user_id==Auth::user()->id)
                             <tr>
                                 <form action="/perencanaan/download" method="GET">
                                     <td>{{ $loop->iteration }}</td>
                                     <input type="hidden" name="path" value=" {{$f->path}}">
-                                    <td>{{ $f->name }}</td>
                                     <td>{{ $f->file }}</td>
                                     <td>{{ $f->created_at }}</td>
                                     <td>
@@ -426,6 +425,7 @@
                                     </td>
                                 </form>
                             </tr>
+                            @endif
                             @endforeach
                         </tbody>
                     </table>

@@ -9,5 +9,5 @@ class Analisis extends Model
 {
     protected $table = "analisis";
 
-    protected $fillable = ['name', 'file', 'path'];
+    protected $fillable = ['name', 'file', 'path', 'status', 'user_id', 'projek_id'];
 }

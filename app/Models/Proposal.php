@@ -9,5 +9,5 @@ class Proposal extends Model
 {
     protected $table = "proposal";
 
-    protected $fillable = ['name', 'file', 'path'];
+    protected $fillable = ['name', 'file', 'path', 'status', 'user_id', 'projek_id'];
 }

@@ -9,5 +9,5 @@ class KAK extends Model
 {
     protected $table = "kak";
 
-    protected $fillable = ['name', 'file', 'path'];
+    protected $fillable = ['name', 'file', 'path', 'status', 'user_id', 'projek_id'];
 }

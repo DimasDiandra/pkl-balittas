@@ -9,5 +9,5 @@ class RAB extends Model
 {
     protected $table = "rab";
 
-    protected $fillable = ['name', 'file', 'path'];
+    protected $fillable = ['name', 'file', 'path', 'status', 'user_id', 'projek_id'];
 }
