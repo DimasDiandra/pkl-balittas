@@ -29,13 +29,13 @@
 <div class="container-fluid" style="padding-top: 16px;">
 
     <div class="row" style="padding-bottom: 16px;">
-        <!-- Card Laporan-->
+        <!-- Card Status-->
 
         <div class="col-sm-4">
 
             <div class="card shadow h-100">
                 <div class="card-header py-3">
-                    <h6 class="m-0  text-primary">Laporan</h6>
+                    <h6 class="m-0  text-primary">Status Perencanaan</h6>
                 </div>
                 <div class="card-body">
                     <p>nama user upload 1
@@ -48,7 +48,7 @@
         <!-- End Of Card Laporan -->
 
         <!-- Card Upload-->
-        <div class="col-sm-5">
+        <div class="col-sm-6">
 
             <div class="card shadow h-100">
                 <div class="card-header py-3">
@@ -84,366 +84,261 @@
                             <input type="file" name="analisis">
                         </div>
 
-                        <input type="submit" value="Upload" class="btn btn-primary">
+                        <button type="submit" class="btn btn-primary"><i class="menu-icon fa fa-upload"></i> Upload</button>
                     </form>
                 </div>
             </div>
         </div>
 
         <!-- Card Revisi-->
-        <div class="col-sm-3">
-            <div class="card shadow mb-4 h-100">
+        <div class="col-sm-2">
+            <div class="card shadow mb-4">
                 <div class="card-header py-3">
-                    <h6 class="m-0  text-primary">Ajukan Revisi</h6>
+                    <h6 class="m-0  text-primary">Revisi</h6>
                 </div>
                 <div class="card-body">
-                    <a href="/revisi" class="btn btn-primary">Ajukan Revisi</a>
+                    <a href="/revisi" class="btn btn-primary"><i class="menu-icon fa fa-repeat"></i> Ajukan Revisi</a>
                 </div>
             </div>
 
         </div>
     </div>
 
-    <div class="row">
-        <!-- Card History-->
-        <div class="col">
-            <div class="card shadow history-perencanaan">
-                <div class="card-header py-3">
-                    <h6 class="m-0  text-primary">History Perencanaan</h6>
+    <!-- Card History Title-->
+    <div class="breadcrumbs">
+        <div class="col-sm-4">
+            <div class="page-header float-left">
+                <div class="page-title">
+                    <h1>History Perencanaan</h1>
                 </div>
-                <div class="row" style="padding-top: 16px; padding-right:16px; padding-left: 16px;">
-                    <!-- button matriks -->
-                    <div class="col">
-                        <div class="card order-card shadow">
-                            <div class="card-block bg-primary">
-                                <a href="#" class="stretched-link" data-toggle="modal" data-target="#matrikscard">
-                                    <h4 class="m-b-20 white">File Matriks<i class="fa fa-file float-right"></i></h4>
-                                </a>
-                            </div>
-                        </div>
-                    </div>
-                    <!-- button RAB -->
-                    <div class="col">
-                        <div class="card order-card shadow">
-                            <div class="card-block bg-primary">
-                                <a href="#" class="stretched-link" data-toggle="modal" data-target="#rabcard">
-                                    <h4 class="m-b-20 white">File RAB<i class="fa fa-file float-right"></i></h4>
-                                </a>
-                            </div>
-                        </div>
-                    </div>
-                    <!-- button KAK -->
-                    <div class="col">
-                        <div class="card order-card shadow">
-                            <div class="card-block bg-primary">
-                                <a href="#" class="stretched-link" data-toggle="modal" data-target="#kakcard">
-                                    <h4 class="m-b-20 white">File KAK<i class="fa fa-file float-right"></i></h4>
-                                </a>
-                            </div>
-                        </div>
-                    </div>
-                    <!-- button Proposal -->
-                    <div class="col">
-                        <div class="card order-card shadow">
-                            <div class="card-block bg-primary">
-                                <a href="#" class="stretched-link" data-toggle="modal" data-target="#procard">
-                                    <h4 class="m-b-20 white">File Proposal<i class="fa fa-file float-right"></i></h4>
-                                </a>
-                            </div>
-                        </div>
-                    </div>
-                    <!-- button Analisis -->
-                    <div class="col">
-                        <div class="card order-card shadow">
-                            <div class="card-block bg-primary">
-                                <a href="#" class="stretched-link" data-toggle="modal" data-target="#anacard">
-                                    <h4 class="m-b-20 white">File Analisis<i class="fa fa-file float-right"></i></h4>
-                                </a>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-
             </div>
         </div>
-
+        <div class="col-sm-8">
+            <div class="page-header float-right">
+                <div class="page-title">
+                    <ol class="breadcrumb text-right">
+                        <li class="active"><i class="fa fa-map"></i></li>
+                    </ol>
+                </div>
+            </div>
+        </div>
+    </div>
+    <!-- Card History -->
+    <div class="card card-body">
+        <div class="row">
+            <div class="col">
+                <ul class="nav nav-pills nav-fill">
+                    <li class="nav-item">
+                        <a class="nav-link active" href="#matriks" role="tab" data-toggle="tab">Matriks</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link " href="#rab" role="tab" data-toggle="tab">RAB</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link " href="#kak" role="tab" data-toggle="tab">KAK</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link " href="#proposal" role="tab" data-toggle="tab">Proposal</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link " href="#analisis" role="tab" data-toggle="tab">Analisis Resiko</a>
+                    </li>
+                </ul>
+            </div>
+        </div>
+        <div class="row">
+            <div class="col">
+                <div class="tab-content" id="nav-tabContent">
+                    <!-- Matriks -->
+                    <div class="tab-pane fade show active" id="matriks" role="tabpanel" aria-labelledby="nav-home-tab">
+                        <div class="modal-body">
+                            <table class="table" id="table">
+                                <thead>
+                                    <tr>
+                                        <th width=10%>No.</th>
+                                        <th width=50%>File Name</th>
+                                        <th width=20%>Date Upload</th>
+                                        <th></th>
+                                    </tr>
+                                </thead>
+                                <tbody>
+                                    <!-- Isi dari keluaran data -->
+                                    @foreach($matriks as $f)
+                                    @if($f->user_id==Auth::user()->id)
+                                    <tr>
+                                        <form action="/perencanaan/download" method="GET">
+                                            <td>{{ $loop->iteration }}</td>
+                                            <input type="hidden" name="path" value=" {{$f->path}}">
+                                            <td>{{ $f->file }}</td>
+                                            <td>{{ $f->created_at }}</td>
+                                            <td class="float-right">
+                                                <button type="submit" class="btn btn-primary">
+                                                    <i class="menu-icon fa fa-download"></i> Download
+                                                </button>
+                                            </td>
+                                        </form>
+                                    </tr>
+                                    @endif
+                                    @endforeach
+                                </tbody>
+                            </table>
+                        </div>
+                    </div>
+                    <!-- RAB -->
+                    <div class="tab-pane fade" id="rab" role="tabpanel" aria-labelledby="nav-profile-tab">
+                        <div class="modal-body">
+                            <table class="table" id="table">
+                                <thead>
+                                    <tr>
+                                        <th width=10%>No.</th>
+                                        <th width=50%>File Name</th>
+                                        <th width=20%>Date Upload</th>
+                                        <th></th>
+                                    </tr>
+                                </thead>
+                                <tbody>
+                                    <!-- Isi dari keluaran data -->
+                                    @foreach($rab as $f)
+                                    @if($f->user_id==Auth::user()->id)
+                                    <tr>
+                                        <form action="/perencanaan/download" method="GET">
+                                            <td>{{ $loop->iteration }}</td>
+                                            <input type="hidden" name="path" value=" {{$f->path}}">
+                                            <td>{{ $f->file }}</td>
+                                            <td>{{ $f->created_at }}</td>
+                                            <td class="float-right">
+                                                <button type="submit" class="btn btn-primary">
+                                                    <i class="menu-icon fa fa-download"></i> Download
+                                                </button>
+                                            </td>
+                                        </form>
+                                    </tr>
+                                    @endif
+                                    @endforeach
+                                </tbody>
+                            </table>
+                        </div>
+                    </div>
+                    <!-- KAK -->
+                    <div class="tab-pane fade" id="kak" role="tabpanel" aria-labelledby="nav-contact-tab">
+                        <div class="modal-body">
+                            <table class="table" id="table">
+                                <thead>
+                                    <tr>
+                                        <th width=10%>No.</th>
+                                        <th width=50%>File Name</th>
+                                        <th width=20%>Date Upload</th>
+                                        <th></th>
+                                    </tr>
+                                </thead>
+                                <tbody>
+                                    <!-- Isi dari keluaran data -->
+                                    @foreach($kak as $f)
+                                    @if($f->user_id==Auth::user()->id)
+                                    <tr>
+                                        <form action="/perencanaan/download" method="GET">
+                                            <td>{{ $loop->iteration}}</td>
+                                            <input type="hidden" name="path" value=" {{$f->path}}">
+                                            <td>{{ $f->file }}</td>
+                                            <td>{{ $f->created_at }}</td>
+                                            <td class="float-right">
+                                                <button type="submit" class="btn btn-primary">
+                                                    <i class="menu-icon fa fa-download"></i> Download
+                                                </button>
+                                            </td>
+                                        </form>
+                                    </tr>
+                                    @endif
+                                    @endforeach
+                                </tbody>
+                            </table>
+                        </div>
+                    </div>
+                    <!-- Proposal -->
+                    <div class="tab-pane fade" id="proposal" role="tabpanel" aria-labelledby="nav-profile-tab">
+                        <div class="modal-body">
+                            <table class="table" id="table">
+                                <thead>
+                                    <tr>
+                                        <th width=10%>No.</th>
+                                        <th width=50%>File Name</th>
+                                        <th width=20%>Date Upload</th>
+                                        <th></th>
+                                    </tr>
+                                </thead>
+                                <tbody>
+                                    <!-- Isi dari keluaran data -->
+                                    @foreach($proposal as $f)
+                                    @if($f->user_id==Auth::user()->id)
+                                    <tr>
+                                        <form action="/perencanaan/download" method="GET">
+                                            <td>{{ $loop->iteration }}</td>
+                                            <input type="hidden" name="path" value=" {{$f->path}}">
+                                            <td>{{ $f->file }}</td>
+                                            <td>{{ $f->created_at }}</td>
+                                            <td class="float-right">
+                                                <button type="submit" class="btn btn-primary">
+                                                    <i class="menu-icon fa fa-download"></i> Download
+                                                </button>
+                                            </td>
+                                        </form>
+                                    </tr>
+                                    @endif
+                                    @endforeach
+                                </tbody>
+                            </table>
+                        </div>
+                    </div>
+                    <!-- Analisis -->
+                    <div class="tab-pane fade" id="analisis" role="tabpanel" aria-labelledby="nav-contact-tab">
+                        <div class="modal-body">
+                            <table class="table" id="table">
+                                <thead>
+                                    <tr>
+                                        <th width=10%>No.</th>
+                                        <th width=50%>File Name</th>
+                                        <th width=20%>Date Upload</th>
+                                        <th></th>
+                                    </tr>
+                                </thead>
+                                <tbody>
+                                    <!-- Isi dari keluaran data -->
+                                    @foreach($analisis as $f)
+                                    @if($f->user_id==Auth::user()->id)
+                                    <tr>
+                                        <form action="/perencanaan/download" method="GET">
+                                            <td>{{ $loop->iteration }}</td>
+                                            <input type="hidden" name="path" value=" {{$f->path}}">
+                                            <td>{{ $f->file }}</td>
+                                            <td>{{ $f->created_at }}</td>
+                                            <td class="float-right">
+                                                <button type="submit" class="btn btn-primary">
+                                                    <i class="menu-icon fa fa-download"></i> Download
+                                                </button>
+                                            </td>
+                                        </form>
+                                    </tr>
+                                    @endif
+                                    @endforeach
+                                </tbody>
+                            </table>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
     </div>
     <!-- /.container-fluid -->
 
-    <!-- Matriks -->
-    <div id="matrikscard" class="modal fade" role="dialog">
-        <div class="modal-dialog modal-lg">
-            <div class="modal-content">
+</div>
+<!-- script -->
+<script>
+    $('#table').DataTable();
 
-                <!-- Ini adalah Bagian Header Modal -->
-                <div class="modal-header">
-                    <h4 class="modal-title">Download File Matriks</h4>
-                    <button type="button" class="close" data-dismiss="modal">&times;</button>
-                </div>
+    $(".nav a").on("click", function() {
+        $(".nav a").removeClass("active");
+        $(this).addClass("active");
+    })
+</script>
 
-                <!-- Ini adalah Bagian Body Modal -->
-                <div class="modal-body">
-                    <table class="table" id="table">
-                        <thead>
-                            <tr>
-                                <th width=10%>No.</th>
-                                <th width=40%>File Name</th>
-                                <th width=20%>Date Upload</th>
-                                <th>Download</th>
-                            </tr>
-                        </thead>
-                        <tbody>
-                            <!-- Isi dari keluaran data -->
-                            @foreach($matriks as $f)
-                            @if($f->user_id==Auth::user()->id)
-                            <tr>
-                                <form action="/perencanaan/download" method="GET">
-                                    <td>{{ $loop->iteration }}</td>
-                                    <input type="hidden" name="path" value=" {{$f->path}}">
-                                    <td>{{ $f->file }}</td>
-                                    <td>{{ $f->created_at }}</td>
-                                    <td>
-                                        <button type="submit" class="btn btn-primary">
-                                            <i class="menu-icon fa fa-download"></i> Download
-                                        </button>
-                                    </td>
-                                </form>
-                            </tr>
-                            @endif
-                            @endforeach
-                        </tbody>
-                    </table>
-                </div>
-
-                <!-- Ini adalah Bagian Footer Modal -->
-                <div class="modal-footer">
-                    <button type="button" class="btn btn-danger" data-dismiss="modal">Tutup</button>
-                </div>
-
-            </div>
-        </div>
-    </div>
-
-    <!-- RAB -->
-    <div id="rabcard" class="modal fade" role="dialog">
-        <div class="modal-dialog modal-lg">
-            <div class="modal-content">
-
-                <!-- Ini adalah Bagian Header Modal -->
-                <div class="modal-header">
-                    <h4 class="modal-title">Download File RAB</h4>
-                    <button type="button" class="close" data-dismiss="modal">&times;</button>
-                </div>
-
-                <!-- Ini adalah Bagian Body Modal -->
-                <div class="modal-body">
-                    <table class="table" id="table">
-                        <thead>
-                            <tr>
-                                <th width=10%>No.</th>
-                                <th width=40%>File Name</th>
-                                <th width=20%>Date Upload</th>
-                                <th>Download</th>
-                            </tr>
-                        </thead>
-                        <tbody>
-                            <!-- Isi dari keluaran data -->
-                            @foreach($rab as $f)
-                            @if($f->user_id==Auth::user()->id)
-                            <tr>
-                                <form action="/perencanaan/download" method="GET">
-                                    <td>{{ $loop->iteration }}</td>
-                                    <input type="hidden" name="path" value=" {{$f->path}}">
-                                    <td>{{ $f->file }}</td>
-                                    <td>{{ $f->created_at }}</td>
-                                    <td>
-                                        <button type="submit" class="btn btn-primary">
-                                            <i class="menu-icon fa fa-download"></i> Download
-                                        </button>
-                                    </td>
-                                </form>
-                            </tr>
-                            @endif
-                            @endforeach
-                        </tbody>
-                    </table>
-                </div>
-
-                <!-- Ini adalah Bagian Footer Modal -->
-                <div class="modal-footer">
-                    <button type="button" class="btn btn-danger" data-dismiss="modal">Tutup</button>
-                </div>
-
-            </div>
-        </div>
-    </div>
-
-    <!-- KAK -->
-    <div id="kakcard" class="modal fade" role="dialog">
-        <div class="modal-dialog modal-lg">
-            <div class="modal-content">
-
-                <!-- Ini adalah Bagian Header Modal -->
-                <div class="modal-header">
-                    <h4 class="modal-title">Download File KAK</h4>
-                    <button type="button" class="close" data-dismiss="modal">&times;</button>
-                </div>
-
-                <!-- Ini adalah Bagian Body Modal -->
-                <div class="modal-body">
-                    <table class="table" id="table">
-                        <thead>
-                            <tr>
-                                <th width=10%>No.</th>
-                                <th width=40%>File Name</th>
-                                <th width=20%>Date Upload</th>
-                                <th>Download</th>
-                            </tr>
-                        </thead>
-                        <tbody>
-                            <!-- Isi dari keluaran data -->
-                            @foreach($kak as $f)
-                            @if($f->user_id==Auth::user()->id)
-                            <tr>
-                                <form action="/perencanaan/download" method="GET">
-                                    <td>{{ $loop->iteration }}</td>
-                                    <input type="hidden" name="path" value=" {{$f->path}}">
-                                    <td>{{ $f->file }}</td>
-                                    <td>{{ $f->created_at }}</td>
-                                    <td>
-                                        <button type="submit" class="btn btn-primary">
-                                            <i class="menu-icon fa fa-download"></i> Download
-                                        </button>
-                                    </td>
-                                </form>
-                            </tr>
-                            @endif
-                            @endforeach
-                        </tbody>
-                    </table>
-                </div>
-
-                <!-- Ini adalah Bagian Footer Modal -->
-                <div class="modal-footer">
-                    <button type="button" class="btn btn-danger" data-dismiss="modal">Tutup</button>
-                </div>
-
-            </div>
-        </div>
-    </div>
-
-    <!-- Proposal -->
-    <div id="procard" class="modal fade" role="dialog">
-        <div class="modal-dialog modal-lg">
-            <div class="modal-content">
-
-                <!-- Ini adalah Bagian Header Modal -->
-                <div class="modal-header">
-                    <h4 class="modal-title">Download File Proposal</h4>
-                    <button type="button" class="close" data-dismiss="modal">&times;</button>
-                </div>
-
-                <!-- Ini adalah Bagian Body Modal -->
-                <div class="modal-body">
-                    <table class="table" id="table">
-                        <thead>
-                            <tr>
-                                <th width=10%>No.</th>
-                                <th width=40%>File Name</th>
-                                <th width=20%>Date Upload</th>
-                                <th>Download</th>
-                            </tr>
-                        </thead>
-                        <tbody>
-                            <!-- Isi dari keluaran data -->
-                            @foreach($proposal as $f)
-                            @if($f->user_id==Auth::user()->id)
-                            <tr>
-                                <form action="/perencanaan/download" method="GET">
-                                    <td>{{ $loop->iteration }}</td>
-                                    <input type="hidden" name="path" value=" {{$f->path}}">
-                                    <td>{{ $f->file }}</td>
-                                    <td>{{ $f->created_at }}</td>
-                                    <td>
-                                        <button type="submit" class="btn btn-primary">
-                                            <i class="menu-icon fa fa-download"></i> Download
-                                        </button>
-                                    </td>
-                                </form>
-                            </tr>
-                            @endif
-                            @endforeach
-                        </tbody>
-                    </table>
-                </div>
-
-                <!-- Ini adalah Bagian Footer Modal -->
-                <div class="modal-footer">
-                    <button type="button" class="btn btn-danger" data-dismiss="modal">Tutup</button>
-                </div>
-
-            </div>
-        </div>
-    </div>
-
-    <!-- Analisis -->
-    <div id="anacard" class="modal fade" role="dialog">
-        <div class="modal-dialog modal-lg">
-            <div class="modal-content">
-
-                <!-- Ini adalah Bagian Header Modal -->
-                <div class="modal-header">
-                    <h4 class="modal-title">Download File Analisis</h4>
-                    <button type="button" class="close" data-dismiss="modal">&times;</button>
-                </div>
-
-                <!-- Ini adalah Bagian Body Modal -->
-                <div class="modal-body">
-                    <table class="table" id="table">
-                        <thead>
-                            <tr>
-                                <th width=10%>No.</th>
-                                <th width=40%>File Name</th>
-                                <th width=20%>Date Upload</th>
-                                <th>Download</th>
-                            </tr>
-                        </thead>
-                        <tbody>
-                            <!-- Isi dari keluaran data -->
-                            @foreach($analisis as $f)
-                            @if($f->user_id==Auth::user()->id)
-                            <tr>
-                                <form action="/perencanaan/download" method="GET">
-                                    <td>{{ $loop->iteration }}</td>
-                                    <input type="hidden" name="path" value=" {{$f->path}}">
-                                    <td>{{ $f->file }}</td>
-                                    <td>{{ $f->created_at }}</td>
-                                    <td>
-                                        <button type="submit" class="btn btn-primary">
-                                            <i class="menu-icon fa fa-download"></i> Download
-                                        </button>
-                                    </td>
-                                </form>
-                            </tr>
-                            @endif
-                            @endforeach
-                        </tbody>
-                    </table>
-                </div>
-
-                <!-- Ini adalah Bagian Footer Modal -->
-                <div class="modal-footer">
-                    <button type="button" class="btn btn-danger" data-dismiss="modal">Tutup</button>
-                </div>
-
-            </div>
-        </div>
-    </div>
-
-    <!-- script download -->
-    <script>
-        $('#table').DataTable();
-    </script>
-
-
-    @endsection
+@endsection

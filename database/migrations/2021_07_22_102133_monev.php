@@ -17,7 +17,6 @@ class Monev extends Migration
             $table->id();
             $table->timestamps();
             $table->string('name');
-            $table->string('file');
             $table->string('path');
             $table->string('status');
 
@@ -31,7 +30,6 @@ class Monev extends Migration
             $table->id();
             $table->timestamps();
             $table->string('name');
-            $table->string('file');
             $table->string('path');
             $table->string('status');
 
@@ -45,7 +43,6 @@ class Monev extends Migration
             $table->id();
             $table->timestamps();
             $table->string('name');
-            $table->string('file');
             $table->string('path');
             $table->string('status');
 
@@ -59,7 +56,6 @@ class Monev extends Migration
             $table->id();
             $table->timestamps();
             $table->string('name');
-            $table->string('file');
             $table->string('path');
             $table->string('status');
 
@@ -72,7 +68,18 @@ class Monev extends Migration
             $table->id();
             $table->timestamps();
             $table->string('name');
-            $table->string('file');
+            $table->string('path');
+            $table->string('status');
+
+            $table->unsignedBigInteger('user_id');
+            $table->unsignedBigInteger('projek_id');
+            $table->foreign('user_id')->references('id')->on('users');
+            $table->foreign('projek_id')->references('id')->on('projek');
+        });
+        Schema::create('laporan_destudi', function (Blueprint $table) {
+            $table->id();
+            $table->timestamps();
+            $table->string('name');
             $table->string('path');
             $table->string('status');
 

@@ -9,6 +9,7 @@
     <meta name="csrf-token" content="{{ csrf_token() }}">
     <link rel="apple-touch-icon" href="apple-icon.png">
     <link rel="shortcut icon" href="favicon.ico">
+    <link rel="stylesheet" href="css/sb-admin-2.min.css">
     <link rel="stylesheet" href="{{ asset('style/assets/css/normalize.css') }}">
     <link rel="stylesheet" href="{{ asset('style/assets/css/bootstrap.min.css') }}">
     <link rel="stylesheet" href="{{ asset('style/assets/css/font-awesome.min.css') }}">
@@ -81,7 +82,8 @@
 
                     <div id="language-select">
                         <p>
-                            {{ Auth::user()->name }}</p>
+                            {{ Auth::user()->name }}
+                        </p>
                     </div>
 
                 </div>
