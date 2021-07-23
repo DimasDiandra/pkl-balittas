@@ -29,7 +29,7 @@
 
     <!-- Page Heading -->
 
-    <div class="row" style="padding-bottom:16px">
+    <div class="row" style="padding-top:16px; padding-bottom:16px">
         <!-- Card Status-->
 
         <div class="col-sm-4">
@@ -80,22 +80,6 @@
             </div>
 
         </div>
-        <!-- End Of Card Upload -->
-
-        <!-- Card Download-->
-        {{-- <div class="col-sm-4">
-
-            <div class="card shadow mb-4" style="height: 100%;">
-                <div class="card-header py-3">
-                    <h6 class="m-0  text-primary">Report Template</h6>
-                </div>
-                <div class="card-body">
-                    <p>Template disini
-                    </p>
-                </div>
-            </div>
-
-        </div> --}}
         <!-- End Of Card Upload -->
     </div>
 
