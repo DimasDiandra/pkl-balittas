@@ -25,10 +25,10 @@
 
 @section('content')
 <div class="content mt-3">
-     @if (session('success'))
-        <div class="alert alert-success">
-            {{ session('success') }}
-        </div>
+    @if (session('success'))
+    <div class="alert alert-success">
+        {{ session('success') }}
+    </div>
     @endif
     <div class="animated fadeIn">
         <div class="card">
@@ -38,10 +38,10 @@
                 </div>
                 <div class="pull-right">
                     <!-- Button trigger modal -->
-                    <a href="" class="btn btn-success btn-sm" data-toggle="modal" data-target="#myModal" ><i class="fa fa-plus">Tambah</i></a>
-                </div> 
+                    <a href="" class="btn btn-success btn-sm" data-toggle="modal" data-target="#myModal"><i class="fa fa-plus">Tambah</i></a>
+                </div>
             </div>
-            
+
             <div class="card-body table-responsive">
                 <table class="table table-bordered" id="table-datatables">
                     <thead>
@@ -61,20 +61,20 @@
                             <td class="text-center">
                                 <a href="{{ url('admin/pengumuman/' .$data->id) }}" class="btn btn-warning btn-xs btn-edit" id="edit"><i class="fa fa-pencil-square-o"></i></a>
 
-                                            <form action="{{ url('admin/pengumuman/' .$data->id) }}" method="post" class="d-inline" onsubmit="return confirm('Yakin hapus pengumuman?')">
-                                                @method('delete')
-                                                @csrf
-                                                <button href="{{ url('pengumuman/'.$data->id) }}" class="btn btn-danger btn-xs btn-hapus" id="delete"><i class="fa fa-trash-o"></i></button>
-                                            </form>
+                                <form action="{{ url('admin/pengumuman/' .$data->id) }}" method="post" class="d-inline" onsubmit="return confirm('Yakin hapus pengumuman?')">
+                                    @method('delete')
+                                    @csrf
+                                    <button href="{{ url('pengumuman/'.$data->id) }}" class="btn btn-danger btn-xs btn-hapus" id="delete"><i class="fa fa-trash-o"></i></button>
+                                </form>
                             </td>
                         </tr>
-        
+
                         @endforeach
                     </tbody>
                 </table>
             </div>
         </div>
-        
+
     </div>
     <!-- Modal -->
     <div id="myModal" class="modal fade">
@@ -91,14 +91,14 @@
                     @csrf
                     <div class="modal-body">
                         <div class="mb-3">
-                          <label for="judul" class="form-label">Judul Pengumuman</label>
-                          <input type="text" name="judul" class="form-control" id="judulpengumuman" placeholder="Isikan Judul Pengumuman Disini">
+                            <label for="judul" class="form-label">Judul Pengumuman</label>
+                            <input type="text" name="judul" class="form-control" id="judulpengumuman" placeholder="Isikan Judul Pengumuman Disini">
                         </div>
                         <div class="mb-3">
-                          <label for="isi_pengumuman" class="form-label">Isi Pengumuman</label>
-                          <textarea name="isi_pengumuman" class="form-control" id="isi_pengumuman" placeholder="Isikan Pengumuman Disini"></textarea>
+                            <label for="isi_pengumuman" class="form-label">Isi Pengumuman</label>
+                            <textarea name="isi_pengumuman" class="form-control" id="isi_pengumuman" placeholder="Isikan Pengumuman Disini"></textarea>
                         </div>
-                        
+
                     </div>
                     <!-- Ini adalah Bagian Footer Modal -->
                     <div class="modal-footer">
@@ -107,11 +107,10 @@
                     </div>
                 </form>
 
-                
+
             </div>
         </div>
     </div>
 
 </div>
 @endsection
-

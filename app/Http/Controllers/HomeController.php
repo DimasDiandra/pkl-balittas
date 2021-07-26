@@ -5,6 +5,8 @@ namespace App\Http\Controllers;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\DB;
 use App\Models\Pengumuman;
+use App\Models\Projek;
+use App\Models\User;
 
 class HomeController extends Controller
 {
@@ -27,7 +29,13 @@ class HomeController extends Controller
     {
         // dd(session()->all());
         $file = DB::table('templates')->get();
+        $projek = Projek::Orderby('status', 'DESC')->get();
+        $user = User::all();
         $pengumuman = Pengumuman::orderBy('created_at', 'DESC')->get();;
-        return view('home', compact('file', 'pengumuman'));
+        return view('home', compact('file', 'pengumuman', 'user', 'projek'));
+    }
+
+    public function show_pengumuman($id)
+    {
     }
 }

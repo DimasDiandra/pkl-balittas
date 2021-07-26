@@ -27,9 +27,9 @@ Auth::routes();
 
 //Home
 Route::get('/home', [HomeController::class, 'index'])->name('home');
-
-//Template
 Route::get('/home/download', [TemplatesController::class, 'template_download']);
+
+
 
 //Perencanaan
 Route::get('/perencanaan', [PerencanaanController::class, 'perencanaan']);
@@ -74,7 +74,7 @@ Route::middleware('role:admin')->prefix('admin')->group(function () {
     Route::post('template', [TemplatesController::class, 'store']);
     Route::delete('template/{id}', [TemplatesController::class, 'delete']);
 
-    
+
     //Perencanaan
     Route::get('/perencanaan', [PerencanaanController::class, 'index']);
     Route::get('/perencanaan/{id}', [PerencanaanController::class, 'edit']);

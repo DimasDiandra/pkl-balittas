@@ -34,21 +34,19 @@
                     <h6 class="m-0 text-primary">Progres</h6>
                 </div>
                 <div class="card-body">
-                    <table class="table table-borderless">
-                        <tr>
-                            <td>
-                                <h4>PlaceHolder Projek</h4>
-                                <h6>PlaceHolder User</h6>
-                            </td>
-                        </tr>
-                        <tr>
-                            <td>
-                                <div class="progress">
-                                    <div class="progress-bar w-75" role="progressbar" aria-valuenow="75" aria-valuemin="0" aria-valuemax="100"></div>
-                                </div>
-                            </td>
-                        </tr>
-                    </table>
+                    @foreach($projek as $projek)
+                    <div style="padding-bottom: 16px;">
+                        <h6 style="font-weight: 600;">{{$projek->name}}</h6>
+                        <h7>{{
+                            $users = trim(
+                            $user->where('id',$projek->user_id)->pluck('name'),
+                            '[""]')
+                        }}</h7>
+                        <div class="progress" style="height:8px">
+                            <div class="progress-bar" role="progressbar" style="width: {{$projek->status}}% "></div>
+                        </div>
+                    </div>
+                    @endforeach
                 </div>
             </div>
         </div>
@@ -72,7 +70,7 @@
                         @foreach($pengumuman as $f)
                         <tr>
                             <td>
-                                <a href="" data-toggle="modal" data-target="#pengumumanModal">
+                                <a href="" data-toggle="modal" data-target="#pengumumanModal" class="text-primary">
                                     {{ $f->judul }}
                                 </a>
                             </td>
@@ -149,11 +147,13 @@
 
             <!-- Ini adalah Bagian Body Modal -->
             <div class="modal-body">
-                <h6>$pengumuman</h6>
+                @foreach ($pengumuman as $p)
+                <h6>{{$p->judul}}</h6>
                 <br>
                 <p>
                     test
                 </p>
+                @endforeach
             </div>
 
             <!-- Ini adalah Bagian Footer Modal -->

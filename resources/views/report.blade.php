@@ -106,7 +106,7 @@
     <div class="card card-body">
         <div class="row">
             <div class="col">
-                <ul class="nav nav-tabs nav-fill">
+                <ul class="nav nav-pills nav-fill">
                     <li class="nav-item">
                         <a class="nav-link active" href="#bulanan" role="tab" data-toggle="tab">Laporan Bulanan</a>
                     </li>

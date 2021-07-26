@@ -41,16 +41,16 @@ class PengumumanController extends Controller
      */
     public function store(Request $request)
     {
-        $this->validate($request,[
-            'judul'=> 'required',
+        $this->validate($request, [
+            'judul' => 'required',
             'isi_pengumuman' => 'required'
         ]);
-        $pengumuman= new Pengumuman;
+        $pengumuman = new Pengumuman;
         $pengumuman->judul = $request->input('judul');
         $pengumuman->isi_pengumuman = $request->input('isi_pengumuman');
         $pengumuman->save();
 
-        return redirect('admin/pengumuman')->with('success','Pengumuman Ditambahkan');
+        return redirect('admin/pengumuman')->with('success', 'Pengumuman Ditambahkan');
     }
 
     /**
@@ -62,39 +62,38 @@ class PengumumanController extends Controller
     public function show()
     {
         $pengumuman = DB::table('pengumumans')->get();
-		return view ('admin.tambahpengumuman', compact('pengumuman'));
+        return view('admin.tambahpengumuman', compact('pengumuman'));
     }
 
     public function edit($id)
-	{
-		$title = 'Edit ';
-		$data = Pengumuman::find($id);
+    {
+        $title = 'Edit ';
+        $data = Pengumuman::find($id);
 
-		return view('admin.editpengumuman', compact('title', 'data'));
-	}
+        return view('admin.editpengumuman', compact('title', 'data'));
+    }
 
-	public function update(Request $request, $id)
-	{
-		try {
-			// update data kedalam table users
-			$pengumuman['judul'] = $request->judul;
-			$pengumuman['isi_pengumuman'] = $request->isi_pengumuman;
-			$pengumuman['updated_at'] = date('Y-m-d H:i:s');
+    public function update(Request $request, $id)
+    {
+        try {
+            // update data kedalam table users
+            $pengumuman['judul'] = $request->judul;
+            $pengumuman['isi_pengumuman'] = $request->isi_pengumuman;
+            $pengumuman['updated_at'] = date('Y-m-d H:i:s');
 
-			Pengumuman::where('id', $id)->update($pengumuman);
-		} catch (\Exception $e) {
-		}
+            Pengumuman::where('id', $id)->update($pengumuman);
+        } catch (\Exception $e) {
+        }
 
-		return redirect('admin/pengumuman');
-	}
+        return redirect('admin/pengumuman');
+    }
 
-	public function delete($id)
-	{
-		try {
-			Pengumuman::where('id', $id)->delete();
-		} catch (\Exception $e) {
-		}
-		return redirect('admin/pengumuman');
-	}
-
+    public function delete($id)
+    {
+        try {
+            Pengumuman::where('id', $id)->delete();
+        } catch (\Exception $e) {
+        }
+        return redirect('admin/pengumuman');
+    }
 }
