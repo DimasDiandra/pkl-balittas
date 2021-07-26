@@ -37,5 +37,6 @@ class HomeController extends Controller
 
     public function show_pengumuman($id)
     {
+        return Pengumuman::find($id);
     }
 }

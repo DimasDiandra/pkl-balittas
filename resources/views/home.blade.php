@@ -53,24 +53,39 @@
         <!-- col 2 -->
         <div class="col">
             <!-- template -->
-            <div class="card order-card shadow" style="margin-bottom: 32px;">
-                <div class="card-block bg-primary">
-                    <a href="#" class="stretched-link" data-toggle="modal" data-target="#myModal">
-                        <h4 class="m-b-20 white">Download Template <i class="fa fa-file float-right"></i></h4>
-                    </a>
-                </div>
-            </div>
-            <!-- pengumuman -->
-            <div class="card shadow" style="height: 60vh; ">
+            <div class="card shadow" style="height: 30vh; margin-bottom: 32px; ">
                 <div class="card-header py-3">
                     <h6 class="m-0 text-primary">Pengumuman</h6>
                 </div>
                 <div class="card-body">
-                    <table class="table table-borderless">
+                    <table class="" style="border: 0;">
+                        @foreach($file as $f)
+                        <tr>
+                            <form action="/home/download" method="GET">
+                                <input type="hidden" name="path" value=" {{$f->path}}">
+                                <td>{{ $f->nama_file }}</td>
+                                <td style="width: 10%;">
+                                    <button type="submit" class="btn">
+                                        <i class="menu-icon fa fa-download" style="color: blue;"></i>
+                                    </button>
+                                </td>
+                            </form>
+                        </tr>
+                        @endforeach
+                    </table>
+                </div>
+            </div>
+            <!-- pengumuman -->
+            <div class="card shadow" style="height: 50vh; ">
+                <div class="card-header py-3">
+                    <h6 class="m-0 text-primary">Pengumuman</h6>
+                </div>
+                <div class="card-body">
+                    <table style="border: 0;">
                         @foreach($pengumuman as $f)
                         <tr>
-                            <td>
-                                <a href="" data-toggle="modal" data-target="#pengumumanModal" class="text-primary">
+                            <td style="padding-bottom:8px; cursor:pointer">
+                                <a data-toggle="modal" data-target="#pengumumanModal" data-id="{{ $f->id }}" class="text-primary detail-btn">
                                     {{ $f->judul }}
                                 </a>
                             </td>
@@ -147,13 +162,10 @@
 
             <!-- Ini adalah Bagian Body Modal -->
             <div class="modal-body">
-                @foreach ($pengumuman as $p)
-                <h6>{{$p->judul}}</h6>
+                <h6 id="judul"></h6>
                 <br>
-                <p>
-                    test
+                <p id="isi">
                 </p>
-                @endforeach
             </div>
 
             <!-- Ini adalah Bagian Footer Modal -->
@@ -166,7 +178,27 @@
 </div>
 
 <script>
-    $('#templateTable').DataTable();
+    // $('#templateTable').DataTable();
+
+    //dynamic modal
+    jQuery(document).ready(function() {
+        $('.detail-btn').click(function() {
+            const id = $(this).attr('data-id');
+            console.log(id)
+            $.ajax({
+                url: '/home/pengumuman/' + id,
+                type: 'GET',
+                data: {
+                    'id': id
+                },
+                success: function(data) {
+                    console.log(data);
+                    $('#judul').html(data.judul);
+                    $('#isi').html(data.isi_pengumuman);
+                }
+            });
+        });
+    });
 </script>
 
 @endsection
