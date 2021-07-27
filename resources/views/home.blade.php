@@ -57,8 +57,8 @@
                 <div class="card-header py-3">
                     <h6 class="m-0 text-primary">Pengumuman</h6>
                 </div>
-                <div class="card-body">
-                    <table class="" style="border: 0;">
+                <div class="card-body table-wrapper-scroll-y scrollbar">
+                    <table>
                         @foreach($file as $f)
                         <tr>
                             <form action="/home/download" method="GET">

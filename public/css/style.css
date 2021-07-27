@@ -187,3 +187,13 @@ body.my-login-page {
 .white{
     color: white;
 }
+
+.table-wrapper-scroll-y{
+    display: block;
+} 
+
+.scrollbar{
+    position: relative;
+    height: 200px;
+    overflow: auto;
+}
