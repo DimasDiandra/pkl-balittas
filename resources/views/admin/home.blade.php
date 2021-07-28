@@ -32,8 +32,18 @@
                     <h6 class="m-0 font-weight-bold text-primary">Data User</h6>
                 </div>
                 <div class="card-body perencanaan">
-
                     <a href="/admin/user" class="btn btn-primary">Data User</a>
+                </div>
+            </div>
+        </div>
+        <div class="col-lg-3">
+            <div class="card shadow" style="height:20vh;">
+                <div class="card-header py-3">
+                    <h6 class="m-0 font-weight-bold text-primary">Projek</h6>
+                </div>
+                <div class="card-body perencanaan">
+
+                    <a href="/admin/projek" class="btn btn-primary">Projek</a>
                 </div>
             </div>
         </div>
@@ -48,6 +58,11 @@
                 </div>
             </div>
         </div>
+
+    </div>
+</div>
+<div class="content mt-3">
+    <div class="row  justify-content-center">
         <div class="col-lg-3">
             <div class="card shadow" style="height:20vh;">
                 <div class="card-header py-3">
@@ -59,10 +74,6 @@
                 </div>
             </div>
         </div>
-    </div>
-</div>
-<div class="content mt-3">
-    <div class="row  justify-content-center">
         <div class="col-lg-3">
             <div class="card shadow" style="height:20vh;">
                 <div class="card-header py-3">

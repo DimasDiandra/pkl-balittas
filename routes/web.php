@@ -63,6 +63,13 @@ Route::middleware('role:admin')->prefix('admin')->group(function () {
     Route::put('/user/{id}', [App\Http\Controllers\UserController::class, 'update']);
     Route::delete('/user/{id}', [App\Http\Controllers\UserController::class, 'delete']);
 
+    //Projek User
+    Route::get('/projek', [App\Http\Controllers\ProjekController::class, 'show']);
+    Route::get('/projek/{id}', [App\Http\Controllers\UserController::class, 'edit']);
+    Route::put('/projek/{id}', [App\Http\Controllers\UserController::class, 'update']);
+    Route::put('/projek/{id}', [App\Http\Controllers\UserController::class, 'assign']);
+    Route::delete('/projek/{id}', [App\Http\Controllers\UserController::class, 'delete']);
+
     // Pengumuman Admin
     Route::get('/pengumuman', [PengumumanController::class, 'show']);
     Route::post('/pengumuman', [PengumumanController::class, 'store']);

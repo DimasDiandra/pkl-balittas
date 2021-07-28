@@ -55,7 +55,7 @@
             <!-- template -->
             <div class="card shadow" style="height: 30vh; margin-bottom: 32px; ">
                 <div class="card-header py-3">
-                    <h6 class="m-0 text-primary">Pengumuman</h6>
+                    <h6 class="m-0 text-primary">Template Download</h6>
                 </div>
                 <div class="card-body table-wrapper-scroll-y scrollbar">
                     <table>
@@ -87,6 +87,13 @@
                             <td style="padding-bottom:8px; cursor:pointer">
                                 <a data-toggle="modal" data-target="#pengumumanModal" data-id="{{ $f->id }}" class="text-primary detail-btn">
                                     {{ $f->judul }}
+                                </a>
+                            </td>
+                            <td style="padding-bottom:8px; cursor:pointer; width:20%">
+                                <a data-toggle="modal" data-target="#pengumumanModal" data-id="{{ $f->id }}" class="detail-btn">
+                                    {{$date= substr(
+                                     $f->created_at ,2,8
+                                    )}}
                                 </a>
                             </td>
                         </tr>
