@@ -38,23 +38,23 @@
                     <thead>
                         <tr>
                             <th width="1%">No.</th>
-                            <th width="30%">Name</th>
                             <th width="40%">Projek</th>
+                            <th width="30%">Name</th>
                             <th width="10%">Action</th>
                         </tr>
                     </thead>
                     <tbody>
-                        @foreach ($userdata as $data)
+                        @foreach ($projekdata as $data)
                         <tr>
                             <td>{{ $loop->iteration }}</td>
                             <td>{{ $data->name }}</td>
                             <td>{{
-                            $projek = trim(
-                            $projekdata->where('user_id',$data->id)->pluck('name'),
-                            '[""]') }}</td>
+                                $user = trim(
+                                $userdata->where('id',$data->user_id)->pluck('name'),
+                                '[""]') }}</td>
                             <td>
                                 {{-- <div style="width:60px"> --}}
-                                <a href="{{ url('admin/user/' .$data->id) }}" class="btn btn-warning btn-xs btn-edit" id="edit"><i class="menu-icon fa fa-pencil-square-o"></i></a>
+                                <a href="{{ url('admin/projek/' .$data->id) }}" class="btn btn-warning btn-xs btn-edit" id="edit"><i class="menu-icon fa fa-pencil-square-o"></i></a>
 
                                 <form action="{{ url('admin/user/' .$data->id) }}" method="post" class="d-inline" onsubmit="return confirm('Yakin hapus data?')">
                                     @method('delete')

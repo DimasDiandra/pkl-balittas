@@ -23,24 +23,25 @@ class ProjekController extends Controller
     public function edit($id)
     {
         $title = 'Edit Data peserta';
-        $data = User::find($id);
+        $projekdata = Projek::find($id);
+        $userdata = DB::table('users')->get();
 
-        return view('admin.editdatauser', compact('title', 'data'));
+        return view('admin.editProjek', compact('title', 'userdata', 'projekdata'));
     }
 
     public function update(Request $request, $id)
     {
         try {
             // update data kedalam table users
-            $user['email'] = $request->email;
-            $user['name'] = $request->name;
+            $user['user_id'] = $request->user_id;
             $user['updated_at'] = date('Y-m-d H:i:s');
+            // dd($request->user_id);
 
-            User::where('id', $id)->update($user);
+            Projek::where('id', $id)->update($user);
         } catch (\Exception $e) {
         }
 
-        return redirect('admin/user');
+        return redirect('admin/projek');
     }
 
     public function delete($id)

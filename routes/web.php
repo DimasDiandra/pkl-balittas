@@ -65,10 +65,9 @@ Route::middleware('role:admin')->prefix('admin')->group(function () {
 
     //Projek User
     Route::get('/projek', [App\Http\Controllers\ProjekController::class, 'show']);
-    Route::get('/projek/{id}', [App\Http\Controllers\UserController::class, 'edit']);
-    Route::put('/projek/{id}', [App\Http\Controllers\UserController::class, 'update']);
-    Route::put('/projek/{id}', [App\Http\Controllers\UserController::class, 'assign']);
-    Route::delete('/projek/{id}', [App\Http\Controllers\UserController::class, 'delete']);
+    Route::get('/projek/{id}', [App\Http\Controllers\ProjekController::class, 'edit']);
+    Route::put('/projek/{id}', [App\Http\Controllers\ProjekController::class, 'update']);
+    Route::delete('/projek/{id}', [App\Http\Controllers\ProjekController::class, 'delete']);
 
     // Pengumuman Admin
     Route::get('/pengumuman', [PengumumanController::class, 'show']);
