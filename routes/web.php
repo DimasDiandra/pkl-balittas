@@ -86,10 +86,9 @@ Route::middleware('role:admin')->prefix('admin')->group(function () {
     Route::get('/perencanaan', [PerencanaanController::class, 'index']);
     Route::get('/perencanaan/{id}', [PerencanaanController::class, 'edit']);
 
-
-    Route::get('/evaluasi', function () {
-        return view('admin.evaluasi');
-    });
+    // Monev
+    Route::get('/report', [ReportController::class, 'admin_view']);
+    Route::get('/report/{id}', [ReportController::class, 'admin_update']);
     // Route::get('/pengumuman', function () {return view('admin.tambahpengumuman');});
 });
 

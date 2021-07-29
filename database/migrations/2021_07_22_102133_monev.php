@@ -18,7 +18,7 @@ class Monev extends Migration
             $table->timestamps();
             $table->string('name');
             $table->string('path');
-            $table->string('status');
+            $table->integer('status');
 
             $table->unsignedBigInteger('user_id');
             $table->unsignedBigInteger('projek_id');
@@ -31,7 +31,7 @@ class Monev extends Migration
             $table->timestamps();
             $table->string('name');
             $table->string('path');
-            $table->string('status');
+            $table->integer('status');
 
             $table->unsignedBigInteger('user_id');
             $table->unsignedBigInteger('projek_id');
@@ -44,7 +44,7 @@ class Monev extends Migration
             $table->timestamps();
             $table->string('name');
             $table->string('path');
-            $table->string('status');
+            $table->integer('status');
 
             $table->unsignedBigInteger('user_id');
             $table->unsignedBigInteger('projek_id');
@@ -57,7 +57,7 @@ class Monev extends Migration
             $table->timestamps();
             $table->string('name');
             $table->string('path');
-            $table->string('status');
+            $table->integer('status');
 
             $table->unsignedBigInteger('user_id');
             $table->unsignedBigInteger('projek_id');
@@ -69,7 +69,7 @@ class Monev extends Migration
             $table->timestamps();
             $table->string('name');
             $table->string('path');
-            $table->string('status');
+            $table->integer('status');
 
             $table->unsignedBigInteger('user_id');
             $table->unsignedBigInteger('projek_id');
@@ -81,7 +81,7 @@ class Monev extends Migration
             $table->timestamps();
             $table->string('name');
             $table->string('path');
-            $table->string('status');
+            $table->integer('status');
 
             $table->unsignedBigInteger('user_id');
             $table->unsignedBigInteger('projek_id');

@@ -1,13 +1,13 @@
-@extends('main')
+@extends('admin/main')
 
-@section('title', 'Report')
+@section('title', 'Edit Perencanaan')
 
 @section('breadcrumbs')
 <div class="breadcrumbs">
     <div class="col-sm-4">
         <div class="page-header float-left">
             <div class="page-title">
-                <h1>Monitoring dan Evaluasi</h1>
+                <h1>Detail Perencanaan</h1>
             </div>
         </div>
     </div>
@@ -15,7 +15,7 @@
         <div class="page-header float-right">
             <div class="page-title">
                 <ol class="breadcrumb text-right">
-                    <li class="active"><i class="fa fa-flag"></i></li>
+                    <li class="active"><i class="fa fa-dashboard"></i></li>
                 </ol>
             </div>
         </div>
@@ -24,96 +24,7 @@
 @endsection
 
 @section('content')
-<!-- Begin Page Content -->
 <div class="container-fluid">
-
-    <form action="/report/upload" method="POST" enctype="multipart/form-data">
-        <!-- Page Heading -->
-        <div style="margin-top: 10px">
-            <select class="custom-select" name="projek_id">
-                @foreach($projek as $projek)
-                @if($projek->user_id==Auth::user()->id)
-                <option value="{{$projek->id}}">{{$projek->name}}</option>
-                @endif
-                @endforeach
-            </select>
-        </div>
-
-        <div class="row" style="padding-top:16px; padding-bottom:16px">
-
-
-            <!-- Card Status-->
-
-            <div class="col-sm-4">
-
-                <div class="card shadow h-100">
-                    <div class="card-header py-3">
-                        <h6 class="m-0  text-primary">Status Monev</h6>
-                    </div>
-                    <div class="card-body">
-                        <p>nama user upload 1
-                        </p>
-                    </div>
-
-                </div>
-
-            </div>
-
-            <!-- Card Upload-->
-            <div class="col">
-
-                <div class="card shadow mb-4" style="height: 100%;">
-                    <div class="card-header py-3">
-                        <h6 class="m-0 text-primary">Upload Monitoring dan Evaluasi</h6>
-                    </div>
-                    <div class="card-body">
-                        {{ csrf_field() }}
-                        <div class="drop-zone">
-                            <span class="drop-zone__prompt"> Drop File Here or Click to Upload</span>
-                            <input type="file" name="file" class="drop-zone__input">
-                        </div>
-                        <div style="margin-top: 10px">
-                            <select class="custom-select" name="keterangan">
-                                <option selected value="Kosong">Jenis File</option>
-                                <option value="1">Laporan Bulanan</option>
-                                <option value="2">Laporan Triwulan</option>
-                                <option value="3">Laporan Tengah Tahun</option>
-                                <option value="4">Laporan Akhir Tahun</option>
-                                <option value="5">Laporan Destudi</option>
-                                <option value="6">Laporan Renaksi</option>
-                            </select>
-                        </div>
-                        <div>
-                            <button class="btn btn-primary" style="float:right; margin-top: 10px;" type="submit"> <i class="menu-icon fa fa-upload"></i> Upload</button>
-                        </div>
-                    </div>
-                </div>
-
-            </div>
-            <!-- End Of Card Upload -->
-        </div>
-    </form>
-
-    <!-- Card History Title-->
-    <div class="breadcrumbs">
-        <div class="col-sm-4">
-            <div class="page-header float-left">
-                <div class="page-title">
-                    <h1>History Monitoring dan Evaluasi</h1>
-                </div>
-            </div>
-        </div>
-        <div class="col-sm-8">
-            <div class="page-header float-right">
-                <div class="page-title">
-                    <ol class="breadcrumb text-right">
-                        <li class="active"><i class="fa fa-map"></i></li>
-                    </ol>
-                </div>
-            </div>
-        </div>
-    </div>
-    <!-- Card History-->
     <div class="card card-body">
         <div class="row">
             <div class="col">
@@ -148,10 +59,11 @@
                             <table class="table" id="table">
                                 <thead>
                                     <tr>
-                                        <th width=10%>No.</th>
-                                        <th width=50%>File Name</th>
-                                        <th width=20%>Date Upload</th>
-                                        <th></th>
+                                        <th width=5%>No.</th>
+                                        <th>Date Upload</th>
+                                        <th width=30%>File Name</th>
+                                        <th width=20%>Status</th>
+                                        <th width=30%>Action</th>
                                     </tr>
                                 </thead>
                                 <tbody>
@@ -161,10 +73,28 @@
                                     <tr>
                                         <form action="/perencanaan/download" method="GET">
                                             <td>{{ $loop->iteration }}</td>
+                                            <td>{{$date= substr(
+                                     $f->created_at ,2,8
+                                    )}}</td>
                                             <input type="hidden" name="path" value=" {{$f->path}}">
                                             <td>{{ $f->name }}</td>
-                                            <td>{{ $f->created_at }}</td>
-                                            <td class="float-right">
+                                            @if($f->status==0)
+                                            <td>
+                                                Menunggu Review
+                                            </td>
+                                            @elseif($f->status==1)
+                                            <td>
+                                                Revisi
+                                            </td>
+                                            @elseif($f->status==2)
+                                            <td>
+                                                Diterima
+                                            </td>
+                                            @endif
+                                            <td class="t">
+                                                <button type="submit" class="btn btn-warning" style="color: white;">
+                                                    <i class="menu-icon fa fa-pencil"></i> Ubah Status
+                                                </button>
                                                 <button type="submit" class="btn btn-primary">
                                                     <i class="menu-icon fa fa-download"></i> Download
                                                 </button>
@@ -357,9 +287,5 @@
         </div>
     </div>
 </div>
-
-<script>
-    $('#reportTable').DataTable();
-</script>
 
 @endsection

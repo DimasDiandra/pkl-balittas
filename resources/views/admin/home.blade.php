@@ -81,7 +81,7 @@
                 </div>
                 <div class="card-body perencanaan">
 
-                    <a href="/admin/evaluasi" class="btn btn-primary">Monitoring dan Evaluasi</a>
+                    <a href="/admin/report" class="btn btn-primary">Monitoring dan Evaluasi</a>
                 </div>
             </div>
         </div>

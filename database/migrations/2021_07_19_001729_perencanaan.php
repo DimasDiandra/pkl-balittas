@@ -18,7 +18,7 @@ class Perencanaan extends Migration
             $table->timestamps();
             $table->string('file');
             $table->string('path');
-            $table->string('status');
+            $table->integer('status');
 
             $table->unsignedBigInteger('user_id');
             $table->unsignedBigInteger('projek_id');
@@ -30,7 +30,7 @@ class Perencanaan extends Migration
             $table->timestamps();
             $table->string('file');
             $table->string('path');
-            $table->string('status');
+            $table->integer('status');
 
             $table->unsignedBigInteger('user_id');
             $table->unsignedBigInteger('projek_id');
@@ -42,7 +42,7 @@ class Perencanaan extends Migration
             $table->timestamps();
             $table->string('file');
             $table->string('path');
-            $table->string('status');
+            $table->integer('status');
 
             $table->unsignedBigInteger('user_id');
             $table->unsignedBigInteger('projek_id');
@@ -54,7 +54,7 @@ class Perencanaan extends Migration
             $table->timestamps();
             $table->string('file');
             $table->string('path');
-            $table->string('status');
+            $table->integer('status');
 
             $table->unsignedBigInteger('user_id');
             $table->unsignedBigInteger('projek_id');
@@ -66,7 +66,7 @@ class Perencanaan extends Migration
             $table->timestamps();
             $table->string('file');
             $table->string('path');
-            $table->string('status');
+            $table->integer('status');
 
             $table->unsignedBigInteger('user_id');
             $table->unsignedBigInteger('projek_id');

@@ -43,7 +43,7 @@
                             '[""]')
                         }}</h7>
                         <div class="progress" style="height:8px">
-                            <div class="progress-bar" role="progressbar" style="width: {{$projek->status}}% "></div>
+                            <div class="progress-bar" role="progressbar" style="width: {{$projek->all_status}}% "></div>
                         </div>
                     </div>
                     @endforeach

@@ -29,7 +29,7 @@ class HomeController extends Controller
     {
         // dd(session()->all());
         $file = DB::table('templates')->get();
-        $projek = Projek::Orderby('status', 'DESC')->get();
+        $projek = Projek::Orderby('all_status', 'DESC')->get();
         $user = User::all();
         $pengumuman = Pengumuman::orderBy('created_at', 'DESC')->get();;
         return view('home', compact('file', 'pengumuman', 'user', 'projek'));

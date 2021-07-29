@@ -8,7 +8,9 @@ use App\Models\laporan_destudi;
 use App\Models\laporan_renaksi;
 use App\Models\laporan_tengahtahun;
 use App\Models\laporan_triwulan;
+use App\Models\Projek;
 use App\Models\User;
+use Illuminate\Support\Facades\DB;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\Storage;
@@ -29,9 +31,10 @@ class ReportController extends Controller
         $akhirTahun = laporan_akhirtahun::orderBy('created_at', 'DESC')->get();
         $destudi = laporan_destudi::orderBy('created_at', 'DESC')->get();
         $renaksi = laporan_renaksi::orderBy('created_at', 'DESC')->get();
+        $projek = Projek::all();
         return view('report', [
             'bulanan' => $bulanan, 'triwulan' => $triwulan, 'tengahTahun' => $tengahTahun, 'akhirTahun' => $akhirTahun, 'destudi' => $destudi,
-            'renaksi' => $renaksi
+            'renaksi' => $renaksi, 'projek' => $projek
         ]);
     }
 
@@ -40,11 +43,13 @@ class ReportController extends Controller
         $this->validate($request, [
             'file' => 'required',
             'keterangan' => 'required',
+            'projek_id' => 'required'
         ]);
 
         //variable file
         $file = $request->file('file');
         $jenis = $request->keterangan;
+        $projek_id = $request->projek_id;
 
         //nama file
         $namafile = $file->getClientOriginalName();
@@ -67,48 +72,48 @@ class ReportController extends Controller
                 'path' => $path,
                 'name' => $namafile,
                 'user_id' => $user->id,
-                'projek_id' => '1',
-                'status' => '1'
+                'projek_id' => $projek_id,
+                'status' => '0'
             ]);
         } else if ($jenis == 2) {
             laporan_triwulan::create([
                 'path' => $path,
                 'name' => $namafile,
                 'user_id' => $user->id,
-                'projek_id' => '1',
-                'status' => '1'
+                'projek_id' => $projek_id,
+                'status' => '0'
             ]);
         } else if ($jenis == 3) {
             laporan_tengahtahun::create([
                 'path' => $path,
                 'name' => $namafile,
                 'user_id' => $user->id,
-                'projek_id' => '1',
-                'status' => '1'
+                'projek_id' => $projek_id,
+                'status' => '0'
             ]);
         } else if ($jenis == 4) {
             laporan_akhirtahun::create([
                 'path' => $path,
                 'name' => $namafile,
                 'user_id' => $user->id,
-                'projek_id' => '1',
-                'status' => '1'
+                'projek_id' => $projek_id,
+                'status' => '0'
             ]);
         } else if ($jenis == 5) {
             laporan_destudi::create([
                 'path' => $path,
                 'name' => $namafile,
                 'user_id' => $user->id,
-                'projek_id' => '1',
-                'status' => '1'
+                'projek_id' => $projek_id,
+                'status' => '0'
             ]);
         } else if ($jenis == 6) {
             laporan_renaksi::create([
                 'path' => $path,
                 'name' => $namafile,
                 'user_id' => $user->id,
-                'projek_id' => '1',
-                'status' => '1'
+                'projek_id' => $projek_id,
+                'status' => '0'
             ]);
         }
 
@@ -129,5 +134,32 @@ class ReportController extends Controller
             return $e->getMessage();
         }
         // return redirect()->back();
+    }
+
+    public function admin_view()
+    {
+        // $title = 'Data peserta';
+        // $data = User::orderBy('name','asc')->get();
+        // return view('admin.datauser',compact('title','data'));
+
+        $userdata = DB::table('users')->get();
+        return view('admin.Report', compact('userdata'));
+    }
+
+    public function admin_update($id)
+    {
+        $bulanan = laporan_bulanan::orderBy('created_at', 'DESC')->get();
+        $triwulan = laporan_triwulan::orderBy('created_at', 'DESC')->get();
+        $tengahTahun = laporan_tengahtahun::orderBy('created_at', 'DESC')->get();
+        $akhirTahun = laporan_akhirtahun::orderBy('created_at', 'DESC')->get();
+        $destudi = laporan_destudi::orderBy('created_at', 'DESC')->get();
+        $renaksi = laporan_renaksi::orderBy('created_at', 'DESC')->get();
+        $projek = Projek::all();
+        return view('admin.editreport', [
+            'bulanan' => $bulanan, 'triwulan' => $triwulan, 'tengahTahun' => $tengahTahun, 'akhirTahun' => $akhirTahun, 'destudi' => $destudi,
+            'renaksi' => $renaksi, 'projek' => $projek
+        ]);
+
+        // return view('admin.editperencanaan', compact('title', 'data'));
     }
 }
