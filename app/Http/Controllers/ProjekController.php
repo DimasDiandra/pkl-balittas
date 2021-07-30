@@ -20,6 +20,26 @@ class ProjekController extends Controller
         return view('admin.projekUser', compact('userdata', 'projekdata'));
     }
 
+    public function create(Request $request)
+    {
+
+        $this->validate($request, [
+            'projek_name' => 'required',
+            'user_id' => 'required'
+        ]);
+
+        $name = $request->projek_name;
+        $user_id = $request->user_id;
+
+        Projek::create([
+            'name' => $name,
+            'user_id' => $user_id,
+            'all_status' => 0
+        ]);
+
+        return redirect()->back();
+    }
+
     public function edit($id)
     {
         $title = 'Edit Data peserta';

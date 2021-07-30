@@ -40,9 +40,19 @@
                         <div class="form-group">
                             <label for="exampleInputEmail1">User</label>
                             <select class="custom-select" name="user_id">
-                                <option selected value="Kosong">Assign User</option>
+                                <option selected value="Kosong">
+                                    {{ $user = trim(
+                                    $userdata->where('id',$projekdata->user_id)->pluck('id'),
+                                    '[""]') }} - {{ $user = trim(
+                                    $userdata->where('id',$projekdata->user_id)->pluck('name'),
+                                    '[""]') }}
+                                </option>
                                 @foreach($userdata as $user)
+                                @if(trim(
+                                $userdata->where('id',$projekdata->user_id)->pluck('id'),
+                                '[""]') != $user->id)
                                 <option value="{{$user->id}}">{{$user->id}} - {{ $user->name }}</option>
+                                @endif
                                 @endforeach
                             </select>
                         </div>

@@ -9,5 +9,5 @@ class Projek extends Model
 {
     protected $table = "projek";
 
-    protected $fillable = ['name', 'status', 'user_id'];
+    protected $fillable = ['name', 'all_status', 'user_id'];
 }

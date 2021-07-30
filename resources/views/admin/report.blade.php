@@ -29,13 +29,13 @@
 
         <div class="card">
             <div class="card-body table-responsive">
-                <table class="table table-bordered" id="table-datatables">
+                <table class="table table-borderless" id="table-datatables">
                     <thead>
                         <tr>
                             <th width="1%">No.</th>
                             <th width="30%">Name</th>
-                            <th width="30%">Email</th>
-                            <th width="20%">Action</th>
+                            <th width="30%">Projek</th>
+                            <th width="20%"></th>
                         </tr>
                     </thead>
                     <tbody>
@@ -43,9 +43,18 @@
                         <tr>
                             <td>{{ $loop->iteration }}</td>
                             <td>{{ $data->name }}</td>
-                            <td>{{ $data->email }}</td>
+                            @if(trim($projekdata
+                            ->where('user_id',$data->id)->pluck('name'),
+                            '[""]')
+                            ==null)
+                            <td>-</td>
+                            @else
+                            <td>{{$projek = trim(
+                                $projekdata->where('user_id',$data->id)->pluck('name'),
+                                '[""]')}}</td>
+                            @endif
                             <td class="text-center">
-                                <a href="{{ url('admin/report/' . $data->id) }}" class="btn btn-warning btn-xs btn-edit" id="edit"><i class="fa fa-pencil-square-o"></i></a>
+                                <a href="{{ url('admin/report/' . $data->id) }}" class="btn btn-primary" id="edit"><i class="fa fa-eye"></i> Lihat Detail</a>
                             </td>
                         </tr>
 

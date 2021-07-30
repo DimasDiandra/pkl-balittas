@@ -143,7 +143,8 @@ class ReportController extends Controller
         // return view('admin.datauser',compact('title','data'));
 
         $userdata = DB::table('users')->get();
-        return view('admin.Report', compact('userdata'));
+        $projekdata = Projek::all();
+        return view('admin.Report', compact('userdata', 'projekdata'));
     }
 
     public function admin_update($id)

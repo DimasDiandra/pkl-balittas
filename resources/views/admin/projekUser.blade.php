@@ -39,8 +39,8 @@
                         <tr>
                             <th width="1%">No.</th>
                             <th width="40%">Projek</th>
-                            <th width="30%">Name</th>
-                            <th width="10%">Action</th>
+                            <th width="30%">User</th>
+                            <th width="20%">Action</th>
                         </tr>
                     </thead>
                     <tbody>
@@ -54,12 +54,12 @@
                                 '[""]') }}</td>
                             <td>
                                 {{-- <div style="width:60px"> --}}
-                                <a href="{{ url('admin/projek/' .$data->id) }}" class="btn btn-warning btn-xs btn-edit" id="edit"><i class="menu-icon fa fa-pencil-square-o"></i></a>
+                                <a href="{{ url('admin/projek/' .$data->id) }}" class="btn btn-warning btn-xs btn-edit" id="edit" style="color: white;"><i class="menu-icon fa fa-pencil"></i> Edit</a>
 
-                                <form action="{{ url('admin/user/' .$data->id) }}" method="post" class="d-inline" onsubmit="return confirm('Yakin hapus data?')">
+                                <form action="{{ url('admin/projek/' .$data->id) }}" method="post" class="d-inline" onsubmit="return confirm('Yakin hapus data?')">
                                     @method('delete')
                                     @csrf
-                                    <button href="{{ url('user/'.$data->id) }}" class="btn btn-danger btn-xs btn-hapus" id="delete"><i class="fa fa-trash-o"></i></button>
+                                    <button href="{{ url('projek/'.$data->id) }}" class="btn btn-danger btn-xs btn-hapus" id="delete"><i class="fa fa-trash-o"></i> Hapus </button>
                                 </form>
 
                             </td>
@@ -68,6 +68,56 @@
                         @endforeach
                     </tbody>
                 </table>
+                <button class="btn btn-success" data-toggle="modal" data-target="#buatProjekModal"><i class="fa fa-plus"></i> Buat Projek</butt>
+            </div>
+        </div>
+    </div>
+
+    <!-- Modal Buat -->
+    <div id="buatProjekModal" class="modal fade">
+        <div class="modal-dialog modal-lg">
+            <div class="modal-content">
+                <!-- Ini adalah Bagian Header Modal -->
+                <div class="modal-header">
+                    <h4 class="modal-title">Tambah User</h4>
+                    <button type="button" class="close" data-dismiss="modal">&times;</button>
+                </div>
+
+                <!-- Ini adalah Bagian Body Modal -->
+                <div class="modal-body">
+                    <form method="POST" action="projek/buat">
+                        @csrf
+
+                        <div class=" row">
+
+                            <div class="col">
+                                <div class="box-body">
+                                    <div class="form-group">
+                                        <label for="exampleInputPassword1">Nama Projek</label>
+                                        <input type="text" name="projek_name" class="form-control" id="exampleInputPassword1" placeholder="Name" value="">
+                                    </div>
+                                    <div class="form-group">
+                                        <label for="exampleInputEmail1">Assign User</label>
+                                        <select class="custom-select" name="user_id">
+                                            <option selected value="Kosong" disabled selected hidden> Assign User
+                                            </option>
+                                            @foreach($userdata as $user)
+                                            <option value="{{$user->id}}">{{$user->id}} - {{$user->name}}</option>
+                                            @endforeach
+                                        </select>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                </div>
+
+                <!-- Ini adalah Bagian Footer Modal -->
+                <div class="modal-footer">
+                    <button type="submit" class="btn btn-primary">
+                        Buat Projek
+                    </button>
+                    </form>
+                </div>
             </div>
         </div>
     </div>
