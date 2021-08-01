@@ -1,13 +1,13 @@
 @extends('admin/main')
 
-@section('title', 'Edit Perencanaan')
+@section('title', 'Edit Monev')
 
 @section('breadcrumbs')
 <div class="breadcrumbs">
     <div class="col-sm-4">
         <div class="page-header float-left">
             <div class="page-title">
-                <h1>Detail Perencanaan</h1>
+                <h1>Detail Monitoring dan Evaluasi</h1>
             </div>
         </div>
     </div>

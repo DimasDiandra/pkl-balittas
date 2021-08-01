@@ -1,13 +1,13 @@
 @extends('admin/main')
 
-@section('title', 'Perencanaan')
+@section('title', 'Monev')
 
 @section('breadcrumbs')
 <div class="breadcrumbs">
     <div class="col-sm-4">
         <div class="page-header float-left">
             <div class="page-title">
-                <h1>Perencanaan</h1>
+                <h1>Monitoring dan Evaluasi</h1>
             </div>
         </div>
     </div>
@@ -54,7 +54,7 @@
                                 '[""]')}}</td>
                             @endif
                             <td class="text-center">
-                                <a href="{{ url('admin/report/' . $data->id) }}" class="btn btn-primary" id="edit"><i class="fa fa-eye"></i> Lihat Detail</a>
+                                <a href="{{ url('admin/evaluasi/' . $data->id) }}" class="btn btn-primary" id="edit"><i class="fa fa-eye"></i> Lihat Detail</a>
                             </td>
                         </tr>
 

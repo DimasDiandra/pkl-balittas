@@ -44,19 +44,22 @@
                         <a href="/admin"> <i class="menu-icon fa fa-dashboard"></i>Home </a>
                     </li>
                     <li>
-                        <a href="/admin/user"> <i class="menu-icon fa fa-puzzle-piece"></i>User </a>
+                        <a href="/admin/user"> <i class="menu-icon fa fa-user"></i>User </a>
                     </li>
                     <li>
-                        <a href="/admin/pengumuman"> <i class="menu-icon fa fa-puzzle-piece"></i>Pengumuman </a>
+                        <a href="/admin/pengumuman"> <i class="menu-icon fa fa-bullhorn"></i>Pengumuman </a>
                     </li>
                     <li>
-                        <a href="/admin/perencanaan"> <i class="menu-icon fa fa-puzzle-piece"></i>Perencanaan </a>
+                        <a href="/admin/perencanaan"> <i class="menu-icon fa fa-map"></i>Perencanaan </a>
                     </li>
                     <li>
-                        <a href="/admin/evaluasi"> <i class="menu-icon fa fa-puzzle-piece"></i>Monitoring dan Evaluasi </a>
+                        <a href="/admin/evaluasi"> <i class="menu-icon fa fa-flag"></i>Monitoring dan Evaluasi </a>
                     </li>
                     <li>
-                        <a href="/admin/template"> <i class="menu-icon fa fa-puzzle-piece"></i>Data Template </a>
+                        <a href="/admin/template"> <i class="menu-icon fa fa-file"></i>Data Template </a>
+                    </li>
+                    <li>
+                        <a href="/admin/projek"> <i class="menu-icon fa fa-puzzle-piece"></i>Projek </a>
                     </li>
                 </ul>
             </div><!-- /.navbar-collapse -->
