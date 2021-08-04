@@ -90,6 +90,12 @@ Route::middleware('role:admin')->prefix('admin')->group(function () {
     // Monev
     Route::get('/evaluasi', [ReportController::class, 'admin_view']);
     Route::get('/evaluasi/{id}', [ReportController::class, 'admin_update']);
+    Route::get('/ubahbulanan/{id}', [ReportController::class, 'statusbulanan']);
+    Route::get('/ubahtriwulan/{id}', [ReportController::class, 'statustriwulan']);
+    Route::get('/ubahtengah/{id}', [ReportController::class, 'statustengah']);
+    Route::get('/ubahakhir/{id}', [ReportController::class, 'statusakhir']);
+    Route::get('/ubahdestudi/{id}', [ReportController::class, 'statusdestudi']);
+    Route::get('/ubahrenaksi/{id}', [ReportController::class, 'statusrenaksi']);
     // Route::get('/pengumuman', function () {return view('admin.tambahpengumuman');});
 });
 

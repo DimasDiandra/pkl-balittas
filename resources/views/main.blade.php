@@ -67,7 +67,7 @@
                 <div class="col-sm-5">
                     <div class="user-area dropdown float-right">
                         <a href="#" class="dropdown-toggle" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-                            <img class="user-avatar rounded-circle" src="{{ asset('style/images/admin.jpg') }}">
+                            <img class="user-avatar rounded-circle" src="{{ asset('style/images/user.png') }}">
                         </a>
                         <div class="user-menu dropdown-menu">
                             <a class="dropdown-item" href="{{ route('logout') }}" onclick="event.preventDefault();

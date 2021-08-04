@@ -36,12 +36,11 @@ class PerencanaanController extends Controller
 
     public function edit($id)
     {
-        $analisis = Analisis::get();
-        $matriks = Matriks::get();
-        $proposal = Proposal::get();
-        $rab = RAB::get();
-        $kak = KAK::get();
-
+        $analisis = Analisis::where('user_id',$id)->get();
+        $matriks = Matriks::where('user_id',$id)->get();
+        $proposal = Proposal::where('user_id',$id)->get();
+        $rab = RAB::where('user_id',$id)->get();
+        $kak = KAK::where('user_id',$id)->get();
         return view('admin.editperencanaan', ['analisis' => $analisis, 'kak' => $kak, 'matriks' => $matriks, 'proposal' => $proposal, 'rab' => $rab]);
 
         // return view('admin.editperencanaan', compact('title', 'data'));

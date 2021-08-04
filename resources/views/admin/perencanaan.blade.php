@@ -46,8 +46,8 @@
                                     <td>{{ $data->email }}</td>
                                     <td class="text-center">
                                         <a href="{{ url('admin/perencanaan/' . $data->id) }}"
-                                            class="btn btn-warning btn-xs btn-edit" id="edit"><i
-                                                class="fa fa-pencil-square-o"></i></a>
+                                            class="btn btn-primary" id="edit"><i
+                                                class="fa fa-eye"></i></a>
                                     </td>
                                 </tr>
 
