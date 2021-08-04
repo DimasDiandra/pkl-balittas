@@ -47,6 +47,17 @@
                         </div>
                     </div>
                     @endforeach
+
+
+                    @foreach($notifications as $notification)
+                    <div class="alert alert-success" role="alert">
+                        [{{ $notification->created_at }}] User has just registered.
+                        <a href="#" class="float-right mark-as-read" data-id="{{ $notification->id }}">
+                            Mark as read
+                        </a>
+                    </div>
+                    @endforeach
+
                 </div>
             </div>
         </div>

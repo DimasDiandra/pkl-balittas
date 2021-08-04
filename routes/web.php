@@ -8,6 +8,9 @@ use App\Http\Controllers\ReportController;
 use App\Http\Controllers\PengumumanController;
 use App\Http\Controllers\TemplatesController;
 use Illuminate\Support\Facades\Auth;
+use App\Http\Controllers\NotificationController;
+
+
 /*
 |--------------------------------------------------------------------------
 | Web Routes
@@ -55,7 +58,7 @@ Route::middleware('role:admin')->get('/admin', function () {
 })->name('admin');
 Route::middleware('role:admin')->prefix('admin')->group(function () {
     Route::get('/admin', function () {
-        return view('admin.home');
+        return view('admin.home', [HomeController::class, 'index']);
     })->name('admin');
     // List data User
     Route::get('/user', [App\Http\Controllers\UserController::class, 'index']);
@@ -96,3 +99,7 @@ Route::middleware('role:admin')->prefix('admin')->group(function () {
 Route::get('/sidebar', function () {
     return view('sidebar');
 });
+
+//notification
+
+Route::get('/send-notification', [NotificationController::class, 'sendOfferNotification']);

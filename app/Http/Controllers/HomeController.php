@@ -31,8 +31,9 @@ class HomeController extends Controller
         $file = DB::table('templates')->get();
         $projek = Projek::Orderby('all_status', 'DESC')->get();
         $user = User::all();
-        $pengumuman = Pengumuman::orderBy('created_at', 'DESC')->get();;
-        return view('home', compact('file', 'pengumuman', 'user', 'projek'));
+        $pengumuman = Pengumuman::orderBy('created_at', 'DESC')->get();
+        $notifications = DB::table('notifications')->orderBy('created_at', 'DESC')->get();
+        return view('home', compact('file', 'pengumuman', 'user', 'projek', 'notifications'));
     }
 
     public function show_pengumuman($id)
