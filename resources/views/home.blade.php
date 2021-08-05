@@ -51,7 +51,7 @@
 
                     @foreach($notifications as $notification)
                     <div class="alert alert-success" role="alert">
-                        [{{ $notification->created_at }}] User has just registered.
+                        [{{ $notification->created_at }}] {{$notification->data}} User has just registered.
                         <a href="#" class="float-right mark-as-read" data-id="{{ $notification->id }}">
                             Mark as read
                         </a>
