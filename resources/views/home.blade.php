@@ -41,7 +41,7 @@
                                 <td style="width: 15%;">
                                     {{substr($notification->created_at,2,8)}}
                                 </td>
-                                <td>
+                                <td style="width: 80%;">
                                     Status file
                                     <a style="font-weight: 700;">{{$notification->data['name']}}</a>
                                     diubah menjadi
