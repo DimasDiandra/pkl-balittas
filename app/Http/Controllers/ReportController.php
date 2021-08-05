@@ -59,6 +59,8 @@ class ReportController extends Controller
         $data = laporan_triwulan::find($id);
         $data->status = $status;
         $data->save();
+        $user = User::find($id);
+        Notification::send($user, new StatusNotification($data));
         return redirect()->back();
     }
 
@@ -68,6 +70,8 @@ class ReportController extends Controller
         $data = laporan_tengahtahun::find($id);
         $data->status = $status;
         $data->save();
+        $user = User::find($id);
+        Notification::send($user, new StatusNotification($data));
         return redirect()->back();
     }
 
@@ -77,6 +81,8 @@ class ReportController extends Controller
         $data = laporan_akhirtahun::find($id);
         $data->status = $status;
         $data->save();
+        $user = User::find($id);
+        Notification::send($user, new StatusNotification($data));
         return redirect()->back();
     }
 
@@ -86,6 +92,8 @@ class ReportController extends Controller
         $data = laporan_destudi::find($id);
         $data->status = $status;
         $data->save();
+        $user = User::find($id);
+        Notification::send($user, new StatusNotification($data));
         return redirect()->back();
     }
 
@@ -95,6 +103,8 @@ class ReportController extends Controller
         $data = laporan_renaksi::find($id);
         $data->status = $status;
         $data->save();
+        $user = User::find($id);
+        Notification::send($user, new StatusNotification($data));
         return redirect()->back();
     }
 
