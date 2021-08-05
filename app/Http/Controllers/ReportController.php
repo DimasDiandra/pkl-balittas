@@ -38,6 +38,60 @@ class ReportController extends Controller
         ]);
     }
 
+    public function statusbulanan($id,Request $request)
+    {
+        $status=$request->status;
+        $data = laporan_bulanan::find($id);
+        $data->status=$status;
+        $data->save();
+        return redirect()->back();
+    }
+
+    public function statustriwulan($id,Request $request)
+    {
+        $status=$request->status;
+        $data = laporan_triwulan::find($id);
+        $data->status=$status;
+        $data->save();
+        return redirect()->back();
+    }
+
+    public function statustengah($id,Request $request)
+    {
+        $status=$request->status;
+        $data = laporan_tengahtahun::find($id);
+        $data->status=$status;
+        $data->save();
+        return redirect()->back();
+    }
+
+    public function statusakhir($id,Request $request)
+    {
+        $status=$request->status;
+        $data = laporan_akhirtahun::find($id);
+        $data->status=$status;
+        $data->save();
+        return redirect()->back();
+    }
+
+    public function statusdestudi($id,Request $request)
+    {
+        $status=$request->status;
+        $data = laporan_destudi::find($id);
+        $data->status=$status;
+        $data->save();
+        return redirect()->back();
+    }
+
+    public function statusrenaksi($id,Request $request)
+    {
+        $status=$request->status;
+        $data = laporan_renaksi::find($id);
+        $data->status=$status;
+        $data->save();
+        return redirect()->back();
+    }
+
     public function report_upload(Request $request)
     {
         $this->validate($request, [
@@ -149,17 +203,28 @@ class ReportController extends Controller
 
     public function admin_update($id)
     {
-        $bulanan = laporan_bulanan::orderBy('created_at', 'DESC')->get();
-        $triwulan = laporan_triwulan::orderBy('created_at', 'DESC')->get();
-        $tengahTahun = laporan_tengahtahun::orderBy('created_at', 'DESC')->get();
-        $akhirTahun = laporan_akhirtahun::orderBy('created_at', 'DESC')->get();
-        $destudi = laporan_destudi::orderBy('created_at', 'DESC')->get();
-        $renaksi = laporan_renaksi::orderBy('created_at', 'DESC')->get();
+        $bulanan = laporan_bulanan::where('user_id',$id)->get();
+        $triwulan = laporan_triwulan::where('user_id',$id)->get();
+        $tengahTahun = laporan_tengahtahun::where('user_id',$id)->get();
+        $akhirTahun = laporan_akhirtahun::where('user_id',$id)->get();
+        $destudi = laporan_destudi::where('user_id',$id)->get();
+        $renaksi = laporan_renaksi::where('user_id',$id)->get();
         $projek = Projek::all();
         return view('admin.editreport', [
             'bulanan' => $bulanan, 'triwulan' => $triwulan, 'tengahTahun' => $tengahTahun, 'akhirTahun' => $akhirTahun, 'destudi' => $destudi,
             'renaksi' => $renaksi, 'projek' => $projek
         ]);
+        // $bulanan = laporan_bulanan::orderBy('created_at', 'DESC')->get();
+        // $triwulan = laporan_triwulan::orderBy('created_at', 'DESC')->get();
+        // $tengahTahun = laporan_tengahtahun::orderBy('created_at', 'DESC')->get();
+        // $akhirTahun = laporan_akhirtahun::orderBy('created_at', 'DESC')->get();
+        // $destudi = laporan_destudi::orderBy('created_at', 'DESC')->get();
+        // $renaksi = laporan_renaksi::orderBy('created_at', 'DESC')->get();
+        // $projek = Projek::all();
+        // return view('admin.editreport', [
+        //     'bulanan' => $bulanan, 'triwulan' => $triwulan, 'tengahTahun' => $tengahTahun, 'akhirTahun' => $akhirTahun, 'destudi' => $destudi,
+        //     'renaksi' => $renaksi, 'projek' => $projek
+        // ]);
 
         // return view('admin.editperencanaan', compact('title', 'data'));
     }

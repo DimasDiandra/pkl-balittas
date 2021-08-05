@@ -134,7 +134,7 @@
                             <tbody>
                                 <!-- Isi dari keluaran data -->
                                 @foreach($kak as $f)
-                                @if($f->user_id==Auth::user()->id)
+                                {{-- @if($f->user_id==Auth::user()->id) --}}
                                 <tr>
                                     <form action="/perencanaan/download" method="GET">
                                         <td>{{ $loop->iteration}}</td>
@@ -148,7 +148,7 @@
                                         </td>
                                     </form>
                                 </tr>
-                                @endif
+                                {{-- @endif --}}
                                 @endforeach
                             </tbody>
                         </table>
@@ -169,7 +169,7 @@
                             <tbody>
                                 <!-- Isi dari keluaran data -->
                                 @foreach($proposal as $f)
-                                @if($f->user_id==Auth::user()->id)
+                                {{-- @if($f->user_id==Auth::user()->id) --}}
                                 <tr>
                                     <form action="/perencanaan/download" method="GET">
                                         <td>{{ $loop->iteration }}</td>
@@ -183,7 +183,7 @@
                                         </td>
                                     </form>
                                 </tr>
-                                @endif
+                                {{-- @endif --}}
                                 @endforeach
                             </tbody>
                         </table>
@@ -204,7 +204,7 @@
                             <tbody>
                                 <!-- Isi dari keluaran data -->
                                 @foreach($analisis as $f)
-                                @if($f->user_id==Auth::user()->id)
+                                {{-- @if($f->user_id==Auth::user()->id) --}}
                                 <tr>
                                     <form action="/perencanaan/download" method="GET">
                                         <td>{{ $loop->iteration }}</td>
@@ -218,7 +218,7 @@
                                         </td>
                                     </form>
                                 </tr>
-                                @endif
+                                {{-- @endif --}}
                                 @endforeach
                             </tbody>
                         </table>
