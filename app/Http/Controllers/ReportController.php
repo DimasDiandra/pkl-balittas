@@ -14,6 +14,8 @@ use Illuminate\Support\Facades\DB;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\Storage;
+use App\Notifications\StatusNotification;
+use Illuminate\Support\Facades\Notification;
 
 class ReportController extends Controller
 {
@@ -38,56 +40,60 @@ class ReportController extends Controller
         ]);
     }
 
-    public function statusbulanan($id,Request $request)
+    public function statusbulanan($id, Request $request)
     {
-        $status=$request->status;
+        $status = $request->status;
         $data = laporan_bulanan::find($id);
-        $data->status=$status;
+        $data->status = $status;
         $data->save();
+
+        // $data->notify(new StatusNotification($data));
+        $user = User::find($id);
+        Notification::send($user, new StatusNotification($data));
         return redirect()->back();
     }
 
-    public function statustriwulan($id,Request $request)
+    public function statustriwulan($id, Request $request)
     {
-        $status=$request->status;
+        $status = $request->status;
         $data = laporan_triwulan::find($id);
-        $data->status=$status;
+        $data->status = $status;
         $data->save();
         return redirect()->back();
     }
 
-    public function statustengah($id,Request $request)
+    public function statustengah($id, Request $request)
     {
-        $status=$request->status;
+        $status = $request->status;
         $data = laporan_tengahtahun::find($id);
-        $data->status=$status;
+        $data->status = $status;
         $data->save();
         return redirect()->back();
     }
 
-    public function statusakhir($id,Request $request)
+    public function statusakhir($id, Request $request)
     {
-        $status=$request->status;
+        $status = $request->status;
         $data = laporan_akhirtahun::find($id);
-        $data->status=$status;
+        $data->status = $status;
         $data->save();
         return redirect()->back();
     }
 
-    public function statusdestudi($id,Request $request)
+    public function statusdestudi($id, Request $request)
     {
-        $status=$request->status;
+        $status = $request->status;
         $data = laporan_destudi::find($id);
-        $data->status=$status;
+        $data->status = $status;
         $data->save();
         return redirect()->back();
     }
 
-    public function statusrenaksi($id,Request $request)
+    public function statusrenaksi($id, Request $request)
     {
-        $status=$request->status;
+        $status = $request->status;
         $data = laporan_renaksi::find($id);
-        $data->status=$status;
+        $data->status = $status;
         $data->save();
         return redirect()->back();
     }
@@ -203,12 +209,12 @@ class ReportController extends Controller
 
     public function admin_update($id)
     {
-        $bulanan = laporan_bulanan::where('user_id',$id)->get();
-        $triwulan = laporan_triwulan::where('user_id',$id)->get();
-        $tengahTahun = laporan_tengahtahun::where('user_id',$id)->get();
-        $akhirTahun = laporan_akhirtahun::where('user_id',$id)->get();
-        $destudi = laporan_destudi::where('user_id',$id)->get();
-        $renaksi = laporan_renaksi::where('user_id',$id)->get();
+        $bulanan = laporan_bulanan::where('user_id', $id)->get();
+        $triwulan = laporan_triwulan::where('user_id', $id)->get();
+        $tengahTahun = laporan_tengahtahun::where('user_id', $id)->get();
+        $akhirTahun = laporan_akhirtahun::where('user_id', $id)->get();
+        $destudi = laporan_destudi::where('user_id', $id)->get();
+        $renaksi = laporan_renaksi::where('user_id', $id)->get();
         $projek = Projek::all();
         return view('admin.editreport', [
             'bulanan' => $bulanan, 'triwulan' => $triwulan, 'tengahTahun' => $tengahTahun, 'akhirTahun' => $akhirTahun, 'destudi' => $destudi,

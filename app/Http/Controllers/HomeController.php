@@ -7,6 +7,7 @@ use Illuminate\Support\Facades\DB;
 use App\Models\Pengumuman;
 use App\Models\Projek;
 use App\Models\User;
+use Illuminate\Support\Facades\Auth;
 
 class HomeController extends Controller
 {
@@ -30,10 +31,9 @@ class HomeController extends Controller
         // dd(session()->all());
         $file = DB::table('templates')->get();
         $projek = Projek::Orderby('all_status', 'DESC')->get();
-        $user = User::all();
+        $user = User::find(Auth::user()->id);
         $pengumuman = Pengumuman::orderBy('created_at', 'DESC')->get();
-        $notifications = DB::table('notifications')->orderBy('created_at', 'DESC')->get();
-        return view('home', compact('file', 'pengumuman', 'user', 'projek', 'notifications'));
+        return view('home', compact('file', 'pengumuman', 'user', 'projek'));
     }
 
     public function show_pengumuman($id)

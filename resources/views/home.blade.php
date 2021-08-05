@@ -49,14 +49,37 @@
                     @endforeach
 
 
-                    @foreach($notifications as $notification)
+                    @forelse($user->notifications as $notification)
                     <div class="alert alert-success" role="alert">
-                        [{{ $notification->created_at }}] {{$notification->data}} User has just registered.
+                        Status file
+                        <a style="font-weight: 700;">{{$notification->data['name']}}</a>
+                        diubah menjadi
+                        @if ($notification->data['status'] == 0)
+                        <td>
+                            <a style="font-weight: 700;">
+                                Menunggu Review
+                            </a>
+                        </td>
+                        @elseif($notification->data['status']==1)
+                        <td>
+                            <a style="font-weight: 700;">
+                                Revisi
+                            </a>
+                        </td>
+                        @elseif($notification->data['status']==2)
+                        <td>
+                            <a style="font-weight: 700;">
+                                Diterima
+                            </a>
+                        </td>
+                        @endif
                         <a href="#" class="float-right mark-as-read" data-id="{{ $notification->id }}">
                             Mark as read
                         </a>
                     </div>
-                    @endforeach
+                    @empty
+
+                    @endforelse
 
                 </div>
             </div>

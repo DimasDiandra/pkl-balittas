@@ -2,12 +2,13 @@
 
 namespace App\Notifications;
 
+use Illuminate\Http\Request;
 use Illuminate\Bus\Queueable;
 use Illuminate\Contracts\Queue\ShouldQueue;
 use Illuminate\Notifications\Messages\MailMessage;
 use Illuminate\Notifications\Notification;
 
-class NewUserNotification extends Notification
+class StatusNotification extends Notification
 {
     use Queueable;
 
@@ -16,9 +17,9 @@ class NewUserNotification extends Notification
      *
      * @return void
      */
-    public function __construct($user)
+    public function __construct($data)
     {
-        $this->user = $user;
+        $this->data = $data;
     }
 
     /**
@@ -54,9 +55,13 @@ class NewUserNotification extends Notification
      */
     public function toArray($notifiable)
     {
+        // dd($notif);
+        // $name = $notif->name;
+        // $status = $notif->status;
+        // $user_id = $notif->user_id;
         return [
-            'name' => $this->user->name,
-            'email' => $this->user->email,
+            'name' => $this->data->name,
+            'status' => $this->data->status
         ];
     }
 }
