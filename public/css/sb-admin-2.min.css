@@ -1482,7 +1482,7 @@ pre code {
 .table-borderless td,
 .table-borderless th,
 .table-borderless thead th {
-    border: 0;
+    border: 0px;
 }
 .table-striped tbody tr:nth-of-type(odd) {
     background-color: rgba(0, 0, 0, 0.05);

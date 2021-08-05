@@ -47,8 +47,10 @@ class ReportController extends Controller
         $data->status = $status;
         $data->save();
 
+        dd(DB::table('status')->where('id', $data->projek_id));
+
         // $data->notify(new StatusNotification($data));
-        $user = User::find($id);
+        $user = User::where('id', $data->user_id)->get('id');
         Notification::send($user, new StatusNotification($data));
         return redirect()->back();
     }
@@ -59,7 +61,7 @@ class ReportController extends Controller
         $data = laporan_triwulan::find($id);
         $data->status = $status;
         $data->save();
-        $user = User::find($id);
+        $user = User::where('id', $data->user_id)->get('id');
         Notification::send($user, new StatusNotification($data));
         return redirect()->back();
     }
@@ -70,7 +72,7 @@ class ReportController extends Controller
         $data = laporan_tengahtahun::find($id);
         $data->status = $status;
         $data->save();
-        $user = User::find($id);
+        $user = User::where('id', $data->user_id)->get('id');
         Notification::send($user, new StatusNotification($data));
         return redirect()->back();
     }
@@ -81,7 +83,7 @@ class ReportController extends Controller
         $data = laporan_akhirtahun::find($id);
         $data->status = $status;
         $data->save();
-        $user = User::find($id);
+        $user = User::where('id', $data->user_id)->get('id');
         Notification::send($user, new StatusNotification($data));
         return redirect()->back();
     }
@@ -92,7 +94,7 @@ class ReportController extends Controller
         $data = laporan_destudi::find($id);
         $data->status = $status;
         $data->save();
-        $user = User::find($id);
+        $user = User::where('id', $data->user_id)->get('id');
         Notification::send($user, new StatusNotification($data));
         return redirect()->back();
     }
@@ -103,7 +105,7 @@ class ReportController extends Controller
         $data = laporan_renaksi::find($id);
         $data->status = $status;
         $data->save();
-        $user = User::find($id);
+        $user = User::where('id', $data->user_id)->get('id');
         Notification::send($user, new StatusNotification($data));
         return redirect()->back();
     }

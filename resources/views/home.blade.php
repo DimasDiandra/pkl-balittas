@@ -27,10 +27,57 @@
 <!-- Begin Page Content -->
 <div class="container-fluid" style="padding-top: 16px;">
     <div class="row">
-        <!-- progres -->
+        <!-- notifikasi -->
         <div class="col-sm-8">
-            <div class="card shadow h-100">
-                <div class="card-header py-3">
+            <div class="card shadow" style=" height: 30vh; margin-bottom: 32px; ">
+                <div class=" card-header py-3">
+                    <h6 class="m-0 text-primary">Notifikasi</h6>
+                </div>
+                <div class="card-body overflow-auto">
+                    <div class="table table-borderless">
+                        <table>
+                            @forelse($user->notifications as $notification)
+                            <tr>
+                                <td style="width: 15%;">
+                                    {{substr($notification->created_at,2,8)}}
+                                </td>
+                                <td>
+                                    Status file
+                                    <a style="font-weight: 700;">{{$notification->data['name']}}</a>
+                                    diubah menjadi
+                                    @if ($notification->data['status'] == 0)
+                                    <a style="font-weight: 700;">
+                                        Menunggu Review
+                                    </a>
+                                    @elseif($notification->data['status']==1)
+                                    <a style="font-weight: 700;">
+                                        Revisi
+                                    </a>
+                                    @elseif($notification->data['status']==2)
+                                    <a style="font-weight: 700;">
+                                        Diterima
+                                    </a>
+                                    @endif
+                                </td>
+                                <td style="width: 10%;">
+                                    @if ($notification->data['status'] == 0)
+                                    <a href="" class="float-right" style="color: blue;"> <i class="fa fa-history"></i></a>
+                                    @elseif($notification->data['status']==1)
+                                    <a href="" class="float-right" style="color: red;"> <i class="fa fa-ban"></i></a>
+                                    @elseif($notification->data['status']==2)
+                                    <a href="" class="float-right" style="color: green;"> <i class="fa fa-check"></i></a>
+                                    @endif
+                                </td>
+                            </tr>
+                            @empty
+                            @endforelse
+                        </table>
+                    </div>
+                </div>
+            </div>
+            <!-- progress -->
+            <div class="card shadow overflow-auto" style=" height: 50vh; margin-bottom: 32px; ">
+                <div class=" card-header py-3">
                     <h6 class="m-0 text-primary">Progres</h6>
                 </div>
                 <div class="card-body">
@@ -48,41 +95,10 @@
                     </div>
                     @endforeach
 
-
-                    @forelse($user->notifications as $notification)
-                    <div class="alert alert-success" role="alert">
-                        Status file
-                        <a style="font-weight: 700;">{{$notification->data['name']}}</a>
-                        diubah menjadi
-                        @if ($notification->data['status'] == 0)
-                        <td>
-                            <a style="font-weight: 700;">
-                                Menunggu Review
-                            </a>
-                        </td>
-                        @elseif($notification->data['status']==1)
-                        <td>
-                            <a style="font-weight: 700;">
-                                Revisi
-                            </a>
-                        </td>
-                        @elseif($notification->data['status']==2)
-                        <td>
-                            <a style="font-weight: 700;">
-                                Diterima
-                            </a>
-                        </td>
-                        @endif
-                        <a href="#" class="float-right mark-as-read" data-id="{{ $notification->id }}">
-                            Mark as read
-                        </a>
-                    </div>
-                    @empty
-
-                    @endforelse
-
                 </div>
             </div>
+
+
         </div>
         <!-- col 2 -->
         <div class="col">

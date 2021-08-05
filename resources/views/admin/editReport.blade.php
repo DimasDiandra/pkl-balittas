@@ -93,7 +93,7 @@
                                             <td class="t">
 
                                                 <!-- Button trigger modal -->
-                                                <a type="submit" class="btn btn-success" style="color:white" data-toggle="modal" data-target="#myModal{{ $f->id }}">
+                                                <a type="submit" class="btn btn-success" style="color:white" data-toggle="modal" data-target="#bulanan{{ $f->id }}">
                                                     <i class="menu-icon fa fa-pencil"></i> Ubah Status
                                                 </a>
 
@@ -150,7 +150,7 @@
                                             <td class="t">
 
                                                 <!-- Button trigger modal -->
-                                                <a type="submit" class="btn btn-success" style="color:white" data-toggle="modal" data-target="#myModal{{ $f->id }}">
+                                                <a type="submit" class="btn btn-success" style="color:white" data-toggle="modal" data-target="#triwulan{{ $f->id }}">
                                                     <i class="menu-icon fa fa-pencil"></i> Ubah Status
                                                 </a>
 
@@ -207,7 +207,7 @@
                                             <td class="t">
 
                                                 <!-- Button trigger modal -->
-                                                <a type="submit" class="btn btn-success" style="color:white" data-toggle="modal" data-target="#myModal{{ $f->id }}">
+                                                <a type="submit" class="btn btn-success" style="color:white" data-toggle="modal" data-target="#tengah{{ $f->id }}">
                                                     <i class="menu-icon fa fa-pencil"></i> Ubah Status
                                                 </a>
 
@@ -264,7 +264,7 @@
                                             <td class="t">
 
                                                 <!-- Button trigger modal -->
-                                                <a type="submit" class="btn btn-success" style="color:white" data-toggle="modal" data-target="#myModal{{ $f->id }}">
+                                                <a type="submit" class="btn btn-success" style="color:white" data-toggle="modal" data-target="#akhir{{ $f->id }}">
                                                     <i class="menu-icon fa fa-pencil"></i> Ubah Status
                                                 </a>
 
@@ -321,7 +321,7 @@
                                             <td class="t">
 
                                                 <!-- Button trigger modal -->
-                                                <a type="submit" class="btn btn-success" style="color:white" data-toggle="modal" data-target="#myModal{{ $f->id }}">
+                                                <a type="submit" class="btn btn-success" style="color:white" data-toggle="modal" data-target="#destudi{{ $f->id }}">
                                                     <i class="menu-icon fa fa-pencil"></i> Ubah Status
                                                 </a>
 
@@ -378,7 +378,7 @@
                                             <td class="t">
 
                                                 <!-- Button trigger modal -->
-                                                <a type="submit" class="btn btn-success" style="color:white" data-toggle="modal" data-target="#myModal{{ $f->id }}">
+                                                <a type="submit" class="btn btn-success" style="color:white" data-toggle="modal" data-target="#renaksi{{ $f->id }}">
                                                     <i class="menu-icon fa fa-pencil"></i> Ubah Status
                                                 </a>
 
@@ -401,7 +401,7 @@
 
     <!-- Modal Bulanan -->
     @foreach ($bulanan as $f)
-    <div id="myModal{{ $f->id }}" class="modal fade">
+    <div id="bulanan{{ $f->id }}" class="modal fade">
         <div class="modal-dialog modal-lg">
             <div class="modal-content">
                 <!-- Ini adalah Bagian Header Modal -->
@@ -437,201 +437,204 @@
             </div>
         </div>
         @endforeach
+    </div>
+    <!-- Modal Triwulan -->
+    @foreach ($triwulan as $f)
+    <div id="triwulan{{ $f->id }}" class="modal fade">
+        <div class="modal-dialog modal-lg">
+            <div class="modal-content">
+                <!-- Ini adalah Bagian Header Modal -->
+                <div class="modal-header">
+                    <h4 class="modal-title">Ubah Status</h4>
+                    <button type="button" class="close" data-dismiss="modal">&times;</button>
+                </div>
 
-        <!-- Modal Triwulan -->
-        @foreach ($triwulan as $f)
-        <div id="myModal{{ $f->id }}" class="modal fade">
-            <div class="modal-dialog modal-lg">
-                <div class="modal-content">
-                    <!-- Ini adalah Bagian Header Modal -->
-                    <div class="modal-header">
-                        <h4 class="modal-title">Ubah Status</h4>
-                        <button type="button" class="close" data-dismiss="modal">&times;</button>
-                    </div>
+                <!-- Ini adalah Bagian Body Modal -->
 
-                    <!-- Ini adalah Bagian Body Modal -->
-
-                    <div class="modal-body">
-                        <form role="form" method="get" action="{{ url('admin/ubahtriwulan/' . $f->id) }}" enctype="multipart/form-data">
+                <div class="modal-body">
+                    <form role="form" method="get" action="{{ url('admin/ubahtriwulan/' . $f->id) }}" enctype="multipart/form-data">
+                        <div class="form-group">
                             <div class="form-group">
-                                <div class="form-group">
-                                    <label for="exampleInputPassword1">Nama File</label>
-                                    <input type="text" name="projek_id" class="form-control" id="exampleInputPassword1" placeholder="{{$f->name}}" readonly>
-                                </div>
-                                <label for="exampleInputEmail1">Status</label>
-                                <select class="custom-select" name="status">
-                                    <option value="0">Menunggu Review</option>
-                                    <option value="1">Revisi</option>
-                                    <option value="2">Diterima</option>
-                                </select>
+                                <label for="exampleInputPassword1">Nama File</label>
+                                <input type="text" name="projek_id" class="form-control" id="exampleInputPassword1" placeholder="{{$f->name}}" readonly>
                             </div>
+                            <label for="exampleInputEmail1">Status</label>
+                            <select class="custom-select" name="status">
+                                <option value="0">Menunggu Review</option>
+                                <option value="1">Revisi</option>
+                                <option value="2">Diterima</option>
+                            </select>
+                        </div>
 
-                            <!-- Ini adalah Bagian Footer Modal -->
-                            <div class="modal-footer">
-                                <button type="submit" class="btn btn-success">Ubah Status</button>
-                                <button type="button" class="btn btn-danger" data-dismiss="modal">Tutup</button>
-                            </div>
-                        </form>
-                    </div>
+                        <!-- Ini adalah Bagian Footer Modal -->
+                        <div class="modal-footer">
+                            <button type="submit" class="btn btn-success">Ubah Status</button>
+                            <button type="button" class="btn btn-danger" data-dismiss="modal">Tutup</button>
+                        </div>
+                    </form>
                 </div>
             </div>
-            @endforeach
+        </div>
+        @endforeach
+    </div>
 
-            <!-- Modal Tengah -->
-            @foreach ($tengahTahun as $f)
-            <div id="myModal{{ $f->id }}" class="modal fade">
-                <div class="modal-dialog modal-lg">
-                    <div class="modal-content">
-                        <!-- Ini adalah Bagian Header Modal -->
-                        <div class="modal-header">
-                            <h4 class="modal-title">Ubah Status</h4>
-                            <button type="button" class="close" data-dismiss="modal">&times;</button>
-                        </div>
-
-                        <!-- Ini adalah Bagian Body Modal -->
-
-                        <div class="modal-body">
-                            <form role="form" method="get" action="{{ url('admin/ubahtengah/' . $f->id) }}" enctype="multipart/form-data">
-                                <div class="form-group">
-                                    <div class="form-group">
-                                        <label for="exampleInputPassword1">Nama File</label>
-                                        <input type="text" name="projek_id" class="form-control" id="exampleInputPassword1" placeholder="{{$f->name}}" readonly>
-                                    </div>
-                                    <label for="exampleInputEmail1">Status</label>
-                                    <select class="custom-select" name="status">
-                                        <option value="0">Menunggu Review</option>
-                                        <option value="1">Revisi</option>
-                                        <option value="2">Diterima</option>
-                                    </select>
-                                </div>
-
-                                <!-- Ini adalah Bagian Footer Modal -->
-                                <div class="modal-footer">
-                                    <button type="submit" class="btn btn-success">Ubah Status</button>
-                                    <button type="button" class="btn btn-danger" data-dismiss="modal">Tutup</button>
-                                </div>
-                            </form>
-                        </div>
-                    </div>
+    <!-- Modal Tengah -->
+    @foreach ($tengahTahun as $f)
+    <div id="tengah{{ $f->id }}" class="modal fade">
+        <div class="modal-dialog modal-lg">
+            <div class="modal-content">
+                <!-- Ini adalah Bagian Header Modal -->
+                <div class="modal-header">
+                    <h4 class="modal-title">Ubah Status</h4>
+                    <button type="button" class="close" data-dismiss="modal">&times;</button>
                 </div>
-                @endforeach
 
-                <!-- Modal Akhir -->
-                @foreach ($akhirTahun as $f)
-                <div id="myModal{{ $f->id }}" class="modal fade">
-                    <div class="modal-dialog modal-lg">
-                        <div class="modal-content">
-                            <!-- Ini adalah Bagian Header Modal -->
-                            <div class="modal-header">
-                                <h4 class="modal-title">Ubah Status</h4>
-                                <button type="button" class="close" data-dismiss="modal">&times;</button>
+                <!-- Ini adalah Bagian Body Modal -->
+
+                <div class="modal-body">
+                    <form role="form" method="get" action="{{ url('admin/ubahtengah/' . $f->id) }}" enctype="multipart/form-data">
+                        <div class="form-group">
+                            <div class="form-group">
+                                <label for="exampleInputPassword1">Nama File</label>
+                                <input type="text" name="projek_id" class="form-control" id="exampleInputPassword1" placeholder="{{$f->name}}" readonly>
                             </div>
-
-                            <!-- Ini adalah Bagian Body Modal -->
-
-                            <div class="modal-body">
-                                <form role="form" method="get" action="{{ url('admin/ubahakhir/' . $f->id) }}" enctype="multipart/form-data">
-                                    <div class="form-group">
-                                        <div class="form-group">
-                                            <label for="exampleInputPassword1">Nama File</label>
-                                            <input type="text" name="projek_id" class="form-control" id="exampleInputPassword1" placeholder="{{$f->name}}" readonly>
-                                        </div>
-                                        <label for="exampleInputEmail1">Status</label>
-                                        <select class="custom-select" name="status">
-                                            <option value="0">Menunggu Review</option>
-                                            <option value="1">Revisi</option>
-                                            <option value="2">Diterima</option>
-                                        </select>
-                                    </div>
-
-                                    <!-- Ini adalah Bagian Footer Modal -->
-                                    <div class="modal-footer">
-                                        <button type="submit" class="btn btn-success">Ubah Status</button>
-                                        <button type="button" class="btn btn-danger" data-dismiss="modal">Tutup</button>
-                                    </div>
-                                </form>
-                            </div>
+                            <label for="exampleInputEmail1">Status</label>
+                            <select class="custom-select" name="status">
+                                <option value="0">Menunggu Review</option>
+                                <option value="1">Revisi</option>
+                                <option value="2">Diterima</option>
+                            </select>
                         </div>
-                    </div>
-                    @endforeach
 
-                    <!-- Modal Destudi -->
-                    @foreach ($destudi as $f)
-                    <div id="myModal{{ $f->id }}" class="modal fade">
-                        <div class="modal-dialog modal-lg">
-                            <div class="modal-content">
-                                <!-- Ini adalah Bagian Header Modal -->
-                                <div class="modal-header">
-                                    <h4 class="modal-title">Ubah Status</h4>
-                                    <button type="button" class="close" data-dismiss="modal">&times;</button>
-                                </div>
-
-                                <!-- Ini adalah Bagian Body Modal -->
-
-                                <div class="modal-body">
-                                    <form role="form" method="get" action="{{ url('admin/ubahdestudi/' . $f->id) }}" enctype="multipart/form-data">
-                                        <div class="form-group">
-                                            <div class="form-group">
-                                                <label for="exampleInputPassword1">Nama File</label>
-                                                <input type="text" name="projek_id" class="form-control" id="exampleInputPassword1" placeholder="{{$f->name}}" readonly>
-                                            </div>
-                                            <label for="exampleInputEmail1">Status</label>
-                                            <select class="custom-select" name="status">
-                                                <option value="0">Menunggu Review</option>
-                                                <option value="1">Revisi</option>
-                                                <option value="2">Diterima</option>
-                                            </select>
-                                        </div>
-
-                                        <!-- Ini adalah Bagian Footer Modal -->
-                                        <div class="modal-footer">
-                                            <button type="submit" class="btn btn-success">Ubah Status</button>
-                                            <button type="button" class="btn btn-danger" data-dismiss="modal">Tutup</button>
-                                        </div>
-                                    </form>
-                                </div>
-                            </div>
+                        <!-- Ini adalah Bagian Footer Modal -->
+                        <div class="modal-footer">
+                            <button type="submit" class="btn btn-success">Ubah Status</button>
+                            <button type="button" class="btn btn-danger" data-dismiss="modal">Tutup</button>
                         </div>
-                        @endforeach
+                    </form>
+                </div>
+            </div>
+        </div>
+        @endforeach
+    </div>
 
-                        <!-- Modal Renaksi -->
-                        @foreach ($renaksi as $f)
-                        <div id="myModal{{ $f->id }}" class="modal fade">
-                            <div class="modal-dialog modal-lg">
-                                <div class="modal-content">
-                                    <!-- Ini adalah Bagian Header Modal -->
-                                    <div class="modal-header">
-                                        <h4 class="modal-title">Ubah Status</h4>
-                                        <button type="button" class="close" data-dismiss="modal">&times;</button>
-                                    </div>
+    <!-- Modal Akhir -->
+    @foreach ($akhirTahun as $f)
+    <div id="akhir{{ $f->id }}" class="modal fade">
+        <div class="modal-dialog modal-lg">
+            <div class="modal-content">
+                <!-- Ini adalah Bagian Header Modal -->
+                <div class="modal-header">
+                    <h4 class="modal-title">Ubah Status</h4>
+                    <button type="button" class="close" data-dismiss="modal">&times;</button>
+                </div>
 
-                                    <!-- Ini adalah Bagian Body Modal -->
+                <!-- Ini adalah Bagian Body Modal -->
 
-                                    <div class="modal-body">
-                                        <form role="form" method="get" action="{{ url('admin/ubahrenaksi/' . $f->id) }}" enctype="multipart/form-data">
-                                            <div class="form-group">
-                                                <div class="form-group">
-                                                    <label for="exampleInputPassword1">Nama File</label>
-                                                    <input type="text" name="projek_id" class="form-control" id="exampleInputPassword1" placeholder="{{$f->name}}" readonly>
-                                                </div>
-                                                <label for="exampleInputEmail1">Status</label>
-                                                <select class="custom-select" name="status">
-                                                    <option value="0">Menunggu Review</option>
-                                                    <option value="1">Revisi</option>
-                                                    <option value="2">Diterima</option>
-                                                </select>
-                                            </div>
-
-                                            <!-- Ini adalah Bagian Footer Modal -->
-                                            <div class="modal-footer">
-                                                <button type="submit" class="btn btn-success">Ubah Status</button>
-                                                <button type="button" class="btn btn-danger" data-dismiss="modal">Tutup</button>
-                                            </div>
-                                        </form>
-                                    </div>
-                                </div>
+                <div class="modal-body">
+                    <form role="form" method="get" action="{{ url('admin/ubahakhir/' . $f->id) }}" enctype="multipart/form-data">
+                        <div class="form-group">
+                            <div class="form-group">
+                                <label for="exampleInputPassword1">Nama File</label>
+                                <input type="text" name="projek_id" class="form-control" id="exampleInputPassword1" placeholder="{{$f->name}}" readonly>
                             </div>
-                            @endforeach
-
+                            <label for="exampleInputEmail1">Status</label>
+                            <select class="custom-select" name="status">
+                                <option value="0">Menunggu Review</option>
+                                <option value="1">Revisi</option>
+                                <option value="2">Diterima</option>
+                            </select>
                         </div>
-                        @endsection
+
+                        <!-- Ini adalah Bagian Footer Modal -->
+                        <div class="modal-footer">
+                            <button type="submit" class="btn btn-success">Ubah Status</button>
+                            <button type="button" class="btn btn-danger" data-dismiss="modal">Tutup</button>
+                        </div>
+                    </form>
+                </div>
+            </div>
+        </div>
+        @endforeach
+    </div>
+
+    <!-- Modal Destudi -->
+    @foreach ($destudi as $f)
+    <div id="renaksi{{ $f->id }}" class="modal fade">
+        <div class="modal-dialog modal-lg">
+            <div class="modal-content">
+                <!-- Ini adalah Bagian Header Modal -->
+                <div class="modal-header">
+                    <h4 class="modal-title">Ubah Status</h4>
+                    <button type="button" class="close" data-dismiss="modal">&times;</button>
+                </div>
+
+                <!-- Ini adalah Bagian Body Modal -->
+
+                <div class="modal-body">
+                    <form role="form" method="get" action="{{ url('admin/ubahdestudi/' . $f->id) }}" enctype="multipart/form-data">
+                        <div class="form-group">
+                            <div class="form-group">
+                                <label for="exampleInputPassword1">Nama File</label>
+                                <input type="text" name="projek_id" class="form-control" id="exampleInputPassword1" placeholder="{{$f->name}}" readonly>
+                            </div>
+                            <label for="exampleInputEmail1">Status</label>
+                            <select class="custom-select" name="status">
+                                <option value="0">Menunggu Review</option>
+                                <option value="1">Revisi</option>
+                                <option value="2">Diterima</option>
+                            </select>
+                        </div>
+
+                        <!-- Ini adalah Bagian Footer Modal -->
+                        <div class="modal-footer">
+                            <button type="submit" class="btn btn-success">Ubah Status</button>
+                            <button type="button" class="btn btn-danger" data-dismiss="modal">Tutup</button>
+                        </div>
+                    </form>
+                </div>
+            </div>
+        </div>
+        @endforeach
+    </div>
+
+    <!-- Modal Renaksi -->
+    @foreach ($renaksi as $f)
+    <div id="destudi{{ $f->id }}" class="modal fade">
+        <div class="modal-dialog modal-lg">
+            <div class="modal-content">
+                <!-- Ini adalah Bagian Header Modal -->
+                <div class="modal-header">
+                    <h4 class="modal-title">Ubah Status</h4>
+                    <button type="button" class="close" data-dismiss="modal">&times;</button>
+                </div>
+
+                <!-- Ini adalah Bagian Body Modal -->
+
+                <div class="modal-body">
+                    <form role="form" method="get" action="{{ url('admin/ubahrenaksi/' . $f->id) }}" enctype="multipart/form-data">
+                        <div class="form-group">
+                            <div class="form-group">
+                                <label for="exampleInputPassword1">Nama File</label>
+                                <input type="text" name="projek_id" class="form-control" id="exampleInputPassword1" placeholder="{{$f->name}}" readonly>
+                            </div>
+                            <label for="exampleInputEmail1">Status</label>
+                            <select class="custom-select" name="status">
+                                <option value="0">Menunggu Review</option>
+                                <option value="1">Revisi</option>
+                                <option value="2">Diterima</option>
+                            </select>
+                        </div>
+
+                        <!-- Ini adalah Bagian Footer Modal -->
+                        <div class="modal-footer">
+                            <button type="submit" class="btn btn-success">Ubah Status</button>
+                            <button type="button" class="btn btn-danger" data-dismiss="modal">Tutup</button>
+                        </div>
+                    </form>
+                </div>
+            </div>
+        </div>
+        @endforeach
+    </div>
+    @endsection

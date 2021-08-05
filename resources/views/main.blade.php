@@ -65,29 +65,30 @@
                     <a id="menuToggle" class="menutoggle pull-left"><i class="fa fa fa-tasks"></i></a>
                 </div>
                 <div class="col-sm-5">
-                    <div class="user-area dropdown float-right">
-                        <a href="#" class="dropdown-toggle" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-                            <img class="user-avatar rounded-circle" src="{{ asset('style/images/user.png') }}">
-                        </a>
-                        <div class="user-menu dropdown-menu">
-                            <a class="dropdown-item" href="{{ route('logout') }}" onclick="event.preventDefault();
-                                                     document.getElementById('logout-form').submit();">
-                                {{ __('Logout') }}
+                    <div class="dropdown">
+                        <div class="user-area dropdown float-right">
+                            <a href="#" class="dropdown-toggle" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                                <img class="user-avatar rounded-circle" src="{{ asset('style/images/user.png') }}">
                             </a>
-                            <form id="logout-form" action="{{ route('logout') }}" method="POST" style="display: none;">
-                                @csrf
-                            </form>
+                            <div class="user-menu dropdown-menu">
+                                <a class="dropdown-item" href="{{ route('logout') }}" onclick="event.preventDefault();
+                                                     document.getElementById('logout-form').submit();">
+                                    {{ __('Logout') }}
+                                </a>
+                                <form id="logout-form" action="{{ route('logout') }}" method="POST" style="display: none;">
+                                    @csrf
+                                </form>
+                            </div>
+                            <div id="language-select">
+                                <p>
+                                    {{ Auth::user()->name }}
+                                </p>
+                            </div>
                         </div>
-                    </div>
 
-                    <div id="language-select">
-                        <p>
-                            {{ Auth::user()->name }}
-                        </p>
-                    </div>
 
+                    </div>
                 </div>
-            </div>
 
         </header><!-- /header -->
 
