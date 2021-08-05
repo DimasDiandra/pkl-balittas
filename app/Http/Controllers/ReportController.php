@@ -16,6 +16,7 @@ use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\Storage;
 use App\Notifications\StatusNotification;
 use Illuminate\Support\Facades\Notification;
+use App\Events\UpdateStatus;
 
 class ReportController extends Controller
 {
@@ -47,8 +48,11 @@ class ReportController extends Controller
         $data->status = $status;
         $data->save();
 
-        dd(DB::table('status')->where('id', $data->projek_id));
+        $projek = Projek::where('id', $data->projek_id)->first();
+        $projek->bulanan_status = $data->status;
+        $projek->save();
 
+        event(new UpdateStatus($projek));
         // $data->notify(new StatusNotification($data));
         $user = User::where('id', $data->user_id)->get('id');
         Notification::send($user, new StatusNotification($data));
@@ -61,6 +65,12 @@ class ReportController extends Controller
         $data = laporan_triwulan::find($id);
         $data->status = $status;
         $data->save();
+
+        $projek = Projek::where('id', $data->projek_id)->first();
+        $projek->triwulan_status = $data->status;
+        $projek->save();
+        event(new UpdateStatus($projek));
+
         $user = User::where('id', $data->user_id)->get('id');
         Notification::send($user, new StatusNotification($data));
         return redirect()->back();
@@ -72,6 +82,12 @@ class ReportController extends Controller
         $data = laporan_tengahtahun::find($id);
         $data->status = $status;
         $data->save();
+
+        $projek = Projek::where('id', $data->projek_id)->first();
+        $projek->tengah_status = $data->status;
+        $projek->save();
+        event(new UpdateStatus($projek));
+
         $user = User::where('id', $data->user_id)->get('id');
         Notification::send($user, new StatusNotification($data));
         return redirect()->back();
@@ -83,6 +99,12 @@ class ReportController extends Controller
         $data = laporan_akhirtahun::find($id);
         $data->status = $status;
         $data->save();
+
+        $projek = Projek::where('id', $data->projek_id)->first();
+        $projek->akhir_status = $data->status;
+        $projek->save();
+        event(new UpdateStatus($projek));
+
         $user = User::where('id', $data->user_id)->get('id');
         Notification::send($user, new StatusNotification($data));
         return redirect()->back();
@@ -94,6 +116,12 @@ class ReportController extends Controller
         $data = laporan_destudi::find($id);
         $data->status = $status;
         $data->save();
+
+        $projek = Projek::where('id', $data->projek_id)->first();
+        $projek->destudi_status = $data->status;
+        $projek->save();
+        event(new UpdateStatus($projek));
+
         $user = User::where('id', $data->user_id)->get('id');
         Notification::send($user, new StatusNotification($data));
         return redirect()->back();
@@ -105,6 +133,12 @@ class ReportController extends Controller
         $data = laporan_renaksi::find($id);
         $data->status = $status;
         $data->save();
+
+        $projek = Projek::where('id', $data->projek_id)->first();
+        $projek->renaksi_status = $data->status;
+        $projek->save();
+        event(new UpdateStatus($projek));
+
         $user = User::where('id', $data->user_id)->get('id');
         Notification::send($user, new StatusNotification($data));
         return redirect()->back();
