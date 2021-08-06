@@ -84,7 +84,7 @@ class ReportController extends Controller
         $data->save();
 
         $projek = Projek::where('id', $data->projek_id)->first();
-        $projek->tengah_status = $data->status;
+        $projek->tengahtahun_status = $data->status;
         $projek->save();
         event(new UpdateStatus($projek));
 
@@ -101,7 +101,7 @@ class ReportController extends Controller
         $data->save();
 
         $projek = Projek::where('id', $data->projek_id)->first();
-        $projek->akhir_status = $data->status;
+        $projek->akhirtahun_status = $data->status;
         $projek->save();
         event(new UpdateStatus($projek));
 

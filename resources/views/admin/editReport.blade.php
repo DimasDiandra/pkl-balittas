@@ -560,7 +560,7 @@
 
     <!-- Modal Destudi -->
     @foreach ($destudi as $f)
-    <div id="renaksi{{ $f->id }}" class="modal fade">
+    <div id="destudi{{ $f->id }}" class="modal fade">
         <div class="modal-dialog modal-lg">
             <div class="modal-content">
                 <!-- Ini adalah Bagian Header Modal -->
@@ -600,7 +600,7 @@
 
     <!-- Modal Renaksi -->
     @foreach ($renaksi as $f)
-    <div id="destudi{{ $f->id }}" class="modal fade">
+    <div id="renaksi{{ $f->id }}" class="modal fade">
         <div class="modal-dialog modal-lg">
             <div class="modal-content">
                 <!-- Ini adalah Bagian Header Modal -->
