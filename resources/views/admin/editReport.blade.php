@@ -77,15 +77,15 @@
                                             </td>
                                             <input type="hidden" name="path" value=" {{ $f->path }}">
                                             <td>{{ $f->name }}</td>
-                                            @if ($f->status == 0)
+                                            @if ($f->status==1)
                                             <td>
                                                 Menunggu Review
                                             </td>
-                                            @elseif($f->status==1)
+                                            @elseif($f->status==2)
                                             <td>
                                                 Revisi
                                             </td>
-                                            @elseif($f->status==2)
+                                            @elseif($f->status==3)
                                             <td>
                                                 Diterima
                                             </td>
@@ -134,15 +134,15 @@
                                             </td>
                                             <input type="hidden" name="path" value=" {{ $f->path }}">
                                             <td>{{ $f->name }}</td>
-                                            @if ($f->status == 0)
+                                            @if ($f->status==1)
                                             <td>
                                                 Menunggu Review
                                             </td>
-                                            @elseif($f->status==1)
+                                            @elseif($f->status==2)
                                             <td>
                                                 Revisi
                                             </td>
-                                            @elseif($f->status==2)
+                                            @elseif($f->status==3)
                                             <td>
                                                 Diterima
                                             </td>
@@ -191,15 +191,15 @@
                                             </td>
                                             <input type="hidden" name="path" value=" {{ $f->path }}">
                                             <td>{{ $f->name }}</td>
-                                            @if ($f->status == 0)
+                                            @if ($f->status==1)
                                             <td>
                                                 Menunggu Review
                                             </td>
-                                            @elseif($f->status==1)
+                                            @elseif($f->status==2)
                                             <td>
                                                 Revisi
                                             </td>
-                                            @elseif($f->status==2)
+                                            @elseif($f->status==3)
                                             <td>
                                                 Diterima
                                             </td>
@@ -248,15 +248,15 @@
                                             </td>
                                             <input type="hidden" name="path" value=" {{ $f->path }}">
                                             <td>{{ $f->name }}</td>
-                                            @if ($f->status == 0)
+                                            @if ($f->status==1)
                                             <td>
                                                 Menunggu Review
                                             </td>
-                                            @elseif($f->status==1)
+                                            @elseif($f->status==2)
                                             <td>
                                                 Revisi
                                             </td>
-                                            @elseif($f->status==2)
+                                            @elseif($f->status==3)
                                             <td>
                                                 Diterima
                                             </td>
@@ -305,15 +305,15 @@
                                             </td>
                                             <input type="hidden" name="path" value=" {{ $f->path }}">
                                             <td>{{ $f->name }}</td>
-                                            @if ($f->status == 0)
+                                            @if ($f->status==1)
                                             <td>
                                                 Menunggu Review
                                             </td>
-                                            @elseif($f->status==1)
+                                            @elseif($f->status==2)
                                             <td>
                                                 Revisi
                                             </td>
-                                            @elseif($f->status==2)
+                                            @elseif($f->status==3)
                                             <td>
                                                 Diterima
                                             </td>
@@ -362,15 +362,15 @@
                                             </td>
                                             <input type="hidden" name="path" value=" {{ $f->path }}">
                                             <td>{{ $f->name }}</td>
-                                            @if ($f->status == 0)
+                                            @if ($f->status==1)
                                             <td>
                                                 Menunggu Review
                                             </td>
-                                            @elseif($f->status==1)
+                                            @elseif($f->status==2)
                                             <td>
                                                 Revisi
                                             </td>
-                                            @elseif($f->status==2)
+                                            @elseif($f->status==3)
                                             <td>
                                                 Diterima
                                             </td>
@@ -421,9 +421,9 @@
                             </div>
                             <label for="exampleInputEmail1">Status</label>
                             <select class="custom-select" name="status">
-                                <option value="0">Menunggu Review</option>
-                                <option value="1">Revisi</option>
-                                <option value="2">Diterima</option>
+                                <option value="1">Menunggu Review</option>
+                                <option value="2">Revisi</option>
+                                <option value="3">Diterima</option>
                             </select>
                         </div>
 
@@ -460,9 +460,9 @@
                             </div>
                             <label for="exampleInputEmail1">Status</label>
                             <select class="custom-select" name="status">
-                                <option value="0">Menunggu Review</option>
-                                <option value="1">Revisi</option>
-                                <option value="2">Diterima</option>
+                                <option value="1">Menunggu Review</option>
+                                <option value="2">Revisi</option>
+                                <option value="3">Diterima</option>
                             </select>
                         </div>
 
@@ -500,9 +500,9 @@
                             </div>
                             <label for="exampleInputEmail1">Status</label>
                             <select class="custom-select" name="status">
-                                <option value="0">Menunggu Review</option>
-                                <option value="1">Revisi</option>
-                                <option value="2">Diterima</option>
+                                <option value="1">Menunggu Review</option>
+                                <option value="2">Revisi</option>
+                                <option value="3">Diterima</option>
                             </select>
                         </div>
 
@@ -540,9 +540,9 @@
                             </div>
                             <label for="exampleInputEmail1">Status</label>
                             <select class="custom-select" name="status">
-                                <option value="0">Menunggu Review</option>
-                                <option value="1">Revisi</option>
-                                <option value="2">Diterima</option>
+                                <option value="1">Menunggu Review</option>
+                                <option value="2">Revisi</option>
+                                <option value="3">Diterima</option>
                             </select>
                         </div>
 
@@ -560,7 +560,7 @@
 
     <!-- Modal Destudi -->
     @foreach ($destudi as $f)
-    <div id="renaksi{{ $f->id }}" class="modal fade">
+    <div id="destudi{{ $f->id }}" class="modal fade">
         <div class="modal-dialog modal-lg">
             <div class="modal-content">
                 <!-- Ini adalah Bagian Header Modal -->
@@ -580,9 +580,9 @@
                             </div>
                             <label for="exampleInputEmail1">Status</label>
                             <select class="custom-select" name="status">
-                                <option value="0">Menunggu Review</option>
-                                <option value="1">Revisi</option>
-                                <option value="2">Diterima</option>
+                                <option value="1">Menunggu Review</option>
+                                <option value="2">Revisi</option>
+                                <option value="3">Diterima</option>
                             </select>
                         </div>
 
@@ -600,7 +600,7 @@
 
     <!-- Modal Renaksi -->
     @foreach ($renaksi as $f)
-    <div id="destudi{{ $f->id }}" class="modal fade">
+    <div id="renaksi{{ $f->id }}" class="modal fade">
         <div class="modal-dialog modal-lg">
             <div class="modal-content">
                 <!-- Ini adalah Bagian Header Modal -->
@@ -620,9 +620,9 @@
                             </div>
                             <label for="exampleInputEmail1">Status</label>
                             <select class="custom-select" name="status">
-                                <option value="0">Menunggu Review</option>
-                                <option value="1">Revisi</option>
-                                <option value="2">Diterima</option>
+                                <option value="1">Menunggu Review</option>
+                                <option value="2">Revisi</option>
+                                <option value="3">Diterima</option>
                             </select>
                         </div>
 

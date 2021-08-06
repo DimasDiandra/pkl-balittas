@@ -29,7 +29,7 @@ class UpdateStatusListener
     {
         $status = $event->projek;
         $projek = Projek::where('id', $status->id)->first();
-        $projek->all_status = ($projek->matriks_status + $projek->rab_status + $projek->kak_status + $projek->analisis_status + $projek->proposal_status + $projek->bulanan_status + $projek->triwulan_status + $projek->tengah_status + $projek->akhir_status + $projek->renaksi_status + $projek->destudi_status) * 100 / 22;
+        $projek->all_status = ($projek->matriks_status + $projek->rab_status + $projek->kak_status + $projek->analisis_status + $projek->proposal_status + $projek->bulanan_status + $projek->triwulan_status + $projek->tengahtahun_status + $projek->akhirtahun_status + $projek->renaksi_status + $projek->destudi_status) * 100 / 33;
         $projek->save();
     }
 }

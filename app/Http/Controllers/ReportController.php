@@ -84,7 +84,7 @@ class ReportController extends Controller
         $data->save();
 
         $projek = Projek::where('id', $data->projek_id)->first();
-        $projek->tengah_status = $data->status;
+        $projek->tengahtahun_status = $data->status;
         $projek->save();
         event(new UpdateStatus($projek));
 
@@ -101,7 +101,7 @@ class ReportController extends Controller
         $data->save();
 
         $projek = Projek::where('id', $data->projek_id)->first();
-        $projek->akhir_status = $data->status;
+        $projek->akhirtahun_status = $data->status;
         $projek->save();
         event(new UpdateStatus($projek));
 
@@ -163,66 +163,77 @@ class ReportController extends Controller
         //get user
         $id = Auth::id();
         $user = User::find($id);
-
-        // // isi dengan nama folder tempat kemana file diupload
-        // $tujuan_upload = 'ReportUpload';
-
-        // // upload file
-        // $file->move($tujuan_upload, $file->getClientOriginalName());
-        $path = Storage::putFileAs('public/report', $file, $namafile);
+        $projek_id = $request->projek_id;
+        $projek = Projek::where('id', $projek_id)->first();
+        $path = "public/$projek->name";
+        $pathFile = Storage::putFileAs($path, $file, $namafile);
 
         //upload ke db
         if ($jenis == 1) {
-
+            $projek->bulanan_status = 1;
+            $projek->save();
             laporan_bulanan::create([
-                'path' => $path,
+                'path' => $pathFile,
                 'name' => $namafile,
                 'user_id' => $user->id,
                 'projek_id' => $projek_id,
-                'status' => '0'
+                'status' => '1'
             ]);
+            $projek->bulanan_status = 1;
+            $projek->save();
         } else if ($jenis == 2) {
             laporan_triwulan::create([
                 'path' => $path,
                 'name' => $namafile,
                 'user_id' => $user->id,
                 'projek_id' => $projek_id,
-                'status' => '0'
+                'status' => '1'
             ]);
+            $projek->triwulan_status = 1;
+            $projek->save();
         } else if ($jenis == 3) {
             laporan_tengahtahun::create([
                 'path' => $path,
                 'name' => $namafile,
                 'user_id' => $user->id,
                 'projek_id' => $projek_id,
-                'status' => '0'
+                'status' => '1'
             ]);
+            $projek->tengahtahun_status = 1;
+            $projek->save();
         } else if ($jenis == 4) {
             laporan_akhirtahun::create([
                 'path' => $path,
                 'name' => $namafile,
                 'user_id' => $user->id,
                 'projek_id' => $projek_id,
-                'status' => '0'
+                'status' => '1'
             ]);
+            $projek->akhirtahun_status = 1;
+            $projek->save();
         } else if ($jenis == 5) {
             laporan_destudi::create([
                 'path' => $path,
                 'name' => $namafile,
                 'user_id' => $user->id,
                 'projek_id' => $projek_id,
-                'status' => '0'
+                'status' => '1'
             ]);
+            $projek->destudi_status = 1;
+            $projek->save();
         } else if ($jenis == 6) {
             laporan_renaksi::create([
                 'path' => $path,
                 'name' => $namafile,
                 'user_id' => $user->id,
                 'projek_id' => $projek_id,
-                'status' => '0'
+                'status' => '1'
             ]);
-        }
+            $projek->renaksi_status = 1;
+            $projek->save();
+        };
 
+        event(new UpdateStatus($projek));
         return redirect()->back();
     }
 
@@ -266,18 +277,5 @@ class ReportController extends Controller
             'bulanan' => $bulanan, 'triwulan' => $triwulan, 'tengahTahun' => $tengahTahun, 'akhirTahun' => $akhirTahun, 'destudi' => $destudi,
             'renaksi' => $renaksi, 'projek' => $projek
         ]);
-        // $bulanan = laporan_bulanan::orderBy('created_at', 'DESC')->get();
-        // $triwulan = laporan_triwulan::orderBy('created_at', 'DESC')->get();
-        // $tengahTahun = laporan_tengahtahun::orderBy('created_at', 'DESC')->get();
-        // $akhirTahun = laporan_akhirtahun::orderBy('created_at', 'DESC')->get();
-        // $destudi = laporan_destudi::orderBy('created_at', 'DESC')->get();
-        // $renaksi = laporan_renaksi::orderBy('created_at', 'DESC')->get();
-        // $projek = Projek::all();
-        // return view('admin.editreport', [
-        //     'bulanan' => $bulanan, 'triwulan' => $triwulan, 'tengahTahun' => $tengahTahun, 'akhirTahun' => $akhirTahun, 'destudi' => $destudi,
-        //     'renaksi' => $renaksi, 'projek' => $projek
-        // ]);
-
-        // return view('admin.editperencanaan', compact('title', 'data'));
     }
 }

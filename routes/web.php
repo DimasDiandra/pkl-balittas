@@ -89,6 +89,11 @@ Route::middleware('role:admin')->prefix('admin')->group(function () {
     //Perencanaan
     Route::get('/perencanaan', [PerencanaanController::class, 'index']);
     Route::get('/perencanaan/{id}', [PerencanaanController::class, 'edit']);
+    Route::get('/ubahmatriks/{id}', [PerencanaanController::class, 'statusmatriks']);
+    Route::get('/ubahrab/{id}', [PerencanaanController::class, 'statusrab']);
+    Route::get('/ubahkak/{id}', [PerencanaanController::class, 'statuskak']);
+    Route::get('/ubahanalisis/{id}', [PerencanaanController::class, 'statusanalisis']);
+    Route::get('/ubahproposal/{id}', [PerencanaanController::class, 'statusproposal']);
 
     // Monev
     Route::get('/evaluasi', [ReportController::class, 'admin_view']);
@@ -99,6 +104,7 @@ Route::middleware('role:admin')->prefix('admin')->group(function () {
     Route::get('/ubahakhir/{id}', [ReportController::class, 'statusakhir']);
     Route::get('/ubahdestudi/{id}', [ReportController::class, 'statusdestudi']);
     Route::get('/ubahrenaksi/{id}', [ReportController::class, 'statusrenaksi']);
+
     // Route::get('/pengumuman', function () {return view('admin.tambahpengumuman');});
 });
 

@@ -3,24 +3,24 @@
 @section('title', 'Edit Perencanaan')
 
 @section('breadcrumbs')
-    <div class="breadcrumbs">
-        <div class="col-sm-4">
-            <div class="page-header float-left">
-                <div class="page-title">
-                    <h1>Detail Perencanaan</h1>
-                </div>
-            </div>
-        </div>
-        <div class="col-sm-8">
-            <div class="page-header float-right">
-                <div class="page-title">
-                    <ol class="breadcrumb text-right">
-                        <li class="active"><i class="fa fa-dashboard"></i></li>
-                    </ol>
-                </div>
+<div class="breadcrumbs">
+    <div class="col-sm-4">
+        <div class="page-header float-left">
+            <div class="page-title">
+                <h1>Detail Perencanaan</h1>
             </div>
         </div>
     </div>
+    <div class="col-sm-8">
+        <div class="page-header float-right">
+            <div class="page-title">
+                <ol class="breadcrumb text-right">
+                    <li class="active"><i class="fa fa-dashboard"></i></li>
+                </ol>
+            </div>
+        </div>
+    </div>
+</div>
 @endsection
 
 @section('content')
@@ -55,30 +55,47 @@
                         <table class="table" id="table">
                             <thead>
                                 <tr>
-                                    <th width=10%>No.</th>
-                                    <th width=50%>File Name</th>
-                                    <th width=20%>Date Upload</th>
-                                    <th></th>
+                                    <th width=5%>No.</th>
+                                    <th>Date Upload</th>
+                                    <th width=30%>File Name</th>
+                                    <th width=20%>Status</th>
+                                    <th width=30%>Action</th>
                                 </tr>
                             </thead>
                             <tbody>
                                 <!-- Isi dari keluaran data -->
                                 @foreach($matriks as $f)
-                                {{-- @if($f->user_id==Auth::user()->id) --}}
                                 <tr>
                                     <form action="/perencanaan/download" method="GET">
                                         <td>{{ $loop->iteration }}</td>
                                         <input type="hidden" name="path" value=" {{$f->path}}">
-                                        <td>{{ $f->file }}</td>
                                         <td>{{ $f->created_at }}</td>
+                                        <td>{{ $f->file }}</td>
+                                        @if ($f->status==1)
+                                        <td>
+                                            Menunggu Review
+                                        </td>
+                                        @elseif($f->status==2)
+                                        <td>
+                                            Revisi
+                                        </td>
+                                        @elseif($f->status==3)
+                                        <td>
+                                            Diterima
+                                        </td>
+                                        @endif
                                         <td class="float-right">
+                                            <!-- Button trigger modal -->
+                                            <a type="submit" class="btn btn-success" style="color:white" data-toggle="modal" data-target="#matriks{{ $f->id }}">
+                                                <i class="menu-icon fa fa-pencil"></i> Ubah Status
+                                            </a>
+
                                             <button type="submit" class="btn btn-primary">
                                                 <i class="menu-icon fa fa-download"></i> Download
                                             </button>
                                         </td>
                                     </form>
                                 </tr>
-                                {{-- @endif --}}
                                 @endforeach
                             </tbody>
                         </table>
@@ -90,30 +107,47 @@
                         <table class="table" id="table">
                             <thead>
                                 <tr>
-                                    <th width=10%>No.</th>
-                                    <th width=50%>File Name</th>
-                                    <th width=20%>Date Upload</th>
-                                    <th></th>
+                                    <th width=5%>No.</th>
+                                    <th>Date Upload</th>
+                                    <th width=30%>File Name</th>
+                                    <th width=20%>Status</th>
+                                    <th width=30%>Action</th>
                                 </tr>
                             </thead>
                             <tbody>
                                 <!-- Isi dari keluaran data -->
                                 @foreach($rab as $f)
-                                {{-- @if($f->user_id==Auth::user()->id) --}}
                                 <tr>
                                     <form action="/perencanaan/download" method="GET">
                                         <td>{{ $loop->iteration }}</td>
                                         <input type="hidden" name="path" value=" {{$f->path}}">
-                                        <td>{{ $f->file }}</td>
                                         <td>{{ $f->created_at }}</td>
+                                        <td>{{ $f->file }}</td>
+                                        @if ($f->status==1)
+                                        <td>
+                                            Menunggu Review
+                                        </td>
+                                        @elseif($f->status==2)
+                                        <td>
+                                            Revisi
+                                        </td>
+                                        @elseif($f->status==3)
+                                        <td>
+                                            Diterima
+                                        </td>
+                                        @endif
                                         <td class="float-right">
+                                            <!-- Button trigger modal -->
+                                            <a type="submit" class="btn btn-success" style="color:white" data-toggle="modal" data-target="#rab{{ $f->id }}">
+                                                <i class="menu-icon fa fa-pencil"></i> Ubah Status
+                                            </a>
+
                                             <button type="submit" class="btn btn-primary">
                                                 <i class="menu-icon fa fa-download"></i> Download
                                             </button>
                                         </td>
                                     </form>
                                 </tr>
-                                {{-- @endif --}}
                                 @endforeach
                             </tbody>
                         </table>
@@ -125,30 +159,47 @@
                         <table class="table" id="table">
                             <thead>
                                 <tr>
-                                    <th width=10%>No.</th>
-                                    <th width=50%>File Name</th>
-                                    <th width=20%>Date Upload</th>
-                                    <th></th>
+                                    <th width=5%>No.</th>
+                                    <th>Date Upload</th>
+                                    <th width=30%>File Name</th>
+                                    <th width=20%>Status</th>
+                                    <th width=30%>Action</th>
                                 </tr>
                             </thead>
                             <tbody>
                                 <!-- Isi dari keluaran data -->
                                 @foreach($kak as $f)
-                                {{-- @if($f->user_id==Auth::user()->id) --}}
                                 <tr>
                                     <form action="/perencanaan/download" method="GET">
-                                        <td>{{ $loop->iteration}}</td>
+                                        <td>{{ $loop->iteration }}</td>
                                         <input type="hidden" name="path" value=" {{$f->path}}">
-                                        <td>{{ $f->file }}</td>
                                         <td>{{ $f->created_at }}</td>
+                                        <td>{{ $f->file }}</td>
+                                        @if ($f->status==1)
+                                        <td>
+                                            Menunggu Review
+                                        </td>
+                                        @elseif($f->status==2)
+                                        <td>
+                                            Revisi
+                                        </td>
+                                        @elseif($f->status==3)
+                                        <td>
+                                            Diterima
+                                        </td>
+                                        @endif
                                         <td class="float-right">
+                                            <!-- Button trigger modal -->
+                                            <a type="submit" class="btn btn-success" style="color:white" data-toggle="modal" data-target="#kak{{ $f->id }}">
+                                                <i class="menu-icon fa fa-pencil"></i> Ubah Status
+                                            </a>
+
                                             <button type="submit" class="btn btn-primary">
                                                 <i class="menu-icon fa fa-download"></i> Download
                                             </button>
                                         </td>
                                     </form>
                                 </tr>
-                                {{-- @endif --}}
                                 @endforeach
                             </tbody>
                         </table>
@@ -160,30 +211,47 @@
                         <table class="table" id="table">
                             <thead>
                                 <tr>
-                                    <th width=10%>No.</th>
-                                    <th width=50%>File Name</th>
-                                    <th width=20%>Date Upload</th>
-                                    <th></th>
+                                    <th width=5%>No.</th>
+                                    <th>Date Upload</th>
+                                    <th width=30%>File Name</th>
+                                    <th width=20%>Status</th>
+                                    <th width=30%>Action</th>
                                 </tr>
                             </thead>
                             <tbody>
                                 <!-- Isi dari keluaran data -->
                                 @foreach($proposal as $f)
-                                {{-- @if($f->user_id==Auth::user()->id) --}}
                                 <tr>
                                     <form action="/perencanaan/download" method="GET">
                                         <td>{{ $loop->iteration }}</td>
                                         <input type="hidden" name="path" value=" {{$f->path}}">
-                                        <td>{{ $f->file }}</td>
                                         <td>{{ $f->created_at }}</td>
+                                        <td>{{ $f->file }}</td>
+                                        @if ($f->status==1)
+                                        <td>
+                                            Menunggu Review
+                                        </td>
+                                        @elseif($f->status==2)
+                                        <td>
+                                            Revisi
+                                        </td>
+                                        @elseif($f->status==3)
+                                        <td>
+                                            Diterima
+                                        </td>
+                                        @endif
                                         <td class="float-right">
+                                            <!-- Button trigger modal -->
+                                            <a type="submit" class="btn btn-success" style="color:white" data-toggle="modal" data-target="#proposal{{ $f->id }}">
+                                                <i class="menu-icon fa fa-pencil"></i> Ubah Status
+                                            </a>
+
                                             <button type="submit" class="btn btn-primary">
                                                 <i class="menu-icon fa fa-download"></i> Download
                                             </button>
                                         </td>
                                     </form>
                                 </tr>
-                                {{-- @endif --}}
                                 @endforeach
                             </tbody>
                         </table>
@@ -195,30 +263,47 @@
                         <table class="table" id="table">
                             <thead>
                                 <tr>
-                                    <th width=10%>No.</th>
-                                    <th width=50%>File Name</th>
-                                    <th width=20%>Date Upload</th>
-                                    <th></th>
+                                    <th width=5%>No.</th>
+                                    <th>Date Upload</th>
+                                    <th width=30%>File Name</th>
+                                    <th width=20%>Status</th>
+                                    <th width=30%>Action</th>
                                 </tr>
                             </thead>
                             <tbody>
                                 <!-- Isi dari keluaran data -->
                                 @foreach($analisis as $f)
-                                {{-- @if($f->user_id==Auth::user()->id) --}}
                                 <tr>
                                     <form action="/perencanaan/download" method="GET">
                                         <td>{{ $loop->iteration }}</td>
                                         <input type="hidden" name="path" value=" {{$f->path}}">
-                                        <td>{{ $f->file }}</td>
                                         <td>{{ $f->created_at }}</td>
+                                        <td>{{ $f->file }}</td>
+                                        @if ($f->status==1)
+                                        <td>
+                                            Menunggu Review
+                                        </td>
+                                        @elseif($f->status==2)
+                                        <td>
+                                            Revisi
+                                        </td>
+                                        @elseif($f->status==3)
+                                        <td>
+                                            Diterima
+                                        </td>
+                                        @endif
                                         <td class="float-right">
+                                            <!-- Button trigger modal -->
+                                            <a type="submit" class="btn btn-success" style="color:white" data-toggle="modal" data-target="#analisis{{ $f->id }}">
+                                                <i class="menu-icon fa fa-pencil"></i> Ubah Status
+                                            </a>
+
                                             <button type="submit" class="btn btn-primary">
                                                 <i class="menu-icon fa fa-download"></i> Download
                                             </button>
                                         </td>
                                     </form>
                                 </tr>
-                                {{-- @endif --}}
                                 @endforeach
                             </tbody>
                         </table>
@@ -227,47 +312,206 @@
             </div>
         </div>
     </div>
-</div>
 
-            {{-- <!-- Ini adalah Bagian Footer Modal -->
-            <div class="modal-footer">
-                <button type="button" class="btn btn-danger" data-dismiss="modal">Tutup</button>
-            </div> --}}
+    <!-- Modal Matriks -->
+    @foreach ($matriks as $f)
+    <div id="matriks{{ $f->id }}" class="modal fade">
+        <div class="modal-dialog modal-lg">
+            <div class="modal-content">
+                <!-- Ini adalah Bagian Header Modal -->
+                <div class="modal-header">
+                    <h4 class="modal-title">Ubah Status</h4>
+                    <button type="button" class="close" data-dismiss="modal">&times;</button>
+                </div>
 
-        </div>
-    </div>
-    {{-- <div class="content mt-3">
-        <div class="box-body">
-            <form role="form" method="post" action="{{ url('admin/perencanaan/' . $data->id) }}" enctype="multipart/form-data">
-                @csrf
-                {{ method_field('PUT') }}
-                <div class="row">
+                <!-- Ini adalah Bagian Body Modal -->
 
-                    <div class="col-md-6">
-                        <div class="box-body">
+                <div class="modal-body">
+                    <form role="form" method="get" action="{{ url('admin/ubahmatriks/' . $f->id) }}" enctype="multipart/form-data">
+                        <div class="form-group">
                             <div class="form-group">
-                                <label for="exampleInputPassword1">Name</label>
-                                <input type="text" name="name" class="form-control" id="exampleInputPassword1"
-                                    placeholder="Name" value="{{ $data->name }}">
+                                <label for="exampleInputPassword1">Nama File</label>
+                                <input type="text" name="projek_id" class="form-control" id="exampleInputPassword1" placeholder="{{$f->file}}" readonly>
                             </div>
-                            <div class="form-group">
-                                <label for="exampleInputEmail1">Email address</label>
-                                <input type="email" name="email" class="form-control" id="exampleInputEmail1"
-                                    placeholder="Enter email" value="{{ $data->email }}">
-                            </div>
+                            <label for="exampleInputEmail1">Status</label>
+                            <select class="custom-select" name="status">
+                                <option value="1">Menunggu Review</option>
+                                <option value="2">Revisi</option>
+                                <option value="3">Diterima</option>
+                            </select>
                         </div>
-                    </div>
-                </div>
-                <!-- /.box-body -->
 
-                <div class="box-footer">
-                    <button type="submit" class="btn btn-primary">Update</button>
+                        <!-- Ini adalah Bagian Footer Modal -->
+                        <div class="modal-footer">
+                            <button type="submit" class="btn btn-success">Ubah Status</button>
+                            <button type="button" class="btn btn-danger" data-dismiss="modal">Tutup</button>
+                        </div>
+                    </form>
                 </div>
-            </form>
-
+            </div>
         </div>
+        @endforeach
     </div>
+
+    <!-- Modal RAB -->
+    @foreach ($rab as $f)
+    <div id="rab{{ $f->id }}" class="modal fade">
+        <div class="modal-dialog modal-lg">
+            <div class="modal-content">
+                <!-- Ini adalah Bagian Header Modal -->
+                <div class="modal-header">
+                    <h4 class="modal-title">Ubah Status</h4>
+                    <button type="button" class="close" data-dismiss="modal">&times;</button>
+                </div>
+
+                <!-- Ini adalah Bagian Body Modal -->
+
+                <div class="modal-body">
+                    <form role="form" method="get" action="{{ url('admin/ubahrab/' . $f->id) }}" enctype="multipart/form-data">
+                        <div class="form-group">
+                            <div class="form-group">
+                                <label for="exampleInputPassword1">Nama File</label>
+                                <input type="text" name="projek_id" class="form-control" id="exampleInputPassword1" placeholder="{{$f->file}}" readonly>
+                            </div>
+                            <label for="exampleInputEmail1">Status</label>
+                            <select class="custom-select" name="status">
+                                <option value="1">Menunggu Review</option>
+                                <option value="2">Revisi</option>
+                                <option value="3">Diterima</option>
+                            </select>
+                        </div>
+
+                        <!-- Ini adalah Bagian Footer Modal -->
+                        <div class="modal-footer">
+                            <button type="submit" class="btn btn-success">Ubah Status</button>
+                            <button type="button" class="btn btn-danger" data-dismiss="modal">Tutup</button>
+                        </div>
+                    </form>
+                </div>
+            </div>
+        </div>
+        @endforeach
     </div>
-    </div> --}}
+
+    <!-- Modal KAK -->
+    @foreach ($kak as $f)
+    <div id="kak{{ $f->id }}" class="modal fade">
+        <div class="modal-dialog modal-lg">
+            <div class="modal-content">
+                <!-- Ini adalah Bagian Header Modal -->
+                <div class="modal-header">
+                    <h4 class="modal-title">Ubah Status</h4>
+                    <button type="button" class="close" data-dismiss="modal">&times;</button>
+                </div>
+
+                <!-- Ini adalah Bagian Body Modal -->
+
+                <div class="modal-body">
+                    <form role="form" method="get" action="{{ url('admin/ubahkak/' . $f->id) }}" enctype="multipart/form-data">
+                        <div class="form-group">
+                            <div class="form-group">
+                                <label for="exampleInputPassword1">Nama File</label>
+                                <input type="text" name="projek_id" class="form-control" id="exampleInputPassword1" placeholder="{{$f->file}}" readonly>
+                            </div>
+                            <label for="exampleInputEmail1">Status</label>
+                            <select class="custom-select" name="status">
+                                <option value="1">Menunggu Review</option>
+                                <option value="2">Revisi</option>
+                                <option value="3">Diterima</option>
+                            </select>
+                        </div>
+
+                        <!-- Ini adalah Bagian Footer Modal -->
+                        <div class="modal-footer">
+                            <button type="submit" class="btn btn-success">Ubah Status</button>
+                            <button type="button" class="btn btn-danger" data-dismiss="modal">Tutup</button>
+                        </div>
+                    </form>
+                </div>
+            </div>
+        </div>
+        @endforeach
+    </div>
+
+    <!-- Modal analisis -->
+    @foreach ($analisis as $f)
+    <div id="analisis{{ $f->id }}" class="modal fade">
+        <div class="modal-dialog modal-lg">
+            <div class="modal-content">
+                <!-- Ini adalah Bagian Header Modal -->
+                <div class="modal-header">
+                    <h4 class="modal-title">Ubah Status</h4>
+                    <button type="button" class="close" data-dismiss="modal">&times;</button>
+                </div>
+
+                <!-- Ini adalah Bagian Body Modal -->
+
+                <div class="modal-body">
+                    <form role="form" method="get" action="{{ url('admin/ubahanalisis/' . $f->id) }}" enctype="multipart/form-data">
+                        <div class="form-group">
+                            <div class="form-group">
+                                <label for="exampleInputPassword1">Nama File</label>
+                                <input type="text" name="projek_id" class="form-control" id="exampleInputPassword1" placeholder="{{$f->file}}" readonly>
+                            </div>
+                            <label for="exampleInputEmail1">Status</label>
+                            <select class="custom-select" name="status">
+                                <option value="1">Menunggu Review</option>
+                                <option value="2">Revisi</option>
+                                <option value="3">Diterima</option>
+                            </select>
+                        </div>
+
+                        <!-- Ini adalah Bagian Footer Modal -->
+                        <div class="modal-footer">
+                            <button type="submit" class="btn btn-success">Ubah Status</button>
+                            <button type="button" class="btn btn-danger" data-dismiss="modal">Tutup</button>
+                        </div>
+                    </form>
+                </div>
+            </div>
+        </div>
+        @endforeach
+    </div>
+
+    <!-- Modal Proposal -->
+    @foreach ($proposal as $f)
+    <div id="proposal{{ $f->id }}" class="modal fade">
+        <div class="modal-dialog modal-lg">
+            <div class="modal-content">
+                <!-- Ini adalah Bagian Header Modal -->
+                <div class="modal-header">
+                    <h4 class="modal-title">Ubah Status</h4>
+                    <button type="button" class="close" data-dismiss="modal">&times;</button>
+                </div>
+
+                <!-- Ini adalah Bagian Body Modal -->
+
+                <div class="modal-body">
+                    <form role="form" method="get" action="{{ url('admin/ubahproposal/' . $f->id) }}" enctype="multipart/form-data">
+                        <div class="form-group">
+                            <div class="form-group">
+                                <label for="exampleInputPassword1">Nama File</label>
+                                <input type="text" name="projek_id" class="form-control" id="exampleInputPassword1" placeholder="{{$f->file}}" readonly>
+                            </div>
+                            <label for="exampleInputEmail1">Status</label>
+                            <select class="custom-select" name="status">
+                                <option value="1">Menunggu Review</option>
+                                <option value="2">Revisi</option>
+                                <option value="3">Diterima</option>
+                            </select>
+                        </div>
+
+                        <!-- Ini adalah Bagian Footer Modal -->
+                        <div class="modal-footer">
+                            <button type="submit" class="btn btn-success">Ubah Status</button>
+                            <button type="button" class="btn btn-danger" data-dismiss="modal">Tutup</button>
+                        </div>
+                    </form>
+                </div>
+            </div>
+        </div>
+        @endforeach
+    </div>
+</div>
 
 @endsection

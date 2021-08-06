@@ -79,14 +79,13 @@
                                     @csrf
                                 </form>
                             </div>
-                            <div id="language-select">
-                                <p>
-                                    {{ Auth::user()->name }}
-                                </p>
-                            </div>
                         </div>
 
-
+                        <div id="language-select">
+                            <p>
+                                {{ strtok(Auth::user()->name," "); }}
+                            </p>
+                        </div>
                     </div>
                 </div>
 
