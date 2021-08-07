@@ -24,7 +24,11 @@
 @endsection
 
 @section('content')
-
+@if (session('success'))
+    <div class="alert alert-success">
+        {{ session('success') }}
+    </div>
+@endif
 <!-- Begin Page Content -->
 <div class="container-fluid">
     <form action="/perencanaan/proses" method="POST" enctype="multipart/form-data">

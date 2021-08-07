@@ -24,6 +24,11 @@
 @endsection
 
 @section('content')
+@if (session('success'))
+    <div class="alert alert-success">
+        {{ session('success') }}
+    </div>
+@endif
 <div class="container-fluid">
     <div class="card card-body">
         <div class="row">

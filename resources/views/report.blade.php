@@ -24,6 +24,11 @@
 @endsection
 
 @section('content')
+@if (session('success'))
+    <div class="alert alert-success">
+        {{ session('success') }}
+    </div>
+@endif
 <!-- Begin Page Content -->
 <div class="container-fluid">
 
@@ -122,7 +127,7 @@
                         <a class="nav-link active" href="#bulanan" role="tab" data-toggle="tab">Laporan Bulanan</a>
                     </li>
                     <li class="nav-item">
-                        <a class="nav-link " href="#triwulan" role="tab" data-toggle="tab">Laporan Triwulam</a>
+                        <a class="nav-link " href="#triwulan" role="tab" data-toggle="tab">Laporan Triwulan</a>
                     </li>
                     <li class="nav-item">
                         <a class="nav-link " href="#tengah" role="tab" data-toggle="tab">Laporan Tengah Tahun</a>
