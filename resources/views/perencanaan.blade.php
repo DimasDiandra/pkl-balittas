@@ -28,6 +28,7 @@
 
 <!-- Begin Page Content -->
 <div class="container-fluid">
+
     @if (session('success'))
     <div class="alert alert-success">
         {{ session('success') }}

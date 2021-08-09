@@ -37,7 +37,7 @@
 
     <form action="/report/upload" method="POST" enctype="multipart/form-data">
         <!-- Page Heading -->
-        <div style="margin-top: 10px">
+        <div>
             <select class="custom-select" name="projek_id">
                 @foreach($projek as $projek)
                 @if($projek->user_id==Auth::user()->id)
