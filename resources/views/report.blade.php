@@ -24,16 +24,7 @@
 @endsection
 
 @section('content')
-<<<<<<< HEAD
 
-
-=======
-@if (session('success'))
-    <div class="alert alert-success">
-        {{ session('success') }}
-    </div>
-@endif
->>>>>>> 769703378e46c068c305c9c06189931c04e863df
 <!-- Begin Page Content -->
 <div class="container-fluid">
 

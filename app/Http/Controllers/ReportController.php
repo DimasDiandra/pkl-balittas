@@ -56,11 +56,7 @@ class ReportController extends Controller
         // $data->notify(new StatusNotification($data));
         $user = User::where('id', $data->user_id)->get('id');
         Notification::send($user, new StatusNotification($data));
-<<<<<<< HEAD
         return redirect()->back()->with('success', 'Berhasil Mengubah Data');
-=======
-        return redirect()->back()->with('success', 'Data Berhasil Diubah');
->>>>>>> 769703378e46c068c305c9c06189931c04e863df
     }
 
     public function statustriwulan($id, Request $request)
@@ -77,11 +73,7 @@ class ReportController extends Controller
 
         $user = User::where('id', $data->user_id)->get('id');
         Notification::send($user, new StatusNotification($data));
-<<<<<<< HEAD
         return redirect()->back()->with('success', 'Berhasil Mengubah Data');
-=======
-        return redirect()->back()->with('success', 'Data Berhasil Diubah');
->>>>>>> 769703378e46c068c305c9c06189931c04e863df
     }
 
     public function statustengah($id, Request $request)
@@ -98,11 +90,7 @@ class ReportController extends Controller
 
         $user = User::where('id', $data->user_id)->get('id');
         Notification::send($user, new StatusNotification($data));
-<<<<<<< HEAD
         return redirect()->back()->with('success', 'Berhasil Mengubah Data');
-=======
-        return redirect()->back()->with('success', 'Data Berhasil Diubah');
->>>>>>> 769703378e46c068c305c9c06189931c04e863df
     }
 
     public function statusakhir($id, Request $request)
@@ -119,11 +107,7 @@ class ReportController extends Controller
 
         $user = User::where('id', $data->user_id)->get('id');
         Notification::send($user, new StatusNotification($data));
-<<<<<<< HEAD
         return redirect()->back()->with('success', 'Berhasil Mengubah Data');
-=======
-        return redirect()->back()->with('success', 'Data Berhasil Diubah');
->>>>>>> 769703378e46c068c305c9c06189931c04e863df
     }
 
     public function statusdestudi($id, Request $request)
@@ -140,11 +124,7 @@ class ReportController extends Controller
 
         $user = User::where('id', $data->user_id)->get('id');
         Notification::send($user, new StatusNotification($data));
-<<<<<<< HEAD
         return redirect()->back()->with('success', 'Berhasil Mengubah Data');
-=======
-        return redirect()->back()->with('success', 'Data Berhasil Diubah');
->>>>>>> 769703378e46c068c305c9c06189931c04e863df
     }
 
     public function statusrenaksi($id, Request $request)
@@ -161,11 +141,7 @@ class ReportController extends Controller
 
         $user = User::where('id', $data->user_id)->get('id');
         Notification::send($user, new StatusNotification($data));
-<<<<<<< HEAD
         return redirect()->back()->with('success', 'Berhasil Mengubah Data');
-=======
-        return redirect()->back()->with('success', 'Data Berhasil Diubah');
->>>>>>> 769703378e46c068c305c9c06189931c04e863df
     }
 
     public function report_upload(Request $request)
