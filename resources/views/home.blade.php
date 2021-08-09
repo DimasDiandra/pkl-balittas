@@ -25,131 +25,82 @@
 @section('content')
 
 <!-- Begin Page Content -->
-<div class="container-fluid" style="padding-top: 16px;">
-    <div class="row">
-        <!-- notifikasi -->
-        <div class="col-sm-8">
-            <div class="card shadow" style=" height: 30vh; margin-bottom: 32px; ">
-                <div class=" card-header py-3">
-                    <h6 class="m-0 text-primary">Notifikasi</h6>
-                </div>
-                <div class="card-body overflow-auto">
-                    <div class="table table-borderless">
-                        <table>
-                            @forelse($user->notifications as $notification)
-                            <tr>
-                                <td style="width: 15%;">
-                                    {{substr($notification->created_at,2,8)}}
-                                </td>
-                                <td style="width: 80%;">
-                                    Status file
-                                    <a style="font-weight: 700;">{{$notification->data['name']}}</a>
-                                    diubah menjadi
-                                    @if ($notification->data['status'] == 0)
-                                    <a style="font-weight: 700;">
-                                        Menunggu Review
-                                    </a>
-                                    @elseif($notification->data['status']==1)
-                                    <a style="font-weight: 700;">
-                                        Revisi
-                                    </a>
-                                    @elseif($notification->data['status']==2)
-                                    <a style="font-weight: 700;">
-                                        Diterima
-                                    </a>
-                                    @endif
-                                </td>
-                                <td style="width: 10%;">
-                                    @if ($notification->data['status'] == 0)
-                                    <a href="" class="float-right" style="color: blue;"> <i class="fa fa-history"></i></a>
-                                    @elseif($notification->data['status']==1)
-                                    <a href="" class="float-right" style="color: red;"> <i class="fa fa-ban"></i></a>
-                                    @elseif($notification->data['status']==2)
-                                    <a href="" class="float-right" style="color: green;"> <i class="fa fa-check"></i></a>
-                                    @endif
-                                </td>
-                            </tr>
-                            @empty
-                            @endforelse
-                        </table>
-                    </div>
-                </div>
+<div class="row">
+    <div class="col-sm-8">
+        <!-- progress -->
+        <div class="card shadow overflow-auto" style=" height: 80vh;">
+            <div class=" card-header py-3">
+                <h6 class="m-0 text-primary">Progres</h6>
             </div>
-            <!-- progress -->
-            <div class="card shadow overflow-auto" style=" height: 50vh; margin-bottom: 32px; ">
-                <div class=" card-header py-3">
-                    <h6 class="m-0 text-primary">Progres</h6>
-                </div>
-                <div class="card-body">
-                    @foreach($projek as $projek)
-                    <div style="padding-bottom: 16px;">
-                        <h6 style="font-weight: 600;">{{$projek->name}}</h6>
-                        <h7>{{
+            <div class="card-body">
+                @foreach($projek as $projek)
+                <div style="padding-bottom: 16px;">
+                    <h6 style="font-weight: 600;">{{$projek->name}}</h6>
+                    <h7>{{
                             $users = trim(
                             $user->where('id',$projek->user_id)->pluck('name'),
                             '[""]')
                         }}</h7>
-                        <div class="progress" style="height:8px">
-                            <div class="progress-bar" role="progressbar" style="width: {{$projek->all_status}}%"></div>
-                        </div>
+                    <div class="progress" style="height:8px">
+                        <div class="progress-bar" role="progressbar" style="width: {{$projek->all_status}}%"></div>
                     </div>
-                    @endforeach
-
                 </div>
+                @endforeach
+
             </div>
-
-
         </div>
-        <!-- col 2 -->
-        <div class="col">
-            <!-- template -->
-            <div class="card shadow" style="height: 30vh; margin-bottom: 32px; ">
-                <div class="card-header py-3">
-                    <h6 class="m-0 text-primary">Template Download</h6>
-                </div>
-                <div class="card-body table-wrapper-scroll-y scrollbar">
-                    <table>
-                        @foreach($file as $f)
-                        <tr>
-                            <form action="/home/download" method="GET">
-                                <input type="hidden" name="path" value=" {{$f->path}}">
-                                <td>{{ $f->nama_file }}</td>
-                                <td style="width: 10%;">
-                                    <button type="submit" class="btn">
-                                        <i class="menu-icon fa fa-download" style="color: blue;"></i>
-                                    </button>
-                                </td>
-                            </form>
-                        </tr>
-                        @endforeach
-                    </table>
-                </div>
+
+
+    </div>
+    <!-- col 2 -->
+    <div class="col">
+        <!-- template -->
+        <div class="card shadow" style="height: 30vh">
+            <div class="card-header py-3">
+                <h6 class="m-0 text-primary">Template Download</h6>
             </div>
-            <!-- pengumuman -->
-            <div class="card shadow" style="height: 50vh; ">
-                <div class="card-header py-3">
-                    <h6 class="m-0 text-primary">Pengumuman</h6>
-                </div>
-                <div class="card-body">
-                    <table style="border: 0;">
-                        @foreach($pengumuman as $f)
-                        <tr>
-                            <td style="padding-bottom:8px; cursor:pointer">
-                                <a data-toggle="modal" data-target="#pengumumanModal" data-id="{{ $f->id }}" class="text-primary detail-btn">
-                                    {{ $f->judul }}
-                                </a>
+            <div class="card-body table-wrapper-scroll-y scrollbar">
+                <table>
+                    @foreach($file as $f)
+                    <tr>
+                        <form action="/home/download" method="GET">
+                            <input type="hidden" name="path" value=" {{$f->path}}">
+                            <td>{{ $f->nama_file }}</td>
+                            <td style="width: 10%;">
+                                <button type="submit" class="btn">
+                                    <i class="menu-icon fa fa-download" style="color: blue;"></i>
+                                </button>
                             </td>
-                            <td style="padding-bottom:8px; cursor:pointer; width:20%">
-                                <a data-toggle="modal" data-target="#pengumumanModal" data-id="{{ $f->id }}" class="detail-btn">
-                                    {{$date= substr(
+                        </form>
+                    </tr>
+                    @endforeach
+                </table>
+            </div>
+        </div>
+        <!-- pengumuman -->
+        <div class="card shadow" style="height: 45vh;">
+            <div class="card-header py-3">
+                <h6 class="m-0 text-primary">Pengumuman</h6>
+            </div>
+            <div class="card-body">
+                <table style="border: 0;">
+                    @foreach($pengumuman as $f)
+                    <tr>
+                        <td style="padding-bottom:8px; cursor:pointer">
+                            <a data-toggle="modal" data-target="#pengumumanModal" data-id="{{ $f->id }}" class="text-primary detail-btn">
+                                {{ $f->judul }}
+                            </a>
+                        </td>
+                        <td style="padding-bottom:8px; cursor:pointer; width:20%">
+                            <a data-toggle="modal" data-target="#pengumumanModal" data-id="{{ $f->id }}" class="detail-btn">
+                                {{$date= substr(
                                      $f->created_at ,2,8
                                     )}}
-                                </a>
-                            </td>
-                        </tr>
-                        @endforeach
-                    </table>
-                </div>
+                            </a>
+                        </td>
+                    </tr>
+                    @endforeach
+                </table>
             </div>
         </div>
     </div>

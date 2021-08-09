@@ -24,8 +24,16 @@
 @endsection
 
 @section('content')
+
+
 <!-- Begin Page Content -->
 <div class="container-fluid">
+
+    @if (session('success'))
+    <div class="alert alert-success">
+        {{ session('success') }}
+    </div>
+    @endif
 
     <form action="/report/upload" method="POST" enctype="multipart/form-data">
         <!-- Page Heading -->
@@ -39,7 +47,7 @@
             </select>
         </div>
 
-        <div class="row" style="padding-top:16px; padding-bottom:16px">
+        <div class="row" style="padding-bottom:16px">
 
 
             <!-- Card Status-->
@@ -94,25 +102,6 @@
         </div>
     </form>
 
-    <!-- Card History Title-->
-    <div class="breadcrumbs">
-        <div class="col-sm-4">
-            <div class="page-header float-left">
-                <div class="page-title">
-                    <h1>History Monitoring dan Evaluasi</h1>
-                </div>
-            </div>
-        </div>
-        <div class="col-sm-8">
-            <div class="page-header float-right">
-                <div class="page-title">
-                    <ol class="breadcrumb text-right">
-                        <li class="active"><i class="fa fa-map"></i></li>
-                    </ol>
-                </div>
-            </div>
-        </div>
-    </div>
     <!-- Card History-->
     <div class="card card-body">
         <div class="row">
@@ -122,7 +111,7 @@
                         <a class="nav-link active" href="#bulanan" role="tab" data-toggle="tab">Laporan Bulanan</a>
                     </li>
                     <li class="nav-item">
-                        <a class="nav-link " href="#triwulan" role="tab" data-toggle="tab">Laporan Triwulam</a>
+                        <a class="nav-link " href="#triwulan" role="tab" data-toggle="tab">Laporan Triwulan</a>
                     </li>
                     <li class="nav-item">
                         <a class="nav-link " href="#tengah" role="tab" data-toggle="tab">Laporan Tengah Tahun</a>

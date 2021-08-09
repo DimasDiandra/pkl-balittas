@@ -25,7 +25,7 @@
 
 @section('content')
 <div class="content mt-3">
-    <div class="row  justify-content-center">
+    <div class="row justify-content-center">
         <div class="col-lg-3">
             <div class="card shadow" style="height:20vh;">
                 <div class="card-header py-3">

@@ -36,6 +36,16 @@ class HomeController extends Controller
         return view('home', compact('file', 'pengumuman', 'user', 'projek'));
     }
 
+    public function admin()
+    {
+        // dd(session()->all());
+        $file = DB::table('templates')->get();
+        $projek = Projek::Orderby('all_status', 'DESC')->get();
+        $user = User::find(Auth::user()->id);
+        $pengumuman = Pengumuman::orderBy('created_at', 'DESC')->get();
+        return view('admin.home', compact('file', 'pengumuman', 'user', 'projek'));
+    }
+
     public function show_pengumuman($id)
     {
         return Pengumuman::find($id);

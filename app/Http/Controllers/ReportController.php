@@ -56,7 +56,7 @@ class ReportController extends Controller
         // $data->notify(new StatusNotification($data));
         $user = User::where('id', $data->user_id)->get('id');
         Notification::send($user, new StatusNotification($data));
-        return redirect()->back();
+        return redirect()->back()->with('success', 'Berhasil Mengubah Data');
     }
 
     public function statustriwulan($id, Request $request)
@@ -73,7 +73,7 @@ class ReportController extends Controller
 
         $user = User::where('id', $data->user_id)->get('id');
         Notification::send($user, new StatusNotification($data));
-        return redirect()->back();
+        return redirect()->back()->with('success', 'Berhasil Mengubah Data');
     }
 
     public function statustengah($id, Request $request)
@@ -90,7 +90,7 @@ class ReportController extends Controller
 
         $user = User::where('id', $data->user_id)->get('id');
         Notification::send($user, new StatusNotification($data));
-        return redirect()->back();
+        return redirect()->back()->with('success', 'Berhasil Mengubah Data');
     }
 
     public function statusakhir($id, Request $request)
@@ -107,7 +107,7 @@ class ReportController extends Controller
 
         $user = User::where('id', $data->user_id)->get('id');
         Notification::send($user, new StatusNotification($data));
-        return redirect()->back();
+        return redirect()->back()->with('success', 'Berhasil Mengubah Data');
     }
 
     public function statusdestudi($id, Request $request)
@@ -124,7 +124,7 @@ class ReportController extends Controller
 
         $user = User::where('id', $data->user_id)->get('id');
         Notification::send($user, new StatusNotification($data));
-        return redirect()->back();
+        return redirect()->back()->with('success', 'Berhasil Mengubah Data');
     }
 
     public function statusrenaksi($id, Request $request)
@@ -141,7 +141,7 @@ class ReportController extends Controller
 
         $user = User::where('id', $data->user_id)->get('id');
         Notification::send($user, new StatusNotification($data));
-        return redirect()->back();
+        return redirect()->back()->with('success', 'Berhasil Mengubah Data');
     }
 
     public function report_upload(Request $request)
@@ -234,7 +234,7 @@ class ReportController extends Controller
         };
 
         event(new UpdateStatus($projek));
-        return redirect()->back();
+        return redirect()->back()->with('success', 'Berhasil Menambahkan Data');
     }
 
     public function report_download(Request $request)
@@ -250,7 +250,7 @@ class ReportController extends Controller
         } catch (\Exception $e) {
             return $e->getMessage();
         }
-        // return redirect()->back();
+        // return redirect()->back()->with('success', 'Berhasil Mengubah Data');
     }
 
     public function admin_view()

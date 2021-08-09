@@ -79,7 +79,7 @@ class PerencanaanController extends Controller
         // $data->notify(new StatusNotification($data));
         $user = User::where('id', $data->user_id)->get('id');
         Notification::send($user, new StatusNotification($data));
-        return redirect()->back();
+        return redirect()->back()->with('success', 'Berhasil Mengubah Data');
     }
 
     public function statusrab($id, Request $request)
@@ -97,7 +97,7 @@ class PerencanaanController extends Controller
         // $data->notify(new StatusNotification($data));
         $user = User::where('id', $data->user_id)->get('id');
         Notification::send($user, new StatusNotification($data));
-        return redirect()->back();
+        return redirect()->back()->with('success', 'Berhasil Mengubah Data');
     }
 
     public function statuskak($id, Request $request)
@@ -115,7 +115,7 @@ class PerencanaanController extends Controller
         // $data->notify(new StatusNotification($data));
         $user = User::where('id', $data->user_id)->get('id');
         Notification::send($user, new StatusNotification($data));
-        return redirect()->back();
+        return redirect()->back()->with('success', 'Berhasil Mengubah Data');
     }
 
     public function statusanalisis($id, Request $request)
@@ -133,7 +133,7 @@ class PerencanaanController extends Controller
         // $data->notify(new StatusNotification($data));
         $user = User::where('id', $data->user_id)->get('id');
         Notification::send($user, new StatusNotification($data));
-        return redirect()->back();
+        return redirect()->back()->with('success', 'Berhasil Mengubah Data');
     }
 
     public function statusproposal($id, Request $request)
@@ -151,7 +151,7 @@ class PerencanaanController extends Controller
         // $data->notify(new StatusNotification($data));
         $user = User::where('id', $data->user_id)->get('id');
         Notification::send($user, new StatusNotification($data));
-        return redirect()->back();
+        return redirect()->back()->with('success', 'Berhasil Mengubah Data');
     }
 
     public function perencanaan_upload(Request $request)
@@ -259,7 +259,7 @@ class PerencanaanController extends Controller
         };
 
         event(new UpdateStatus($projek));
-        return redirect()->back();
+        return redirect()->back()->with('success', 'Berhasil Menambahkan Data');
     }
 
     public function perencanaan_download(Request $request)
@@ -275,6 +275,6 @@ class PerencanaanController extends Controller
         } catch (\Exception $e) {
             return $e->getMessage();
         }
-        // return redirect()->back();
+        // return redirect()->back()->with('success', 'Berhasil Mengubah Data');
     }
 }

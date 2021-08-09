@@ -53,13 +53,10 @@ Route::get('view', [App\Http\Controllers\FileController::class, 'getFile']);
 Route::get('get/{filename}', [FileController::class, 'getfile']);
 
 //Admin
-Route::middleware('role:admin')->get('/admin', function () {
-    return view('admin.home');
-})->name('admin');
+Route::middleware('role:admin')->get('/admin', [App\Http\Controllers\HomeController::class, 'admin'])->name('admin');
 Route::middleware('role:admin')->prefix('admin')->group(function () {
-    Route::get('/admin', function () {
-        return view('admin.home',);
-    })->name('admin');
+    Route::get('/admin', [App\Http\Controllers\HomeController::class, 'admin'])->name('admin');
+
     // List data User
     Route::get('/user', [App\Http\Controllers\UserController::class, 'index']);
     Route::get('/user/{id}', [App\Http\Controllers\UserController::class, 'edit']);
