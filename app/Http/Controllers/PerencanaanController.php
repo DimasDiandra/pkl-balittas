@@ -79,7 +79,11 @@ class PerencanaanController extends Controller
         // $data->notify(new StatusNotification($data));
         $user = User::where('id', $data->user_id)->get('id');
         Notification::send($user, new StatusNotification($data));
+<<<<<<< HEAD
         return redirect()->back()->with('success', 'Berhasil Mengubah Data');
+=======
+        return redirect()->back()->with('success', 'Data Berhasil Diubah');
+>>>>>>> 769703378e46c068c305c9c06189931c04e863df
     }
 
     public function statusrab($id, Request $request)
@@ -97,7 +101,11 @@ class PerencanaanController extends Controller
         // $data->notify(new StatusNotification($data));
         $user = User::where('id', $data->user_id)->get('id');
         Notification::send($user, new StatusNotification($data));
+<<<<<<< HEAD
         return redirect()->back()->with('success', 'Berhasil Mengubah Data');
+=======
+        return redirect()->back()->with('success', 'Data Berhasil Diubah');
+>>>>>>> 769703378e46c068c305c9c06189931c04e863df
     }
 
     public function statuskak($id, Request $request)
@@ -115,7 +123,11 @@ class PerencanaanController extends Controller
         // $data->notify(new StatusNotification($data));
         $user = User::where('id', $data->user_id)->get('id');
         Notification::send($user, new StatusNotification($data));
+<<<<<<< HEAD
         return redirect()->back()->with('success', 'Berhasil Mengubah Data');
+=======
+        return redirect()->back()->with('success', 'Data Berhasil Diubah');
+>>>>>>> 769703378e46c068c305c9c06189931c04e863df
     }
 
     public function statusanalisis($id, Request $request)
@@ -133,7 +145,11 @@ class PerencanaanController extends Controller
         // $data->notify(new StatusNotification($data));
         $user = User::where('id', $data->user_id)->get('id');
         Notification::send($user, new StatusNotification($data));
+<<<<<<< HEAD
         return redirect()->back()->with('success', 'Berhasil Mengubah Data');
+=======
+        return redirect()->back()->with('success', 'Data Berhasil Diubah');
+>>>>>>> 769703378e46c068c305c9c06189931c04e863df
     }
 
     public function statusproposal($id, Request $request)
@@ -151,7 +167,11 @@ class PerencanaanController extends Controller
         // $data->notify(new StatusNotification($data));
         $user = User::where('id', $data->user_id)->get('id');
         Notification::send($user, new StatusNotification($data));
+<<<<<<< HEAD
         return redirect()->back()->with('success', 'Berhasil Mengubah Data');
+=======
+        return redirect()->back()->with('success', 'Data Berhasil Diubah');
+>>>>>>> 769703378e46c068c305c9c06189931c04e863df
     }
 
     public function perencanaan_upload(Request $request)
