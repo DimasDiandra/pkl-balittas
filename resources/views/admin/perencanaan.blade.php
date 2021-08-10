@@ -28,8 +28,11 @@
     <div class="box-body">
 
         <div class="card">
+            <div class="card-header">
+                <h3 class="m-0  text-primary">Perencanaan</h3>
+            </div>
             <div class="card-body table-responsive">
-                <table class="table table-bordered" id="table-datatables">
+                <table class="table table-borderless" id="table-datatables">
                     <thead>
                         <tr>
                             <th width="1%">No.</th>

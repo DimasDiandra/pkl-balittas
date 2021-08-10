@@ -26,22 +26,16 @@
 @section('content')
 <div class="content mt-3">
     @if (session('success'))
-        <div class="alert alert-success">
-            {{ session('success') }}
-        </div>
+    <div class="alert alert-success">
+        {{ session('success') }}
+    </div>
     @endif
     <div class="animated fadeIn">
         <div class="card">
             <div class="card-header">
-                <div class="pull-left">
-                    <strong>Data Template</strong>
-                </div>
-                <div class="pull-right">
-                    <!-- Button trigger modal -->
-                    <a href="" class="btn btn-success btn-sm" data-toggle="modal" data-target="#myModal" ><i class="fa fa-plus">Tambah</i></a>
-                </div> 
+                <h3 class="m-0  text-primary">Template</h3>
             </div>
-            
+
             <div class="card-body table-responsive">
                 <table class="table table-bordered" id="table-datatables">
                     <thead>
@@ -53,23 +47,24 @@
                     </thead>
                     <tbody>
                         @foreach($file as $f)
-						<tr>
-							<td>{{ $loop->iteration }}</td>
-							<td>{{ $f->nama_file }}</td>
+                        <tr>
+                            <td>{{ $loop->iteration }}</td>
+                            <td>{{ $f->nama_file }}</td>
                             <td class="text-center">
-                                    <form action="{{ url('admin/template/' .$f->id) }}" method="post" class="d-inline" onsubmit="return confirm('Yakin hapus template?')">
-                                        @method('delete')
-                                        @csrf
-                                        <button href="{{ url('template/'.$f->id) }}" class="btn btn-danger btn-xs btn-hapus" id="delete"><i class="fa fa-trash-o"></i></button>
-                                    </form>
+                                <form action="{{ url('admin/template/' .$f->id) }}" method="post" class="d-inline" onsubmit="return confirm('Yakin hapus template?')">
+                                    @method('delete')
+                                    @csrf
+                                    <button href="{{ url('template/'.$f->id) }}" class="btn btn-danger btn-xs btn-hapus" id="delete"><i class="fa fa-trash-o"></i></button>
+                                </form>
                             </td>
-						</tr>
-						@endforeach
+                        </tr>
+                        @endforeach
                     </tbody>
                 </table>
+                <a href="" class="btn btn-success" data-toggle="modal" data-target="#myModal"><i class="fa fa-plus"></i>Tambah Template</a>
             </div>
         </div>
-        
+
     </div>
     <!-- Modal -->
     <div id="myModal" class="modal fade">
@@ -82,7 +77,7 @@
                 </div>
 
                 <!-- Ini adalah Bagian Body Modal -->
-                
+
                 <form action="{{ url('admin/template') }}" method="post" enctype="multipart/form-data">
                     @csrf
                     <div class="modal-body">
@@ -100,10 +95,9 @@
                     </div>
                 </form>
 
-                
+
             </div>
         </div>
     </div>
 </div>
 @endsection
-

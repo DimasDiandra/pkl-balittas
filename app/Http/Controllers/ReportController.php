@@ -17,6 +17,7 @@ use Illuminate\Support\Facades\Storage;
 use App\Notifications\StatusNotification;
 use Illuminate\Support\Facades\Notification;
 use App\Events\UpdateStatus;
+use App\Notifications\UploadNotification;
 
 class ReportController extends Controller
 {
@@ -157,14 +158,21 @@ class ReportController extends Controller
         $jenis = $request->keterangan;
         $projek_id = $request->projek_id;
 
+
+        //Projek
+        $projek_id = $request->projek_id;
+        $projek = Projek::where('id', $projek_id)->first();
+
         //nama file
-        $namafile = $file->getClientOriginalName();
+        $namafile = $projek->name . "_" . $file->getClientOriginalName();
+
 
         //get user
         $id = Auth::id();
         $user = User::find($id);
-        $projek_id = $request->projek_id;
-        $projek = Projek::where('id', $projek_id)->first();
+        $admin = User::where('id', 1)->get('id');
+
+        //Path
         $path = "public/$projek->name";
         $pathFile = Storage::putFileAs($path, $file, $namafile);
 
@@ -172,7 +180,7 @@ class ReportController extends Controller
         if ($jenis == 1) {
             $projek->bulanan_status = 1;
             $projek->save();
-            laporan_bulanan::create([
+            $data = laporan_bulanan::create([
                 'path' => $pathFile,
                 'name' => $namafile,
                 'user_id' => $user->id,
@@ -182,7 +190,7 @@ class ReportController extends Controller
             $projek->bulanan_status = 1;
             $projek->save();
         } else if ($jenis == 2) {
-            laporan_triwulan::create([
+            $data = laporan_triwulan::create([
                 'path' => $path,
                 'name' => $namafile,
                 'user_id' => $user->id,
@@ -192,7 +200,7 @@ class ReportController extends Controller
             $projek->triwulan_status = 1;
             $projek->save();
         } else if ($jenis == 3) {
-            laporan_tengahtahun::create([
+            $data = laporan_tengahtahun::create([
                 'path' => $path,
                 'name' => $namafile,
                 'user_id' => $user->id,
@@ -202,7 +210,7 @@ class ReportController extends Controller
             $projek->tengahtahun_status = 1;
             $projek->save();
         } else if ($jenis == 4) {
-            laporan_akhirtahun::create([
+            $data = laporan_akhirtahun::create([
                 'path' => $path,
                 'name' => $namafile,
                 'user_id' => $user->id,
@@ -212,7 +220,7 @@ class ReportController extends Controller
             $projek->akhirtahun_status = 1;
             $projek->save();
         } else if ($jenis == 5) {
-            laporan_destudi::create([
+            $data = laporan_destudi::create([
                 'path' => $path,
                 'name' => $namafile,
                 'user_id' => $user->id,
@@ -222,7 +230,7 @@ class ReportController extends Controller
             $projek->destudi_status = 1;
             $projek->save();
         } else if ($jenis == 6) {
-            laporan_renaksi::create([
+            $data = laporan_renaksi::create([
                 'path' => $path,
                 'name' => $namafile,
                 'user_id' => $user->id,
@@ -233,6 +241,7 @@ class ReportController extends Controller
             $projek->save();
         };
 
+        Notification::send($admin, new UploadNotification($data));
         event(new UpdateStatus($projek));
         return redirect()->back()->with('success', 'Berhasil Menambahkan Data');
     }

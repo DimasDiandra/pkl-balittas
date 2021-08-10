@@ -28,6 +28,9 @@
     <div class="box-body">
 
         <div class="card">
+            <div class="card-header">
+                <h3 class="m-0  text-primary">Monitoring dan Evaluasi</h3>
+            </div>
             <div class="card-body table-responsive">
                 <table class="table table-borderless" id="table-datatables">
                     <thead>
@@ -64,5 +67,7 @@
                 </table>
             </div>
         </div>
+    </div>
+</div>
 
-        @endsection
+@endsection

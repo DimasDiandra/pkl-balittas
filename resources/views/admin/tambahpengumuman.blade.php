@@ -33,17 +33,11 @@
     <div class="animated fadeIn">
         <div class="card">
             <div class="card-header">
-                <div class="pull-left">
-                    <strong>Tambah Pengumuman</strong>
-                </div>
-                <div class="pull-right">
-                    <!-- Button trigger modal -->
-                    <a href="" class="btn btn-success btn-sm" data-toggle="modal" data-target="#myModal"><i class="fa fa-plus">Tambah</i></a>
-                </div>
+                <h3 class="m-0  text-primary">Pengumuman</h3>
             </div>
 
             <div class="card-body table-responsive">
-                <table class="table table-bordered" id="table-datatables">
+                <table class="table table-borderless" id="table-datatables">
                     <thead>
                         <tr>
                             <th width="1%">No.</th>
@@ -72,6 +66,7 @@
                         @endforeach
                     </tbody>
                 </table>
+                <button class="btn btn-success" data-toggle="modal" data-target="#myModal"><i class="fa fa-plus"></i> Tambah Pengumuman</button>
             </div>
         </div>
 

@@ -2,13 +2,12 @@
 
 namespace App\Notifications;
 
-use Illuminate\Http\Request;
 use Illuminate\Bus\Queueable;
 use Illuminate\Contracts\Queue\ShouldQueue;
 use Illuminate\Notifications\Messages\MailMessage;
 use Illuminate\Notifications\Notification;
 
-class StatusNotification extends Notification
+class UploadNotification extends Notification
 {
     use Queueable;
 
@@ -55,10 +54,6 @@ class StatusNotification extends Notification
      */
     public function toArray($notifiable)
     {
-        // dd($notif);
-        // $name = $notif->name;
-        // $status = $notif->status;
-        // $user_id = $notif->user_id;
         return [
             'name' => $this->data->name,
             'user_id' => $this->data->user_id,

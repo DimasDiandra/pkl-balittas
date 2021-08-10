@@ -29,9 +29,7 @@
 
         <div class="card">
             <div class="card-header">
-                <div class="pull-left">
-                    <strong>Data Projek</strong>
-                </div>
+                <h3 class="m-0  text-primary">Projek</h3>
             </div>
             <div class="card-body table-responsive table-wrapper-scroll-y scrollbar">
                 <table class="table table-borderless" id="table-datatables">
@@ -55,7 +53,6 @@
                             <td>
                                 {{-- <div style="width:60px"> --}}
                                 <a href="{{ url('admin/projek/' .$data->id) }}" class="btn btn-warning btn-xs btn-edit" id="edit" style="color: white;"><i class="menu-icon fa fa-pencil"></i> Edit</a>
-
                                 <form action="{{ url('admin/projek/' .$data->id) }}" method="post" class="d-inline" onsubmit="return confirm('Yakin hapus data?')">
                                     @method('delete')
                                     @csrf
@@ -68,7 +65,7 @@
                         @endforeach
                     </tbody>
                 </table>
-                <button class="btn btn-success" data-toggle="modal" data-target="#buatProjekModal"><i class="fa fa-plus"></i> Buat Projek</butt>
+                <button class="btn btn-success" data-toggle="modal" data-target="#buatProjekModal"><i class="fa fa-plus"></i> Buat Projek</button>
             </div>
         </div>
     </div>

@@ -14,8 +14,8 @@ The above copyright notice and this permission notice shall be included in all c
 
 <head>
     <meta charset="utf-8" />
-    <link rel="apple-touch-icon" sizes="76x76" href="../assets/img/apple-icon.png">
-    <link rel="icon" type="image/png" href="../assets/img/favicon.png">
+    <link rel="apple-touch-icon" sizes="76x76" href="../assets/pkl.png">
+    <link rel="icon" type="image/png" href="../assets/pkl.png">
     <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1" />
     <title>
         @yield('title') - User Balittas
@@ -30,12 +30,11 @@ The above copyright notice and this permission notice shall be included in all c
     <link href="../assets/demo/demo.css" rel="stylesheet" />
     <!-- CSS Drag n Drop -->
     <link rel="stylesheet" href="css/dragndrop.css">
-
 </head>
 
 <body class="">
     <div class="wrapper ">
-        <div class="sidebar" data-color="purple" data-background-color="white" data-image="../assets/img/sidebar-1.jpg">
+        <div class="sidebar" data-color="purple" data-background-color="white" data-image="assets/background.jpg">
             <!--
         Tip 1: You can change the color of the sidebar using: data-color="purple | azure | green | orange | danger"
 
@@ -93,13 +92,10 @@ The above copyright notice and this permission notice shall be included in all c
                                 <a class="nav-link" href="http://example.com" id="navbarDropdownMenuLink" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
                                     <i class="material-icons">notifications</i>
                                     <span class="notification">{{Auth::user()->notifications->count()}}</span>
-                                    <p class="d-lg-none d-md-block">
-                                        Some Actions
-                                    </p>
                                 </a>
                                 <div class="dropdown-menu dropdown-menu-right" aria-labelledby="navbarDropdownMenuLink">
                                     @forelse(Auth::user()->notifications as $notification)
-                                    <a class="dropdown-item">
+                                    <a class="dropdown-item" href="#">
                                         {{$notification->data['name']}}
                                         @if ($notification->data['status'] == 1)
                                         Menunggu Review
@@ -110,7 +106,7 @@ The above copyright notice and this permission notice shall be included in all c
                                         @endif
                                     </a>
                                     @empty
-                                    <a>Tidak ada Notifikasi</a>
+                                    <p class="dropdown-item">Tidak ada Notifikasi</p>
                                     @endforelse
                                 </div>
                             </li>
@@ -125,6 +121,11 @@ The above copyright notice and this permission notice shall be included in all c
                                     <a class="dropdown-item" href="#">Profile</a>
                                     <a class="dropdown-item" href="#">Settings</a>
                                     <div class="dropdown-divider"></div>
+
+                                    @if(Auth::user()->hasRole('admin'))
+                                    <a href="/admin" class="dropdown-item"> Admin Page</a>
+                                    @endif
+
                                     <a class="dropdown-item" href="{{ route('logout') }}" onclick="event.preventDefault();
                                                      document.getElementById('logout-form').submit();">
                                         {{ __('Logout') }}

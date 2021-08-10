@@ -24,80 +24,144 @@
 @endsection
 
 @section('content')
-<div class="content mt-3">
-    <div class="row justify-content-center">
-        <div class="col-lg-3">
-            <div class="card shadow" style="height:20vh;">
-                <div class="card-header py-3">
-                    <h6 class="m-0 font-weight-bold text-primary">Data User</h6>
+<div class="row">
+    <div class="col">
+        <div class="card card-stats">
+            <a href="/admin/user">
+                <div class="card-header card-header-primary card-header-icon">
+                    <div class="card-icon">
+                        <i class="material-icons fa fa-user"></i>
+                    </div>
+                    <h6 class="card-category">Data User</h6>
+                    <h3 class="card-title">{{$user->count()}}
+                        <small>User</small>
+                    </h3>
                 </div>
-                <div class="card-body perencanaan">
-                    <a href="/admin/user" class="btn btn-primary">Data User</a>
+                <div class="card-footer">
+                    <a> Lihat dan Edit data user.</a>
                 </div>
-            </div>
+            </a>
         </div>
-        <div class="col-lg-3">
-            <div class="card shadow" style="height:20vh;">
-                <div class="card-header py-3">
-                    <h6 class="m-0 font-weight-bold text-primary">Projek</h6>
+    </div>
+    <div class="col">
+        <div class="card card-stats">
+            <a href="/admin/user">
+                <div class="card-header card-header-primary card-header-icon">
+                    <div class="card-icon">
+                        <i class="material-icons fa fa-puzzle-piece"></i>
+                    </div>
+                    <h6 class="card-category">Data Projek</h6>
+                    <h3 class="card-title">{{$projek->count()}}
+                        <small>Projek</small>
+                    </h3>
                 </div>
-                <div class="card-body perencanaan">
-
-                    <a href="/admin/projek" class="btn btn-primary">Projek</a>
+                <div class="card-footer">
+                    <a> Lihat dan Edit data projek</a>
                 </div>
-            </div>
+            </a>
         </div>
-        <div class="col-lg-3">
-            <div class="card shadow" style="height:20vh;">
-                <div class="card-header py-3">
-                    <h6 class="m-0 font-weight-bold text-primary">Pengumuman</h6>
+    </div>
+    <div class="col">
+        <div class="card card-stats">
+            <a href="/admin/user">
+                <div class="card-header card-header-primary card-header-icon">
+                    <div class="card-icon">
+                        <i class="material-icons fa fa-bullhorn"></i>
+                    </div>
+                    <h6 class="card-category">Data Pengumuman</h6>
+                    <h3 class="card-title">{{$pengumuman->count()}}
+                        <small>Pengumuman</small>
+                    </h3>
                 </div>
-                <div class="card-body perencanaan">
-
-                    <a href="/admin/pengumuman" class="btn btn-primary">Pengumuman</a>
+                <div class="card-footer">
+                    <a> Lihat dan Edit data pengumuman</a>
                 </div>
-            </div>
+            </a>
         </div>
-
     </div>
 </div>
-<div class="content mt-3">
-    <div class="row  justify-content-center">
-        <div class="col-lg-3">
-            <div class="card shadow" style="height:20vh;">
-                <div class="card-header py-3">
-                    <h6 class="m-0 font-weight-bold text-primary">Perencanaan</h6>
+<div class="row">
+    <div class="col">
+        <div class="card card-stats">
+            <a href="/admin/user">
+                <div class="card-header card-header-primary card-header-icon">
+                    <div class="card-icon">
+                        <i class="material-icons fa fa-map"></i>
+                    </div>
+                    <h6 class="card-category">Data Perencanaan</h6>
+                    <h3 class="card-title">{{$projek->count()}}
+                        <small>Projek</small>
+                    </h3>
                 </div>
-                <div class="card-body perencanaan">
-
-                    <a href="/admin/perencanaan" class="btn btn-primary">Perencanaan</a>
+                <div class="card-footer">
+                    <a> Lihat dan Edit data perencanaan.</a>
                 </div>
-            </div>
-        </div>
-        <div class="col-lg-3">
-            <div class="card shadow" style="height:20vh;">
-                <div class="card-header py-3">
-                    <h6 class="m-0 font-weight-bold text-primary">Monitoring dan Evaluasi</h6>
-                </div>
-                <div class="card-body perencanaan">
-
-                    <a href="/admin/evaluasi" class="btn btn-primary">Monitoring dan Evaluasi</a>
-                </div>
-            </div>
-        </div>
-        <div class="col-lg-3">
-            <div class="card shadow" style="height:20vh;">
-                <div class="card-header py-3">
-                    <h6 class="m-0 font-weight-bold text-primary">Data Template</h6>
-                </div>
-                <div class="card-body perencanaan">
-
-                    <a href="/admin/template" class="btn btn-primary">Data Template</a>
-                </div>
-            </div>
+            </a>
         </div>
     </div>
+    <div class="col">
+        <div class="card card-stats">
+            <a href="/admin/user">
+                <div class="card-header card-header-primary card-header-icon">
+                    <div class="card-icon">
+                        <i class="material-icons fa fa-flag"></i>
+                    </div>
+                    <h6 class="card-category">Data Monev</h6>
+                    <h3 class="card-title">{{$projek->count()}}
+                        <small>Projek</small>
+                    </h3>
+                </div>
+                <div class="card-footer">
+                    <a> Lihat dan Edit data Monev</a>
+                </div>
+            </a>
+        </div>
+    </div>
+    <div class="col">
+        <div class="card card-stats">
+            <a href="/admin/user">
+                <div class="card-header card-header-primary card-header-icon">
+                    <div class="card-icon">
+                        <i class="material-icons fa fa-file"></i>
+                    </div>
+                    <h6 class="card-category">Data Template</h6>
+                    <h3 class="card-title">{{$file->count()}}
+                        <small>Template</small>
+                    </h3>
+                </div>
+                <div class="card-footer">
+                    <a> Lihat dan Edit data template</a>
+                </div>
+            </a>
+        </div>
+    </div>
+</div>
+<div class="row">
+    <div class="col">
+        <!-- progress -->
+        <div class="card shadow overflow-auto" style="height: 60vh;">
+            <div class=" card-header py-3">
+                <h6 class="m-0 text-primary">Progres</h6>
+            </div>
+            <div class="card-body">
+                @foreach($projek as $projek)
+                <div style="padding-bottom: 16px;">
+                    <h6 style="font-weight: 600;">{{$projek->name}}</h6>
+                    <h7>{{
+                            $users = trim(
+                            $user->where('id',$projek->user_id)->pluck('name'),
+                            '[""]')
+                        }}</h7>
+                    <div class="progress" style="height:8px">
+                        <div class="progress-bar" role="progressbar" style="width: {{$projek->all_status}}%"></div>
+                    </div>
+                </div>
+                @endforeach
 
+            </div>
+        </div>
+
+    </div>
 </div>
 
 @endsection

@@ -18,8 +18,8 @@ use App\Models\Projek;
 use App\Notifications\StatusNotification;
 use Illuminate\Support\Facades\Notification;
 use App\Events\UpdateStatus;
+use App\Notifications\UploadNotification;
 
-use function PHPUnit\Framework\fileExists;
 
 class PerencanaanController extends Controller
 {
@@ -187,7 +187,7 @@ class PerencanaanController extends Controller
         // upload ke db
         // matriks
         if (file_exists($matriks)) {
-            $namaFileMatriks = $matriks->getClientOriginalName();
+            $namaFileMatriks = $projek->name . "_" . $matriks->getClientOriginalName();
             $pathMatriks = Storage::putFileAs($path, $matriks, $namaFileMatriks);
             Matriks::create([
                 'path' => $pathMatriks,
@@ -201,10 +201,10 @@ class PerencanaanController extends Controller
         };
         // rab
         if (file_exists($rab)) {
-            $namaFileRab = $rab->getClientOriginalName();
+            $namaFileRab = $projek->name . "_" . $rab->getClientOriginalName();
             $pathRab = Storage::putFileAs($path, $rab, $namaFileRab);
 
-            RAB::create([
+            $data = RAB::create([
                 'path' => $pathRab,
                 'file' => $namaFileRab,
                 'user_id' => $user->id,
@@ -216,10 +216,10 @@ class PerencanaanController extends Controller
         };
         // kak
         if (file_exists($kak)) {
-            $namaFileKak = $kak->getClientOriginalName();
+            $namaFileKak = $projek->name . "_" . $kak->getClientOriginalName();
             $pathKak = Storage::putFileAs($path, $kak, $namaFileKak);
 
-            KAK::create([
+            $data = KAK::create([
                 'path' => $pathKak,
                 'file' => $namaFileKak,
                 'user_id' => $user->id,
@@ -228,12 +228,13 @@ class PerencanaanController extends Controller
             ]);
             $projek->kak_status = 1;
             $projek->save();
+            Notification::send(1, new UploadNotification($data));
         };
         // proposal
         if (file_exists($proposal)) {
-            $namaFileProposal = $proposal->getClientOriginalName();
+            $namaFileProposal = $projek->name . "_" . $proposal->getClientOriginalName();
             $pathProposal = Storage::putFileAs($path, $proposal, $namaFileProposal);
-            Proposal::create([
+            $data = Proposal::create([
                 'path' => $pathProposal,
                 'file' => $namaFileProposal,
                 'user_id' => $user->id,
@@ -242,12 +243,13 @@ class PerencanaanController extends Controller
             ]);
             $projek->proposal_status = 1;
             $projek->save();
+            Notification::send(1, new UploadNotification($data));
         };
         // analisis
         if (file_exists($analisis)) {
-            $namaFileAnalisis = $analisis->getClientOriginalName();
+            $namaFileAnalisis = $projek->name . "_" . $analisis->getClientOriginalName();
             $pathAnalisis = Storage::putFileAs($path, $analisis, $namaFileAnalisis);
-            Analisis::create([
+            $data = Analisis::create([
                 'path' => $pathAnalisis,
                 'file' => $namaFileAnalisis,
                 'user_id' => $user->id,
@@ -256,6 +258,7 @@ class PerencanaanController extends Controller
             ]);
             $projek->analisis_status = 1;
             $projek->save();
+            Notification::send(1, new UploadNotification($data));
         };
 
         event(new UpdateStatus($projek));
