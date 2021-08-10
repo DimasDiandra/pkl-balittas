@@ -55,8 +55,132 @@
                         <h6 class="m-0  text-primary">Status Perencanaan</h6>
                     </div>
                     <div class="card-body">
-                        <p>nama user upload 1
-                        </p>
+                        <table class="table">
+                            <thead>
+                                <tr>
+                                    <th width=60%>File Name</th>
+                                    <th width=40%>Status</th>
+                                    <th></th>
+                                </tr>
+                            </thead>
+                            <tbody>
+                                @foreach($matriks->where('user_id', Auth::user()->id) as $f)
+                                @if($loop->first)
+
+                                <tr>
+                                    <td>
+                                        Matriks
+                                    </td>
+                                    @if ($f->status==1)
+                                    <td>
+                                        Menunggu Review
+                                    </td>
+                                    @elseif($f->status==2)
+                                    <td>
+                                        Revisi
+                                    </td>
+                                    @elseif($f->status==3)
+                                    <td>
+                                        Diterima
+                                    </td>
+                                    @endif
+                                </tr>
+                                @endif
+                                @endforeach
+
+                                @foreach($rab->where('user_id', Auth::user()->id) as $f)
+                                @if($loop->first)
+                                <tr>
+                                    <td>
+                                        RAB
+                                    </td>
+                                    @if ($f->status==1)
+                                    <td>
+                                        Menunggu Review
+                                    </td>
+                                    @elseif($f->status==2)
+                                    <td>
+                                        Revisi
+                                    </td>
+                                    @elseif($f->status==3)
+                                    <td>
+                                        Diterima
+                                    </td>
+                                    @endif
+                                </tr>
+                                @endif
+                                @endforeach
+
+                                @foreach($kak->where('user_id', Auth::user()->id) as $f)
+                                @if($loop->first)
+                                <tr>
+                                    <td>
+                                        KAK
+                                    </td>
+                                    @if ($f->status==1)
+                                    <td>
+                                        Menunggu Review
+                                    </td>
+                                    @elseif($f->status==2)
+                                    <td>
+                                        Revisi
+                                    </td>
+                                    @elseif($f->status==3)
+                                    <td>
+                                        Diterima
+                                    </td>
+                                    @endif
+                                </tr>
+                                @endif
+                                @endforeach
+
+                                @foreach($proposal->where('user_id', Auth::user()->id) as $f)
+                                @if($loop->first)
+                                <tr>
+                                    <td>
+                                        Proposal
+                                    </td>
+                                    @if ($f->status==1)
+                                    <td>
+                                        Menunggu Review
+                                    </td>
+                                    @elseif($f->status==2)
+                                    <td>
+                                        Revisi
+                                    </td>
+                                    @elseif($f->status==3)
+                                    <td>
+                                        Diterima
+                                    </td>
+                                    @endif
+                                </tr>
+                                @endif
+                                @endforeach
+
+                                @foreach($analisis->where('user_id', Auth::user()->id) as $f)
+                                @if($loop->first)
+                                <tr>
+                                    <td>
+                                        Analisis
+                                    </td>
+                                    @if ($f->status==1)
+                                    <td>
+                                        <span href="">Menunggu Review</span>
+                                    </td>
+                                    @elseif($f->status==2)
+                                    <td>
+                                        Revisi
+                                    </td>
+                                    @elseif($f->status==3)
+                                    <td>
+                                        Diterima
+                                    </td>
+                                    @endif
+                                </tr>
+                                @endif
+                                @endforeach
+                            </tbody>
+                        </table>
                     </div>
 
                 </div>
@@ -74,33 +198,53 @@
                     <div class="card-body">
 
                         {{ csrf_field() }}
-                        <!-- <input type="hidden" name="matriks" value="NULL"> -->
-                        <div class="form-group">
-                            <b>File Matriks</b>
-                            <input type="file" name="matriks">
+                        <div class="row table table-borderless" style="padding-left: 16px;">
+                            <table>
+                                <tr>
+                                    <td style="width: 35%">
+                                        <a>File Matriks</a>
+                                    </td>
+                                    <td>
+                                        <input type="file" name="matriks">
+                                    </td>
+                                </tr>
+                                <tr>
+                                    <td>
+                                        <a>File RAB</a>
+                                    </td>
+                                    <td>
+                                        <input type="file" name="kak">
+                                    </td>
+                                </tr>
+                                <tr>
+                                    <td>
+                                        <a>File KAK</a>
+                                    </td>
+                                    <td>
+                                        <input type="file" name="kak">
+                                    </td>
+                                </tr>
+                                <tr>
+                                    <td>
+                                        <a>File Proposal</a>
+                                    </td>
+                                    <td>
+                                        <input type="file" name="proposal">
+                                    </td>
+                                </tr>
+                                <tr>
+                                    <td>
+                                        <a>File Analisis Resiko</a>
+                                    </td>
+                                    <td>
+                                        <input type="file" name="analisis">
+                                    </td>
+                                </tr>
+                            </table>
                         </div>
-                        <!-- <input type="hidden" name="rab" value="NULL"> -->
-                        <div class="form-group">
-                            <b>File RAB</b>
-                            <input type="file" name="kak">
+                        <div class="row" style="padding-left: 16px;">
+                            <button type="submit" class="btn btn-primary "><i class="menu-icon fa fa-upload"></i> Upload</button>
                         </div>
-                        <!-- <input type="hidden" name="kak" value="NULL"> -->
-                        <div class="form-group">
-                            <b>File KAK</b>
-                            <input type="file" name="kak">
-                        </div>
-                        <!-- <input type="hidden" name="proposal" value="NULL"> -->
-                        <div class="form-group">
-                            <b>File Proposal</b>
-                            <input type="file" name="proposal">
-                        </div>
-                        <!-- <input type="hidden" name="analisis" value="NULL"> -->
-                        <div class="form-group">
-                            <b>File Analisis Resiko</b>
-                            <input type="file" name="analisis">
-                        </div>
-
-                        <button type="submit" class="btn btn-primary"><i class="menu-icon fa fa-upload"></i> Upload</button>
                     </div>
                 </div>
             </div>

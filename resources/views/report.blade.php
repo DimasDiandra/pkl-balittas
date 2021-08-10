@@ -58,8 +58,153 @@
                         <h6 class="m-0  text-primary">Status Monev</h6>
                     </div>
                     <div class="card-body">
-                        <p>nama user upload 1
-                        </p>
+                        <table class="table">
+                            <thead>
+                                <tr>
+                                    <th width=60%>File Name</th>
+                                    <th width=40%>Status</th>
+                                    <th></th>
+                                </tr>
+                            </thead>
+                            <tbody>
+                                @foreach($bulanan->where('user_id', Auth::user()->id) as $f)
+                                @if($loop->first)
+                                <tr>
+                                    <td>
+                                        Bulanan
+                                    </td>
+                                    @if ($f->status==1)
+                                    <td>
+                                        Menunggu Review
+                                    </td>
+                                    @elseif($f->status==2)
+                                    <td>
+                                        Revisi
+                                    </td>
+                                    @elseif($f->status==3)
+                                    <td>
+                                        Diterima
+                                    </td>
+                                    @endif
+                                </tr>
+                                @endif
+                                @endforeach
+
+                                @foreach($triwulan->where('user_id', Auth::user()->id) as $f)
+                                @if($loop->first)
+                                <tr>
+                                    <td>
+                                        Triwulan
+                                    </td>
+                                    @if ($f->status==1)
+                                    <td>
+                                        Menunggu Review
+                                    </td>
+                                    @elseif($f->status==2)
+                                    <td>
+                                        Revisi
+                                    </td>
+                                    @elseif($f->status==3)
+                                    <td>
+                                        Diterima
+                                    </td>
+                                    @endif
+                                </tr>
+                                @endif
+                                @endforeach
+                                @foreach($tengahTahun->where('user_id', Auth::user()->id) as $f)
+                                @if($loop->first)
+                                <tr>
+                                    <td>
+                                        Tengah Tahun
+                                    </td>
+                                    @if ($f->status==1)
+                                    <td>
+                                        Menunggu Review
+                                    </td>
+                                    @elseif($f->status==2)
+                                    <td>
+                                        Revisi
+                                    </td>
+                                    @elseif($f->status==3)
+                                    <td>
+                                        Diterima
+                                    </td>
+                                    @endif
+                                </tr>
+                                @endif
+                                @endforeach
+
+                                @foreach($akhirTahun->where('user_id', Auth::user()->id) as $f)
+                                @if($loop->first)
+                                <tr>
+                                    <td>
+                                        Akhir Tahun
+                                    </td>
+                                    @if ($f->status==1)
+                                    <td>
+                                        Menunggu Review
+                                    </td>
+                                    @elseif($f->status==2)
+                                    <td>
+                                        Revisi
+                                    </td>
+                                    @elseif($f->status==3)
+                                    <td>
+                                        Diterima
+                                    </td>
+                                    @endif
+                                </tr>
+                                @endif
+                                @endforeach
+
+                                @foreach($renaksi->where('user_id', Auth::user()->id) as $f)
+                                @if($loop->first)
+                                <tr>
+                                    <td>
+                                        Renaksi
+                                    </td>
+                                    @if ($f->status==1)
+                                    <td>
+                                        <span href="">Menunggu Review</span>
+                                    </td>
+                                    @elseif($f->status==2)
+                                    <td>
+                                        Revisi
+                                    </td>
+                                    @elseif($f->status==3)
+                                    <td>
+                                        Diterima
+                                    </td>
+                                    @endif
+                                </tr>
+                                @endif
+                                @endforeach
+
+                                @foreach($destudi->where('user_id', Auth::user()->id) as $f)
+                                @if($loop->first)
+                                <tr>
+                                    <td>
+                                        Destudi
+                                    </td>
+                                    @if ($f->status==1)
+                                    <td>
+                                        <span href="">Menunggu Review</span>
+                                    </td>
+                                    @elseif($f->status==2)
+                                    <td>
+                                        Revisi
+                                    </td>
+                                    @elseif($f->status==3)
+                                    <td>
+                                        Diterima
+                                    </td>
+                                    @endif
+                                </tr>
+                                @endif
+                                @endforeach
+                            </tbody>
+                        </table>
                     </div>
 
                 </div>
