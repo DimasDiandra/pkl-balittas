@@ -45,7 +45,7 @@
     </div>
     <div class="col">
         <div class="card card-stats">
-            <a href="/admin/user">
+            <a href="/admin/projek">
                 <div class="card-header card-header-primary card-header-icon">
                     <div class="card-icon">
                         <i class="material-icons fa fa-puzzle-piece"></i>
@@ -63,7 +63,7 @@
     </div>
     <div class="col">
         <div class="card card-stats">
-            <a href="/admin/user">
+            <a href="/admin/pengumuman">
                 <div class="card-header card-header-primary card-header-icon">
                     <div class="card-icon">
                         <i class="material-icons fa fa-bullhorn"></i>
@@ -83,7 +83,7 @@
 <div class="row">
     <div class="col">
         <div class="card card-stats">
-            <a href="/admin/user">
+            <a href="/admin/perencanaan">
                 <div class="card-header card-header-primary card-header-icon">
                     <div class="card-icon">
                         <i class="material-icons fa fa-map"></i>
@@ -101,7 +101,7 @@
     </div>
     <div class="col">
         <div class="card card-stats">
-            <a href="/admin/user">
+            <a href="/admin/evaluasi">
                 <div class="card-header card-header-primary card-header-icon">
                     <div class="card-icon">
                         <i class="material-icons fa fa-flag"></i>
@@ -119,7 +119,7 @@
     </div>
     <div class="col">
         <div class="card card-stats">
-            <a href="/admin/user">
+            <a href="/admin/template">
                 <div class="card-header card-header-primary card-header-icon">
                     <div class="card-icon">
                         <i class="material-icons fa fa-file"></i>

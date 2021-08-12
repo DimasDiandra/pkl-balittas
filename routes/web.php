@@ -95,12 +95,18 @@ Route::middleware('role:admin')->prefix('admin')->group(function () {
     // Monev
     Route::get('/evaluasi', [ReportController::class, 'admin_view']);
     Route::get('/evaluasi/{id}', [ReportController::class, 'admin_update']);
-    Route::get('/ubahbulanan/{id}', [ReportController::class, 'statusbulanan']);
-    Route::get('/ubahtriwulan/{id}', [ReportController::class, 'statustriwulan']);
-    Route::get('/ubahtengah/{id}', [ReportController::class, 'statustengah']);
-    Route::get('/ubahakhir/{id}', [ReportController::class, 'statusakhir']);
-    Route::get('/ubahdestudi/{id}', [ReportController::class, 'statusdestudi']);
-    Route::get('/ubahrenaksi/{id}', [ReportController::class, 'statusrenaksi']);
+    Route::put('/evaluasi/bulanan/{id}', [ReportController::class, 'statusbulanan']);
+    Route::get('/evaluasi/bulanan/{id}', [ReportController::class, 'viewbulanan']);
+    Route::get('/evaluasi/triwulan/{id}', [ReportController::class, 'viewtriwulan']);
+    Route::put('/evaluasi/triwulan/{id}', [ReportController::class, 'statustriwulan']);
+    Route::put('/evaluasi/tengah/{id}', [ReportController::class, 'statustengah']);
+    Route::get('/evaluasi/tengah/{id}', [ReportController::class, 'viewtengah']);
+    Route::put('/evaluasi/akhir/{id}', [ReportController::class, 'statusakhir']);
+    Route::get('/evaluasi/akhir/{id}', [ReportController::class, 'viewakhir']);
+    Route::put('/evaluasi/destudi/{id}', [ReportController::class, 'statusdestudi']);
+    Route::get('/evaluasi/destudi/{id}', [ReportController::class, 'viewdestudi']);
+    Route::put('/evaluasi/renaksi/{id}', [ReportController::class, 'statusrenaksi']);
+    Route::get('/evaluasi/renaksi/{id}', [ReportController::class, 'viewrenaksi']);
 
     // Route::get('/pengumuman', function () {return view('admin.tambahpengumuman');});
 });

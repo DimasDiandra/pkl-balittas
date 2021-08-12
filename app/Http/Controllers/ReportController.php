@@ -42,6 +42,49 @@ class ReportController extends Controller
         ]);
     }
 
+    public function viewbulanan($id)
+    {
+        $data = laporan_bulanan::find($id);
+        $projek = projek::where('id', $data->projek_id)->first();
+        $user = User::where('id', $data->user_id)->first();
+        return view('admin.ReportEdit', compact('data', 'projek', 'user'));
+    }
+    public function viewtriwulan($id)
+    {
+        $data = laporan_triwulan::find($id);
+        $projek = projek::where('id', $data->projek_id)->first();
+        $user = User::where('id', $data->user_id)->first();
+        return view('admin.ReportEdit', compact('data', 'projek', 'user'));
+    }
+    public function viewtengah($id)
+    {
+        $data = laporan_tengahtahun::find($id);
+        $projek = projek::where('id', $data->projek_id)->first();
+        $user = User::where('id', $data->user_id)->first();
+        return view('admin.ReportEdit', compact('data', 'projek', 'user'));
+    }
+    public function viewakhir($id)
+    {
+        $data = laporan_akhirtahun::find($id);
+        $projek = projek::where('id', $data->projek_id)->first();
+        $user = User::where('id', $data->user_id)->first();
+        return view('admin.ReportEdit', compact('data', 'projek', 'user'));
+    }
+    public function viewrenaksi($id)
+    {
+        $data = laporan_renaksi::find($id);
+        $projek = projek::where('id', $data->projek_id)->first();
+        $user = User::where('id', $data->user_id)->first();
+        return view('admin.ReportEdit', compact('data', 'projek', 'user'));
+    }
+    public function viewdestudi($id)
+    {
+        $data = laporan_destudi::find($id);
+        $projek = projek::where('id', $data->projek_id)->first();
+        $user = User::where('id', $data->user_id)->first();
+        return view('admin.ReportEdit', compact('data', 'projek', 'user'));
+    }
+
     public function statusbulanan($id, Request $request)
     {
         $status = $request->status;
@@ -270,7 +313,7 @@ class ReportController extends Controller
 
         $userdata = DB::table('users')->get();
         $projekdata = Projek::all();
-        return view('admin.Report', compact('userdata', 'projekdata'));
+        return view('admin.ReportViewUser', compact('userdata', 'projekdata'));
     }
 
     public function admin_update($id)
@@ -281,10 +324,11 @@ class ReportController extends Controller
         $akhirTahun = laporan_akhirtahun::where('user_id', $id)->get();
         $destudi = laporan_destudi::where('user_id', $id)->get();
         $renaksi = laporan_renaksi::where('user_id', $id)->get();
+        $user = User::find($id);
         $projek = Projek::all();
-        return view('admin.editreport', [
+        return view('admin.ReportViewFile', [
             'bulanan' => $bulanan, 'triwulan' => $triwulan, 'tengahTahun' => $tengahTahun, 'akhirTahun' => $akhirTahun, 'destudi' => $destudi,
-            'renaksi' => $renaksi, 'projek' => $projek
+            'renaksi' => $renaksi, 'projek' => $projek, 'user' => $user
         ]);
     }
 }
