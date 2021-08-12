@@ -176,6 +176,7 @@ class PerencanaanController extends Controller
         $projek_id = $request->projek_id;
         $projek = Projek::where('id', $projek_id)->first();
         $path = "public/$projek->name";
+        $admin = User::where('id', 1)->get('id');
 
         //variable file
         $matriks = $request->file('matriks');
@@ -189,7 +190,7 @@ class PerencanaanController extends Controller
         if (file_exists($matriks)) {
             $namaFileMatriks = $projek->name . "_" . $matriks->getClientOriginalName();
             $pathMatriks = Storage::putFileAs($path, $matriks, $namaFileMatriks);
-            Matriks::create([
+            $data = Matriks::create([
                 'path' => $pathMatriks,
                 'file' => $namaFileMatriks,
                 'user_id' => $user->id,
@@ -198,6 +199,7 @@ class PerencanaanController extends Controller
             ]);
             $projek->matriks_status = 1;
             $projek->save();
+            // Notification::send($admin, new UploadNotification($data));
         };
         // rab
         if (file_exists($rab)) {
@@ -213,6 +215,7 @@ class PerencanaanController extends Controller
             ]);
             $projek->rab_status = 1;
             $projek->save();
+            // Notification::send($admin, new UploadNotification($data));
         };
         // kak
         if (file_exists($kak)) {
@@ -228,7 +231,7 @@ class PerencanaanController extends Controller
             ]);
             $projek->kak_status = 1;
             $projek->save();
-            Notification::send(1, new UploadNotification($data));
+            // Notification::send($admin, new UploadNotification($data));
         };
         // proposal
         if (file_exists($proposal)) {
@@ -243,7 +246,7 @@ class PerencanaanController extends Controller
             ]);
             $projek->proposal_status = 1;
             $projek->save();
-            Notification::send(1, new UploadNotification($data));
+            // Notification::send($admin, new UploadNotification($data));
         };
         // analisis
         if (file_exists($analisis)) {
@@ -258,9 +261,10 @@ class PerencanaanController extends Controller
             ]);
             $projek->analisis_status = 1;
             $projek->save();
-            Notification::send(1, new UploadNotification($data));
+            //  Notification::send($admin, new UploadNotification($data));
         };
-
+        Notification::send($admin, new UploadNotification($data));
+        
         event(new UpdateStatus($projek));
         return redirect()->back()->with('success', 'Berhasil Menambahkan Data');
     }

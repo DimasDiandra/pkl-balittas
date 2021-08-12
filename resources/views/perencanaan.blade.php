@@ -213,7 +213,7 @@
                                         <a>File RAB</a>
                                     </td>
                                     <td>
-                                        <input type="file" name="kak">
+                                        <input type="file" name="rab">
                                     </td>
                                 </tr>
                                 <tr>
