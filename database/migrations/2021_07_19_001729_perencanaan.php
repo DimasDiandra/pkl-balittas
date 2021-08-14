@@ -16,7 +16,7 @@ class Perencanaan extends Migration
         Schema::create('matriks', function (Blueprint $table) {
             $table->id();
             $table->timestamps();
-            $table->string('file');
+            $table->string('name');
             $table->string('path');
             $table->integer('status');
 
@@ -28,7 +28,7 @@ class Perencanaan extends Migration
         Schema::create('rab', function (Blueprint $table) {
             $table->id();
             $table->timestamps();
-            $table->string('file');
+            $table->string('name');
             $table->string('path');
             $table->integer('status');
 
@@ -40,7 +40,7 @@ class Perencanaan extends Migration
         Schema::create('kak', function (Blueprint $table) {
             $table->id();
             $table->timestamps();
-            $table->string('file');
+            $table->string('name');
             $table->string('path');
             $table->integer('status');
 
@@ -52,7 +52,7 @@ class Perencanaan extends Migration
         Schema::create('proposal', function (Blueprint $table) {
             $table->id();
             $table->timestamps();
-            $table->string('file');
+            $table->string('name');
             $table->string('path');
             $table->integer('status');
 
@@ -64,7 +64,7 @@ class Perencanaan extends Migration
         Schema::create('analisis', function (Blueprint $table) {
             $table->id();
             $table->timestamps();
-            $table->string('file');
+            $table->string('name');
             $table->string('path');
             $table->integer('status');
 

@@ -76,7 +76,7 @@
                                             <td>{{ $loop->iteration }}</td>
                                             <input type="hidden" name="path" value=" {{$f->path}}">
                                             <td>{{ $f->created_at }}</td>
-                                            <td>{{ $f->file }}</td>
+                                            <td>{{ $f->name }}</td>
                                             @if ($f->status==1)
                                             <td>
                                                 Menunggu Review
@@ -128,7 +128,7 @@
                                             <td>{{ $loop->iteration }}</td>
                                             <input type="hidden" name="path" value=" {{$f->path}}">
                                             <td>{{ $f->created_at }}</td>
-                                            <td>{{ $f->file }}</td>
+                                            <td>{{ $f->name }}</td>
                                             @if ($f->status==1)
                                             <td>
                                                 Menunggu Review
@@ -180,7 +180,7 @@
                                             <td>{{ $loop->iteration }}</td>
                                             <input type="hidden" name="path" value=" {{$f->path}}">
                                             <td>{{ $f->created_at }}</td>
-                                            <td>{{ $f->file }}</td>
+                                            <td>{{ $f->name }}</td>
                                             @if ($f->status==1)
                                             <td>
                                                 Menunggu Review
@@ -232,7 +232,7 @@
                                             <td>{{ $loop->iteration }}</td>
                                             <input type="hidden" name="path" value=" {{$f->path}}">
                                             <td>{{ $f->created_at }}</td>
-                                            <td>{{ $f->file }}</td>
+                                            <td>{{ $f->name }}</td>
                                             @if ($f->status==1)
                                             <td>
                                                 Menunggu Review
@@ -284,7 +284,7 @@
                                             <td>{{ $loop->iteration }}</td>
                                             <input type="hidden" name="path" value=" {{$f->path}}">
                                             <td>{{ $f->created_at }}</td>
-                                            <td>{{ $f->file }}</td>
+                                            <td>{{ $f->name }}</td>
                                             @if ($f->status==1)
                                             <td>
                                                 Menunggu Review

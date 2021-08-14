@@ -55,15 +55,18 @@ class StatusNotification extends Notification
      */
     public function toArray($notifiable)
     {
-        // dd($notif);
-        // $name = $notif->name;
-        // $status = $notif->status;
-        // $user_id = $notif->user_id;
+        if ($this->data->status == 1)
+            $status = "Menunggu Review";
+        elseif ($this->data->status == 2)
+            $status = "Menunggu Revisi";
+        elseif ($this->data->status == 2)
+            $status = "Diterima";
+
         return [
             'name' => $this->data->name,
             'user_id' => $this->data->user_id,
             'projek_id' => $this->data->projek_id,
-            'status' => $this->data->status
+            'status' => $status
         ];
     }
 }

@@ -86,7 +86,7 @@ class ReportController extends Controller
 
         return view('admin.ReportEdit', compact('data', 'projek', 'user', 'jenis'));
     }
-    public function viewdestudi($id)
+    public function viewdestudi($id, Request $request)
     {
         $data = laporan_destudi::find($id);
         $projek = projek::where('id', $data->projek_id)->first();

@@ -97,13 +97,7 @@ The above copyright notice and this permission notice shall be included in all c
                                     @forelse(Auth::user()->notifications as $notification)
                                     <a class="dropdown-item" href="#">
                                         {{$notification->data['name']}}
-                                        @if ($notification->data['status'] == 1)
-                                        Menunggu Review
-                                        @elseif($notification->data['status']==2)
-                                        Revisi
-                                        @elseif($notification->data['status']==3)
-                                        Diterima
-                                        @endif
+                                        {{$notification->data['status']}}
                                     </a>
                                     @empty
                                     <p class="dropdown-item">Tidak ada Notifikasi</p>

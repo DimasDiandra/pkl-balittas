@@ -58,7 +58,7 @@ class UploadNotification extends Notification
             'name' => $this->data->name,
             'user_id' => $this->data->user_id,
             'projek_id' => $this->data->projek_id,
-            'status' => $this->data->status
+            'status' => "Baru Saja Diupload"
         ];
     }
 }
