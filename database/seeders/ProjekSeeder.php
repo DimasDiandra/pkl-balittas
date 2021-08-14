@@ -15,7 +15,7 @@ class ProjekSeeder extends Seeder
     public function run()
     {
         Projek::create([
-            'name' => 'Projek Test',
+            'name' => 'Projek Admin',
             'all_status' => '0',
             'matriks_status' => '0',
             'rab_status' => '0',
@@ -28,8 +28,24 @@ class ProjekSeeder extends Seeder
             'akhirtahun_status' => '0',
             'renaksi_status' => '0',
             'destudi_status' => '0',
-
             'user_id' => '1',
+        ]);
+
+        Projek::create([
+            'name' => 'Projek User',
+            'all_status' => '11',
+            'matriks_status' => '1',
+            'rab_status' => '1',
+            'kak_status' => '1',
+            'proposal_status' => '1',
+            'analisis_status' => '1',
+            'bulanan_status' => '1',
+            'triwulan_status' => '1',
+            'tengahtahun_status' => '1',
+            'akhirtahun_status' => '1',
+            'renaksi_status' => '1',
+            'destudi_status' => '1',
+            'user_id' => '2',
         ]);
     }
 }
