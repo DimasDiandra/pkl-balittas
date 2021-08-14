@@ -36,7 +36,7 @@ class PerencanaanController extends Controller
         // return view('admin.datauser',compact('title','data'));
 
         $userdata = DB::table('users')->get();
-        return view('admin.perencanaan', compact('userdata'));
+        return view('admin.PerencanaanViewUser', compact('userdata'));
     }
 
     public function edit($id)
@@ -46,7 +46,7 @@ class PerencanaanController extends Controller
         $proposal = Proposal::where('user_id', $id)->get();
         $rab = RAB::where('user_id', $id)->get();
         $kak = KAK::where('user_id', $id)->get();
-        return view('admin.editperencanaan', ['analisis' => $analisis, 'kak' => $kak, 'matriks' => $matriks, 'proposal' => $proposal, 'rab' => $rab]);
+        return view('admin.PerencanaanViewFile', ['analisis' => $analisis, 'kak' => $kak, 'matriks' => $matriks, 'proposal' => $proposal, 'rab' => $rab]);
 
         // return view('admin.editperencanaan', compact('title', 'data'));
     }
@@ -199,7 +199,7 @@ class PerencanaanController extends Controller
             ]);
             $projek->matriks_status = 1;
             $projek->save();
-            // Notification::send($admin, new UploadNotification($data));
+            Notification::send($admin, new UploadNotification($data));
         };
         // rab
         if (file_exists($rab)) {
@@ -215,7 +215,7 @@ class PerencanaanController extends Controller
             ]);
             $projek->rab_status = 1;
             $projek->save();
-            // Notification::send($admin, new UploadNotification($data));
+            Notification::send($admin, new UploadNotification($data));
         };
         // kak
         if (file_exists($kak)) {
@@ -231,7 +231,7 @@ class PerencanaanController extends Controller
             ]);
             $projek->kak_status = 1;
             $projek->save();
-            // Notification::send($admin, new UploadNotification($data));
+            Notification::send($admin, new UploadNotification($data));
         };
         // proposal
         if (file_exists($proposal)) {
@@ -246,7 +246,7 @@ class PerencanaanController extends Controller
             ]);
             $projek->proposal_status = 1;
             $projek->save();
-            // Notification::send($admin, new UploadNotification($data));
+            Notification::send($admin, new UploadNotification($data));
         };
         // analisis
         if (file_exists($analisis)) {
@@ -261,10 +261,10 @@ class PerencanaanController extends Controller
             ]);
             $projek->analisis_status = 1;
             $projek->save();
-            //  Notification::send($admin, new UploadNotification($data));
+            Notification::send($admin, new UploadNotification($data));
         };
-        Notification::send($admin, new UploadNotification($data));
-        
+        // Notification::send($admin, new UploadNotification($data));
+
         event(new UpdateStatus($projek));
         return redirect()->back()->with('success', 'Berhasil Menambahkan Data');
     }

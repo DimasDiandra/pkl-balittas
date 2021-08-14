@@ -25,7 +25,7 @@
             </h3>
         </div>
         <div class="card-body">
-            <form role="form" method="post" action="{{ url('admin/evaluasi/bulanan/' . $data->id) }}" enctype="multipart/form-data">
+            <form role="form" method="post" action="{{ url('admin/evaluasi/'. $jenis. '/' . $data->id) }}" enctype="multipart/form-data">
                 @csrf
                 {{ method_field('PUT') }}
                 <div class="row">
@@ -33,6 +33,7 @@
                     <div class="col-md-6">
                         <div class="box-body">
                             <div class="form-group">
+                                <span id='tujuan'></span>
                                 <label for="exampleInputEmail1">Status</label>
                                 <select class="custom-select" name="status">
                                     <option value="1">Menunggu Review</option>
@@ -77,6 +78,6 @@
             </form>
         </div>
     </div>
-
 </div>
+
 @endsection

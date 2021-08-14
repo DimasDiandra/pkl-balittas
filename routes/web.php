@@ -95,18 +95,24 @@ Route::middleware('role:admin')->prefix('admin')->group(function () {
     // Monev
     Route::get('/evaluasi', [ReportController::class, 'admin_view']);
     Route::get('/evaluasi/{id}', [ReportController::class, 'admin_update']);
-    Route::put('/evaluasi/bulanan/{id}', [ReportController::class, 'statusbulanan']);
     Route::get('/evaluasi/bulanan/{id}', [ReportController::class, 'viewbulanan']);
     Route::get('/evaluasi/triwulan/{id}', [ReportController::class, 'viewtriwulan']);
+    Route::get('/evaluasi/tengah/{id}', [ReportController::class, 'viewtengah']);
+    Route::get('/evaluasi/akhir/{id}', [ReportController::class, 'viewakhir']);
+    Route::get('/evaluasi/destudi/{id}', [ReportController::class, 'viewdestudi']);
+    Route::get('/evaluasi/renaksi/{id}', [ReportController::class, 'viewrenaksi']);
+    Route::put('/evaluasi/bulanan/{id}', [ReportController::class, 'statusbulanan']);
     Route::put('/evaluasi/triwulan/{id}', [ReportController::class, 'statustriwulan']);
     Route::put('/evaluasi/tengah/{id}', [ReportController::class, 'statustengah']);
-    Route::get('/evaluasi/tengah/{id}', [ReportController::class, 'viewtengah']);
     Route::put('/evaluasi/akhir/{id}', [ReportController::class, 'statusakhir']);
-    Route::get('/evaluasi/akhir/{id}', [ReportController::class, 'viewakhir']);
     Route::put('/evaluasi/destudi/{id}', [ReportController::class, 'statusdestudi']);
-    Route::get('/evaluasi/destudi/{id}', [ReportController::class, 'viewdestudi']);
     Route::put('/evaluasi/renaksi/{id}', [ReportController::class, 'statusrenaksi']);
-    Route::get('/evaluasi/renaksi/{id}', [ReportController::class, 'viewrenaksi']);
+    Route::delete('/evaluasi/bulanan/{id}', [ReportController::class, 'deletebulanan']);
+    Route::delete('/evaluasi/triwulan/{id}', [ReportController::class, 'deletetriwulan']);
+    Route::delete('/evaluasi/tengah/{id}', [ReportController::class, 'deletetengah']);
+    Route::delete('/evaluasi/akhir/{id}', [ReportController::class, 'deleteakhir']);
+    Route::delete('/evaluasi/renaksi/{id}', [ReportController::class, 'deleterenaksi']);
+    Route::delete('/evaluasi/destudi/{id}', [ReportController::class, 'deletedestudi']);
 
     // Route::get('/pengumuman', function () {return view('admin.tambahpengumuman');});
 });

@@ -42,47 +42,58 @@ class ReportController extends Controller
         ]);
     }
 
-    public function viewbulanan($id)
+    public function viewbulanan($id, Request $request)
     {
         $data = laporan_bulanan::find($id);
         $projek = projek::where('id', $data->projek_id)->first();
         $user = User::where('id', $data->user_id)->first();
-        return view('admin.ReportEdit', compact('data', 'projek', 'user'));
+        $jenis = $request->jenis;
+        return view('admin.ReportEdit', compact('data', 'projek', 'user', 'jenis'));
     }
-    public function viewtriwulan($id)
+    public function viewtriwulan($id, Request $request)
     {
         $data = laporan_triwulan::find($id);
         $projek = projek::where('id', $data->projek_id)->first();
         $user = User::where('id', $data->user_id)->first();
-        return view('admin.ReportEdit', compact('data', 'projek', 'user'));
+        $jenis = $request->jenis;
+
+        return view('admin.ReportEdit', compact('data', 'projek', 'user', 'jenis'));
     }
-    public function viewtengah($id)
+    public function viewtengah($id, Request $request)
     {
         $data = laporan_tengahtahun::find($id);
         $projek = projek::where('id', $data->projek_id)->first();
         $user = User::where('id', $data->user_id)->first();
-        return view('admin.ReportEdit', compact('data', 'projek', 'user'));
+        $jenis = $request->jenis;
+
+        return view('admin.ReportEdit', compact('data', 'projek', 'user', 'jenis'));
     }
-    public function viewakhir($id)
+    public function viewakhir($id, Request $request)
     {
         $data = laporan_akhirtahun::find($id);
         $projek = projek::where('id', $data->projek_id)->first();
         $user = User::where('id', $data->user_id)->first();
-        return view('admin.ReportEdit', compact('data', 'projek', 'user'));
+        $jenis = $request->jenis;
+
+        return view('admin.ReportEdit', compact('data', 'projek', 'user', 'jenis'));
     }
-    public function viewrenaksi($id)
+    public function viewrenaksi($id, Request $request)
     {
         $data = laporan_renaksi::find($id);
         $projek = projek::where('id', $data->projek_id)->first();
         $user = User::where('id', $data->user_id)->first();
-        return view('admin.ReportEdit', compact('data', 'projek', 'user'));
+        $jenis = $request->jenis;
+
+        return view('admin.ReportEdit', compact('data', 'projek', 'user', 'jenis'));
     }
     public function viewdestudi($id)
     {
         $data = laporan_destudi::find($id);
         $projek = projek::where('id', $data->projek_id)->first();
         $user = User::where('id', $data->user_id)->first();
-        return view('admin.ReportEdit', compact('data', 'projek', 'user'));
+        $jenis = $request->jenis;
+
+        return view('admin.ReportEdit', compact('data', 'projek', 'user', 'jenis'));
     }
 
     public function statusbulanan($id, Request $request)
@@ -186,6 +197,85 @@ class ReportController extends Controller
         $user = User::where('id', $data->user_id)->get('id');
         Notification::send($user, new StatusNotification($data));
         return redirect()->back()->with('success', 'Berhasil Mengubah Data');
+    }
+
+    public function deletebulanan($id)
+    {
+        try {
+            $data = laporan_bulanan::find($id);
+            $projek = Projek::where('id', $data->projek_id)->first();
+            $projek->bulanan_status = '0';
+            $projek->save();
+            $data->delete();
+            event(new UpdateStatus($projek));
+        } catch (\Exception $e) {
+        }
+        return redirect('admin/evaluasi');
+    }
+    public function deletetriwulan($id)
+    {
+        try {
+            $data = laporan_triwulan::find($id);
+            $projek = Projek::where('id', $data->projek_id)->first();
+            $projek->triwulan_status = '0';
+            $projek->save();
+            $data->delete();
+            event(new UpdateStatus($projek));
+        } catch (\Exception $e) {
+        }
+        return redirect('admin/evaluasi');
+    }
+    public function deletetengah($id)
+    {
+        try {
+            $data = laporan_tengahtahun::find($id);
+            $projek = Projek::where('id', $data->projek_id)->first();
+            $projek->tengahtahun_status = "0";
+            $projek->save();
+            $data->delete();
+            event(new UpdateStatus($projek));
+        } catch (\Exception $e) {
+        }
+        return redirect('admin/evaluasi');
+    }
+    public function deleteakhir($id)
+    {
+        try {
+            $data = laporan_akhirtahun::find($id);
+            $projek = Projek::where('id', $data->projek_id)->first();
+            $projek->akhirtahun_status = '0';
+            $projek->save();
+            $data->delete();
+            event(new UpdateStatus($projek));
+        } catch (\Exception $e) {
+        }
+        return redirect('admin/evaluasi');
+    }
+    public function deleterenaksi($id)
+    {
+        try {
+            $data = laporan_renaksi::find($id);
+            $projek = Projek::where('id', $data->projek_id)->first();
+            $projek->renaksi_status = '0';
+            $projek->save();
+            $data->delete();
+            event(new UpdateStatus($projek));
+        } catch (\Exception $e) {
+        }
+        return redirect('admin/evaluasi');
+    }
+    public function deletedestudi($id)
+    {
+        try {
+            $data = laporan_destudi::find($id);
+            $projek = Projek::where('id', $data->projek_id)->first();
+            $projek->destudi_status = '0';
+            $projek->save();
+            $data->delete();
+            event(new UpdateStatus($projek));
+        } catch (\Exception $e) {
+        }
+        return redirect('admin/evaluasi');
     }
 
     public function report_upload(Request $request)

@@ -30,6 +30,15 @@ The above copyright notice and this permission notice shall be included in all c
     <link href="{{ asset('assets/demo/demo.css') }} " rel="stylesheet" />
     <!-- CSS Drag n Drop -->
     <link rel="stylesheet" href="css/dragndrop.css">
+
+
+    <script>
+        function jenis() {
+            var jenis = document.getElementById("jenis").value;
+            localStorage.setItem("jenis", jenis);
+            return false;
+        }
+    </script>
 </head>
 
 <body class="">
@@ -109,22 +118,16 @@ The above copyright notice and this permission notice shall be included in all c
                             <li class="nav-item dropdown">
                                 <a class="nav-link" href="http://example.com" id="navbarDropdownMenuLink" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
                                     <i class="material-icons">notifications</i>
-                                    <span class="notification">{{Auth::user()->notifications->count()}}</span>
+                                    <span class="notification">{{Auth::user()->unreadNotifications->count()}}</span>
                                 </a>
                                 <div class="dropdown-menu dropdown-menu-right" aria-labelledby="navbarDropdownMenuLink">
-                                    @forelse(Auth::user()->notifications as $notification)
+                                    @forelse(Auth::user()->unreadNotifications as $notification)
                                     <a class="dropdown-item" href="#">
                                         {{$notification->data['name']}}
-                                        @if ($notification->data['status'] == 1)
-                                        Menunggu Review
-                                        @elseif($notification->data['status']==2)
-                                        Revisi
-                                        @elseif($notification->data['status']==3)
-                                        Diterima
-                                        @endif
+                                        Baru di upload
                                     </a>
                                     @empty
-                                    <p>Tidak ada Notifikasi</p>
+                                    <a class="dropdown-item">Tidak ada Notifikasi</a>
                                     @endforelse
                                 </div>
                             </li>
