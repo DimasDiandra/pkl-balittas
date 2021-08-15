@@ -59,7 +59,7 @@ class StatusNotification extends Notification
             $status = "Menunggu Review";
         elseif ($this->data->status == 2)
             $status = "Menunggu Revisi";
-        elseif ($this->data->status == 2)
+        elseif ($this->data->status == 3)
             $status = "Diterima";
 
         return [

@@ -53,17 +53,66 @@ class PerencanaanController extends Controller
 
     public function perencanaan()
     {
-        $analisis = Analisis::get();
-        $matriks = Matriks::get();
-        $proposal = Proposal::get();
-        $rab = RAB::get();
-        $kak = KAK::get();
+        $analisis = Analisis::where('user_id', Auth::user()->id)->get();
+        $matriks = Matriks::where('user_id', Auth::user()->id)->get();
+        $proposal = Proposal::where('user_id', Auth::user()->id)->get();
+        $rab = RAB::where('user_id', Auth::user()->id)->get();
+        $kak = KAK::where('user_id', Auth::user()->id)->get();
         $user = User::get();
-        $projek = Projek::all();
+        $projek = Projek::where('user_id', Auth::user()->id)->get();
 
         return view('perencanaan', ['analisis' => $analisis, 'kak' => $kak, 'matriks' => $matriks, 'proposal' => $proposal, 'rab' => $rab, 'user' => $user, 'projek' => $projek]);
     }
 
+    public function viewmatriks($id, Request $request)
+    {
+        $data = Matriks::find($id);
+        $projek = projek::where('id', $data->projek_id)->first();
+        $user = User::where('id', $data->user_id)->first();
+        $jenis = $request->jenis;
+
+        return view('admin.PerencanaanEdit', compact('data', 'projek', 'user', 'jenis'));
+    }
+
+    public function viewrab($id, Request $request)
+    {
+        $data = RAB::find($id);
+        $projek = projek::where('id', $data->projek_id)->first();
+        $user = User::where('id', $data->user_id)->first();
+        $jenis = $request->jenis;
+
+        return view('admin.PerencanaanEdit', compact('data', 'projek', 'user', 'jenis'));
+    }
+
+    public function viewkak($id, Request $request)
+    {
+        $data = KAK::find($id);
+        $projek = projek::where('id', $data->projek_id)->first();
+        $user = User::where('id', $data->user_id)->first();
+        $jenis = $request->jenis;
+
+        return view('admin.PerencanaanEdit', compact('data', 'projek', 'user', 'jenis'));
+    }
+
+    public function viewproposal($id, Request $request)
+    {
+        $data = Proposal::find($id);
+        $projek = projek::where('id', $data->projek_id)->first();
+        $user = User::where('id', $data->user_id)->first();
+        $jenis = $request->jenis;
+
+        return view('admin.PerencanaanEdit', compact('data', 'projek', 'user', 'jenis'));
+    }
+
+    public function viewanalisis($id, Request $request)
+    {
+        $data = Analisis::find($id);
+        $projek = projek::where('id', $data->projek_id)->first();
+        $user = User::where('id', $data->user_id)->first();
+        $jenis = $request->jenis;
+
+        return view('admin.PerencanaanEdit', compact('data', 'projek', 'user', 'jenis'));
+    }
     public function statusmatriks($id, Request $request)
     {
         $status = $request->status;
@@ -152,6 +201,76 @@ class PerencanaanController extends Controller
         $user = User::where('id', $data->user_id)->get('id');
         Notification::send($user, new StatusNotification($data));
         return redirect()->back()->with('success', 'Berhasil Mengubah Data');
+    }
+
+    public function deletematriks($id)
+    {
+        try {
+            $data = Matriks::find($id);
+            $projek = Projek::where('id', $data->projek_id)->first();
+            $projek->bulanan_status = '0';
+            $projek->save();
+            $data->delete();
+            event(new UpdateStatus($projek));
+        } catch (\Exception $e) {
+        }
+        return redirect('admin/perencanaan');
+    }
+
+    public function deleterab($id)
+    {
+        try {
+            $data = RAB::find($id);
+            $projek = Projek::where('id', $data->projek_id)->first();
+            $projek->bulanan_status = '0';
+            $projek->save();
+            $data->delete();
+            event(new UpdateStatus($projek));
+        } catch (\Exception $e) {
+        }
+        return redirect('admin/perencanaan');
+    }
+
+    public function deletekak($id)
+    {
+        try {
+            $data = KAK::find($id);
+            $projek = Projek::where('id', $data->projek_id)->first();
+            $projek->bulanan_status = '0';
+            $projek->save();
+            $data->delete();
+            event(new UpdateStatus($projek));
+        } catch (\Exception $e) {
+        }
+        return redirect('admin/perencanaan');
+    }
+
+    public function deleteproposal($id)
+    {
+        try {
+            $data = Proposal::find($id);
+            $projek = Projek::where('id', $data->projek_id)->first();
+            $projek->bulanan_status = '0';
+            $projek->save();
+            $data->delete();
+            event(new UpdateStatus($projek));
+        } catch (\Exception $e) {
+        }
+        return redirect('admin/perencanaan');
+    }
+
+    public function deleteanalisis($id)
+    {
+        try {
+            $data = Analisis::find($id);
+            $projek = Projek::where('id', $data->projek_id)->first();
+            $projek->bulanan_status = '0';
+            $projek->save();
+            $data->delete();
+            event(new UpdateStatus($projek));
+        } catch (\Exception $e) {
+        }
+        return redirect('admin/perencanaan');
     }
 
     public function perencanaan_upload(Request $request)

@@ -65,41 +65,51 @@
                                         <th>Date Upload</th>
                                         <th width=30%>File Name</th>
                                         <th width=20%>Status</th>
-                                        <th width=30%>Action</th>
+                                        <th width=30% colspan="3">Action</th>
                                     </tr>
                                 </thead>
                                 <tbody>
                                     <!-- Isi dari keluaran data -->
                                     @foreach($matriks as $f)
                                     <tr>
-                                        <form action="/perencanaan/download" method="GET">
-                                            <td>{{ $loop->iteration }}</td>
-                                            <input type="hidden" name="path" value=" {{$f->path}}">
-                                            <td>{{ $f->created_at }}</td>
-                                            <td>{{ $f->name }}</td>
-                                            @if ($f->status==1)
-                                            <td>
-                                                Menunggu Review
-                                            </td>
-                                            @elseif($f->status==2)
-                                            <td>
-                                                Revisi
-                                            </td>
-                                            @elseif($f->status==3)
-                                            <td>
-                                                Diterima
-                                            </td>
-                                            @endif
-                                            <td class="float-right">
-                                                <!-- Button trigger modal -->
-                                                <a type="submit" class="btn btn-success" style="color:white" data-toggle="modal" data-target="#matriks{{ $f->id }}">
-                                                    <i class="menu-icon fa fa-pencil"></i> Ubah Status
-                                                </a>
-
-                                                <button type="submit" class="btn btn-primary">
-                                                    <i class="menu-icon fa fa-download"></i> Download
+                                        <td>{{ $loop->iteration }}</td>
+                                        <input type="hidden" name="path" value=" {{$f->path}}">
+                                        <td>{{ $f->created_at }}</td>
+                                        <td>{{ $f->name }}</td>
+                                        @if ($f->status==1)
+                                        <td>
+                                            Menunggu Review
+                                        </td>
+                                        @elseif($f->status==2)
+                                        <td>
+                                            Revisi
+                                        </td>
+                                        @elseif($f->status==3)
+                                        <td>
+                                            Diterima
+                                        </td>
+                                        @endif
+                                        <td>
+                                            <form action="matriks/{{$f->id}}" method="GET">
+                                                <input type="hidden" value="matriks" name="jenis">
+                                                <button class="btn btn-success" type="submit">
+                                                    <i class="menu-icon fa fa-pencil"></i>
                                                 </button>
-                                            </td>
+                                            </form>
+                                        </td>
+                                        <td>
+                                            <form action="matriks/{{$f->id}}" method="post" class="d-inline" onsubmit="return confirm('Yakin hapus data?')">
+                                                @method('delete')
+                                                @csrf
+                                                <button class="btn btn-danger btn-xs btn-hapus" id="delete"><i class="fa fa-trash-o"></i></button>
+                                            </form>
+                                        </td>
+                                        <td>
+                                            <input type="hidden" name="path" value=" {{ $f->path }}">
+                                            <button type="submit" class="btn btn-primary">
+                                                <i class="menu-icon fa fa-download"></i> Download
+                                            </button>
+                                        </td>
                                         </form>
                                     </tr>
                                     @endforeach
@@ -117,42 +127,52 @@
                                         <th>Date Upload</th>
                                         <th width=30%>File Name</th>
                                         <th width=20%>Status</th>
-                                        <th width=30%>Action</th>
+                                        <th width=30% colspan="3">Action</th>
                                     </tr>
                                 </thead>
                                 <tbody>
                                     <!-- Isi dari keluaran data -->
                                     @foreach($rab as $f)
                                     <tr>
-                                        <form action="/perencanaan/download" method="GET">
-                                            <td>{{ $loop->iteration }}</td>
-                                            <input type="hidden" name="path" value=" {{$f->path}}">
-                                            <td>{{ $f->created_at }}</td>
-                                            <td>{{ $f->name }}</td>
-                                            @if ($f->status==1)
-                                            <td>
-                                                Menunggu Review
-                                            </td>
-                                            @elseif($f->status==2)
-                                            <td>
-                                                Revisi
-                                            </td>
-                                            @elseif($f->status==3)
-                                            <td>
-                                                Diterima
-                                            </td>
-                                            @endif
-                                            <td class="float-right">
-                                                <!-- Button trigger modal -->
-                                                <a type="submit" class="btn btn-success" style="color:white" data-toggle="modal" data-target="#rab{{ $f->id }}">
-                                                    <i class="menu-icon fa fa-pencil"></i> Ubah Status
-                                                </a>
-
-                                                <button type="submit" class="btn btn-primary">
-                                                    <i class="menu-icon fa fa-download"></i> Download
+                                        <td>{{ $loop->iteration }}</td>
+                                        <input type="hidden" name="path" value=" {{$f->path}}">
+                                        <td>{{ $f->created_at }}</td>
+                                        <td>{{ $f->name }}</td>
+                                        @if ($f->status==1)
+                                        <td>
+                                            Menunggu Review
+                                        </td>
+                                        @elseif($f->status==2)
+                                        <td>
+                                            Revisi
+                                        </td>
+                                        @elseif($f->status==3)
+                                        <td>
+                                            Diterima
+                                        </td>
+                                        @endif
+                                        <td>
+                                            <form action="rab/{{$f->id}}" method="GET">
+                                                <input type="hidden" value="rab" name="jenis">
+                                                <button class="btn btn-success" type="submit">
+                                                    <i class="menu-icon fa fa-pencil"></i>
                                                 </button>
-                                            </td>
-                                        </form>
+                                            </form>
+                                        </td>
+                                        <td>
+                                            <form action="rab/{{$f->id}}" method="post" class="d-inline" onsubmit="return confirm('Yakin hapus data?')">
+                                                @method('delete')
+                                                @csrf
+                                                <button class="btn btn-danger btn-xs btn-hapus" id="delete"><i class="fa fa-trash-o"></i></button>
+                                            </form>
+                                        </td>
+                                        <td>
+                                            <input type="hidden" name="path" value=" {{ $f->path }}">
+                                            <button type="submit" class="btn btn-primary">
+                                                <i class="menu-icon fa fa-download"></i> Download
+                                            </button>
+                                            </form>
+                                        </td>
                                     </tr>
                                     @endforeach
                                 </tbody>
@@ -169,42 +189,52 @@
                                         <th>Date Upload</th>
                                         <th width=30%>File Name</th>
                                         <th width=20%>Status</th>
-                                        <th width=30%>Action</th>
+                                        <th width=30% colspan="3">Action</th>
                                     </tr>
                                 </thead>
                                 <tbody>
                                     <!-- Isi dari keluaran data -->
                                     @foreach($kak as $f)
                                     <tr>
-                                        <form action="/perencanaan/download" method="GET">
-                                            <td>{{ $loop->iteration }}</td>
-                                            <input type="hidden" name="path" value=" {{$f->path}}">
-                                            <td>{{ $f->created_at }}</td>
-                                            <td>{{ $f->name }}</td>
-                                            @if ($f->status==1)
-                                            <td>
-                                                Menunggu Review
-                                            </td>
-                                            @elseif($f->status==2)
-                                            <td>
-                                                Revisi
-                                            </td>
-                                            @elseif($f->status==3)
-                                            <td>
-                                                Diterima
-                                            </td>
-                                            @endif
-                                            <td class="float-right">
-                                                <!-- Button trigger modal -->
-                                                <a type="submit" class="btn btn-success" style="color:white" data-toggle="modal" data-target="#kak{{ $f->id }}">
-                                                    <i class="menu-icon fa fa-pencil"></i> Ubah Status
-                                                </a>
-
-                                                <button type="submit" class="btn btn-primary">
-                                                    <i class="menu-icon fa fa-download"></i> Download
+                                        <td>{{ $loop->iteration }}</td>
+                                        <input type="hidden" name="path" value=" {{$f->path}}">
+                                        <td>{{ $f->created_at }}</td>
+                                        <td>{{ $f->name }}</td>
+                                        @if ($f->status==1)
+                                        <td>
+                                            Menunggu Review
+                                        </td>
+                                        @elseif($f->status==2)
+                                        <td>
+                                            Revisi
+                                        </td>
+                                        @elseif($f->status==3)
+                                        <td>
+                                            Diterima
+                                        </td>
+                                        @endif
+                                        <td>
+                                            <form action="kak/{{$f->id}}" method="GET">
+                                                <input type="hidden" value="kak" name="jenis">
+                                                <button class="btn btn-success" type="submit">
+                                                    <i class="menu-icon fa fa-pencil"></i>
                                                 </button>
-                                            </td>
-                                        </form>
+                                            </form>
+                                        </td>
+                                        <td>
+                                            <form action="kak/{{$f->id}}" method="post" class="d-inline" onsubmit="return confirm('Yakin hapus data?')">
+                                                @method('delete')
+                                                @csrf
+                                                <button class="btn btn-danger btn-xs btn-hapus" id="delete"><i class="fa fa-trash-o"></i></button>
+                                            </form>
+                                        </td>
+                                        <td>
+                                            <input type="hidden" name="path" value=" {{ $f->path }}">
+                                            <button type="submit" class="btn btn-primary">
+                                                <i class="menu-icon fa fa-download"></i> Download
+                                            </button>
+                                            </form>
+                                        </td>
                                     </tr>
                                     @endforeach
                                 </tbody>
@@ -221,42 +251,52 @@
                                         <th>Date Upload</th>
                                         <th width=30%>File Name</th>
                                         <th width=20%>Status</th>
-                                        <th width=30%>Action</th>
+                                        <th width=30% colspan="3">Action</th>
                                     </tr>
                                 </thead>
                                 <tbody>
                                     <!-- Isi dari keluaran data -->
                                     @foreach($proposal as $f)
                                     <tr>
-                                        <form action="/perencanaan/download" method="GET">
-                                            <td>{{ $loop->iteration }}</td>
-                                            <input type="hidden" name="path" value=" {{$f->path}}">
-                                            <td>{{ $f->created_at }}</td>
-                                            <td>{{ $f->name }}</td>
-                                            @if ($f->status==1)
-                                            <td>
-                                                Menunggu Review
-                                            </td>
-                                            @elseif($f->status==2)
-                                            <td>
-                                                Revisi
-                                            </td>
-                                            @elseif($f->status==3)
-                                            <td>
-                                                Diterima
-                                            </td>
-                                            @endif
-                                            <td class="float-right">
-                                                <!-- Button trigger modal -->
-                                                <a type="submit" class="btn btn-success" style="color:white" data-toggle="modal" data-target="#proposal{{ $f->id }}">
-                                                    <i class="menu-icon fa fa-pencil"></i> Ubah Status
-                                                </a>
-
-                                                <button type="submit" class="btn btn-primary">
-                                                    <i class="menu-icon fa fa-download"></i> Download
+                                        <td>{{ $loop->iteration }}</td>
+                                        <input type="hidden" name="path" value=" {{$f->path}}">
+                                        <td>{{ $f->created_at }}</td>
+                                        <td>{{ $f->name }}</td>
+                                        @if ($f->status==1)
+                                        <td>
+                                            Menunggu Review
+                                        </td>
+                                        @elseif($f->status==2)
+                                        <td>
+                                            Revisi
+                                        </td>
+                                        @elseif($f->status==3)
+                                        <td>
+                                            Diterima
+                                        </td>
+                                        @endif
+                                        <td>
+                                            <form action="proposal/{{$f->id}}" method="GET">
+                                                <input type="hidden" value="proposal" name="jenis">
+                                                <button class="btn btn-success" type="submit">
+                                                    <i class="menu-icon fa fa-pencil"></i>
                                                 </button>
-                                            </td>
-                                        </form>
+                                            </form>
+                                        </td>
+                                        <td>
+                                            <form action="proposal/{{$f->id}}" method="post" class="d-inline" onsubmit="return confirm('Yakin hapus data?')">
+                                                @method('delete')
+                                                @csrf
+                                                <button class="btn btn-danger btn-xs btn-hapus" id="delete"><i class="fa fa-trash-o"></i></button>
+                                            </form>
+                                        </td>
+                                        <td>
+                                            <input type="hidden" name="path" value=" {{ $f->path }}">
+                                            <button type="submit" class="btn btn-primary">
+                                                <i class="menu-icon fa fa-download"></i> Download
+                                            </button>
+                                            </form>
+                                        </td>
                                     </tr>
                                     @endforeach
                                 </tbody>
@@ -273,42 +313,51 @@
                                         <th>Date Upload</th>
                                         <th width=30%>File Name</th>
                                         <th width=20%>Status</th>
-                                        <th width=30%>Action</th>
+                                        <th width=30% colspan="3">Action</th>
                                     </tr>
                                 </thead>
                                 <tbody>
                                     <!-- Isi dari keluaran data -->
                                     @foreach($analisis as $f)
                                     <tr>
-                                        <form action="/perencanaan/download" method="GET">
-                                            <td>{{ $loop->iteration }}</td>
-                                            <input type="hidden" name="path" value=" {{$f->path}}">
-                                            <td>{{ $f->created_at }}</td>
-                                            <td>{{ $f->name }}</td>
-                                            @if ($f->status==1)
-                                            <td>
-                                                Menunggu Review
-                                            </td>
-                                            @elseif($f->status==2)
-                                            <td>
-                                                Revisi
-                                            </td>
-                                            @elseif($f->status==3)
-                                            <td>
-                                                Diterima
-                                            </td>
-                                            @endif
-                                            <td class="float-right">
-                                                <!-- Button trigger modal -->
-                                                <a type="submit" class="btn btn-success" style="color:white" data-toggle="modal" data-target="#analisis{{ $f->id }}">
-                                                    <i class="menu-icon fa fa-pencil"></i> Ubah Status
-                                                </a>
-
-                                                <button type="submit" class="btn btn-primary">
-                                                    <i class="menu-icon fa fa-download"></i> Download
+                                        <td>{{ $loop->iteration }}</td>
+                                        <td>{{ $f->created_at }}</td>
+                                        <td>{{ $f->name }}</td>
+                                        @if ($f->status==1)
+                                        <td>
+                                            Menunggu Review
+                                        </td>
+                                        @elseif($f->status==2)
+                                        <td>
+                                            Revisi
+                                        </td>
+                                        @elseif($f->status==3)
+                                        <td>
+                                            Diterima
+                                        </td>
+                                        @endif
+                                        <td>
+                                            <form action="analisis/{{$f->id}}" method="GET">
+                                                <input type="hidden" value="analisis" name="jenis">
+                                                <button class="btn btn-success" type="submit">
+                                                    <i class="menu-icon fa fa-pencil"></i>
                                                 </button>
-                                            </td>
-                                        </form>
+                                            </form>
+                                        </td>
+                                        <td>
+                                            <form action="analisis/{{$f->id}}" method="post" class="d-inline" onsubmit="return confirm('Yakin hapus data?')">
+                                                @method('delete')
+                                                @csrf
+                                                <button class="btn btn-danger btn-xs btn-hapus" id="delete"><i class="fa fa-trash-o"></i></button>
+                                            </form>
+                                        </td>
+                                        <td>
+                                            <input type="hidden" name="path" value=" {{ $f->path }}">
+                                            <button type="submit" class="btn btn-primary">
+                                                <i class="menu-icon fa fa-download"></i> Download
+                                            </button>
+                                            </form>
+                                        </td>
                                     </tr>
                                     @endforeach
                                 </tbody>

@@ -86,11 +86,21 @@ Route::middleware('role:admin')->prefix('admin')->group(function () {
     //Perencanaan
     Route::get('/perencanaan', [PerencanaanController::class, 'index']);
     Route::get('/perencanaan/{id}', [PerencanaanController::class, 'edit']);
-    Route::get('/ubahmatriks/{id}', [PerencanaanController::class, 'statusmatriks']);
-    Route::get('/ubahrab/{id}', [PerencanaanController::class, 'statusrab']);
-    Route::get('/ubahkak/{id}', [PerencanaanController::class, 'statuskak']);
-    Route::get('/ubahanalisis/{id}', [PerencanaanController::class, 'statusanalisis']);
-    Route::get('/ubahproposal/{id}', [PerencanaanController::class, 'statusproposal']);
+    Route::get('/perencanaan/matriks/{id}', [PerencanaanController::class, 'viewmatriks']);
+    Route::get('/perencanaan/rab/{id}', [PerencanaanController::class, 'viewrab']);
+    Route::get('/perencanaan/kak/{id}', [PerencanaanController::class, 'viewkak']);
+    Route::get('/perencanaan/analisis/{id}', [PerencanaanController::class, 'viewanalisis']);
+    Route::get('/perencanaan/proposal/{id}', [PerencanaanController::class, 'viewproposal']);
+    Route::put('/perencanaan/matriks/{id}', [PerencanaanController::class, 'statusmatriks']);
+    Route::put('/perencanaan/rab/{id}', [PerencanaanController::class, 'statusrab']);
+    Route::put('/perencanaan/kak/{id}', [PerencanaanController::class, 'statuskak']);
+    Route::put('/perencanaan/analisis/{id}', [PerencanaanController::class, 'statusanalisis']);
+    Route::put('/perencanaan/proposal/{id}', [PerencanaanController::class, 'statusproposal']);
+    Route::delete('/perencanaan/matriks/{id}', [PerencanaanController::class, 'deletematriks']);
+    Route::delete('/perencanaan/rab/{id}', [PerencanaanController::class, 'deleterab']);
+    Route::delete('/perencanaan/kak/{id}', [PerencanaanController::class, 'deletekak']);
+    Route::delete('/perencanaan/analisis/{id}', [PerencanaanController::class, 'deleteanalisis']);
+    Route::delete('/perencanaan/proposal/{id}', [PerencanaanController::class, 'deleteproposal']);
 
     // Monev
     Route::get('/evaluasi', [ReportController::class, 'admin_view']);
