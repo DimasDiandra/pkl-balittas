@@ -104,7 +104,7 @@
                                         @endif
                                         <td>
                                             <form action="bulanan/{{$f->id}}" method="GET">
-                                                <input type="hidden" value="matriks" name="jenis">
+                                                <input type="hidden" value="bulanan" name="jenis">
                                                 <button class="btn btn-success" type="submit">
                                                     <i class="menu-icon fa fa-pencil"></i>
                                                 </button>
