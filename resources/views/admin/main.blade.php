@@ -49,7 +49,7 @@ The above copyright notice and this permission notice shall be included in all c
 
         Tip 2: you can also add an image using data-image tag
     -->
-            <div class="logo"><a href="/home" class="simple-text logo-normal">
+            <div class="logo"><a href="/admin" class="simple-text logo-normal">
                     Balittas
                 </a></div>
             <div class="sidebar-wrapper">

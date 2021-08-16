@@ -170,10 +170,13 @@
 
             <!-- Ini adalah Bagian Body Modal -->
             <div class="modal-body">
+                @foreach ($pengumuman as $p)
+                <h6>{{$p->judul}}</h6>
                 <h6 id="judul"></h6>
                 <br>
-                <p id="isi">
-                </p>
+                <p>{{$p->isi_pengumuman}}</p>
+                <p id="isi_pengumuman"></p>
+                @endforeach
             </div>
 
             <!-- Ini adalah Bagian Footer Modal -->
