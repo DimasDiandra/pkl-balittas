@@ -296,8 +296,10 @@
                                     <thead>
                                         <tr>
                                             <th width=10%>No.</th>
-                                            <th width=50%>File Name</th>
+                                            <th width=30%>File Name</th>
                                             <th width=20%>Date Upload</th>
+                                            <th width=20%>Status</th>
+
                                             <th></th>
                                         </tr>
                                     </thead>
@@ -310,6 +312,19 @@
                                                 <input type="hidden" name="path" value=" {{$f->path}}">
                                                 <td>{{ $f->name }}</td>
                                                 <td>{{ $f->created_at }}</td>
+                                                @if ($f->status==1)
+                                                <td>
+                                                    Menunggu Review
+                                                </td>
+                                                @elseif($f->status==2)
+                                                <td>
+                                                    Revisi
+                                                </td>
+                                                @elseif($f->status==3)
+                                                <td>
+                                                    Diterima
+                                                </td>
+                                                @endif
                                                 <td class="float-right">
                                                     <button type="submit" class="btn btn-primary">
                                                         <i class="menu-icon fa fa-download"></i> Download
@@ -329,8 +344,10 @@
                                     <thead>
                                         <tr>
                                             <th width=10%>No.</th>
-                                            <th width=50%>File Name</th>
+                                            <th width=30%>File Name</th>
                                             <th width=20%>Date Upload</th>
+                                            <th width=20%>Status</th>
+
                                             <th></th>
                                         </tr>
                                     </thead>
@@ -343,6 +360,19 @@
                                                 <input type="hidden" name="path" value=" {{$f->path}}">
                                                 <td>{{ $f->name }}</td>
                                                 <td>{{ $f->created_at }}</td>
+                                                @if ($f->status==1)
+                                                <td>
+                                                    Menunggu Review
+                                                </td>
+                                                @elseif($f->status==2)
+                                                <td>
+                                                    Revisi
+                                                </td>
+                                                @elseif($f->status==3)
+                                                <td>
+                                                    Diterima
+                                                </td>
+                                                @endif
                                                 <td class="float-right">
                                                     <button type="submit" class="btn btn-primary">
                                                         <i class="menu-icon fa fa-download"></i> Download
@@ -362,8 +392,10 @@
                                     <thead>
                                         <tr>
                                             <th width=10%>No.</th>
-                                            <th width=50%>File Name</th>
+                                            <th width=30%>File Name</th>
                                             <th width=20%>Date Upload</th>
+                                            <th width=20%>Status</th>
+
                                             <th></th>
                                         </tr>
                                     </thead>
@@ -376,6 +408,19 @@
                                                 <input type="hidden" name="path" value=" {{$f->path}}">
                                                 <td>{{ $f->name }}</td>
                                                 <td>{{ $f->created_at }}</td>
+                                                @if ($f->status==1)
+                                                <td>
+                                                    Menunggu Review
+                                                </td>
+                                                @elseif($f->status==2)
+                                                <td>
+                                                    Revisi
+                                                </td>
+                                                @elseif($f->status==3)
+                                                <td>
+                                                    Diterima
+                                                </td>
+                                                @endif
                                                 <td class="float-right">
                                                     <button type="submit" class="btn btn-primary">
                                                         <i class="menu-icon fa fa-download"></i> Download
@@ -395,8 +440,10 @@
                                     <thead>
                                         <tr>
                                             <th width=10%>No.</th>
-                                            <th width=50%>File Name</th>
+                                            <th width=30%>File Name</th>
                                             <th width=20%>Date Upload</th>
+                                            <th width=20%>Status</th>
+
                                             <th></th>
                                         </tr>
                                     </thead>
@@ -409,6 +456,19 @@
                                                 <input type="hidden" name="path" value=" {{$f->path}}">
                                                 <td>{{ $f->name }}</td>
                                                 <td>{{ $f->created_at }}</td>
+                                                @if ($f->status==1)
+                                                <td>
+                                                    Menunggu Review
+                                                </td>
+                                                @elseif($f->status==2)
+                                                <td>
+                                                    Revisi
+                                                </td>
+                                                @elseif($f->status==3)
+                                                <td>
+                                                    Diterima
+                                                </td>
+                                                @endif
                                                 <td class="float-right">
                                                     <button type="submit" class="btn btn-primary">
                                                         <i class="menu-icon fa fa-download"></i> Download
@@ -428,8 +488,10 @@
                                     <thead>
                                         <tr>
                                             <th width=10%>No.</th>
-                                            <th width=50%>File Name</th>
+                                            <th width=30%>File Name</th>
                                             <th width=20%>Date Upload</th>
+                                            <th width=20%>Status</th>
+
                                             <th></th>
                                         </tr>
                                     </thead>
@@ -442,6 +504,19 @@
                                                 <input type="hidden" name="path" value=" {{$f->path}}">
                                                 <td>{{ $f->name }}</td>
                                                 <td>{{ $f->created_at }}</td>
+                                                @if ($f->status==1)
+                                                <td>
+                                                    Menunggu Review
+                                                </td>
+                                                @elseif($f->status==2)
+                                                <td>
+                                                    Revisi
+                                                </td>
+                                                @elseif($f->status==3)
+                                                <td>
+                                                    Diterima
+                                                </td>
+                                                @endif
                                                 <td class="float-right">
                                                     <button type="submit" class="btn btn-primary">
                                                         <i class="menu-icon fa fa-download"></i> Download
