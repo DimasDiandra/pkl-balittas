@@ -124,11 +124,19 @@ The above copyright notice and this permission notice shall be included in all c
                                     @forelse(Auth::user()->unreadNotifications as $notification)
                                     <a class="dropdown-item" href="#">
                                         {{$notification->data['name']}}
-                                        Baru di upload
+                                        {{$notification->data['status']}}
+                                    </a>
+                                    @endforeach
+                                    @forelse(Auth::user()->readNotifications->take(10) as $notification)
+                                    <a class="dropdown-item" href="#" style="color: gray">
+                                        {{$notification->data['name']}}
+                                        {{$notification->data['status']}}
                                     </a>
                                     @empty
-                                    <a class="dropdown-item">Tidak ada Notifikasi</a>
+                                    <p class="dropdown-item">Tidak ada Notifikasi</p>
                                     @endforelse
+                                    <div class="dropdown-divider"></div>
+                                    <a href=" {{ url('markRead') }}" class="dropdown-header">Tandai Sudah Dibaca</a>
                                 </div>
                             </li>
                             <li class="nav-item dropdown">
