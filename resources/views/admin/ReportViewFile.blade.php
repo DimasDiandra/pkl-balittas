@@ -32,7 +32,7 @@
 @endif
 <div class="container-fluid">
     <div>
-        <a href="/admin/evaluasi/" style="font-weight: 500;"><i class="fa fa-arrow-left"></i> Back
+        <a href="./" style="font-weight: 500;"><i class="fa fa-arrow-left"></i> Back
         </a>
     </div>
     <div class="card">
@@ -105,7 +105,7 @@
                                         <td>
                                             <form action="bulanan/{{$f->id}}" method="GET">
                                                 <input type="hidden" value="bulanan" name="jenis">
-                                                <button class="btn btn-success" type="submit">
+                                                <button class="btn btn-warning btn-xs btn-edit" type="submit">
                                                     <i class="menu-icon fa fa-pencil"></i>
                                                 </button>
                                             </form>

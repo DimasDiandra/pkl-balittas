@@ -25,10 +25,10 @@
 
 @section('content')
 <div class="container-fluid">
-    <div>
+    {{-- <div>
         <a href="/admin/evaluasi/" style="font-weight: 500;"><i class="fa fa-arrow-left"></i> Back
         </a>
-    </div>
+    </div> --}}
     <div class="card">
         <div class="card-header">
             <h3 class="m-0  text-primary">Monitoring dan Evaluasi</h3>
@@ -40,7 +40,7 @@
                         <th width="1%">No.</th>
                         <th width="30%">Name</th>
                         <th width="30%">Projek</th>
-                        <th width="20%"></th>
+                        <th width="20%">Action</th>
                     </tr>
                 </thead>
                 <tbody>
@@ -58,7 +58,7 @@
                                 $projekdata->where('user_id',$data->id)->pluck('name'),
                                 '[""]')}}</td>
                         @endif
-                        <td class="text-center">
+                        <td>
                             <a href="{{ url('admin/evaluasi/' . $data->id) }}" class="btn btn-primary" id="edit"><i class="fa fa-eye"></i> Lihat Detail</a>
                         </td>
                     </tr>

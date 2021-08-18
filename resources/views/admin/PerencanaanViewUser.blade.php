@@ -25,10 +25,10 @@
 
 @section('content')
 <div class="container-fluid">
-    <div>
-        <a href="/admin/" style="font-weight: 500;"><i class="fa fa-arrow-left"></i> Back
+    {{-- <div>
+        <a href="./" style="font-weight: 500;"><i class="fa fa-arrow-left"></i> Back
         </a>
-    </div>
+    </div> --}}
     <div class="card">
         <div class="card-header">
             <h3 class="m-0  text-primary">Perencanaan</h3>
@@ -49,7 +49,7 @@
                         <td>{{ $loop->iteration }}</td>
                         <td>{{ $data->name }}</td>
                         <td>{{ $data->email }}</td>
-                        <td class="text-center">
+                        <td>
                             <a href="{{ url('admin/perencanaan/' . $data->id) }}" class="btn btn-primary" id="edit"><i class="fa fa-eye"></i> Lihat Detail</a>
                         </td>
                     </tr>

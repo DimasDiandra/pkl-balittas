@@ -27,7 +27,7 @@
 <div class="container-fluid">
 
     <div>
-        <a href="/admin/perencanaan" style="font-weight: 500;"><i class="fa fa-arrow-left"></i> Back
+        <a href="./" style="font-weight: 500;"><i class="fa fa-arrow-left"></i> Back
         </a>
     </div>
     <div class="card card-body">
@@ -92,7 +92,7 @@
                                         <td>
                                             <form action="matriks/{{$f->id}}" method="GET">
                                                 <input type="hidden" value="matriks" name="jenis">
-                                                <button class="btn btn-success" type="submit">
+                                                <button class="btn btn-warning btn-xs btn-edit" type="submit">
                                                     <i class="menu-icon fa fa-pencil"></i>
                                                 </button>
                                             </form>

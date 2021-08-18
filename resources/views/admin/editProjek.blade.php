@@ -25,6 +25,10 @@
 
 @section('content')
 <div class="content mt-3">
+    <div>
+        <a href="./" style="font-weight: 500;"><i class="fa fa-arrow-left"></i> Back
+        </a>
+    </div>
     <div class="card">
         <div class="card-header">
             <h6 class="text-primary">Edit Detail Projek</h6>

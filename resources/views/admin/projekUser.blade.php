@@ -1,6 +1,6 @@
 @extends('admin/main')
 
-@section('title', 'Data User')
+@section('title', 'Data Projek')
 
 @section('breadcrumbs')
 <div class="breadcrumbs">

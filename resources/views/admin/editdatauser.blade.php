@@ -25,37 +25,46 @@
 
 @section('content')
     <div class="content mt-3">
-        <div class="box-body">
-            <form role="form" method="post" action="{{ url('admin/user/' . $data->id) }}" enctype="multipart/form-data">
-                @csrf
-                {{ method_field('PUT') }}
-                <div class="row">
+        <div>
+            <a href="./" style="font-weight: 500;"><i class="fa fa-arrow-left"></i> Back
+            </a>
+        </div>
+        <div class="card">
+            <div class="card-header">
+                <h6 class="text-primary">Edit Data User</h6>
+            </div>
+            <div class="card-body">
 
-                    <div class="col-md-6">
-                        <div class="box-body">
-                            <div class="form-group">
-                                <label for="exampleInputPassword1">Name</label>
-                                <input type="text" name="name" class="form-control" id="exampleInputPassword1"
-                                    placeholder="Name" value="{{ $data->name }}">
-                            </div>
-                            <div class="form-group">
-                                <label for="exampleInputEmail1">Email address</label>
-                                <input type="email" name="email" class="form-control" id="exampleInputEmail1"
-                                    placeholder="Enter email" value="{{ $data->email }}">
+                <form role="form" method="post" action="{{ url('admin/user/' . $data->id) }}"
+                    enctype="multipart/form-data">
+                    @csrf
+                    {{ method_field('PUT') }}
+                    <div class="row">
+
+                        <div class="col-md-6">
+                            <div class="box-body">
+                                <div class="form-group">
+                                    <label for="exampleInputPassword1">Name</label>
+                                    <input type="text" name="name" class="form-control" id="exampleInputPassword1"
+                                        placeholder="Name" value="{{ $data->name }}">
+                                </div>
+                                <div class="form-group">
+                                    <label for="exampleInputEmail1">Email address</label>
+                                    <input type="email" name="email" class="form-control" id="exampleInputEmail1"
+                                        placeholder="Enter email" value="{{ $data->email }}">
+                                </div>
                             </div>
                         </div>
                     </div>
-                </div>
-                <!-- /.box-body -->
+                    <!-- /.box-body -->
 
-                <div class="box-footer">
-                    <button type="submit" class="btn btn-primary">Update</button>
-                </div>
-            </form>
+                    <div class="box-footer">
+                        <button type="submit" class="btn btn-primary">Update</button>
+                    </div>
+                </form>
 
+            </div>
         </div>
-    </div>
-    </div>
     </div>
 
 @endsection

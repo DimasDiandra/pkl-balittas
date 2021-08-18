@@ -37,9 +37,9 @@
                     <thead>
                         <tr>
                             <th width="1%">No.</th>
-                            <th width="30%">Name</th>
-                            <th width="20%">Email</th>
-                            <th width="10%">Action</th>
+                            <th width="40%">Name</th>
+                            <th width="30%">Email</th>
+                            <th width="20%">Action</th>
                         </tr>
                     </thead>
                     <tbody>
@@ -50,12 +50,12 @@
                             <td>{{ $data->email }}</td>
                             <td>
                                 {{-- <div style="width:60px"> --}}
-                                <a href="{{ url('admin/user/' .$data->id) }}" class="btn btn-warning btn-xs btn-edit" id="edit"><i class="fa fa-pencil-square-o"></i></a>
+                                <a href="{{ url('admin/user/' .$data->id) }}" class="btn btn-warning btn-xs btn-edit" id="edit" style="color: white;"><i class="menu-icon fa fa-pencil"></i> Edit</a>
 
                                 <form action="{{ url('admin/user/' .$data->id) }}" method="post" class="d-inline" onsubmit="return confirm('Yakin hapus data?')">
                                     @method('delete')
                                     @csrf
-                                    <button href="{{ url('user/'.$data->id) }}" class="btn btn-danger btn-xs btn-hapus" id="delete"><i class="fa fa-trash-o"></i></button>
+                                    <button href="{{ url('user/'.$data->id) }}" class="btn btn-danger btn-xs btn-hapus" id="delete"><i class="fa fa-trash-o"></i> Hapus </button>
                                 </form>
 
                             </td>

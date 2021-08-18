@@ -281,11 +281,11 @@ class PerencanaanController extends Controller
             // 'kak' => 'required|file|mimes:docx,pdf,|max:15000',
             // 'proposal' => 'required|file|mimes:docx,pdf,|max:15000',
             // 'analisis' => 'required|file|mimes:xlsx,xls,|max:15000',
-            'matriks' => 'nullable|file|max:15000',
-            'rab' => 'nullable|file|max:15000',
-            'kak' => 'nullable|file|max:15000',
-            'proposal' => 'nullable|file|max:15000',
-            'analisis' => 'nullable|file|max:15000',
+            'matriks' => 'required|file|mimes:docx,pdf|max:15000',
+            'rab' => 'required|file|mimes:xlsx,xls,|max:15000',
+            'kak' => 'required|file|mimes:docx,pdf,|max:15000',
+            'proposal' => 'nullable|file|mimes:docx,pdf,|max:15000',
+            'analisis' => 'nullable|file|mimes:xlsx,xls,|max:15000',
 
         ]);
 

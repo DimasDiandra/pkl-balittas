@@ -41,7 +41,7 @@
                     <thead>
                         <tr>
                             <th width="1%">No.</th>
-                            <th width="30%">Judul</th>
+                            <th width="40%">Judul</th>
                             <th width="30%">Pengumuman</th>
                             <th width="20%">Action</th>
                         </tr>
@@ -53,12 +53,12 @@
                             <td>{{ $data->judul }}</td>
                             <td>{{ $data->isi_pengumuman }}</td>
                             <td class="text-center">
-                                <a href="{{ url('admin/pengumuman/' .$data->id) }}" class="btn btn-warning btn-xs btn-edit" id="edit"><i class="fa fa-pencil-square-o"></i></a>
+                                <a href="{{ url('admin/pengumuman/' .$data->id) }}" class="btn btn-warning btn-xs btn-edit" id="edit" style="color: white;"><i class="menu-icon fa fa-pencil"></i> Edit</a>
 
                                 <form action="{{ url('admin/pengumuman/' .$data->id) }}" method="post" class="d-inline" onsubmit="return confirm('Yakin hapus pengumuman?')">
                                     @method('delete')
                                     @csrf
-                                    <button href="{{ url('pengumuman/'.$data->id) }}" class="btn btn-danger btn-xs btn-hapus" id="delete"><i class="fa fa-trash-o"></i></button>
+                                    <button href="{{ url('pengumuman/'.$data->id) }}" class="btn btn-danger btn-xs btn-hapus" id="delete"><i class="fa fa-trash-o"></i> Hapus </button>
                                 </form>
                             </td>
                         </tr>
