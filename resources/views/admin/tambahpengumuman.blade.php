@@ -27,9 +27,14 @@
 <div class="content mt-3">
     @if (session('success'))
     <div class="alert alert-success">
-        {{ session('success') }}
+        <button type="button" class="close" data-dismiss="alert" aria-label="Close">
+            <i class="material-icons">close</i>
+        </button>
+        <span>
+            {{session('success')}}
     </div>
     @endif
+    
     <div class="animated fadeIn">
         <div class="card">
             <div class="card-header">
@@ -108,4 +113,5 @@
     </div>
 
 </div>
+
 @endsection

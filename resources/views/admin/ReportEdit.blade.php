@@ -4,6 +4,7 @@
 
 
 @section('content')
+
 @if (session('success'))
 <div class="alert alert-success">
     <button type="button" class="close" data-dismiss="alert" aria-label="Close">
@@ -13,6 +14,7 @@
         {{session('success')}}
 </div>
 @endif
+
 <div class="container-fluid">
     <div>
         <a href="/admin/evaluasi/{{$user->id}}" style="font-weight: 500;"><i class="fa fa-arrow-left"></i> Back
@@ -79,5 +81,6 @@
         </div>
     </div>
 </div>
+
 
 @endsection

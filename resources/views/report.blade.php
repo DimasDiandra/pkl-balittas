@@ -24,16 +24,17 @@
 @endsection
 
 @section('content')
-
+@if (session('success'))
+<div class="alert alert-success">
+    <button type="button" class="close" data-dismiss="alert" aria-label="Close">
+        <i class="material-icons">close</i>
+    </button>
+    <span>
+        {{session('success')}}
+</div>
+@endif
 <!-- Begin Page Content -->
 <div class="container-fluid">
-
-    @if (session('success'))
-    <div class="alert alert-success">
-        {{ session('success') }}
-    </div>
-    @endif
-
     <form action="/report/upload" method="POST" enctype="multipart/form-data">
         <!-- Page Heading -->
         <div>

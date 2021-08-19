@@ -26,10 +26,14 @@
 
 @section('content')
 @if (session('success'))
-<div class="alert alert-success">
-    {{ session('success') }}
-</div>
-@endif
+    <div class="alert alert-success">
+        <button type="button" class="close" data-dismiss="alert" aria-label="Close">
+            <i class="material-icons">close</i>
+        </button>
+        <span>
+            {{session('success')}}
+    </div>
+    @endif
 <div class="container-fluid">
     <div>
         <a href="./" style="font-weight: 500;"><i class="fa fa-arrow-left"></i> Back

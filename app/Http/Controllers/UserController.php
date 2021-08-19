@@ -6,6 +6,7 @@ use App\Models\uploadReport;
 use App\Models\User;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\DB;
+use RealRashid\SweetAlert\Facades\Alert;
 
 class UserController extends Controller
 {
@@ -14,7 +15,9 @@ class UserController extends Controller
 		// $title = 'Data peserta';
 		// $data = User::orderBy('name','asc')->get();
 		// return view('admin.datauser',compact('title','data'));
-
+		if(session('success')){
+            Alert::success('Sukses!', session('success'));
+        }
 		$userdata = DB::table('users')->get();
 		return view('admin.datauser', compact('userdata'));
 	}
@@ -39,7 +42,7 @@ class UserController extends Controller
 		} catch (\Exception $e) {
 		}
 
-		return redirect('admin/user');
+		return redirect('admin/user')->with('success', 'Data Berhasil Diperbarui');
 	}
 
 	public function delete($id)
@@ -48,6 +51,6 @@ class UserController extends Controller
 			User::where('id', $id)->delete();
 		} catch (\Exception $e) {
 		}
-		return redirect('admin/user');
+		return redirect('admin/user')->with('success', 'Data Berhasil Terhapus');
 	}
 }

@@ -20,6 +20,7 @@ use Illuminate\Support\Facades\Notification;
 use App\Events\UpdateStatus;
 use App\Notifications\UploadNotification;
 
+use RealRashid\SweetAlert\Facades\Alert;
 
 class PerencanaanController extends Controller
 {
@@ -34,7 +35,9 @@ class PerencanaanController extends Controller
         // $title = 'Data peserta';
         // $data = User::orderBy('name','asc')->get();
         // return view('admin.datauser',compact('title','data'));
-
+        if(session('success')){
+            Alert::success('Sukses!', session('success'));
+        }
         $userdata = DB::table('users')->get();
         return view('admin.PerencanaanViewUser', compact('userdata'));
     }
@@ -128,7 +131,7 @@ class PerencanaanController extends Controller
         // $data->notify(new StatusNotification($data));
         $user = User::where('id', $data->user_id)->get('id');
         Notification::send($user, new StatusNotification($data));
-        return redirect()->back()->with('success', 'Berhasil Mengubah Data');
+        return redirect()->back()->with('success', 'Data Berhasil Diperbarui');
     }
 
     public function statusrab($id, Request $request)
@@ -146,7 +149,7 @@ class PerencanaanController extends Controller
         // $data->notify(new StatusNotification($data));
         $user = User::where('id', $data->user_id)->get('id');
         Notification::send($user, new StatusNotification($data));
-        return redirect()->back()->with('success', 'Berhasil Mengubah Data');
+        return redirect()->back()->with('success', 'Data Berhasil Diperbarui');
     }
 
     public function statuskak($id, Request $request)
@@ -164,7 +167,7 @@ class PerencanaanController extends Controller
         // $data->notify(new StatusNotification($data));
         $user = User::where('id', $data->user_id)->get('id');
         Notification::send($user, new StatusNotification($data));
-        return redirect()->back()->with('success', 'Berhasil Mengubah Data');
+        return redirect()->back()->with('success', 'Data Berhasil Diperbarui');
     }
 
     public function statusanalisis($id, Request $request)
@@ -182,7 +185,7 @@ class PerencanaanController extends Controller
         // $data->notify(new StatusNotification($data));
         $user = User::where('id', $data->user_id)->get('id');
         Notification::send($user, new StatusNotification($data));
-        return redirect()->back()->with('success', 'Berhasil Mengubah Data');
+        return redirect()->back()->with('success', 'Data Berhasil Diperbarui');
     }
 
     public function statusproposal($id, Request $request)
@@ -200,7 +203,7 @@ class PerencanaanController extends Controller
         // $data->notify(new StatusNotification($data));
         $user = User::where('id', $data->user_id)->get('id');
         Notification::send($user, new StatusNotification($data));
-        return redirect()->back()->with('success', 'Berhasil Mengubah Data');
+        return redirect()->back()->with('success', 'Data Berhasil Diperbarui');
     }
 
     public function deletematriks($id)
@@ -214,7 +217,7 @@ class PerencanaanController extends Controller
             event(new UpdateStatus($projek));
         } catch (\Exception $e) {
         }
-        return redirect('admin/perencanaan');
+        return redirect('admin/perencanaan')->with('success', 'Data Berhasil Terhapus');
     }
 
     public function deleterab($id)
@@ -228,7 +231,7 @@ class PerencanaanController extends Controller
             event(new UpdateStatus($projek));
         } catch (\Exception $e) {
         }
-        return redirect('admin/perencanaan');
+        return redirect('admin/perencanaan')->with('success', 'Data Berhasil Terhapus');
     }
 
     public function deletekak($id)
@@ -242,7 +245,7 @@ class PerencanaanController extends Controller
             event(new UpdateStatus($projek));
         } catch (\Exception $e) {
         }
-        return redirect('admin/perencanaan');
+        return redirect('admin/perencanaan')->with('success', 'Data Berhasil Terhapus');
     }
 
     public function deleteproposal($id)
@@ -256,7 +259,7 @@ class PerencanaanController extends Controller
             event(new UpdateStatus($projek));
         } catch (\Exception $e) {
         }
-        return redirect('admin/perencanaan');
+        return redirect('admin/perencanaan')->with('success', 'Data Berhasil Terhapus');
     }
 
     public function deleteanalisis($id)
@@ -270,7 +273,7 @@ class PerencanaanController extends Controller
             event(new UpdateStatus($projek));
         } catch (\Exception $e) {
         }
-        return redirect('admin/perencanaan');
+        return redirect('admin/perencanaan')->with('success', 'Data Berhasil Terhapus');
     }
 
     public function perencanaan_upload(Request $request)
@@ -389,7 +392,7 @@ class PerencanaanController extends Controller
         };
         // Notification::send($admin, new UploadNotification($data));
 
-        return redirect()->back()->with('success', 'Berhasil Menambahkan Data');
+        return redirect()->back()->with('success', 'Data Berhasil Ditambahkan');
     }
 
     public function perencanaan_download(Request $request)

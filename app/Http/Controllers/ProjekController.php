@@ -6,6 +6,7 @@ use Illuminate\Http\Request;
 use Illuminate\Support\Facades\DB;
 use App\Models\User;
 use App\Models\Projek;
+use RealRashid\SweetAlert\Facades\Alert;
 
 class ProjekController extends Controller
 {
@@ -14,7 +15,9 @@ class ProjekController extends Controller
         // $title = 'Data peserta';
         // $data = User::orderBy('name','asc')->get();
         // return view('admin.datauser',compact('title','data'));
-
+        if(session('success')){
+            Alert::success('Sukses!', session('success'));
+        }
         $userdata = DB::table('users')->get();
         $projekdata = DB::table('projek')->get();
         return view('admin.projekUser', compact('userdata', 'projekdata'));
@@ -37,7 +40,7 @@ class ProjekController extends Controller
             'all_status' => 0
         ]);
 
-        return redirect()->back();
+        return redirect()->back()->with('success', 'Projek Berhasil Diperbarui');
     }
 
     public function edit($id)
@@ -61,7 +64,7 @@ class ProjekController extends Controller
         } catch (\Exception $e) {
         }
 
-        return redirect('admin/projek');
+        return redirect('admin/projek')->with('success', 'Projek Berhasil Diperbarui');
     }
 
     public function delete($id)
@@ -70,6 +73,6 @@ class ProjekController extends Controller
             User::where('id', $id)->delete();
         } catch (\Exception $e) {
         }
-        return redirect('admin/user');
+        return redirect('admin/user')->with('success', 'Projek Berhasil Terhapus');
     }
 }

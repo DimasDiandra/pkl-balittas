@@ -6,6 +6,8 @@ use Illuminate\Http\Request;
 use App\Models\Pengumuman;
 use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\DB;
+use RealRashid\SweetAlert\Facades\Alert;
+
 
 class PengumumanController extends Controller
 {
@@ -20,6 +22,7 @@ class PengumumanController extends Controller
      */
     public function index()
     {
+        
         return view('admin.tambahpengumuman');
     }
 
@@ -50,7 +53,7 @@ class PengumumanController extends Controller
         $pengumuman->isi_pengumuman = $request->input('isi_pengumuman');
         $pengumuman->save();
 
-        return redirect('admin/pengumuman')->with('success', 'Pengumuman Ditambahkan');
+        return redirect('admin/pengumuman')->with('success', 'Pengumuman Berhasil Ditambahkan');
     }
 
     /**
@@ -62,6 +65,9 @@ class PengumumanController extends Controller
     public function show()
     {
         $pengumuman = DB::table('pengumumans')->get();
+        if(session('success')){
+            Alert::success('Sukses!', session('success'));
+        }
         return view('admin.tambahpengumuman', compact('pengumuman'));
     }
 
@@ -85,7 +91,7 @@ class PengumumanController extends Controller
         } catch (\Exception $e) {
         }
 
-        return redirect('admin/pengumuman');
+        return redirect('admin/pengumuman')->with('success', 'Pengumuman Berhasil Diperbarui');
     }
 
     public function delete($id)
@@ -94,6 +100,6 @@ class PengumumanController extends Controller
             Pengumuman::where('id', $id)->delete();
         } catch (\Exception $e) {
         }
-        return redirect('admin/pengumuman');
+        return redirect('admin/pengumuman')->with('success', 'Pengumuman Berhasil Terhapus');
     }
 }

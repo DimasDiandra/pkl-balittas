@@ -31,7 +31,11 @@
 
     @if (session('success'))
     <div class="alert alert-success">
-        {{ session('success') }}
+        <button type="button" class="close" data-dismiss="alert" aria-label="Close">
+            <i class="material-icons">close</i>
+        </button>
+        <span>
+            {{session('success')}}
     </div>
     @endif
 
@@ -243,7 +247,7 @@
                             </table>
                         </div>
                         <div class="row" style="padding-left: 16px;">
-                            <button type="submit" class="btn btn-primary "><i class="menu-icon fa fa-upload"></i> Upload</button>
+                            <button type="submit" class="btn btn-primary upload"><i class="menu-icon fa fa-upload"></i> Upload</button>
                         </div>
                     </div>
                 </div>
@@ -537,6 +541,7 @@
     <!-- /.container-fluid -->
 
 </div>
+
 <!-- script -->
 <script>
     $('#table').DataTable();
@@ -547,4 +552,15 @@
     })
 </script>
 
+<!-- script sweetalert2 -->
+{{-- <script>
+$(.upload).click(function(){
+    swal({
+    title: "Sukses!",
+    text: "Data Berhasil di Upload",
+    icon: "success",
+    button: "Okay!",
+  });
+});
+</script> --}}
 @endsection

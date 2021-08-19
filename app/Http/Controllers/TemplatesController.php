@@ -7,6 +7,7 @@ use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\DB;
 use Illuminate\Support\Facades\Storage;
+use RealRashid\SweetAlert\Facades\Alert;
 
 class TemplatesController extends Controller
 {
@@ -85,6 +86,11 @@ class TemplatesController extends Controller
     public function show(Templates $templates)
     {
         $file = DB::table('templates')->get();
+
+        if(session('success')){
+            Alert::success('Sukses!', session('success'));
+        }
+        
 		return view ('admin.datatemplate', compact('file'));
     }
 
@@ -128,7 +134,7 @@ class TemplatesController extends Controller
 			Templates::where('id', $id)->delete();
 		} catch (\Exception $e) {
 		}
-		return redirect('admin/template');
+		return redirect('admin/template')->with('success','Template Terhapus');
 	}
     
     public function template_download(Request $request)
