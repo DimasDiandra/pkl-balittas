@@ -85,14 +85,14 @@
             <div class="card-body">
                 <table style="border: 0;">
                     @foreach($pengumuman as $f)
-                    <tr>
-                        <td style="padding-bottom:8px; cursor:pointer">
-                            <a data-toggle="modal" data-target="#pengumumanModal" data-id="{{ $f->id }}" class="text-primary detail-btn">
+                    <tr data-toggle="modal" data-target="#pengumumanModal" data-id="{{ $f->id }}" class="detail-btn">
+                        <td style="padding-bottom:8px; cursor:pointer" class="text-primary">
+                            <a>
                                 {{ $f->judul }}
                             </a>
                         </td>
-                        <td style="padding-bottom:8px; cursor:pointer; width:20%">
-                            <a data-toggle="modal" data-target="#pengumumanModal" data-id="{{ $f->id }}" class="detail-btn">
+                        <td style=" padding-bottom:8px; cursor:pointer; width:20%">
+                            <a>
                                 {{$date= substr(
                                      $f->created_at ,2,8
                                     )}}
@@ -170,13 +170,10 @@
 
             <!-- Ini adalah Bagian Body Modal -->
             <div class="modal-body">
-                @foreach ($pengumuman as $p)
-                <h6>{{$p->judul}}</h6>
                 <h6 id="judul"></h6>
                 <br>
-                <p>{{$p->isi_pengumuman}}</p>
-                <p id="isi_pengumuman"></p>
-                @endforeach
+                <p id="isi">
+                </p>
             </div>
 
             <!-- Ini adalah Bagian Footer Modal -->

@@ -33,6 +33,11 @@ The above copyright notice and this permission notice shall be included in all c
 </head>
 
 <body class="">
+    <script src="{{ asset('style/assets/js/vendor/jquery-2.1.4.min.js') }}"></script>
+    <script src="{{ asset('style/assets/js/popper.min.js') }}"></script>
+    <script src="{{ asset('style/assets/js/plugins.js') }}"></script>
+    <script src="{{ asset('style/assets/js/main.js') }}"></script>
+
     <div class="wrapper ">
         <div class="sidebar" data-color="purple" data-background-color="white" data-image="assets/background.jpg">
             <!--
@@ -207,8 +212,6 @@ The above copyright notice and this permission notice shall be included in all c
     <script src="https://cdnjs.cloudflare.com/ajax/libs/core-js/2.4.1/core.js"></script>
     <!-- Library for adding dinamically elements -->
     <script src="../assets/js/plugins/arrive.min.js"></script>
-    <!--  Google Maps Plugin    -->
-    <script src="https://maps.googleapis.com/maps/api/js?key=YOUR_KEY_HERE"></script>
     <!-- Chartist JS -->
     <script src="../assets/js/plugins/chartist.min.js"></script>
     <!--  Notifications Plugin    -->
@@ -217,6 +220,7 @@ The above copyright notice and this permission notice shall be included in all c
     <script src="../assets/js/material-dashboard.js?v=2.1.2" type="text/javascript"></script>
     <!-- Material Dashboard DEMO methods, don't include it in your project! -->
     <script src="../assets/demo/demo.js"></script>
+
     <script>
         $(document).ready(function() {
             $().ready(function() {
