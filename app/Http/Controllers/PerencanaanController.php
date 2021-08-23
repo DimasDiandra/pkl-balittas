@@ -35,7 +35,7 @@ class PerencanaanController extends Controller
         // $title = 'Data peserta';
         // $data = User::orderBy('name','asc')->get();
         // return view('admin.datauser',compact('title','data'));
-        if(session('success')){
+        if (session('success')) {
             Alert::success('Sukses!', session('success'));
         }
         $userdata = DB::table('users')->get();
@@ -65,6 +65,13 @@ class PerencanaanController extends Controller
         $projek = Projek::where('user_id', Auth::user()->id)->get();
 
         return view('perencanaan', ['analisis' => $analisis, 'kak' => $kak, 'matriks' => $matriks, 'proposal' => $proposal, 'rab' => $rab, 'user' => $user, 'projek' => $projek]);
+    }
+
+    public function perencanaan_status($id)
+    {
+        $projek = Projek::find($id);
+
+        return $projek;
     }
 
     public function viewmatriks($id, Request $request)

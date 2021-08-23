@@ -577,7 +577,81 @@
 </div>
 
 <script>
-    $('#reportTable').DataTable();
+    jQuery(document).ready(function() {
+        // Pengumuman
+        $('.custom-select').change(function() {
+            const id = document.getElementById("projek_id").value;
+            console.log(id)
+            $.ajax({
+                url: 'perencanaan_status/' + id,
+                type: 'GET',
+                data: {
+                    'id': id
+                },
+                success: function(data) {
+                    console.log(data);
+
+                    if (data.matriks_status == 1)
+                        $('#statusMatriks').html("Menunggu Review");
+                    else if (data.matriks_status == 2)
+                        $('#statusMatriks').html("Revisi");
+                    else if (data.matriks_status == 3)
+                        $('#statusMatriks').html("Diterima");
+                    else
+                        $('#statusMatriks').html("Kosong");
+
+                    if (data.rab_status == 1)
+                        $('#statusRAB').html("Menunggu Review");
+                    else if (data.rab_status == 2)
+                        $('#statusRAB').html("Revisi");
+                    else if (data.rab_status == 3)
+                        $('#statusRAB').html("Diterima");
+                    else
+                        $('#statusRAB').html("Kosong");
+
+                    if (data.kak_status == 1)
+                        $('#statusKAK').html("Menunggu Review");
+                    else if (data.kak_status == 2)
+                        $('#statusKAK').html("Revisi");
+                    else if (data.kak_status == 3)
+                        $('#statusKAK').html("Diterima");
+                    else
+                        $('#statusKAK').html("Kosong");
+
+                    if (data.proposal_status == 1)
+                        $('#statusProposal').html("Menunggu Review");
+                    else if (data.proposal_status == 2)
+                        $('#statusProposal').html("Revisi");
+                    else if (data.proposal_status == 3)
+                        $('#statusProposal').html("Diterima");
+                    else
+                        $('#statusProposal').html("Kosong");
+
+                    if (data.analisis_status == 1)
+                        $('#statusAnalisis').html("Menunggu Review");
+                    else if (data.analisis_status == 2)
+                        $('#statusAnalisis').html("Revisi");
+                    else if (data.analisis_status == 3)
+                        $('#statusAnalisis').html("Diterima");
+                    else
+                        $('#statusAnalisis').html("Kosong");
+
+                }
+            });
+        });
+
+        // DataTables
+
+        $('#table').DataTable();
+
+        $($.fn.dataTable.tables(true)).DataTable().columns.adjust().responsive.recalc();
+
+        // Sidebar Active
+        $(".nav a").on("click", function() {
+            $(".nav a").removeClass("active");
+            $(this).addClass("active");
+        });
+    });
 </script>
 
 @endsection

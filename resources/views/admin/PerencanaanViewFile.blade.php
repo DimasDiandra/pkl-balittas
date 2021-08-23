@@ -25,14 +25,14 @@
 
 @section('content')
 @if (session('success'))
-    <div class="alert alert-success">
-        <button type="button" class="close" data-dismiss="alert" aria-label="Close">
-            <i class="material-icons">close</i>
-        </button>
-        <span>
-            {{session('success')}}
-    </div>
-    @endif
+<div class="alert alert-success">
+    <button type="button" class="close" data-dismiss="alert" aria-label="Close">
+        <i class="material-icons">close</i>
+    </button>
+    <span>
+        {{session('success')}}
+</div>
+@endif
 <div class="container-fluid">
 
     <div>
@@ -378,5 +378,24 @@
         </div>
     </div>
 </div>
+<!-- script -->
+<script>
+    jQuery(document).ready(function() {
+        // DataTables
 
+        $('.datatables').DataTable({
+            responsive: true
+        });
+
+        $('a[data-toggle="tab"]').on('shown.bs.tab', function(e) {
+            $($.fn.dataTable.tables(true)).DataTable().columns.adjust().responsive.recalc();
+        });
+
+        // Sidebar Active
+        $(".nav a").on("click", function() {
+            $(".nav a").removeClass("active");
+            $(this).addClass("active");
+        });
+    });
+</script>
 @endsection

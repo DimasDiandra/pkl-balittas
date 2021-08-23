@@ -42,6 +42,7 @@ Route::get('/markRead', function () {
 
 //Perencanaan
 Route::get('/perencanaan', [PerencanaanController::class, 'perencanaan']);
+Route::get('/perencanaan_status/{id}', [PerencanaanController::class, 'perencanaan_status']);
 Route::post('/perencanaan/proses', [PerencanaanController::class, 'perencanaan_upload']);
 Route::get('/perencanaan/download', [PerencanaanController::class, 'perencanaan_download']);
 
