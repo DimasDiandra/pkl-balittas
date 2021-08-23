@@ -70,9 +70,9 @@ class ProjekController extends Controller
     public function delete($id)
     {
         try {
-            User::where('id', $id)->delete();
+            Projek::where('id', $id)->delete();
         } catch (\Exception $e) {
         }
-        return redirect('admin/user')->with('success', 'Projek Berhasil Terhapus');
+        return redirect('admin/projek')->with('success', 'Projek Berhasil Terhapus');
     }
 }

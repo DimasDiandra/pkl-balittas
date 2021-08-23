@@ -41,7 +41,7 @@
                 <h3 class="m-0  text-primary">Pengumuman</h3>
             </div>
 
-            <div class="card-body table-responsive">
+            <div class="card-body table-responsive" >
                 <table class="table table-borderless" id="table-datatables">
                     <thead>
                         <tr>
@@ -63,7 +63,12 @@
                                 <a href="{{ url('admin/pengumuman/' .$data->id) }}" class="btn btn-warning btn-xs btn-edit" id="edit" style="color: white;"><i class="menu-icon fa fa-pencil"></i> Edit</a>
                                 <a href="javascript:void(0)" id="deletebtn" class="btn btn-danger btn-xs btn-hapus" data-id="{{$data->id}}" ><i class="fa fa-trash-o"></i> Hapus </a>
 
+<<<<<<< HEAD
+=======
+                                <a href="javascript:void(0)" class="btn btn-danger btn-xs btn-hapus" data-toggle="modal" data-target="#deletemodal" id="delete"><i class="fa fa-trash-o"></i> Hapus </a>
+>>>>>>> 575e2c1cb6532f53febc954e45c69a7511a349c7
                             </td>
+                            <td></td>
                         </tr>
 
                         @endforeach
@@ -90,11 +95,11 @@
                     <div class="modal-body">
                         <div class="mb-3">
                             <label for="judul" class="form-label">Judul Pengumuman</label>
-                            <input type="text" name="judul" class="form-control" id="judulpengumuman" placeholder="Isikan Judul Pengumuman Disini">
+                            <input type="text" name="judul" class="form-control" id="judulpengumuman" placeholder="Isikan Judul Pengumuman Disini" required oninvalid="this.setCustomValidity('Masukkan Judul Pengumuman Terlebih Dahulu')" oninput="setCustomValidity('')">
                         </div>
                         <div class="mb-3">
                             <label for="isi_pengumuman" class="form-label">Isi Pengumuman</label>
-                            <textarea name="isi_pengumuman" class="form-control" id="isi_pengumuman" placeholder="Isikan Pengumuman Disini"></textarea>
+                            <textarea name="isi_pengumuman" class="form-control" id="isi_pengumuman" placeholder="Isikan Pengumuman Disini" required oninvalid="this.setCustomValidity('Masukkan Isi Pengumuman Terlebih Dahulu')" oninput="setCustomValidity('')"></textarea>
                         </div>
 
                     </div>
@@ -110,6 +115,35 @@
         </div>
     </div>
     <!-- End Modal buat Pengumuman -->
+    <!-- End Modal Tambah Pengumuman -->
+
+    <!-- Modal Confirm Delete -->
+    <div class="modal fade" id="deletemodal" tabindex="-1">
+        <div class="modal-dialog">
+          <div class="modal-content">
+            <div class="modal-header">
+              <h5 class="modal-title" id="exampleModalLabel">Hapus Pengumuman</h5>
+              <button type="button" class="close" data-dismiss="modal">&times;</button>
+            </div>
+                <div class="modal-body">
+                <input type="text"  id="inputjudul">
+                <input type="text"  id="inputid">
+                <h5><strong>Yaking ingin hapus data ini?</strong></h5>
+                </div>
+            @foreach($pengumuman as $dataa)
+            <form  action="{{ url('admin/pengumuman/' .$dataa->id ) }}" id="deletemodalform" method="post" class="d-inline" >
+                @method('delete')
+                @csrf
+                <div class="modal-footer">
+                    <button type="button" class="btn btn-secondary" data-dismiss="modal">Tutup</button>
+                    <button href="{{ url('pengumuman/'.$dataa->id) }}" type="submit" class="btn btn-danger btn-xs">Hapus Data</button>
+                </div>
+            </form>
+            @endforeach
+          </div>
+        </div>
+    </div>
+      <!-- End Modal Delete Pengumuman -->
 
     <!-- Modal Confirm Delete -->
     <div class="modal fade" id="deletemodal" tabindex="-1">
@@ -190,4 +224,23 @@
         });
     });
 </script> --}}
+<script >
+  $(document).ready(function() {
+    $('#table-datatables').DataTable();
+
+    $('#table-datatables').on('click', '.btn-hapus', function){
+        var col2=currentRow.find("td:eq(1)").text();
+        var datajudul=col2;
+
+        $tr=$(this).closest("tr");
+        var dataid=$tr.children("td").map(function(){
+            return $(this).text();
+        }).get();
+        $('#inputjudul').val(datajudul);
+        $('#inputid').val(dataid[0]);
+        $('#deletemodalform').attr('action','/pengumuman/'+dataid[0]);
+        $('#deletemodal').modal('show');
+    }
+} );
+</script>
 @endsection

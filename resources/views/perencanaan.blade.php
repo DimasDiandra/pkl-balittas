@@ -509,7 +509,10 @@
 <!-- script -->
 <script>
     jQuery(document).ready(function() {
+<<<<<<< HEAD
+=======
         // Status
+>>>>>>> 6249c14b10f97a47538438bd7679e0295a46830f
         $('.custom-select').change(function() {
             const id = document.getElementById("projek_id").value;
             console.log(id)
@@ -521,7 +524,10 @@
                 },
                 success: function(data) {
                     console.log(data);
+<<<<<<< HEAD
+=======
 
+>>>>>>> 6249c14b10f97a47538438bd7679e0295a46830f
                     if (data.matriks_status == 1)
                         $('#statusMatriks').html("Menunggu Review");
                     else if (data.matriks_status == 2)
@@ -530,7 +536,10 @@
                         $('#statusMatriks').html("Diterima");
                     else
                         $('#statusMatriks').html("Kosong");
+<<<<<<< HEAD
+=======
 
+>>>>>>> 6249c14b10f97a47538438bd7679e0295a46830f
                     if (data.rab_status == 1)
                         $('#statusRAB').html("Menunggu Review");
                     else if (data.rab_status == 2)
@@ -539,7 +548,10 @@
                         $('#statusRAB').html("Diterima");
                     else
                         $('#statusRAB').html("Kosong");
+<<<<<<< HEAD
+=======
 
+>>>>>>> 6249c14b10f97a47538438bd7679e0295a46830f
                     if (data.kak_status == 1)
                         $('#statusKAK').html("Menunggu Review");
                     else if (data.kak_status == 2)
@@ -548,7 +560,10 @@
                         $('#statusKAK').html("Diterima");
                     else
                         $('#statusKAK').html("Kosong");
+<<<<<<< HEAD
+=======
 
+>>>>>>> 6249c14b10f97a47538438bd7679e0295a46830f
                     if (data.proposal_status == 1)
                         $('#statusProposal').html("Menunggu Review");
                     else if (data.proposal_status == 2)
@@ -557,7 +572,10 @@
                         $('#statusProposal').html("Diterima");
                     else
                         $('#statusProposal').html("Kosong");
+<<<<<<< HEAD
+=======
 
+>>>>>>> 6249c14b10f97a47538438bd7679e0295a46830f
                     if (data.analisis_status == 1)
                         $('#statusAnalisis').html("Menunggu Review");
                     else if (data.analisis_status == 2)
@@ -566,6 +584,31 @@
                         $('#statusAnalisis').html("Diterima");
                     else
                         $('#statusAnalisis').html("Kosong");
+<<<<<<< HEAD
+                }
+            });
+        });
+    });
+    // function getValue() {
+    //     var id = document.getElementById("projek_id").value;
+    //     console.log(id);
+    //     $.ajax({
+    //         url: 'perencanaan_status/' + id,
+    //         type: 'GET',
+    //         data: {
+    //             "id": id
+    //         },
+    //         success: function(data) {
+    //             console.log(data);
+    //             $("#statusMatriks").html(data.matriks_status)
+    //         }
+    //     });
+    // }
+    $('#table').DataTable();
+    $(".nav a").on("click", function() {
+        $(".nav a").removeClass("active");
+        $(this).addClass("active");
+=======
 
                 }
             });
@@ -586,6 +629,7 @@
             $(".nav a").removeClass("active");
             $(this).addClass("active");
         });
+>>>>>>> 6249c14b10f97a47538438bd7679e0295a46830f
     });
 </script>
 

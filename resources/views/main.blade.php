@@ -184,6 +184,11 @@ The above copyright notice and this permission notice shall be included in all c
                                     Licenses
                                 </a>
                             </li>
+                            <li>
+                                <a href="https://api.whatsapp.com/send?phone=6285933167404&text=Bagaimana%20cara%20menggunakan%20aplikasi%20ini?" style="font-weight: 500;"><i class="fa fa-whatsapp"></i>
+                                    Whatsapp
+                                </a>
+                            </li>
                         </ul>
                     </nav>
                     <div class="copyright float-right">

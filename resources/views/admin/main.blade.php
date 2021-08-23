@@ -186,6 +186,11 @@ The above copyright notice and this permission notice shall be included in all c
                                     Licenses
                                 </a>
                             </li>
+                            <li>
+                                <a href="https://api.whatsapp.com/send?phone=6285933167404&text=Bagaimana%20cara%20menggunakan%20aplikasi%20ini?" style="font-weight: 500;"><i class="fa fa-whatsapp"></i>
+                                    Whatsapp
+                                </a>
+                            </li>
                         </ul>
                     </nav>
                     <div class="copyright float-right">
@@ -330,7 +335,8 @@ The above copyright notice and this permission notice shall be included in all c
     <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.0/umd/popper.min.js" integrity="sha384-cs/chFZiN24E4KMATLdqdvsezGxaGsi4hLGOzlXwp5UZB1LY//20VyM2taTB4QvJ" crossorigin="anonymous"></script>
     <!-- Bootstrap JS -->
     <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.1.0/js/bootstrap.min.js" integrity="sha384-uefMccjFJAIv6A+rW+L4AHf99KvxDjWSu1z9VI8SKNVmz4sk7buKt/6v9KI65qnm" crossorigin="anonymous"></script>
-
+    
+    <script src="https://unpkg.com/sweetalert/dist/sweetalert.min.js"></script>
     @include('sweetalert::alert')
 
 
