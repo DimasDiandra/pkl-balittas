@@ -279,7 +279,7 @@
                     <!-- Bulanan -->
                     <div class="tab-pane fade show active" id="bulanan" role="tabpanel" aria-labelledby="nav-home-tab">
                         <div class="modal-body">
-                            <table class="table" id="table">
+                            <table class="table" id="table_bulanan">
                                 <thead>
                                     <tr>
                                         <th width=10%>No.</th>
@@ -312,8 +312,8 @@
                                                 Diterima
                                             </td>
                                             @endif
-                                            <td class="float-right">
-                                                <button type="submit" class="btn btn-primary">
+                                            <td>
+                                                <button type="submit" class="btn btn-primary float-right">
                                                     <i class="menu-icon fa fa-download"></i> Download
                                                 </button>
                                             </td>
@@ -328,7 +328,7 @@
                     <!-- Triwulan -->
                     <div class="tab-pane fade show " id="triwulan" role="tabpanel" aria-labelledby="nav-home-tab">
                         <div class="modal-body">
-                            <table class="table" id="table">
+                            <table class="table" id="table_triwulan">
                                 <thead>
                                     <tr>
                                         <th width=10%>No.</th>
@@ -361,8 +361,8 @@
                                                 Diterima
                                             </td>
                                             @endif
-                                            <td class="float-right">
-                                                <button type="submit" class="btn btn-primary">
+                                            <td>
+                                                <button type="submit" class="btn btn-primary float-right">
                                                     <i class="menu-icon fa fa-download"></i> Download
                                                 </button>
                                             </td>
@@ -377,7 +377,7 @@
                     <!-- Tengah -->
                     <div class="tab-pane fade show " id="tengah" role="tabpanel" aria-labelledby="nav-home-tab">
                         <div class="modal-body">
-                            <table class="table" id="table">
+                            <table class="table" id="table_tengah">
                                 <thead>
                                     <tr>
                                         <th width=10%>No.</th>
@@ -410,8 +410,8 @@
                                                 Diterima
                                             </td>
                                             @endif
-                                            <td class="float-right">
-                                                <button type="submit" class="btn btn-primary">
+                                            <td>
+                                                <button type="submit" class="btn btn-primary float-right">
                                                     <i class="menu-icon fa fa-download"></i> Download
                                                 </button>
                                             </td>
@@ -426,7 +426,7 @@
                     <!-- Akhir -->
                     <div class="tab-pane fade show " id="akhir" role="tabpanel" aria-labelledby="nav-home-tab">
                         <div class="modal-body">
-                            <table class="table" id="table">
+                            <table class="table" id="table_akhir">
                                 <thead>
                                     <tr>
                                         <th width=10%>No.</th>
@@ -459,8 +459,8 @@
                                                 Diterima
                                             </td>
                                             @endif
-                                            <td class="float-right">
-                                                <button type="submit" class="btn btn-primary">
+                                            <td>
+                                                <button type="submit" class="btn btn-primary float-right">
                                                     <i class="menu-icon fa fa-download"></i> Download
                                                 </button>
                                             </td>
@@ -475,7 +475,7 @@
                     <!-- Destudi -->
                     <div class="tab-pane fade show " id="destudi" role="tabpanel" aria-labelledby="nav-home-tab">
                         <div class="modal-body">
-                            <table class="table" id="table">
+                            <table class="table" id="table_destudi">
                                 <thead>
                                     <tr>
                                         <th width=10%>No.</th>
@@ -508,8 +508,8 @@
                                                 Diterima
                                             </td>
                                             @endif
-                                            <td class="float-right">
-                                                <button type="submit" class="btn btn-primary">
+                                            <td>
+                                                <button type="submit" class="btn btn-primary float-right">
                                                     <i class="menu-icon fa fa-download"></i> Download
                                                 </button>
                                             </td>
@@ -524,7 +524,7 @@
                     <!-- Renaksi -->
                     <div class="tab-pane fade show " id="renaksi" role="tabpanel" aria-labelledby="nav-home-tab">
                         <div class="modal-body">
-                            <table class="table" id="table">
+                            <table class="table" id="table_renaksi">
                                 <thead>
                                     <tr>
                                         <th width=10%>No.</th>
@@ -557,8 +557,8 @@
                                                 Diterima
                                             </td>
                                             @endif
-                                            <td class="float-right">
-                                                <button type="submit" class="btn btn-primary">
+                                            <td>
+                                                <button type="submit" class="btn btn-primary float-right">
                                                     <i class="menu-icon fa fa-download"></i> Download
                                                 </button>
                                             </td>
@@ -642,8 +642,25 @@
 
         // DataTables
 
-        $('#table').DataTable();
 
+        $('#table_bulanan').DataTable({
+            "autoWidth": false
+        });
+        $('#table_triwulan').DataTable({
+            "autoWidth": false
+        });
+        $('#table_tengah').DataTable({
+            "autoWidth": false
+        });
+        $('#table_akhir').DataTable({
+            "autoWidth": false
+        });
+        $('#table_renaksi').DataTable({
+            "autoWidth": false
+        });
+        $('#table_destudi').DataTable({
+            "autoWidth": false
+        });
         $($.fn.dataTable.tables(true)).DataTable().columns.adjust().responsive.recalc();
 
         // Sidebar Active

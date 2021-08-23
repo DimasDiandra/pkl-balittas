@@ -261,7 +261,7 @@
                         <!-- Matriks -->
                         <div class="tab-pane fade show active" id="matriks" role="tabpanel" aria-labelledby="nav-home-tab">
                             <div class="modal-body">
-                                <table class="table datatables">
+                                <table class="table" id="table_matriks">
                                     <thead>
                                         <tr>
                                             <th width=10%>No.</th>
@@ -280,19 +280,15 @@
                                                 <input type="hidden" name="path" value=" {{$f->path}}">
                                                 <td>{{ $f->name }}</td>
                                                 <td>{{ $f->created_at }}</td>
-                                                @if ($f->status==1)
                                                 <td>
+                                                    @if ($f->status==1)
                                                     Menunggu Review
-                                                </td>
-                                                @elseif($f->status==2)
-                                                <td>
+                                                    @elseif($f->status==2)
                                                     Revisi
-                                                </td>
-                                                @elseif($f->status==3)
-                                                <td>
+                                                    @elseif($f->status==3)
                                                     Diterima
+                                                    @endif
                                                 </td>
-                                                @endif
                                                 <td>
                                                     <button type="submit" class="btn btn-primary float-right">
                                                         <i class="menu-icon fa fa-download"></i> Download
@@ -308,14 +304,13 @@
                         <!-- RAB -->
                         <div class="tab-pane fade" id="rab" role="tabpanel" aria-labelledby="nav-profile-tab">
                             <div class="modal-body">
-                                <table class="table">
+                                <table class="table" id="table_rab">
                                     <thead>
                                         <tr>
                                             <th width=10%>No.</th>
                                             <th width=30%>File Name</th>
                                             <th width=20%>Date Upload</th>
                                             <th width=20%>Status</th>
-
                                             <th></th>
                                         </tr>
                                     </thead>
@@ -328,21 +323,17 @@
                                                 <input type="hidden" name="path" value=" {{$f->path}}">
                                                 <td>{{ $f->name }}</td>
                                                 <td>{{ $f->created_at }}</td>
-                                                @if ($f->status==1)
                                                 <td>
+                                                    @if ($f->status==1)
                                                     Menunggu Review
-                                                </td>
-                                                @elseif($f->status==2)
-                                                <td>
+                                                    @elseif($f->status==2)
                                                     Revisi
-                                                </td>
-                                                @elseif($f->status==3)
-                                                <td>
+                                                    @elseif($f->status==3)
                                                     Diterima
+                                                    @endif
                                                 </td>
-                                                @endif
-                                                <td class="float-right">
-                                                    <button type="submit" class="btn btn-primary">
+                                                <td>
+                                                    <button type="submit" class="btn btn-primary float-right">
                                                         <i class="menu-icon fa fa-download"></i> Download
                                                     </button>
                                                 </td>
@@ -356,14 +347,13 @@
                         <!-- KAK -->
                         <div class="tab-pane fade" id="kak" role="tabpanel" aria-labelledby="nav-contact-tab">
                             <div class="modal-body">
-                                <table class="table">
+                                <table class="table" id="table_kak">
                                     <thead>
                                         <tr>
                                             <th width=10%>No.</th>
                                             <th width=30%>File Name</th>
                                             <th width=20%>Date Upload</th>
                                             <th width=20%>Status</th>
-
                                             <th></th>
                                         </tr>
                                     </thead>
@@ -376,21 +366,17 @@
                                                 <input type="hidden" name="path" value=" {{$f->path}}">
                                                 <td>{{ $f->name }}</td>
                                                 <td>{{ $f->created_at }}</td>
-                                                @if ($f->status==1)
                                                 <td>
+                                                    @if ($f->status==1)
                                                     Menunggu Review
-                                                </td>
-                                                @elseif($f->status==2)
-                                                <td>
+                                                    @elseif($f->status==2)
                                                     Revisi
-                                                </td>
-                                                @elseif($f->status==3)
-                                                <td>
+                                                    @elseif($f->status==3)
                                                     Diterima
+                                                    @endif
                                                 </td>
-                                                @endif
-                                                <td class="float-right">
-                                                    <button type="submit" class="btn btn-primary">
+                                                <td>
+                                                    <button type="submit" class="btn btn-primary float-right">
                                                         <i class="menu-icon fa fa-download"></i> Download
                                                     </button>
                                                 </td>
@@ -404,14 +390,13 @@
                         <!-- Proposal -->
                         <div class="tab-pane fade" id="proposal" role="tabpanel" aria-labelledby="nav-profile-tab">
                             <div class="modal-body">
-                                <table class="table">
+                                <table class="table" id="table_proposal">
                                     <thead>
                                         <tr>
                                             <th width=10%>No.</th>
                                             <th width=30%>File Name</th>
                                             <th width=20%>Date Upload</th>
                                             <th width=20%>Status</th>
-
                                             <th></th>
                                         </tr>
                                     </thead>
@@ -424,21 +409,17 @@
                                                 <input type="hidden" name="path" value=" {{$f->path}}">
                                                 <td>{{ $f->name }}</td>
                                                 <td>{{ $f->created_at }}</td>
-                                                @if ($f->status==1)
                                                 <td>
+                                                    @if ($f->status==1)
                                                     Menunggu Review
-                                                </td>
-                                                @elseif($f->status==2)
-                                                <td>
+                                                    @elseif($f->status==2)
                                                     Revisi
-                                                </td>
-                                                @elseif($f->status==3)
-                                                <td>
+                                                    @elseif($f->status==3)
                                                     Diterima
+                                                    @endif
                                                 </td>
-                                                @endif
-                                                <td class="float-right">
-                                                    <button type="submit" class="btn btn-primary">
+                                                <td>
+                                                    <button type="submit" class="btn btn-primary float-right">
                                                         <i class="menu-icon fa fa-download"></i> Download
                                                     </button>
                                                 </td>
@@ -452,14 +433,13 @@
                         <!-- Analisis -->
                         <div class="tab-pane fade" id="analisis" role="tabpanel" aria-labelledby="nav-contact-tab">
                             <div class="modal-body">
-                                <table class="table">
+                                <table class="table" id="table_analisis">
                                     <thead>
                                         <tr>
                                             <th width=10%>No.</th>
                                             <th width=30%>File Name</th>
                                             <th width=20%>Date Upload</th>
                                             <th width=20%>Status</th>
-
                                             <th></th>
                                         </tr>
                                     </thead>
@@ -472,21 +452,17 @@
                                                 <input type="hidden" name="path" value=" {{$f->path}}">
                                                 <td>{{ $f->name }}</td>
                                                 <td>{{ $f->created_at }}</td>
-                                                @if ($f->status==1)
                                                 <td>
+                                                    @if ($f->status==1)
                                                     Menunggu Review
-                                                </td>
-                                                @elseif($f->status==2)
-                                                <td>
+                                                    @elseif($f->status==2)
                                                     Revisi
-                                                </td>
-                                                @elseif($f->status==3)
-                                                <td>
+                                                    @elseif($f->status==3)
                                                     Diterima
+                                                    @endif
                                                 </td>
-                                                @endif
-                                                <td class="float-right">
-                                                    <button type="submit" class="btn btn-primary">
+                                                <td>
+                                                    <button type="submit" class="btn btn-primary float-right">
                                                         <i class="menu-icon fa fa-download"></i> Download
                                                     </button>
                                                 </td>
@@ -509,10 +485,6 @@
 <!-- script -->
 <script>
     jQuery(document).ready(function() {
-<<<<<<< HEAD
-=======
-        // Status
->>>>>>> 6249c14b10f97a47538438bd7679e0295a46830f
         $('.custom-select').change(function() {
             const id = document.getElementById("projek_id").value;
             console.log(id)
@@ -524,10 +496,6 @@
                 },
                 success: function(data) {
                     console.log(data);
-<<<<<<< HEAD
-=======
-
->>>>>>> 6249c14b10f97a47538438bd7679e0295a46830f
                     if (data.matriks_status == 1)
                         $('#statusMatriks').html("Menunggu Review");
                     else if (data.matriks_status == 2)
@@ -536,10 +504,6 @@
                         $('#statusMatriks').html("Diterima");
                     else
                         $('#statusMatriks').html("Kosong");
-<<<<<<< HEAD
-=======
-
->>>>>>> 6249c14b10f97a47538438bd7679e0295a46830f
                     if (data.rab_status == 1)
                         $('#statusRAB').html("Menunggu Review");
                     else if (data.rab_status == 2)
@@ -548,10 +512,6 @@
                         $('#statusRAB').html("Diterima");
                     else
                         $('#statusRAB').html("Kosong");
-<<<<<<< HEAD
-=======
-
->>>>>>> 6249c14b10f97a47538438bd7679e0295a46830f
                     if (data.kak_status == 1)
                         $('#statusKAK').html("Menunggu Review");
                     else if (data.kak_status == 2)
@@ -560,10 +520,6 @@
                         $('#statusKAK').html("Diterima");
                     else
                         $('#statusKAK').html("Kosong");
-<<<<<<< HEAD
-=======
-
->>>>>>> 6249c14b10f97a47538438bd7679e0295a46830f
                     if (data.proposal_status == 1)
                         $('#statusProposal').html("Menunggu Review");
                     else if (data.proposal_status == 2)
@@ -572,10 +528,6 @@
                         $('#statusProposal').html("Diterima");
                     else
                         $('#statusProposal').html("Kosong");
-<<<<<<< HEAD
-=======
-
->>>>>>> 6249c14b10f97a47538438bd7679e0295a46830f
                     if (data.analisis_status == 1)
                         $('#statusAnalisis').html("Menunggu Review");
                     else if (data.analisis_status == 2)
@@ -584,31 +536,6 @@
                         $('#statusAnalisis').html("Diterima");
                     else
                         $('#statusAnalisis').html("Kosong");
-<<<<<<< HEAD
-                }
-            });
-        });
-    });
-    // function getValue() {
-    //     var id = document.getElementById("projek_id").value;
-    //     console.log(id);
-    //     $.ajax({
-    //         url: 'perencanaan_status/' + id,
-    //         type: 'GET',
-    //         data: {
-    //             "id": id
-    //         },
-    //         success: function(data) {
-    //             console.log(data);
-    //             $("#statusMatriks").html(data.matriks_status)
-    //         }
-    //     });
-    // }
-    $('#table').DataTable();
-    $(".nav a").on("click", function() {
-        $(".nav a").removeClass("active");
-        $(this).addClass("active");
-=======
 
                 }
             });
@@ -616,20 +543,29 @@
 
         // DataTables
 
-        $('.datatables').DataTable({
-            responsive: true
-        });
 
-        $('a[data-toggle="tab"]').on('shown.bs.tab', function(e) {
-            $($.fn.dataTable.tables(true)).DataTable().columns.adjust().responsive.recalc();
+        $('#table_matriks').DataTable({
+            "autoWidth": false
         });
+        $('#table_rab').DataTable({
+            "autoWidth": false
+        });
+        $('#table_kak').DataTable({
+            "autoWidth": false
+        });
+        $('#table_proposal').DataTable({
+            "autoWidth": false
+        });
+        $('#table_analisis').DataTable({
+            "autoWidth": false
+        });
+        $($.fn.dataTable.tables(true)).DataTable().columns.adjust().responsive.recalc();
 
         // Sidebar Active
         $(".nav a").on("click", function() {
             $(".nav a").removeClass("active");
             $(this).addClass("active");
         });
->>>>>>> 6249c14b10f97a47538438bd7679e0295a46830f
     });
 </script>
 
