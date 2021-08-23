@@ -268,7 +268,6 @@
                                             <th width=30%>File Name</th>
                                             <th width=20%>Date Upload</th>
                                             <th width=20%>Status</th>
-
                                             <th></th>
                                         </tr>
                                     </thead>
@@ -294,8 +293,8 @@
                                                     Diterima
                                                 </td>
                                                 @endif
-                                                <td class="float-right">
-                                                    <button type="submit" class="btn btn-primary">
+                                                <td>
+                                                    <button type="submit" class="btn btn-primary float-right">
                                                         <i class="menu-icon fa fa-download"></i> Download
                                                     </button>
                                                 </td>
@@ -510,6 +509,7 @@
 <!-- script -->
 <script>
     jQuery(document).ready(function() {
+        // Pengumuman
         $('.custom-select').change(function() {
             const id = document.getElementById("projek_id").value;
             console.log(id)
@@ -570,31 +570,22 @@
                 }
             });
         });
-    });
 
-    // function getValue() {
-    //     var id = document.getElementById("projek_id").value;
-    //     console.log(id);
-    //     $.ajax({
-    //         url: 'perencanaan_status/' + id,
-    //         type: 'GET',
-    //         data: {
-    //             "id": id
-    //         },
+        // DataTables
+        $('a[data-toggle="tab"]').on('shown.bs.tab', function(e) {
+            $.fn.dataTable.tables({
+                visible: true,
+                api: true
+            }).columns.adjust();
+        });
 
-    //         success: function(data) {
-    //             console.log(data);
-    //             $("#statusMatriks").html(data.matriks_status)
-    //         }
-    //     });
-    // }
+        $('#table').DataTable();
 
-
-    $('#table').DataTable();
-
-    $(".nav a").on("click", function() {
-        $(".nav a").removeClass("active");
-        $(this).addClass("active");
+        // Sidebar Active
+        $(".nav a").on("click", function() {
+            $(".nav a").removeClass("active");
+            $(this).addClass("active");
+        });
     });
 </script>
 
