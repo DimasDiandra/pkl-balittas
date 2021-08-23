@@ -44,6 +44,7 @@
                 <table class="table table-bordered" id="table-datatables">
                     <thead>
                         <tr>
+                            <th hidden>id</th>
                             <th width="1%">No.</th>
                             <th width="30%">Nama File</th>
                             <th width="15%">Action</th>
@@ -52,14 +53,12 @@
                     <tbody>
                         @foreach($file as $f)
                         <tr>
+                            <td hidden="true">{{ $f->id }}</td>
                             <td>{{ $loop->iteration }}</td>
                             <td>{{ $f->nama_file }}</td>
                             <td>
-                                <form action="{{ url('admin/template/' .$f->id) }}" method="post" class="d-inline" onsubmit="return confirm('Yakin hapus template?')">
-                                    @method('delete')
-                                    @csrf
-                                    <button href="{{ url('template/'.$f->id) }}" class="btn btn-danger btn-xs btn-hapus" id="delete"><i class="fa fa-trash-o"></i> Hapus </button>
-                                </form>
+                                <a href="javascript:void(0)" id="deletebtn" class="btn btn-danger btn-xs btn-hapus" data-id="{{$f->id}}" ><i class="fa fa-trash-o"></i> Hapus </a>
+                                
                             </td>
                         </tr>
                         @endforeach
@@ -103,5 +102,64 @@
             </div>
         </div>
     </div>
+
+     <!-- Modal Confirm Delete -->
+     <div class="modal fade" id="deletemodal" tabindex="-1">
+        <div class="modal-dialog modal-dialog-centered">
+          <div class="modal-content">
+            <div class="modal-header">
+              <h5 class="modal-title" id="exampleModalLabel">Hapus Pengumuman</h5>
+              <button type="button" class="close" data-dismiss="modal">&times;</button>
+            </div>
+            <form id="deletemodalform" method="post" class="d-inline">
+                @method('delete')
+                @csrf
+                <div class="modal-body">
+                <input type="text"  id="inputjudul">
+                <input type="text"  id="inputid">
+                <h5><strong>Yaking ingin hapus data ini?</strong></h5>
+                </div>
+            
+                <div class="modal-footer">
+                    <button type="button" class="btn btn-secondary" data-dismiss="modal">Tutup</button>
+                    <button type="submit" class="btn btn-danger btn-xs hapus-btn">Hapus Data</button>
+                </div>
+            </form>
+           
+          </div>
+        </div>
+    </div>
+      <!-- End Modal Delete Pengumuman -->
 </div>
+
+    <script src="https://code.jquery.com/jquery-3.3.1.min.js"></script>
+    <script>
+        $(document).ready( function () {
+        $('#table-datatables').DataTable();
+    } );
+    
+    </script>
+
+    <script>
+        $(document).ready( function () {
+            $('#table-datatables').on('click', '.btn-hapus', function(){
+            const id = $(this).attr('data-id');
+            console.log(id);
+            // var col2=currentRow.find("td:eq(1)").text();
+            // var datajudul=col2;
+    
+            $tr=$(this).closest("tr");
+            var dataid = $tr.children("td").map(function(){
+                return $(this).text();
+            }).get();
+    
+            
+            // $('#inputjudul').val(datajudul);
+            $('#inputid').val(dataid[0]);
+            $('#deletemodalform').attr('action','admin/template/'+dataid[0]);
+            $('#deletemodal').modal('show');
+            });
+        });
+    </script>
+    
 @endsection

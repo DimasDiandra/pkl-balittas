@@ -30,6 +30,7 @@ The above copyright notice and this permission notice shall be included in all c
     <link href="{{ asset('assets/demo/demo.css') }} " rel="stylesheet" />
     <!-- CSS Drag n Drop -->
     <link rel="stylesheet" href="css/dragndrop.css">
+    
 
 
     <script>
@@ -197,7 +198,8 @@ The above copyright notice and this permission notice shall be included in all c
             </footer>
         </div>
     </div>
-
+    
+    
     <!--   Core JS Files   -->
     <script src="{{ asset('assets/js/core/jquery.min.js') }} "></script>
     <script src="{{ asset('assets/js/core/popper.min.js') }} "></script>

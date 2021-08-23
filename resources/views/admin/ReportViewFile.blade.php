@@ -459,4 +459,11 @@
         </div>
     </div>
 </div>
+<script src="https://code.jquery.com/jquery-3.3.1.min.js"></script>
+    <script>
+        $(document).ready( function () {
+        $('#table').DataTable();
+    } );
+    
+    </script>
 @endsection

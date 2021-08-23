@@ -67,7 +67,7 @@ Route::middleware('role:admin')->prefix('admin')->group(function () {
     Route::get('/user', [App\Http\Controllers\UserController::class, 'index']);
     Route::get('/user/{id}', [App\Http\Controllers\UserController::class, 'edit']);
     Route::put('/user/{id}', [App\Http\Controllers\UserController::class, 'update']);
-    Route::delete('/user/{id}', [App\Http\Controllers\UserController::class, 'delete']);
+    Route::delete('admin/user/{id}', [App\Http\Controllers\UserController::class, 'delete']);
 
     //Projek User
     Route::get('/projek', [App\Http\Controllers\ProjekController::class, 'show']);
@@ -81,12 +81,12 @@ Route::middleware('role:admin')->prefix('admin')->group(function () {
     Route::post('/pengumuman', [PengumumanController::class, 'store']);
     Route::get('/pengumuman/{id}', [PengumumanController::class, 'edit']);
     Route::put('/pengumuman/{id}', [PengumumanController::class, 'update']);
-    Route::delete('/pengumuman/{id}', [PengumumanController::class, 'delete']);
+    Route::delete('admin/pengumuman/{id}', [PengumumanController::class, 'delete']);
 
     // Template Admin
     Route::get('template', [TemplatesController::class, 'show']);
     Route::post('template', [TemplatesController::class, 'store']);
-    Route::delete('template/{id}', [TemplatesController::class, 'delete']);
+    Route::delete('admin/template/{id}', [TemplatesController::class, 'delete']);
 
 
     //Perencanaan

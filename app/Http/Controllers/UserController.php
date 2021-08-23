@@ -47,9 +47,11 @@ class UserController extends Controller
 
 	public function delete($id)
 	{
+		// $emp= User::find($id);
+		// $emp->delete();
 		try {
 			User::where('id', $id)->delete();
-		} catch (\Exception $e) {
+		} catch (\Exception $e) {			
 		}
 		return redirect('admin/user')->with('success', 'Data Berhasil Terhapus');
 	}

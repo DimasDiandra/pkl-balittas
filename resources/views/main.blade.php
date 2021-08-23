@@ -79,6 +79,8 @@ The above copyright notice and this permission notice shall be included in all c
         </div>
         <div class="main-panel">
             <!-- Navbar -->
+               
+                {{-- add style="display: none;" if you have to hide it --}}
             <nav class="navbar navbar-expand-lg navbar-transparent navbar-absolute fixed-top ">
                 <div class="container-fluid">
                     <div class="navbar-wrapper">
