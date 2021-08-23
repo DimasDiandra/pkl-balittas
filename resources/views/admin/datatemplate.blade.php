@@ -115,9 +115,9 @@
                 @method('delete')
                 @csrf
                 <div class="modal-body">
-                <input type="text"  id="inputjudul">
-                <input type="text"  id="inputid">
-                <h5><strong>Yaking ingin hapus data ini?</strong></h5>
+                <input type="text" hidden id="inputjudul">
+                <input type="text" hidden id="inputid">
+                <h5><strong>Yakin ingin hapus data ini?</strong></h5>
                 </div>
             
                 <div class="modal-footer">
@@ -140,26 +140,26 @@
     
     </script>
 
-    <script>
-        $(document).ready( function () {
-            $('#table-datatables').on('click', '.btn-hapus', function(){
-            const id = $(this).attr('data-id');
-            console.log(id);
-            // var col2=currentRow.find("td:eq(1)").text();
-            // var datajudul=col2;
-    
-            $tr=$(this).closest("tr");
-            var dataid = $tr.children("td").map(function(){
-                return $(this).text();
-            }).get();
-    
-            
-            // $('#inputjudul').val(datajudul);
-            $('#inputid').val(dataid[0]);
-            $('#deletemodalform').attr('action','admin/template/'+dataid[0]);
-            $('#deletemodal').modal('show');
-            });
+<script>
+    $(document).ready( function () {
+        $('#table-datatables').on('click', '.btn-hapus', function(){
+        const id = $(this).attr('data-id');
+        console.log(id);
+        // var col2=currentRow.find("td:eq(1)").text();
+        // var datajudul=col2;
+
+        $tr=$(this).closest("tr");
+        var dataid = $tr.children("td").map(function(){
+            return $(this).text();
+        }).get();
+
+        
+        // $('#inputjudul').val(datajudul);
+        $('#inputid').val(dataid[0]);
+        $('#deletemodalform').attr('action','admin/template/'+dataid[0]);
+        $('#deletemodal').modal('show');
         });
-    </script>
+    });
+</script>
     
 @endsection

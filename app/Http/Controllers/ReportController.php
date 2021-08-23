@@ -230,7 +230,7 @@ class ReportController extends Controller
             event(new UpdateStatus($projek));
         } catch (\Exception $e) {
         }
-        return redirect('admin/evaluasi')->with('success', 'Data Berhasil Terhapus');
+        return redirect()->back()->with('success', 'Data Berhasil Terhapus');
     }
     public function deletetriwulan($id)
     {
@@ -243,7 +243,7 @@ class ReportController extends Controller
             event(new UpdateStatus($projek));
         } catch (\Exception $e) {
         }
-        return redirect('admin/evaluasi')->with('success', 'Data Berhasil Terhapus');
+        return redirect()->back()->with('success', 'Data Berhasil Terhapus');
     }
     public function deletetengah($id)
     {
@@ -256,7 +256,7 @@ class ReportController extends Controller
             event(new UpdateStatus($projek));
         } catch (\Exception $e) {
         }
-        return redirect('admin/evaluasi')->with('success', 'Data Berhasil Terhapus');
+        return redirect()->back()->with('success', 'Data Berhasil Terhapus');
     }
     public function deleteakhir($id)
     {
@@ -269,7 +269,7 @@ class ReportController extends Controller
             event(new UpdateStatus($projek));
         } catch (\Exception $e) {
         }
-        return redirect('admin/evaluasi')->with('success', 'Data Berhasil Terhapus');
+        return redirect()->back()->with('success', 'Data Berhasil Terhapus');
     }
     public function deleterenaksi($id)
     {
@@ -282,7 +282,7 @@ class ReportController extends Controller
             event(new UpdateStatus($projek));
         } catch (\Exception $e) {
         }
-        return redirect('admin/evaluasi')->with('success', 'Data Berhasil Terhapus');
+        return redirect()->back()->with('success', 'Data Berhasil Terhapus');
     }
     public function deletedestudi($id)
     {
@@ -295,7 +295,7 @@ class ReportController extends Controller
             event(new UpdateStatus($projek));
         } catch (\Exception $e) {
         }
-        return redirect('admin/evaluasi')->with('success', 'Data Berhasil Terhapus');
+        return redirect()->back()->with('success', 'Data Berhasil Terhapus');
     }
 
     public function report_upload(Request $request)

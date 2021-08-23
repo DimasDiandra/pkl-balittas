@@ -126,7 +126,7 @@
                 <div class="modal-body">
                 <input type="text"  hidden id="inputjudul">
                 <input type="text"  hidden id="inputid">
-                <h5><strong>Yaking ingin hapus data ini?</strong></h5>
+                <h5><strong>Yakin ingin hapus data ini?</strong></h5>
                 </div>
             
                 <div class="modal-footer">
