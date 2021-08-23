@@ -91,7 +91,7 @@
                                 {{ $f->judul }}
                             </a>
                         </td>
-                        <td style=" padding-bottom:8px; cursor:pointer; width:20%">
+                        <td style="padding-bottom:8px; cursor:pointer; width:20%">
                             <a>
                                 {{$date= substr(
                                      $f->created_at ,2,8
@@ -488,8 +488,6 @@
 </div>
 
 <script>
-    // $('#templateTable').DataTable();
-
     //dynamic modal
     jQuery(document).ready(function() {
         $('.detail-btn').click(function() {

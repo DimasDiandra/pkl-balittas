@@ -261,14 +261,13 @@
                         <!-- Matriks -->
                         <div class="tab-pane fade show active" id="matriks" role="tabpanel" aria-labelledby="nav-home-tab">
                             <div class="modal-body">
-                                <table class="table" id="table">
+                                <table class="table datatables">
                                     <thead>
                                         <tr>
                                             <th width=10%>No.</th>
                                             <th width=30%>File Name</th>
                                             <th width=20%>Date Upload</th>
                                             <th width=20%>Status</th>
-
                                             <th></th>
                                         </tr>
                                     </thead>
@@ -294,8 +293,8 @@
                                                     Diterima
                                                 </td>
                                                 @endif
-                                                <td class="float-right">
-                                                    <button type="submit" class="btn btn-primary">
+                                                <td>
+                                                    <button type="submit" class="btn btn-primary float-right">
                                                         <i class="menu-icon fa fa-download"></i> Download
                                                     </button>
                                                 </td>
@@ -309,7 +308,7 @@
                         <!-- RAB -->
                         <div class="tab-pane fade" id="rab" role="tabpanel" aria-labelledby="nav-profile-tab">
                             <div class="modal-body">
-                                <table class="table" id="table">
+                                <table class="table">
                                     <thead>
                                         <tr>
                                             <th width=10%>No.</th>
@@ -357,7 +356,7 @@
                         <!-- KAK -->
                         <div class="tab-pane fade" id="kak" role="tabpanel" aria-labelledby="nav-contact-tab">
                             <div class="modal-body">
-                                <table class="table" id="table">
+                                <table class="table">
                                     <thead>
                                         <tr>
                                             <th width=10%>No.</th>
@@ -405,7 +404,7 @@
                         <!-- Proposal -->
                         <div class="tab-pane fade" id="proposal" role="tabpanel" aria-labelledby="nav-profile-tab">
                             <div class="modal-body">
-                                <table class="table" id="table">
+                                <table class="table">
                                     <thead>
                                         <tr>
                                             <th width=10%>No.</th>
@@ -453,7 +452,7 @@
                         <!-- Analisis -->
                         <div class="tab-pane fade" id="analisis" role="tabpanel" aria-labelledby="nav-contact-tab">
                             <div class="modal-body">
-                                <table class="table" id="table">
+                                <table class="table">
                                     <thead>
                                         <tr>
                                             <th width=10%>No.</th>
@@ -510,6 +509,7 @@
 <!-- script -->
 <script>
     jQuery(document).ready(function() {
+        // Status
         $('.custom-select').change(function() {
             const id = document.getElementById("projek_id").value;
             console.log(id)
@@ -570,31 +570,22 @@
                 }
             });
         });
-    });
 
-    // function getValue() {
-    //     var id = document.getElementById("projek_id").value;
-    //     console.log(id);
-    //     $.ajax({
-    //         url: 'perencanaan_status/' + id,
-    //         type: 'GET',
-    //         data: {
-    //             "id": id
-    //         },
+        // DataTables
 
-    //         success: function(data) {
-    //             console.log(data);
-    //             $("#statusMatriks").html(data.matriks_status)
-    //         }
-    //     });
-    // }
+        $('.datatables').DataTable({
+            responsive: true
+        });
 
+        $('a[data-toggle="tab"]').on('shown.bs.tab', function(e) {
+            $($.fn.dataTable.tables(true)).DataTable().columns.adjust().responsive.recalc();
+        });
 
-    $('#table').DataTable();
-
-    $(".nav a").on("click", function() {
-        $(".nav a").removeClass("active");
-        $(this).addClass("active");
+        // Sidebar Active
+        $(".nav a").on("click", function() {
+            $(".nav a").removeClass("active");
+            $(this).addClass("active");
+        });
     });
 </script>
 
