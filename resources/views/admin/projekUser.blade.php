@@ -148,22 +148,6 @@
                 </div>
             </form>
            
-            @foreach ($projekdata as $data)
-            <form action="{{ url('admin/projek/' .$data->id) }}" id="deletemodalform" method="post" class="d-inline" >
-                @method('delete')
-                @csrf
-                
-            </form>
-            
-                <div class="modal-body">
-                <h5><strong>Yaking ingin hapus data ini?</strong></h5>
-                </div>
-                <div class="modal-footer">
-                    <button type="button" class="btn btn-secondary" data-dismiss="modal">Tutup</button>
-                    <button class="btn btn-danger btn-xs btn-hapus">Hapus </button>
-                </div>
-            </form>
-            @endforeach
           </div>
         </div>
     </div>

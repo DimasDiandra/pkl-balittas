@@ -74,7 +74,7 @@ Route::middleware('role:admin')->prefix('admin')->group(function () {
     Route::post('/projek/buat', [App\Http\Controllers\ProjekController::class, 'create']);
     Route::get('/projek/{id}', [App\Http\Controllers\ProjekController::class, 'edit']);
     Route::put('/projek/{id}', [App\Http\Controllers\ProjekController::class, 'update']);
-    Route::delete('/projek/{id}', [App\Http\Controllers\ProjekController::class, 'delete']);
+    Route::delete('admin/projek/{id}', [App\Http\Controllers\ProjekController::class, 'delete']);
 
     // Pengumuman Admin
     Route::get('/pengumuman', [PengumumanController::class, 'show']);
