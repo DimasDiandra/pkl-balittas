@@ -261,7 +261,7 @@
                         <!-- Matriks -->
                         <div class="tab-pane fade show active" id="matriks" role="tabpanel" aria-labelledby="nav-home-tab">
                             <div class="modal-body">
-                                <table class="table" id="table">
+                                <table class="table datatables">
                                     <thead>
                                         <tr>
                                             <th width=10%>No.</th>
@@ -308,7 +308,7 @@
                         <!-- RAB -->
                         <div class="tab-pane fade" id="rab" role="tabpanel" aria-labelledby="nav-profile-tab">
                             <div class="modal-body">
-                                <table class="table" id="table">
+                                <table class="table">
                                     <thead>
                                         <tr>
                                             <th width=10%>No.</th>
@@ -356,7 +356,7 @@
                         <!-- KAK -->
                         <div class="tab-pane fade" id="kak" role="tabpanel" aria-labelledby="nav-contact-tab">
                             <div class="modal-body">
-                                <table class="table" id="table">
+                                <table class="table">
                                     <thead>
                                         <tr>
                                             <th width=10%>No.</th>
@@ -404,7 +404,7 @@
                         <!-- Proposal -->
                         <div class="tab-pane fade" id="proposal" role="tabpanel" aria-labelledby="nav-profile-tab">
                             <div class="modal-body">
-                                <table class="table" id="table">
+                                <table class="table">
                                     <thead>
                                         <tr>
                                             <th width=10%>No.</th>
@@ -452,7 +452,7 @@
                         <!-- Analisis -->
                         <div class="tab-pane fade" id="analisis" role="tabpanel" aria-labelledby="nav-contact-tab">
                             <div class="modal-body">
-                                <table class="table" id="table">
+                                <table class="table">
                                     <thead>
                                         <tr>
                                             <th width=10%>No.</th>
@@ -509,7 +509,7 @@
 <!-- script -->
 <script>
     jQuery(document).ready(function() {
-        // Pengumuman
+        // Status
         $('.custom-select').change(function() {
             const id = document.getElementById("projek_id").value;
             console.log(id)
@@ -572,14 +572,14 @@
         });
 
         // DataTables
-        $('a[data-toggle="tab"]').on('shown.bs.tab', function(e) {
-            $.fn.dataTable.tables({
-                visible: true,
-                api: true
-            }).columns.adjust();
+
+        $('.datatables').DataTable({
+            responsive: true
         });
 
-        $('#table').DataTable();
+        $('a[data-toggle="tab"]').on('shown.bs.tab', function(e) {
+            $($.fn.dataTable.tables(true)).DataTable().columns.adjust().responsive.recalc();
+        });
 
         // Sidebar Active
         $(".nav a").on("click", function() {

@@ -641,14 +641,10 @@
         });
 
         // DataTables
-        $('a[data-toggle="tab"]').on('shown.bs.tab', function(e) {
-            $.fn.dataTable.tables({
-                visible: true,
-                api: true
-            }).columns.adjust();
-        });
 
         $('#table').DataTable();
+
+        $($.fn.dataTable.tables(true)).DataTable().columns.adjust().responsive.recalc();
 
         // Sidebar Active
         $(".nav a").on("click", function() {

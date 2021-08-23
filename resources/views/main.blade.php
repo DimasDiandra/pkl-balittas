@@ -39,19 +39,19 @@ The above copyright notice and this permission notice shall be included in all c
 
     <!-- JQuery -->
     <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+    <script src="{{ asset('style/assets/js/plugins.js') }}"></script>
     <!-- Bootstrap tooltips -->
     <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.4/umd/popper.min.js"></script>
     <!-- Bootstrap core JavaScript -->
     <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
     <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/4.5.0/js/bootstrap.min.js"></script>
-    <!-- MDB core JavaScript -->
-    <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/mdbootstrap/4.19.1/js/mdb.min.js"></script>
     <!-- DataTables -->
     <script src="https://cdn.datatables.net/1.10.25/js/jquery.dataTables.min.js"></script>
     <script src="https://cdn.datatables.net/1.10.25/js/dataTables.bootstrap5.min.js"></script>
     <script src="https://cdn.datatables.net/buttons/1.7.1/js/dataTables.buttons.min.js"></script>
     <script src="https://cdn.datatables.net/buttons/1.7.1/js/buttons.bootstrap5.min.js"></script>
-    <script src=""></script>
+    <!-- MDB core JavaScript -->
+    <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/mdbootstrap/4.19.1/js/mdb.min.js"></script>
 
 
     <div class="wrapper ">
@@ -194,6 +194,18 @@ The above copyright notice and this permission notice shall be included in all c
             </footer>
         </div>
     </div>
+
+
+    <script src="{{ asset('assets/js/core/bootstrap-material-design.min.js') }} "></script>
+    <script src="{{ asset('assets/js/plugins/perfect-scrollbar.jquery.min.js') }} "></script>
+    <!-- Plugin for the momentJs  -->
+    <script src="{{ asset('assets/js/plugins/moment.min.js') }} "></script>
+    <!--  Plugin for Sweet Alert -->
+    <script src="{{ asset('assets/js/plugins/sweetalert2.js') }} "></script>
+    <!-- Forms Validations Plugin -->
+    <script src="{{ asset('assets/js/plugins/jquery.validate.min.js') }} "></script>
+    <!-- Control Center for Material Dashboard: parallax effects, scripts for the example pages etc -->
+    <script src="{{ asset('assets/js/material-dashboard.js?v=2.1.2') }}" type="text/javascript"></script>
 
     <script>
         $(document).ready(function() {
