@@ -49,6 +49,27 @@ class ReportController extends Controller
         ]);
     }
 
+    public function semuafile()
+    {
+        $bulanan = laporan_bulanan::orderBy('created_at', 'ASC')->get();
+        $triwulan = laporan_triwulan::orderBy('created_at', 'ASC')->get();
+        $tengahTahun = laporan_tengahtahun::orderBy('created_at', 'ASC')->get();
+        $akhirTahun = laporan_akhirtahun::orderBy('created_at', 'ASC')->get();
+        $destudi = laporan_destudi::orderBy('created_at', 'ASC')->get();
+        $renaksi = laporan_renaksi::orderBy('created_at', 'ASC')->get();
+        $projek = Projek::all();
+
+        if(session('success')){
+            Alert::success('Sukses!', session('success'));
+        }
+
+        return view('admin.ReportSemuaFile', 
+        [
+            'bulanan' => $bulanan, 'triwulan' => $triwulan, 'tengahTahun' => $tengahTahun, 'akhirTahun' => $akhirTahun, 'destudi' => $destudi,
+            'renaksi' => $renaksi, 'projek' => $projek
+        ]);
+    } 
+
     public function viewbulanan($id, Request $request)
     {
         $data = laporan_bulanan::find($id);

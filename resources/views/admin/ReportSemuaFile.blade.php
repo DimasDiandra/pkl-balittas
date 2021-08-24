@@ -39,12 +39,7 @@
         <a href="./" style="font-weight: 500;"><i class="fa fa-arrow-left"></i> Back
         </a>
     </div>
-    <div class="card">
-        <div class="card-header">
-            <h3 class="text-primary">
-                Data File {{$user->name}}
-            </h3>
-        </div>
+    <div class="card">        
         <div class="row card-body">
             <div class="col">
                 <ul class="nav nav-pills nav-fill">
@@ -92,7 +87,7 @@
                                     <tr>
                                         <td hidden="true">{{ $f->id }}</td>
                                         <td>{{ $loop->iteration }}</td>
-                                        <td>{{ $date = substr($f->created_at, 2, 8) }}
+                                        <td>{{ $f->created_at }}
                                         </td>
                                         <td>{{ $f->name }}</td>
                                         @if ($f->status==1)
@@ -154,7 +149,7 @@
                                     <tr>
                                         <td hidden="true">{{ $f->id }}</td>
                                         <td>{{ $loop->iteration }}</td>
-                                        <td>{{ $date = substr($f->created_at, 2, 8) }}
+                                        <td>{{ $f->created_at }}
                                         </td>
                                         <input type="hidden" name="path" value=" {{ $f->path }}">
                                         <td>{{ $f->name }}</td>
@@ -217,7 +212,7 @@
                                     <tr>
                                         <td hidden="true">{{ $f->id }}</td>
                                         <td>{{ $loop->iteration }}</td>
-                                        <td>{{ $date = substr($f->created_at, 2, 8) }}
+                                        <td>{{ $f->created_at }}
                                         </td>
                                         <input type="hidden" name="path" value=" {{ $f->path }}">
                                         <td>{{ $f->name }}</td>
@@ -279,7 +274,7 @@
                                     <tr>
                                         <td hidden="true">{{ $f->id }}</td>
                                         <td>{{ $loop->iteration }}</td>
-                                        <td>{{ $date = substr($f->created_at, 2, 8) }}
+                                        <td>{{ $f->created_at }}
                                         </td>
                                         <input type="hidden" name="path" value=" {{ $f->path }}">
                                         <td>{{ $f->name }}</td>
@@ -341,7 +336,7 @@
                                     <tr>
                                         <td hidden="true">{{ $f->id }}</td>
                                         <td>{{ $loop->iteration }}</td>
-                                        <td>{{ $date = substr($f->created_at, 2, 8) }}
+                                        <td>{{ $f->created_at }}
                                         </td>
                                         <input type="hidden" name="path" value=" {{ $f->path }}">
                                         <td>{{ $f->name }}</td>
@@ -403,7 +398,7 @@
                                     <tr>
                                         <td hidden="true">{{ $f->id }}</td>
                                         <td>{{ $loop->iteration }}</td>
-                                        <td>{{ $date = substr($f->created_at, 2, 8) }}
+                                        <td>{{ $f->created_at }}
                                         </td>
                                         <input type="hidden" name="path" value=" {{ $f->path }}">
                                         <td>{{ $f->name }}</td>

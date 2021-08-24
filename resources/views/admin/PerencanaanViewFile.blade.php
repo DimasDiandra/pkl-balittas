@@ -109,12 +109,12 @@
                                             </form>
                                         </td>
                                         <td>
-                                            <a href="javascript:void(0)" id="deletebtn" class="btn btn-danger btn-xs btn-hapus hapusmatriks" data-id="{{$f->id}}" ><i class="fa fa-trash-o"></i> Hapus </a>
+                                            <a href="javascript:void(0)" id="deletebtn" class="btn btn-danger btn-xs btn-hapus hapusmatriks" data-id="{{$f->id}}" ><i class="fa fa-trash-o"></i></a>
                                         </td>
                                         <td>
                                             <input type="hidden" name="path" value=" {{ $f->path }}">
                                             <button type="submit" class="btn btn-primary">
-                                                <i class="menu-icon fa fa-download"></i> Download
+                                                <i class="menu-icon fa fa-download"></i>
                                             </button>
                                         </td>
                                         </form>
@@ -163,18 +163,18 @@
                                         <td>
                                             <form action="rab/{{$f->id}}" method="GET">
                                                 <input type="hidden" value="rab" name="jenis">
-                                                <button class="btn btn-success" type="submit">
+                                                <button class="btn btn-warning btn-xs btn-edit" type="submit">
                                                     <i class="menu-icon fa fa-pencil"></i>
                                                 </button>
                                             </form>
                                         </td>
                                         <td>
-                                            <a href="javascript:void(0)" id="deletebtn" class="btn btn-danger btn-xs btn-hapus hapusrab" data-id="{{$f->id}}" ><i class="fa fa-trash-o"></i> Hapus </a>
+                                            <a href="javascript:void(0)" id="deletebtn" class="btn btn-danger btn-xs btn-hapus hapusrab" data-id="{{$f->id}}" ><i class="fa fa-trash-o"></i></a>
                                         </td>
                                         <td>
                                             <input type="hidden" name="path" value=" {{ $f->path }}">
                                             <button type="submit" class="btn btn-primary">
-                                                <i class="menu-icon fa fa-download"></i> Download
+                                                <i class="menu-icon fa fa-download"></i>
                                             </button>
                                             </form>
                                         </td>
@@ -223,18 +223,18 @@
                                         <td>
                                             <form action="kak/{{$f->id}}" method="GET">
                                                 <input type="hidden" value="kak" name="jenis">
-                                                <button class="btn btn-success" type="submit">
+                                                <button class="btn btn-warning btn-xs btn-edit" type="submit">
                                                     <i class="menu-icon fa fa-pencil"></i>
                                                 </button>
                                             </form>
                                         </td>
                                         <td>
-                                            <a href="javascript:void(0)" id="deletebtn" class="btn btn-danger btn-xs btn-hapus hapuskak" data-id="{{$f->id}}" ><i class="fa fa-trash-o"></i> Hapus </a>
+                                            <a href="javascript:void(0)" id="deletebtn" class="btn btn-danger btn-xs btn-hapus hapuskak" data-id="{{$f->id}}" ><i class="fa fa-trash-o"></i></a>
                                         </td>
                                         <td>
                                             <input type="hidden" name="path" value=" {{ $f->path }}">
                                             <button type="submit" class="btn btn-primary">
-                                                <i class="menu-icon fa fa-download"></i> Download
+                                                <i class="menu-icon fa fa-download"></i>
                                             </button>
                                             </form>
                                         </td>
@@ -283,18 +283,18 @@
                                         <td>
                                             <form action="proposal/{{$f->id}}" method="GET">
                                                 <input type="hidden" value="proposal" name="jenis">
-                                                <button class="btn btn-success" type="submit">
+                                                <button class="btn btn-warning btn-xs btn-edit" type="submit">
                                                     <i class="menu-icon fa fa-pencil"></i>
                                                 </button>
                                             </form>
                                         </td>
                                         <td>
-                                            <a href="javascript:void(0)" id="deletebtn" class="btn btn-danger btn-xs btn-hapus hapusproposal" data-id="{{$f->id}}" ><i class="fa fa-trash-o"></i> Hapus </a>
+                                            <a href="javascript:void(0)" id="deletebtn" class="btn btn-danger btn-xs btn-hapus hapusproposal" data-id="{{$f->id}}" ><i class="fa fa-trash-o"></i></a>
                                         </td>
                                         <td>
                                             <input type="hidden" name="path" value=" {{ $f->path }}">
                                             <button type="submit" class="btn btn-primary">
-                                                <i class="menu-icon fa fa-download"></i> Download
+                                                <i class="menu-icon fa fa-download"></i>
                                             </button>
                                             </form>
                                         </td>
@@ -342,18 +342,18 @@
                                         <td>
                                             <form action="analisis/{{$f->id}}" method="GET">
                                                 <input type="hidden" value="analisis" name="jenis">
-                                                <button class="btn btn-success" type="submit">
+                                                <button class="btn btn-warning btn-xs btn-edit" type="submit">
                                                     <i class="menu-icon fa fa-pencil"></i>
                                                 </button>
                                             </form>
                                         </td>
                                         <td>
-                                            <a href="javascript:void(0)" id="deletebtn" class="btn btn-danger btn-xs btn-hapus hapusanalisis" data-id="{{$f->id}}" ><i class="fa fa-trash-o"></i> Hapus </a>
+                                            <a href="javascript:void(0)" id="deletebtn" class="btn btn-danger btn-xs btn-hapus hapusanalisis" data-id="{{$f->id}}" ><i class="fa fa-trash-o"></i></a>
                                         </td>
                                         <td>
                                             <input type="hidden" name="path" value=" {{ $f->path }}">
                                             <button type="submit" class="btn btn-primary">
-                                                <i class="menu-icon fa fa-download"></i> Download
+                                                <i class="menu-icon fa fa-download"></i>
                                             </button>
                                             </form>
                                         </td>
