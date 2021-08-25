@@ -29,6 +29,8 @@ class Projek extends Migration
             $table->integer('akhirtahun_status')->nullable();
             $table->integer('renaksi_status')->nullable();
             $table->integer('destudi_status')->nullable();
+            $table->integer('semula_menjadi_status')->nullable();
+            $table->integer('revisi_rab_status')->nullable();
 
             $table->unsignedBigInteger('user_id');
             $table->foreign('user_id')->references('id')->on('users');

@@ -107,6 +107,12 @@ The above copyright notice and this permission notice shall be included in all c
                             <p> Monitoring dan Evaluasi</p>
                         </a>
                     </li>
+                    <li class="{{ Request::is('admin/revisi') ? 'active' : '' }}">
+                        <a href="/admin/revisi" class="nav-link">
+                            <i class="menu-icon fa fa-flag"></i>
+                            <p> Revisi Anggaran</p>
+                        </a>
+                    </li>
                     <li class="{{ Request::is('admin/template') ? 'active' : '' }}">
                         <a href="/admin/template" class="nav-link">
                             <i class="menu-icon fa fa-file"></i>

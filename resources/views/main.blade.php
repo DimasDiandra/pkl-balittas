@@ -84,7 +84,7 @@ The above copyright notice and this permission notice shall be included in all c
                     <li class="{{ Request::is('revisi') ? 'active' : '' }}">
                         <a href="/revisi" class="nav-link">
                             <i class="menu-icon fa fa-repeat"></i>
-                            <p> Revisi </p>
+                            <p> Revisi Anggaran </p>
                         </a>
                     </li>
                 </ul>

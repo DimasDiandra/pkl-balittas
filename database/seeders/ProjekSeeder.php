@@ -29,6 +29,8 @@ class ProjekSeeder extends Seeder
             'renaksi_status' => '0',
             'destudi_status' => '0',
             'user_id' => '1',
+            'semula_menjadi_status' => '0',
+            'revisi_rab_status' => '0',
         ]);
 
         Projek::create([
@@ -46,6 +48,8 @@ class ProjekSeeder extends Seeder
             'renaksi_status' => '1',
             'destudi_status' => '1',
             'user_id' => '2',
+            'semula_menjadi_status' => '1',
+            'revisi_rab_status' => '1',
         ]);
     }
 }

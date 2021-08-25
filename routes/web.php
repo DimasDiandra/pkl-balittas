@@ -4,12 +4,12 @@ use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\UserController;
 use App\Http\Controllers\HomeController;
 use App\Http\Controllers\PerencanaanController;
+use App\Http\Controllers\RevisiController;
 use App\Http\Controllers\ReportController;
 use App\Http\Controllers\PengumumanController;
 use App\Http\Controllers\TemplatesController;
 use Illuminate\Support\Facades\Auth;
 use App\Http\Controllers\NotificationController;
-
 
 /*
 |--------------------------------------------------------------------------
@@ -51,6 +51,13 @@ Route::get('/perencanaan/download', [PerencanaanController::class, 'perencanaan_
 Route::get('/revisi', function () {
     return view('revisi');
 });
+
+//revisi
+Route::get('/revisi', [RevisiController::class, 'revisi']);
+Route::get('/revisi_status/{id}', [RevisiController::class, 'revisi_status']);
+Route::post('/revisi/upload', [RevisiController::class, 'revisi_upload']);
+Route::get('/revisi/download', [RevisiController::class, 'revisi_download']);
+
 
 //report
 Route::get('/report', [ReportController::class, 'report']);
@@ -133,6 +140,18 @@ Route::middleware('role:admin')->prefix('admin')->group(function () {
     Route::delete('/evaluasi/akhir/{id}', [ReportController::class, 'deleteakhir']);
     Route::delete('/evaluasi/renaksi/{id}', [ReportController::class, 'deleterenaksi']);
     Route::delete('/evaluasi/destudi/{id}', [ReportController::class, 'deletedestudi']);
+
+    //Revisi Anggaran
+    // Monev
+    Route::get('/revisi', [RevisiController::class, 'admin_view']);
+    Route::get('/revisi/file', [RevisiController::class, 'semuafile']);
+    Route::get('/revisi/{id}', [RevisiController::class, 'admin_update']);
+    Route::get('/revisi/semula_menjadi/{id}', [RevisiController::class, 'viewsemula_menjadi']);
+    Route::get('/revisi/revisi_rab/{id}', [RevisiController::class, 'viewrevisi_rab']);
+    Route::put('/revisi/semula_menjadi/{id}', [RevisiController::class, 'statussemula_menjadi']);
+    Route::put('/revisi/revisi_rab/{id}', [RevisiController::class, 'statusrevisi_rab']);
+    Route::delete('/revisi/semula_menjadi/{id}', [RevisiController::class, 'deletesemula_menjadi']);
+    Route::delete('/revisi/revisi_rab/{id}', [RevisiController::class, 'deleterevisi_rab']);
 
     // Route::get('/pengumuman', function () {return view('admin.tambahpengumuman');});
 });
