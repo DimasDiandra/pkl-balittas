@@ -10,6 +10,10 @@ use RealRashid\SweetAlert\Facades\Alert;
 
 class UserController extends Controller
 {
+	public function __construct()
+    {
+        $this->middleware('auth');
+    }
 	public function index()
 	{
 		// $title = 'Data peserta';
@@ -32,10 +36,17 @@ class UserController extends Controller
 
 	public function update(Request $request, $id)
 	{
+		
 		try {
 			// update data kedalam table users
 			$user['email'] = $request->email;
 			$user['name'] = $request->name;
+			$user['jabatan'] = $request->jabatan;
+			// $user['gender'] = $request->gender;
+			$user['tempat_lahir'] = $request->tempat_lahir;
+			$user['tanggal_lahir'] = $request->tanggal_lahir;
+			$user['alamat'] = $request->alamat;
+			$user['no_hp'] = $request->no_hp;
 			$user['updated_at'] = date('Y-m-d H:i:s');
 
 			User::where('id', $id)->update($user);
@@ -54,5 +65,35 @@ class UserController extends Controller
 		} catch (\Exception $e) {			
 		}
 		return redirect('admin/user')->with('success', 'Data Berhasil Terhapus');
+	}
+	public function profile($id)
+	{
+		$data = User::find($id);
+
+		if(session('success')){
+            Alert::success('Sukses!', session('success'));
+        }
+		return view(('profile'), compact('data'));
+		// return redirect('admin/user')->with('success', 'Data Berhasil Terhapus');
+	}
+	public function updateprofile(Request $request, $id)
+	{
+		try {
+			// update data kedalam table users
+			$user['email'] = $request->email;
+			$user['name'] = $request->name;
+			$user['jabatan'] = $request->jabatan;
+			// $user['gender'] = $request->gender;
+			$user['tempat_lahir'] = $request->tempat_lahir;
+			$user['tanggal_lahir'] = $request->tanggal_lahir;
+			$user['alamat'] = $request->alamat;
+			$user['no_hp'] = $request->no_hp;
+			$user['updated_at'] = date('Y-m-d H:i:s');
+
+			User::where('id', $id)->update($user);
+		} catch (\Exception $e) {
+		}
+
+		return redirect()->back()->with('success', 'Data Berhasil Diperbarui');
 	}
 }
