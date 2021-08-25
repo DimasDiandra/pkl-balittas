@@ -75,7 +75,9 @@ class PerencanaanController extends Controller
         $kak = KAK::where('user_id', Auth::user()->id)->get();
         $user = User::get();
         $projek = Projek::where('user_id', Auth::user()->id)->get();
-
+        if (session('success')) {
+            Alert::success('Sukses!', session('success'));
+        }
         return view('perencanaan', ['analisis' => $analisis, 'kak' => $kak, 'matriks' => $matriks, 'proposal' => $proposal, 'rab' => $rab, 'user' => $user, 'projek' => $projek]);
     }
 
@@ -92,7 +94,9 @@ class PerencanaanController extends Controller
         $projek = projek::where('id', $data->projek_id)->first();
         $user = User::where('id', $data->user_id)->first();
         $jenis = $request->jenis;
-
+        if (session('success')) {
+            Alert::success('Sukses!', session('success'));
+        }
         return view('admin.PerencanaanEdit', compact('data', 'projek', 'user', 'jenis'));
     }
 
@@ -102,7 +106,9 @@ class PerencanaanController extends Controller
         $projek = projek::where('id', $data->projek_id)->first();
         $user = User::where('id', $data->user_id)->first();
         $jenis = $request->jenis;
-
+        if (session('success')) {
+            Alert::success('Sukses!', session('success'));
+        }
         return view('admin.PerencanaanEdit', compact('data', 'projek', 'user', 'jenis'));
     }
 
@@ -112,7 +118,9 @@ class PerencanaanController extends Controller
         $projek = projek::where('id', $data->projek_id)->first();
         $user = User::where('id', $data->user_id)->first();
         $jenis = $request->jenis;
-
+        if (session('success')) {
+            Alert::success('Sukses!', session('success'));
+        }
         return view('admin.PerencanaanEdit', compact('data', 'projek', 'user', 'jenis'));
     }
 
@@ -122,7 +130,9 @@ class PerencanaanController extends Controller
         $projek = projek::where('id', $data->projek_id)->first();
         $user = User::where('id', $data->user_id)->first();
         $jenis = $request->jenis;
-
+        if (session('success')) {
+            Alert::success('Sukses!', session('success'));
+        }
         return view('admin.PerencanaanEdit', compact('data', 'projek', 'user', 'jenis'));
     }
 
@@ -132,7 +142,9 @@ class PerencanaanController extends Controller
         $projek = projek::where('id', $data->projek_id)->first();
         $user = User::where('id', $data->user_id)->first();
         $jenis = $request->jenis;
-
+        if (session('success')) {
+            Alert::success('Sukses!', session('success'));
+        }
         return view('admin.PerencanaanEdit', compact('data', 'projek', 'user', 'jenis'));
     }
     public function statusmatriks($id, Request $request)
