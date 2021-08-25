@@ -1,7 +1,7 @@
 <?php
 
 use Illuminate\Support\Facades\Route;
-
+use App\Http\Controllers\UserController;
 use App\Http\Controllers\HomeController;
 use App\Http\Controllers\PerencanaanController;
 use App\Http\Controllers\ReportController;
@@ -38,7 +38,9 @@ Route::get('/markRead', function () {
     return redirect()->back();
 });
 
-
+//Profile
+Route::get('/profile/{id}', [UserController::class, 'profile'])->name('profile');
+Route::put('/profile/{id}', [UserController::class, 'updateprofile']);
 
 //Perencanaan
 Route::get('/perencanaan', [PerencanaanController::class, 'perencanaan']);

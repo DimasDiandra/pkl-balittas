@@ -62,6 +62,36 @@
                                     <input type="email" name="email" class="form-control" id="exampleInputEmail1"
                                         placeholder="Enter email" value="{{ $data->email }}">
                                 </div>
+                                <div class="form-group">
+                                    <label for="exampleInputEmail1">Jabatan</label>
+                                    <input type="text" name="jabatan" class="form-control" id="exampleInputEmail1"
+                                        placeholder="Masukkan Jabatan" value="{{ $data->jabatan }}">
+                                </div>
+                                <div class="form-group">
+                                    <label for="exampleInputEmail1">Jenis Kelamin</label>
+                                    <input type="text" name="gender" class="form-control" id="exampleInputEmail1"
+                                        placeholder="Masukkan Jenis Kelamin" value="{{ $data->gender }}">
+                                </div>
+                                <div class="form-group">
+                                    <label for="exampleInputEmail1">Tempat Lahir</label>
+                                    <input type="text" name="tempat_lahir" class="form-control" id="exampleInputEmail1"
+                                        placeholder="Masukkan Tempat Lahir" value="{{ $data->tempat_lahir }}">
+                                </div>
+                                <div class="form-group">
+                                    <label for="exampleInputEmail1">Tanggal Lahir</label>
+                                    <input type="date" name="tanggal_lahir" class="form-control" id="exampleInputEmail1"
+                                        placeholder="Masukkan Tanggal Lahir" value="{{ $data->tanggal_lahir }}">
+                                </div>
+                                <div class="form-group">
+                                    <label for="exampleInputEmail1">Alamat</label>
+                                    <input type="text" name="alamat" class="form-control" id="exampleInputEmail1"
+                                        placeholder="Masukkan Alamat" value="{{ $data->alamat }}">
+                                </div>
+                                <div class="form-group">
+                                    <label for="exampleInputEmail1">No. HP</label>
+                                    <input type="text" name="no_hp" class="form-control" id="exampleInputEmail1"
+                                        placeholder="Masukkan No. Hp" value="{{ $data->no_hp }}">
+                                </div>
                             </div>
                         </div>
                     </div>
