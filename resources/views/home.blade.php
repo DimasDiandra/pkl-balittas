@@ -78,11 +78,11 @@
             </div>
         </div>
         <!-- pengumuman -->
-        <div class="card shadow" style="height: 45vh;">
+        <div class="card shadow" style="height: 45vh;" style="overflow-y: auto;">>
             <div class="card-header py-3">
                 <h6 class="m-0 text-primary">Pengumuman</h6>
             </div>
-            <div class="card-body">
+            <div class="card-body" style="overflow-y: auto;">
                 <table style="border: 0;">
                     @foreach($pengumuman as $f)
                     <tr data-toggle="modal" data-target="#pengumumanModal" data-id="{{ $f->id }}" class="detail-btn">

@@ -35,7 +35,7 @@
     </div>
     @endif
     <div>
-        <a href="./" style="font-weight: 500;"><i class="fa fa-arrow-left"></i> Back
+        <a href="{{ URL::previous()}}" style="font-weight: 500;"><i class="fa fa-arrow-left"></i> Back
         </a>
     </div>
     <div class="card">

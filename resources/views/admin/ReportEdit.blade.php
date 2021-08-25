@@ -17,7 +17,7 @@
 
 <div class="container-fluid">
     <div>
-        <a href="/admin/evaluasi/{{$user->id}}" style="font-weight: 500;"><i class="fa fa-arrow-left"></i> Back
+        <a href="{{ URL::previous()}}" style="font-weight: 500;"><i class="fa fa-arrow-left"></i> Back
         </a>
     </div>
     <div class="card">

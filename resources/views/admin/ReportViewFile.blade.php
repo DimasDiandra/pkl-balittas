@@ -26,17 +26,17 @@
 
 @section('content')
 @if (session('success'))
-    <div class="alert alert-success">
-        <button type="button" class="close" data-dismiss="alert" aria-label="Close">
-            <i class="material-icons">close</i>
-        </button>
-        <span>
-            {{session('success')}}
-    </div>
-    @endif
+<div class="alert alert-success">
+    <button type="button" class="close" data-dismiss="alert" aria-label="Close">
+        <i class="material-icons">close</i>
+    </button>
+    <span>
+        {{session('success')}}
+</div>
+@endif
 <div class="container-fluid">
     <div>
-        <a href="./" style="font-weight: 500;"><i class="fa fa-arrow-left"></i> Back
+        <a href="{{ URL::previous()}}" style="font-weight: 500;"><i class="fa fa-arrow-left"></i> Back
         </a>
     </div>
     <div class="card">
@@ -117,8 +117,8 @@
                                             </form>
                                         </td>
                                         <td>
-                                            <a href="javascript:void(0)" id="deletebtn" class="btn btn-danger btn-xs btn-hapus hapusbulanan" data-id="{{$f->id}}" ><i class="fa fa-trash-o"></i></a>
-                                            
+                                            <a href="javascript:void(0)" id="deletebtn" class="btn btn-danger btn-xs btn-hapus hapusbulanan" data-id="{{$f->id}}"><i class="fa fa-trash-o"></i></a>
+
                                         </td>
                                         <td>
                                             <input type="hidden" name="path" value=" {{ $f->path }}">
@@ -180,8 +180,8 @@
                                             </form>
                                         </td>
                                         <td>
-                                            <a href="javascript:void(0)" id="deletebtn" class="btn btn-danger btn-xs btn-hapus hapustriwulan" data-id="{{$f->id}}" ><i class="fa fa-trash-o"></i></a>
-                                            
+                                            <a href="javascript:void(0)" id="deletebtn" class="btn btn-danger btn-xs btn-hapus hapustriwulan" data-id="{{$f->id}}"><i class="fa fa-trash-o"></i></a>
+
                                         </td>
                                         <td>
                                             <input type="hidden" name="path" value=" {{ $f->path }}">
@@ -243,7 +243,7 @@
                                             </form>
                                         </td>
                                         <td>
-                                            <a href="javascript:void(0)" id="deletebtn" class="btn btn-danger btn-xs btn-hapus hapustengah" data-id="{{$f->id}}" ><i class="fa fa-trash-o"></i></a>
+                                            <a href="javascript:void(0)" id="deletebtn" class="btn btn-danger btn-xs btn-hapus hapustengah" data-id="{{$f->id}}"><i class="fa fa-trash-o"></i></a>
                                         </td>
                                         <td>
                                             <input type="hidden" name="path" value=" {{ $f->path }}">
@@ -305,7 +305,7 @@
                                             </form>
                                         </td>
                                         <td>
-                                            <a href="javascript:void(0)" id="deletebtn" class="btn btn-danger btn-xs btn-hapus hapusakhir" data-id="{{$f->id}}" ><i class="fa fa-trash-o"></i></a>
+                                            <a href="javascript:void(0)" id="deletebtn" class="btn btn-danger btn-xs btn-hapus hapusakhir" data-id="{{$f->id}}"><i class="fa fa-trash-o"></i></a>
                                         </td>
                                         <td>
                                             <input type="hidden" name="path" value=" {{ $f->path }}">
@@ -367,7 +367,7 @@
                                             </form>
                                         </td>
                                         <td>
-                                            <a href="javascript:void(0)" id="deletebtn" class="btn btn-danger btn-xs btn-hapus hapusdestudi" data-id="{{$f->id}}" ><i class="fa fa-trash-o"></i></a>
+                                            <a href="javascript:void(0)" id="deletebtn" class="btn btn-danger btn-xs btn-hapus hapusdestudi" data-id="{{$f->id}}"><i class="fa fa-trash-o"></i></a>
                                         </td>
                                         <td>
                                             <input type="hidden" name="path" value=" {{ $f->path }}">
@@ -429,7 +429,7 @@
                                             </form>
                                         </td>
                                         <td>
-                                            <a href="javascript:void(0)" id="deletebtn" class="btn btn-danger btn-xs btn-hapus hapusrenaksi" data-id="{{$f->id}}" ><i class="fa fa-trash-o"></i></a>
+                                            <a href="javascript:void(0)" id="deletebtn" class="btn btn-danger btn-xs btn-hapus hapusrenaksi" data-id="{{$f->id}}"><i class="fa fa-trash-o"></i></a>
                                         </td>
                                         <td>
                                             <input type="hidden" name="path" value=" {{ $f->path }}">
@@ -452,159 +452,158 @@
     <!-- Modal Confirm Delete -->
     <div class="modal fade" id="deletemodal" tabindex="-1">
         <div class="modal-dialog modal-dialog-centered">
-          <div class="modal-content">
-            <div class="modal-header">
-              <h5 class="modal-title" id="exampleModalLabel">Hapus Pengumuman</h5>
-              <button type="button" class="close" data-dismiss="modal">&times;</button>
+            <div class="modal-content">
+                <div class="modal-header">
+                    <h5 class="modal-title" id="exampleModalLabel">Hapus Pengumuman</h5>
+                    <button type="button" class="close" data-dismiss="modal">&times;</button>
+                </div>
+                <form id="deletemodalform" method="post" class="d-inline">
+                    @method('delete')
+                    @csrf
+                    <div class="modal-body">
+                        <input type="text" hidden id="inputjudul">
+                        <input type="text" hidden id="inputid">
+                        <h5><strong>Yakin ingin hapus data ini?</strong></h5>
+                    </div>
+
+                    <div class="modal-footer">
+                        <button type="button" class="btn btn-secondary" data-dismiss="modal">Tutup</button>
+                        <button type="submit" class="btn btn-danger btn-xs hapus-btn">Hapus Data</button>
+                    </div>
+                </form>
+
             </div>
-            <form id="deletemodalform" method="post" class="d-inline">
-                @method('delete')
-                @csrf
-                <div class="modal-body">
-                <input type="text" hidden id="inputjudul">
-                <input type="text" hidden id="inputid">
-                <h5><strong>Yakin ingin hapus data ini?</strong></h5>
-                </div>
-            
-                <div class="modal-footer">
-                    <button type="button" class="btn btn-secondary" data-dismiss="modal">Tutup</button>
-                    <button type="submit" class="btn btn-danger btn-xs hapus-btn">Hapus Data</button>
-                </div>
-            </form>
-           
-          </div>
         </div>
     </div>
-      <!-- End Modal Delete  -->
+    <!-- End Modal Delete  -->
 </div>
-    <script src="https://code.jquery.com/jquery-3.3.1.min.js"></script>
-    <script>
-        jQuery(document).ready(function() {
-            $('#table').DataTable();
+<script src="https://code.jquery.com/jquery-3.3.1.min.js"></script>
+<script>
+    jQuery(document).ready(function() {
+        $('#table').DataTable();
         // $(document).ready( function () {
         // $('#table-datatables').DataTable();
-        });
-    
-    </script>
-    
-    <!-- jquery bulanan -->
-    <script>
-        $(document).ready( function () {
-            $('#table').on('click', '.hapusbulanan', function(){
+    });
+</script>
+
+<!-- jquery bulanan -->
+<script>
+    $(document).ready(function() {
+        $('#table').on('click', '.hapusbulanan', function() {
             const id = $(this).attr('data-id');
             console.log(id);
             // var col2=currentRow.find("td:eq(1)").text();
             // var datajudul=col2;
-    
-            $tr=$(this).closest("tr");
-            var dataid = $tr.children("td").map(function(){
+
+            $tr = $(this).closest("tr");
+            var dataid = $tr.children("td").map(function() {
                 return $(this).text();
             }).get();
             // $('#inputjudul').val(datajudul);
             $('#inputid').val(dataid[0]);
-            $('#deletemodalform').attr('action','bulanan/'+dataid[0]);
+            $('#deletemodalform').attr('action', 'bulanan/' + dataid[0]);
             $('#deletemodal').modal('show');
-            });
         });
-    </script>
-    <!-- jquery triwulan -->
-    <script>
-        $(document).ready( function () {
-            $('#table-triwulan').on('click', '.hapustriwulan', function(){
+    });
+</script>
+<!-- jquery triwulan -->
+<script>
+    $(document).ready(function() {
+        $('#table-triwulan').on('click', '.hapustriwulan', function() {
             const id = $(this).attr('data-id');
             console.log(id);
             // var col2=currentRow.find("td:eq(1)").text();
             // var datajudul=col2;
-    
-            $tr=$(this).closest("tr");
-            var dataid = $tr.children("td").map(function(){
+
+            $tr = $(this).closest("tr");
+            var dataid = $tr.children("td").map(function() {
                 return $(this).text();
             }).get();
             // $('#inputjudul').val(datajudul);
             $('#inputid').val(dataid[0]);
-            $('#deletemodalform').attr('action','triwulan/'+dataid[0]);
+            $('#deletemodalform').attr('action', 'triwulan/' + dataid[0]);
             $('#deletemodal').modal('show');
-            });
         });
-    </script>
-    <!-- jquery tengah tahun -->
-    <script>
-        $(document).ready( function () {
-            $('#table-tengah').on('click', '.hapustengah', function(){
+    });
+</script>
+<!-- jquery tengah tahun -->
+<script>
+    $(document).ready(function() {
+        $('#table-tengah').on('click', '.hapustengah', function() {
             const id = $(this).attr('data-id');
             console.log(id);
             // var col2=currentRow.find("td:eq(1)").text();
             // var datajudul=col2;
-    
-            $tr=$(this).closest("tr");
-            var dataid = $tr.children("td").map(function(){
+
+            $tr = $(this).closest("tr");
+            var dataid = $tr.children("td").map(function() {
                 return $(this).text();
             }).get();
             // $('#inputjudul').val(datajudul);
             $('#inputid').val(dataid[0]);
-            $('#deletemodalform').attr('action','tengah/'+dataid[0]);
+            $('#deletemodalform').attr('action', 'tengah/' + dataid[0]);
             $('#deletemodal').modal('show');
-            });
         });
-    </script>
-    <!-- jquery akhir tahun -->
-    <script>
-        $(document).ready( function () {
-            $('#table-akhir').on('click', '.hapusakhir', function(){
+    });
+</script>
+<!-- jquery akhir tahun -->
+<script>
+    $(document).ready(function() {
+        $('#table-akhir').on('click', '.hapusakhir', function() {
             const id = $(this).attr('data-id');
             console.log(id);
             // var col2=currentRow.find("td:eq(1)").text();
             // var datajudul=col2;
-    
-            $tr=$(this).closest("tr");
-            var dataid = $tr.children("td").map(function(){
+
+            $tr = $(this).closest("tr");
+            var dataid = $tr.children("td").map(function() {
                 return $(this).text();
             }).get();
             // $('#inputjudul').val(datajudul);
             $('#inputid').val(dataid[0]);
-            $('#deletemodalform').attr('action','akhir/'+dataid[0]);
+            $('#deletemodalform').attr('action', 'akhir/' + dataid[0]);
             $('#deletemodal').modal('show');
-            });
         });
-    </script>
-    <!-- jquery destudi -->
-    <script>
-        $(document).ready( function () {
-            $('#table-destudi').on('click', '.hapusdestudi', function(){
+    });
+</script>
+<!-- jquery destudi -->
+<script>
+    $(document).ready(function() {
+        $('#table-destudi').on('click', '.hapusdestudi', function() {
             const id = $(this).attr('data-id');
             console.log(id);
             // var col2=currentRow.find("td:eq(1)").text();
             // var datajudul=col2;
-    
-            $tr=$(this).closest("tr");
-            var dataid = $tr.children("td").map(function(){
+
+            $tr = $(this).closest("tr");
+            var dataid = $tr.children("td").map(function() {
                 return $(this).text();
             }).get();
             // $('#inputjudul').val(datajudul);
             $('#inputid').val(dataid[0]);
-            $('#deletemodalform').attr('action','destudi/'+dataid[0]);
+            $('#deletemodalform').attr('action', 'destudi/' + dataid[0]);
             $('#deletemodal').modal('show');
-            });
         });
-    </script>
-    <!-- jquery renaksi -->
-    <script>
-        $(document).ready( function () {
-            $('#table-renaksi').on('click', '.hapusrenaksi', function(){
+    });
+</script>
+<!-- jquery renaksi -->
+<script>
+    $(document).ready(function() {
+        $('#table-renaksi').on('click', '.hapusrenaksi', function() {
             const id = $(this).attr('data-id');
             console.log(id);
             // var col2=currentRow.find("td:eq(1)").text();
             // var datajudul=col2;
-    
-            $tr=$(this).closest("tr");
-            var dataid = $tr.children("td").map(function(){
+
+            $tr = $(this).closest("tr");
+            var dataid = $tr.children("td").map(function() {
                 return $(this).text();
             }).get();
             // $('#inputjudul').val(datajudul);
             $('#inputid').val(dataid[0]);
-            $('#deletemodalform').attr('action','renaksi/'+dataid[0]);
+            $('#deletemodalform').attr('action', 'renaksi/' + dataid[0]);
             $('#deletemodal').modal('show');
-            });
         });
-    </script>
+    });
+</script>
 @endsection
