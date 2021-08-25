@@ -1,14 +1,13 @@
 @extends('admin/main')
 
-@section('title', 'Edit Monev')
-
+@section('title', 'Edit Perencanaan')
 
 @section('breadcrumbs')
 <div class="breadcrumbs">
     <div class="col-sm-4">
         <div class="page-header float-left">
             <div class="page-title">
-                <h1>Detail Monitoring dan Evaluasi</h1>
+                <h1>Detail Perencanaan</h1>
             </div>
         </div>
     </div>
@@ -26,45 +25,38 @@
 
 @section('content')
 @if (session('success'))
-    <div class="alert alert-success">
-        <button type="button" class="close" data-dismiss="alert" aria-label="Close">
-            <i class="material-icons">close</i>
-        </button>
-        <span>
-            {{session('success')}}
-    </div>
-    @endif
+<div class="alert alert-success">
+    <button type="button" class="close" data-dismiss="alert" aria-label="Close">
+        <i class="material-icons">close</i>
+    </button>
+    <span>
+        {{session('success')}}
+</div>
+@endif
 <div class="container-fluid">
+
     <div>
         <a href="./" style="font-weight: 500;"><i class="fa fa-arrow-left"></i> Back
         </a>
     </div>
-    <div class="card">
-        <div class="card-header">
-            <h3 class="text-primary">
-                Data File {{$user->name}}
-            </h3>
-        </div>
-        <div class="row card-body">
+    <div class="card card-body">
+        <div class="row">
             <div class="col">
                 <ul class="nav nav-pills nav-fill">
                     <li class="nav-item">
-                        <a class="nav-link active" href="#bulanan" role="tab" data-toggle="tab">Laporan Bulanan</a>
+                        <a class="nav-link active" href="#matriks" role="tab" data-toggle="tab">Matriks</a>
                     </li>
                     <li class="nav-item">
-                        <a class="nav-link " href="#triwulan" role="tab" data-toggle="tab">Laporan Triwulan</a>
+                        <a class="nav-link " href="#rab" role="tab" data-toggle="tab">RAB</a>
                     </li>
                     <li class="nav-item">
-                        <a class="nav-link " href="#tengah" role="tab" data-toggle="tab">Laporan Tengah Tahun</a>
+                        <a class="nav-link " href="#kak" role="tab" data-toggle="tab">KAK</a>
                     </li>
                     <li class="nav-item">
-                        <a class="nav-link " href="#akhir" role="tab" data-toggle="tab">Laporan Akhir Tahun</a>
+                        <a class="nav-link " href="#proposal" role="tab" data-toggle="tab">Proposal</a>
                     </li>
                     <li class="nav-item">
-                        <a class="nav-link " href="#destudi" role="tab" data-toggle="tab">Laporan Destudi</a>
-                    </li>
-                    <li class="nav-item">
-                        <a class="nav-link " href="#renaksi" role="tab" data-toggle="tab">Laporan Renaksi</a>
+                        <a class="nav-link " href="#analisis" role="tab" data-toggle="tab">Analisis Resiko</a>
                     </li>
                 </ul>
             </div>
@@ -72,10 +64,10 @@
         <div class="row">
             <div class="col">
                 <div class="tab-content" id="nav-tabContent">
-                    <!-- Bulanan -->
-                    <div class="tab-pane fade show active" id="bulanan" role="tabpanel" aria-labelledby="nav-home-tab">
+                    <!-- Matriks -->
+                    <div class="tab-pane fade show active" id="matriks" role="tabpanel" aria-labelledby="nav-home-tab">
                         <div class="modal-body">
-                            <table class="table" id="table">
+                            <table class="table" id="table_matriks">
                                 <thead>
                                     <tr>
                                         <th hidden>id</th>
@@ -88,12 +80,12 @@
                                 </thead>
                                 <tbody>
                                     <!-- Isi dari keluaran data -->
-                                    @foreach ($bulanan as $f)
+                                    @foreach($matriks as $f)
                                     <tr>
                                         <td hidden="true">{{ $f->id }}</td>
                                         <td>{{ $loop->iteration }}</td>
-                                        <td>{{ $date = substr($f->created_at, 2, 8) }}
-                                        </td>
+                                        <input type="hidden" name="path" value=" {{$f->path}}">
+                                        <td>{{ $f->created_at }}</td>
                                         <td>{{ $f->name }}</td>
                                         @if ($f->status==1)
                                         <td>
@@ -109,16 +101,75 @@
                                         </td>
                                         @endif
                                         <td>
-                                            <form action="bulanan/{{$f->id}}" method="GET">
-                                                <input type="hidden" value="bulanan" name="jenis">
+                                            <form action="matriks/{{$f->id}}" method="GET">
+                                                <input type="hidden" value="matriks" name="jenis">
                                                 <button class="btn btn-warning btn-xs btn-edit" type="submit">
                                                     <i class="menu-icon fa fa-pencil"></i>
                                                 </button>
                                             </form>
                                         </td>
                                         <td>
-                                            <a href="javascript:void(0)" id="deletebtn" class="btn btn-danger btn-xs btn-hapus hapusbulanan" data-id="{{$f->id}}" ><i class="fa fa-trash-o"></i></a>
-                                            
+                                            <a href="javascript:void(0)" id="deletebtn" class="btn btn-danger btn-xs btn-hapus hapusmatriks" data-id="{{$f->id}}" ><i class="fa fa-trash-o"></i></a>
+                                        </td>
+                                        <td>
+                                            <input type="hidden" name="path" value=" {{ $f->path }}">
+                                            <button type="submit" class="btn btn-primary">
+                                                <i class="menu-icon fa fa-download"></i>
+                                            </button>
+                                        </td>
+                                        </form>
+                                    </tr>
+                                    @endforeach
+                                </tbody>
+                            </table>
+                        </div>
+                    </div>
+                    <!-- RAB -->
+                    <div class="tab-pane fade" id="rab" role="tabpanel" aria-labelledby="nav-profile-tab">
+                        <div class="modal-body">
+                            <table class="table" id="table_rab">
+                                <thead>
+                                    <tr>
+                                        <th hidden>id</th>
+                                        <th width=5%>No.</th>
+                                        <th>Date Upload</th>
+                                        <th width=30%>File Name</th>
+                                        <th width=20%>Status</th>
+                                        <th width=30% colspan="3">Action</th>
+                                    </tr>
+                                </thead>
+                                <tbody>
+                                    <!-- Isi dari keluaran data -->
+                                    @foreach($rab as $f)
+                                    <tr>
+                                        <td hidden="true">{{ $f->id }}</td>
+                                        <td>{{ $loop->iteration }}</td>
+                                        <input type="hidden" name="path" value=" {{$f->path}}">
+                                        <td>{{ $f->created_at }}</td>
+                                        <td>{{ $f->name }}</td>
+                                        @if ($f->status==1)
+                                        <td>
+                                            Menunggu Review
+                                        </td>
+                                        @elseif($f->status==2)
+                                        <td>
+                                            Revisi
+                                        </td>
+                                        @elseif($f->status==3)
+                                        <td>
+                                            Diterima
+                                        </td>
+                                        @endif
+                                        <td>
+                                            <form action="rab/{{$f->id}}" method="GET">
+                                                <input type="hidden" value="rab" name="jenis">
+                                                <button class="btn btn-warning btn-xs btn-edit" type="submit">
+                                                    <i class="menu-icon fa fa-pencil"></i>
+                                                </button>
+                                            </form>
+                                        </td>
+                                        <td>
+                                            <a href="javascript:void(0)" id="deletebtn" class="btn btn-danger btn-xs btn-hapus hapusrab" data-id="{{$f->id}}" ><i class="fa fa-trash-o"></i></a>
                                         </td>
                                         <td>
                                             <input type="hidden" name="path" value=" {{ $f->path }}">
@@ -133,11 +184,10 @@
                             </table>
                         </div>
                     </div>
-
-                    <!-- Triwulan -->
-                    <div class="tab-pane fade show " id="triwulan" role="tabpanel" aria-labelledby="nav-home-tab">
+                    <!-- KAK -->
+                    <div class="tab-pane fade" id="kak" role="tabpanel" aria-labelledby="nav-contact-tab">
                         <div class="modal-body">
-                            <table class="table" id="table-triwulan">
+                            <table class="table" id="table_kak">
                                 <thead>
                                     <tr>
                                         <th hidden>id</th>
@@ -150,13 +200,12 @@
                                 </thead>
                                 <tbody>
                                     <!-- Isi dari keluaran data -->
-                                    @foreach ($triwulan as $f)
+                                    @foreach($kak as $f)
                                     <tr>
                                         <td hidden="true">{{ $f->id }}</td>
                                         <td>{{ $loop->iteration }}</td>
-                                        <td>{{ $date = substr($f->created_at, 2, 8) }}
-                                        </td>
-                                        <input type="hidden" name="path" value=" {{ $f->path }}">
+                                        <input type="hidden" name="path" value=" {{$f->path}}">
+                                        <td>{{ $f->created_at }}</td>
                                         <td>{{ $f->name }}</td>
                                         @if ($f->status==1)
                                         <td>
@@ -172,16 +221,15 @@
                                         </td>
                                         @endif
                                         <td>
-                                            <form action="triwulan/{{$f->id}}" method="GET">
-                                                <input type="hidden" value="triwulan" name="jenis">
+                                            <form action="kak/{{$f->id}}" method="GET">
+                                                <input type="hidden" value="kak" name="jenis">
                                                 <button class="btn btn-warning btn-xs btn-edit" type="submit">
                                                     <i class="menu-icon fa fa-pencil"></i>
                                                 </button>
                                             </form>
                                         </td>
                                         <td>
-                                            <a href="javascript:void(0)" id="deletebtn" class="btn btn-danger btn-xs btn-hapus hapustriwulan" data-id="{{$f->id}}" ><i class="fa fa-trash-o"></i></a>
-                                            
+                                            <a href="javascript:void(0)" id="deletebtn" class="btn btn-danger btn-xs btn-hapus hapuskak" data-id="{{$f->id}}" ><i class="fa fa-trash-o"></i></a>
                                         </td>
                                         <td>
                                             <input type="hidden" name="path" value=" {{ $f->path }}">
@@ -196,11 +244,10 @@
                             </table>
                         </div>
                     </div>
-
-                    <!-- Tengah -->
-                    <div class="tab-pane fade show " id="tengah" role="tabpanel" aria-labelledby="nav-home-tab">
+                    <!-- Proposal -->
+                    <div class="tab-pane fade" id="proposal" role="tabpanel" aria-labelledby="nav-profile-tab">
                         <div class="modal-body">
-                            <table class="table" id="table-tengah">
+                            <table class="table" id="table_proposal">
                                 <thead>
                                     <tr>
                                         <th hidden>id</th>
@@ -213,13 +260,12 @@
                                 </thead>
                                 <tbody>
                                     <!-- Isi dari keluaran data -->
-                                    @foreach ($tengahTahun as $f)
+                                    @foreach($proposal as $f)
                                     <tr>
                                         <td hidden="true">{{ $f->id }}</td>
                                         <td>{{ $loop->iteration }}</td>
-                                        <td>{{ $date = substr($f->created_at, 2, 8) }}
-                                        </td>
-                                        <input type="hidden" name="path" value=" {{ $f->path }}">
+                                        <input type="hidden" name="path" value=" {{$f->path}}">
+                                        <td>{{ $f->created_at }}</td>
                                         <td>{{ $f->name }}</td>
                                         @if ($f->status==1)
                                         <td>
@@ -235,15 +281,15 @@
                                         </td>
                                         @endif
                                         <td>
-                                            <form action="tengah/{{$f->id}}" method="GET">
-                                                <input type="hidden" value="tengah" name="jenis">
+                                            <form action="proposal/{{$f->id}}" method="GET">
+                                                <input type="hidden" value="proposal" name="jenis">
                                                 <button class="btn btn-warning btn-xs btn-edit" type="submit">
                                                     <i class="menu-icon fa fa-pencil"></i>
                                                 </button>
                                             </form>
                                         </td>
                                         <td>
-                                            <a href="javascript:void(0)" id="deletebtn" class="btn btn-danger btn-xs btn-hapus hapustengah" data-id="{{$f->id}}" ><i class="fa fa-trash-o"></i></a>
+                                            <a href="javascript:void(0)" id="deletebtn" class="btn btn-danger btn-xs btn-hapus hapusproposal" data-id="{{$f->id}}" ><i class="fa fa-trash-o"></i></a>
                                         </td>
                                         <td>
                                             <input type="hidden" name="path" value=" {{ $f->path }}">
@@ -258,11 +304,10 @@
                             </table>
                         </div>
                     </div>
-
-                    <!-- Akhir -->
-                    <div class="tab-pane fade show " id="akhir" role="tabpanel" aria-labelledby="nav-home-tab">
+                    <!-- Analisis -->
+                    <div class="tab-pane fade" id="analisis" role="tabpanel" aria-labelledby="nav-contact-tab">
                         <div class="modal-body">
-                            <table class="table" id="table-akhir">
+                            <table class="table" id="table_analisis">
                                 <thead>
                                     <tr>
                                         <th hidden>id</th>
@@ -275,13 +320,11 @@
                                 </thead>
                                 <tbody>
                                     <!-- Isi dari keluaran data -->
-                                    @foreach ($akhirTahun as $f)
+                                    @foreach($analisis as $f)
                                     <tr>
                                         <td hidden="true">{{ $f->id }}</td>
                                         <td>{{ $loop->iteration }}</td>
-                                        <td>{{ $date = substr($f->created_at, 2, 8) }}
-                                        </td>
-                                        <input type="hidden" name="path" value=" {{ $f->path }}">
+                                        <td>{{ $f->created_at }}</td>
                                         <td>{{ $f->name }}</td>
                                         @if ($f->status==1)
                                         <td>
@@ -297,139 +340,15 @@
                                         </td>
                                         @endif
                                         <td>
-                                            <form action="akhir/{{$f->id}}" method="GET">
-                                                <input type="hidden" value="akhir" name="jenis">
+                                            <form action="analisis/{{$f->id}}" method="GET">
+                                                <input type="hidden" value="analisis" name="jenis">
                                                 <button class="btn btn-warning btn-xs btn-edit" type="submit">
                                                     <i class="menu-icon fa fa-pencil"></i>
                                                 </button>
                                             </form>
                                         </td>
                                         <td>
-                                            <a href="javascript:void(0)" id="deletebtn" class="btn btn-danger btn-xs btn-hapus hapusakhir" data-id="{{$f->id}}" ><i class="fa fa-trash-o"></i></a>
-                                        </td>
-                                        <td>
-                                            <input type="hidden" name="path" value=" {{ $f->path }}">
-                                            <button type="submit" class="btn btn-primary">
-                                                <i class="menu-icon fa fa-download"></i>
-                                            </button>
-                                            </form>
-                                        </td>
-                                    </tr>
-                                    @endforeach
-                                </tbody>
-                            </table>
-                        </div>
-                    </div>
-
-                    <!-- Destudi -->
-                    <div class="tab-pane fade show " id="destudi" role="tabpanel" aria-labelledby="nav-home-tab">
-                        <div class="modal-body">
-                            <table class="table" id="table-destudi">
-                                <thead>
-                                    <tr>
-                                        <th hidden>id</th>
-                                        <th width=5%>No.</th>
-                                        <th>Date Upload</th>
-                                        <th width=30%>File Name</th>
-                                        <th width=20%>Status</th>
-                                        <th width=30% colspan="3">Action</th>
-                                    </tr>
-                                </thead>
-                                <tbody>
-                                    <!-- Isi dari keluaran data -->
-                                    @foreach ($destudi as $f)
-                                    <tr>
-                                        <td hidden="true">{{ $f->id }}</td>
-                                        <td>{{ $loop->iteration }}</td>
-                                        <td>{{ $date = substr($f->created_at, 2, 8) }}
-                                        </td>
-                                        <input type="hidden" name="path" value=" {{ $f->path }}">
-                                        <td>{{ $f->name }}</td>
-                                        @if ($f->status==1)
-                                        <td>
-                                            Menunggu Review
-                                        </td>
-                                        @elseif($f->status==2)
-                                        <td>
-                                            Revisi
-                                        </td>
-                                        @elseif($f->status==3)
-                                        <td>
-                                            Diterima
-                                        </td>
-                                        @endif
-                                        <td>
-                                            <form action="destudi/{{$f->id}}" method="GET">
-                                                <input type="hidden" value="destudi" name="jenis">
-                                                <button class="btn btn-warning btn-xs btn-edit" type="submit">
-                                                    <i class="menu-icon fa fa-pencil"></i>
-                                                </button>
-                                            </form>
-                                        </td>
-                                        <td>
-                                            <a href="javascript:void(0)" id="deletebtn" class="btn btn-danger btn-xs btn-hapus hapusdestudi" data-id="{{$f->id}}" ><i class="fa fa-trash-o"></i></a>
-                                        </td>
-                                        <td>
-                                            <input type="hidden" name="path" value=" {{ $f->path }}">
-                                            <button type="submit" class="btn btn-primary">
-                                                <i class="menu-icon fa fa-download"></i>
-                                            </button>
-                                            </form>
-                                        </td>
-                                    </tr>
-                                    @endforeach
-                                </tbody>
-                            </table>
-                        </div>
-                    </div>
-
-                    <!-- Renaksi -->
-                    <div class="tab-pane fade show " id="renaksi" role="tabpanel" aria-labelledby="nav-home-tab">
-                        <div class="modal-body">
-                            <table class="table" id="table-renaksi">
-                                <thead>
-                                    <tr>
-                                        <th hidden>id</th>
-                                        <th width=5%>No.</th>
-                                        <th>Date Upload</th>
-                                        <th width=30%>File Name</th>
-                                        <th width=20%>Status</th>
-                                        <th width=30% colspan="3">Action</th>
-                                    </tr>
-                                </thead>
-                                <tbody>
-                                    <!-- Isi dari keluaran data -->
-                                    @foreach ($renaksi as $f)
-                                    <tr>
-                                        <td hidden="true">{{ $f->id }}</td>
-                                        <td>{{ $loop->iteration }}</td>
-                                        <td>{{ $date = substr($f->created_at, 2, 8) }}
-                                        </td>
-                                        <input type="hidden" name="path" value=" {{ $f->path }}">
-                                        <td>{{ $f->name }}</td>
-                                        @if ($f->status==1)
-                                        <td>
-                                            Menunggu Review
-                                        </td>
-                                        @elseif($f->status==2)
-                                        <td>
-                                            Revisi
-                                        </td>
-                                        @elseif($f->status==3)
-                                        <td>
-                                            Diterima
-                                        </td>
-                                        @endif
-                                        <td>
-                                            <form action="renaksi/{{$f->id}}" method="GET">
-                                                <input type="hidden" value="renaksi" name="jenis">
-                                                <button class="btn btn-warning btn-xs btn-edit" type="submit">
-                                                    <i class="menu-icon fa fa-pencil"></i>
-                                                </button>
-                                            </form>
-                                        </td>
-                                        <td>
-                                            <a href="javascript:void(0)" id="deletebtn" class="btn btn-danger btn-xs btn-hapus hapusrenaksi" data-id="{{$f->id}}" ><i class="fa fa-trash-o"></i></a>
+                                            <a href="javascript:void(0)" id="deletebtn" class="btn btn-danger btn-xs btn-hapus hapusanalisis" data-id="{{$f->id}}" ><i class="fa fa-trash-o"></i></a>
                                         </td>
                                         <td>
                                             <input type="hidden" name="path" value=" {{ $f->path }}">
@@ -448,7 +367,7 @@
             </div>
         </div>
     </div>
-
+    </div>
     <!-- Modal Confirm Delete -->
     <div class="modal fade" id="deletemodal" tabindex="-1">
         <div class="modal-dialog modal-dialog-centered">
@@ -477,134 +396,132 @@
     </div>
       <!-- End Modal Delete  -->
 </div>
-    <script src="https://code.jquery.com/jquery-3.3.1.min.js"></script>
-    <script>
-        jQuery(document).ready(function() {
-            $('#table').DataTable();
-        // $(document).ready( function () {
-        // $('#table-datatables').DataTable();
+<!-- script -->
+<script>
+    jQuery(document).ready(function() {
+        // DataTables
+
+        $('.datatables').DataTable({
+            responsive: true
         });
-    
-    </script>
-    
-    <!-- jquery bulanan -->
-    <script>
-        $(document).ready( function () {
-            $('#table').on('click', '.hapusbulanan', function(){
-            const id = $(this).attr('data-id');
-            console.log(id);
-            // var col2=currentRow.find("td:eq(1)").text();
-            // var datajudul=col2;
-    
-            $tr=$(this).closest("tr");
-            var dataid = $tr.children("td").map(function(){
-                return $(this).text();
-            }).get();
-            // $('#inputjudul').val(datajudul);
-            $('#inputid').val(dataid[0]);
-            $('#deletemodalform').attr('action','bulanan/'+dataid[0]);
-            $('#deletemodal').modal('show');
-            });
+
+        $('a[data-toggle="tab"]').on('shown.bs.tab', function(e) {
+            $($.fn.dataTable.tables(true)).DataTable().columns.adjust().responsive.recalc();
         });
-    </script>
-    <!-- jquery triwulan -->
+
+        // Sidebar Active
+        $(".nav a").on("click", function() {
+            $(".nav a").removeClass("active");
+            $(this).addClass("active");
+        });
+    });
+</script>
+<script src="https://code.jquery.com/jquery-3.3.1.min.js"></script>
     <script>
         $(document).ready( function () {
-            $('#table-triwulan').on('click', '.hapustriwulan', function(){
-            const id = $(this).attr('data-id');
-            console.log(id);
-            // var col2=currentRow.find("td:eq(1)").text();
-            // var datajudul=col2;
+        $('#table-datatables').DataTable();
+    } );
     
-            $tr=$(this).closest("tr");
-            var dataid = $tr.children("td").map(function(){
-                return $(this).text();
-            }).get();
-            // $('#inputjudul').val(datajudul);
-            $('#inputid').val(dataid[0]);
-            $('#deletemodalform').attr('action','triwulan/'+dataid[0]);
-            $('#deletemodal').modal('show');
-            });
-        });
     </script>
-    <!-- jquery tengah tahun -->
-    <script>
-        $(document).ready( function () {
-            $('#table-tengah').on('click', '.hapustengah', function(){
-            const id = $(this).attr('data-id');
-            console.log(id);
-            // var col2=currentRow.find("td:eq(1)").text();
-            // var datajudul=col2;
-    
-            $tr=$(this).closest("tr");
-            var dataid = $tr.children("td").map(function(){
-                return $(this).text();
-            }).get();
-            // $('#inputjudul').val(datajudul);
-            $('#inputid').val(dataid[0]);
-            $('#deletemodalform').attr('action','tengah/'+dataid[0]);
-            $('#deletemodal').modal('show');
-            });
+<!-- jquery matriks -->
+<script>
+    $(document).ready( function () {
+        $('#table-matriks').on('click', '.hapusmatriks', function(){
+        const id = $(this).attr('data-id');
+        console.log(id);
+        // var col2=currentRow.find("td:eq(1)").text();
+        // var datajudul=col2;
+
+        $tr=$(this).closest("tr");
+        var dataid = $tr.children("td").map(function(){
+            return $(this).text();
+        }).get();
+        // $('#inputjudul').val(datajudul);
+        $('#inputid').val(dataid[0]);
+        $('#deletemodalform').attr('action','matriks/'+dataid[0]);
+        $('#deletemodal').modal('show');
         });
-    </script>
-    <!-- jquery akhir tahun -->
-    <script>
-        $(document).ready( function () {
-            $('#table-akhir').on('click', '.hapusakhir', function(){
-            const id = $(this).attr('data-id');
-            console.log(id);
-            // var col2=currentRow.find("td:eq(1)").text();
-            // var datajudul=col2;
-    
-            $tr=$(this).closest("tr");
-            var dataid = $tr.children("td").map(function(){
-                return $(this).text();
-            }).get();
-            // $('#inputjudul').val(datajudul);
-            $('#inputid').val(dataid[0]);
-            $('#deletemodalform').attr('action','akhir/'+dataid[0]);
-            $('#deletemodal').modal('show');
-            });
+    });
+</script>
+<!-- jquery rab -->
+<script>
+    $(document).ready( function () {
+        $('#table-rab').on('click', '.hapusrab', function(){
+        const id = $(this).attr('data-id');
+        console.log(id);
+        // var col2=currentRow.find("td:eq(1)").text();
+        // var datajudul=col2;
+
+        $tr=$(this).closest("tr");
+        var dataid = $tr.children("td").map(function(){
+            return $(this).text();
+        }).get();
+        // $('#inputjudul').val(datajudul);
+        $('#inputid').val(dataid[0]);
+        $('#deletemodalform').attr('action','rab/'+dataid[0]);
+        $('#deletemodal').modal('show');
         });
-    </script>
-    <!-- jquery destudi -->
-    <script>
-        $(document).ready( function () {
-            $('#table-destudi').on('click', '.hapusdestudi', function(){
-            const id = $(this).attr('data-id');
-            console.log(id);
-            // var col2=currentRow.find("td:eq(1)").text();
-            // var datajudul=col2;
-    
-            $tr=$(this).closest("tr");
-            var dataid = $tr.children("td").map(function(){
-                return $(this).text();
-            }).get();
-            // $('#inputjudul').val(datajudul);
-            $('#inputid').val(dataid[0]);
-            $('#deletemodalform').attr('action','destudi/'+dataid[0]);
-            $('#deletemodal').modal('show');
-            });
+    });
+</script>
+<!-- jquery kak -->
+<script>
+    $(document).ready( function () {
+        $('#table-kak').on('click', '.hapuskak', function(){
+        const id = $(this).attr('data-id');
+        console.log(id);
+        // var col2=currentRow.find("td:eq(1)").text();
+        // var datajudul=col2;
+
+        $tr=$(this).closest("tr");
+        var dataid = $tr.children("td").map(function(){
+            return $(this).text();
+        }).get();
+        // $('#inputjudul').val(datajudul);
+        $('#inputid').val(dataid[0]);
+        $('#deletemodalform').attr('action','kak/'+dataid[0]);
+        $('#deletemodal').modal('show');
         });
-    </script>
-    <!-- jquery renaksi -->
-    <script>
-        $(document).ready( function () {
-            $('#table-renaksi').on('click', '.hapusrenaksi', function(){
-            const id = $(this).attr('data-id');
-            console.log(id);
-            // var col2=currentRow.find("td:eq(1)").text();
-            // var datajudul=col2;
-    
-            $tr=$(this).closest("tr");
-            var dataid = $tr.children("td").map(function(){
-                return $(this).text();
-            }).get();
-            // $('#inputjudul').val(datajudul);
-            $('#inputid').val(dataid[0]);
-            $('#deletemodalform').attr('action','renaksi/'+dataid[0]);
-            $('#deletemodal').modal('show');
-            });
+    });
+</script>
+<!-- jquery proposal -->
+<script>
+    $(document).ready( function () {
+        $('#table-proposal').on('click', '.hapusproposal', function(){
+        const id = $(this).attr('data-id');
+        console.log(id);
+        // var col2=currentRow.find("td:eq(1)").text();
+        // var datajudul=col2;
+
+        $tr=$(this).closest("tr");
+        var dataid = $tr.children("td").map(function(){
+            return $(this).text();
+        }).get();
+        // $('#inputjudul').val(datajudul);
+        $('#inputid').val(dataid[0]);
+        $('#deletemodalform').attr('action','proposal/'+dataid[0]);
+        $('#deletemodal').modal('show');
         });
-    </script>
+    });
+</script>
+<!-- jquery analisis -->
+<script>
+    $(document).ready( function () {
+        $('#table-analisis').on('click', '.hapusanalisis', function(){
+        const id = $(this).attr('data-id');
+        console.log(id);
+        // var col2=currentRow.find("td:eq(1)").text();
+        // var datajudul=col2;
+
+        $tr=$(this).closest("tr");
+        var dataid = $tr.children("td").map(function(){
+            return $(this).text();
+        }).get();
+        // $('#inputjudul').val(datajudul);
+        $('#inputid').val(dataid[0]);
+        $('#deletemodalform').attr('action','analisis/'+dataid[0]);
+        $('#deletemodal').modal('show');
+        });
+    });
+</script>
+
 @endsection

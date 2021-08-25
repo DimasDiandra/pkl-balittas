@@ -42,9 +42,6 @@ The above copyright notice and this permission notice shall be included in all c
     <script src="{{ asset('style/assets/js/plugins.js') }}"></script>
     <!-- Bootstrap tooltips -->
     <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.4/umd/popper.min.js"></script>
-    <!-- Bootstrap core JavaScript -->
-    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
-    <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/4.5.0/js/bootstrap.min.js"></script>
     <!-- DataTables -->
     <script src="https://cdn.datatables.net/1.10.25/js/jquery.dataTables.min.js"></script>
     <script src="https://cdn.datatables.net/1.10.25/js/dataTables.bootstrap5.min.js"></script>
@@ -95,8 +92,8 @@ The above copyright notice and this permission notice shall be included in all c
         </div>
         <div class="main-panel">
             <!-- Navbar -->
-               
-                {{-- add style="display: none;" if you have to hide it --}}
+
+            {{-- add style="display: none;" if you have to hide it --}}
             <nav class="navbar navbar-expand-lg navbar-transparent navbar-absolute fixed-top ">
                 <div class="container-fluid">
                     <div class="navbar-wrapper">

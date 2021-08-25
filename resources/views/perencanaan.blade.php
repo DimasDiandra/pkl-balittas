@@ -261,7 +261,7 @@
                         <!-- Matriks -->
                         <div class="tab-pane fade show active" id="matriks" role="tabpanel" aria-labelledby="nav-home-tab">
                             <div class="modal-body">
-                                <table class="table datatables">
+                                <table class="table" id="table_matriks">
                                     <thead>
                                         <tr>
                                             <th width=10%>No.</th>
@@ -280,19 +280,15 @@
                                                 <input type="hidden" name="path" value=" {{$f->path}}">
                                                 <td>{{ $f->name }}</td>
                                                 <td>{{ $f->created_at }}</td>
-                                                @if ($f->status==1)
                                                 <td>
+                                                    @if ($f->status==1)
                                                     Menunggu Review
-                                                </td>
-                                                @elseif($f->status==2)
-                                                <td>
+                                                    @elseif($f->status==2)
                                                     Revisi
-                                                </td>
-                                                @elseif($f->status==3)
-                                                <td>
+                                                    @elseif($f->status==3)
                                                     Diterima
+                                                    @endif
                                                 </td>
-                                                @endif
                                                 <td>
                                                     <button type="submit" class="btn btn-primary float-right">
                                                         <i class="menu-icon fa fa-download"></i> Download
@@ -308,14 +304,13 @@
                         <!-- RAB -->
                         <div class="tab-pane fade" id="rab" role="tabpanel" aria-labelledby="nav-profile-tab">
                             <div class="modal-body">
-                                <table class="table">
+                                <table class="table" id="table_rab">
                                     <thead>
                                         <tr>
                                             <th width=10%>No.</th>
                                             <th width=30%>File Name</th>
                                             <th width=20%>Date Upload</th>
                                             <th width=20%>Status</th>
-
                                             <th></th>
                                         </tr>
                                     </thead>
@@ -328,21 +323,17 @@
                                                 <input type="hidden" name="path" value=" {{$f->path}}">
                                                 <td>{{ $f->name }}</td>
                                                 <td>{{ $f->created_at }}</td>
-                                                @if ($f->status==1)
                                                 <td>
+                                                    @if ($f->status==1)
                                                     Menunggu Review
-                                                </td>
-                                                @elseif($f->status==2)
-                                                <td>
+                                                    @elseif($f->status==2)
                                                     Revisi
-                                                </td>
-                                                @elseif($f->status==3)
-                                                <td>
+                                                    @elseif($f->status==3)
                                                     Diterima
+                                                    @endif
                                                 </td>
-                                                @endif
-                                                <td class="float-right">
-                                                    <button type="submit" class="btn btn-primary">
+                                                <td>
+                                                    <button type="submit" class="btn btn-primary float-right">
                                                         <i class="menu-icon fa fa-download"></i> Download
                                                     </button>
                                                 </td>
@@ -356,14 +347,13 @@
                         <!-- KAK -->
                         <div class="tab-pane fade" id="kak" role="tabpanel" aria-labelledby="nav-contact-tab">
                             <div class="modal-body">
-                                <table class="table">
+                                <table class="table" id="table_kak">
                                     <thead>
                                         <tr>
                                             <th width=10%>No.</th>
                                             <th width=30%>File Name</th>
                                             <th width=20%>Date Upload</th>
                                             <th width=20%>Status</th>
-
                                             <th></th>
                                         </tr>
                                     </thead>
@@ -376,21 +366,17 @@
                                                 <input type="hidden" name="path" value=" {{$f->path}}">
                                                 <td>{{ $f->name }}</td>
                                                 <td>{{ $f->created_at }}</td>
-                                                @if ($f->status==1)
                                                 <td>
+                                                    @if ($f->status==1)
                                                     Menunggu Review
-                                                </td>
-                                                @elseif($f->status==2)
-                                                <td>
+                                                    @elseif($f->status==2)
                                                     Revisi
-                                                </td>
-                                                @elseif($f->status==3)
-                                                <td>
+                                                    @elseif($f->status==3)
                                                     Diterima
+                                                    @endif
                                                 </td>
-                                                @endif
-                                                <td class="float-right">
-                                                    <button type="submit" class="btn btn-primary">
+                                                <td>
+                                                    <button type="submit" class="btn btn-primary float-right">
                                                         <i class="menu-icon fa fa-download"></i> Download
                                                     </button>
                                                 </td>
@@ -404,14 +390,13 @@
                         <!-- Proposal -->
                         <div class="tab-pane fade" id="proposal" role="tabpanel" aria-labelledby="nav-profile-tab">
                             <div class="modal-body">
-                                <table class="table">
+                                <table class="table" id="table_proposal">
                                     <thead>
                                         <tr>
                                             <th width=10%>No.</th>
                                             <th width=30%>File Name</th>
                                             <th width=20%>Date Upload</th>
                                             <th width=20%>Status</th>
-
                                             <th></th>
                                         </tr>
                                     </thead>
@@ -424,21 +409,17 @@
                                                 <input type="hidden" name="path" value=" {{$f->path}}">
                                                 <td>{{ $f->name }}</td>
                                                 <td>{{ $f->created_at }}</td>
-                                                @if ($f->status==1)
                                                 <td>
+                                                    @if ($f->status==1)
                                                     Menunggu Review
-                                                </td>
-                                                @elseif($f->status==2)
-                                                <td>
+                                                    @elseif($f->status==2)
                                                     Revisi
-                                                </td>
-                                                @elseif($f->status==3)
-                                                <td>
+                                                    @elseif($f->status==3)
                                                     Diterima
+                                                    @endif
                                                 </td>
-                                                @endif
-                                                <td class="float-right">
-                                                    <button type="submit" class="btn btn-primary">
+                                                <td>
+                                                    <button type="submit" class="btn btn-primary float-right">
                                                         <i class="menu-icon fa fa-download"></i> Download
                                                     </button>
                                                 </td>
@@ -452,14 +433,13 @@
                         <!-- Analisis -->
                         <div class="tab-pane fade" id="analisis" role="tabpanel" aria-labelledby="nav-contact-tab">
                             <div class="modal-body">
-                                <table class="table">
+                                <table class="table" id="table_analisis">
                                     <thead>
                                         <tr>
                                             <th width=10%>No.</th>
                                             <th width=30%>File Name</th>
                                             <th width=20%>Date Upload</th>
                                             <th width=20%>Status</th>
-
                                             <th></th>
                                         </tr>
                                     </thead>
@@ -472,21 +452,17 @@
                                                 <input type="hidden" name="path" value=" {{$f->path}}">
                                                 <td>{{ $f->name }}</td>
                                                 <td>{{ $f->created_at }}</td>
-                                                @if ($f->status==1)
                                                 <td>
+                                                    @if ($f->status==1)
                                                     Menunggu Review
-                                                </td>
-                                                @elseif($f->status==2)
-                                                <td>
+                                                    @elseif($f->status==2)
                                                     Revisi
-                                                </td>
-                                                @elseif($f->status==3)
-                                                <td>
+                                                    @elseif($f->status==3)
                                                     Diterima
+                                                    @endif
                                                 </td>
-                                                @endif
-                                                <td class="float-right">
-                                                    <button type="submit" class="btn btn-primary">
+                                                <td>
+                                                    <button type="submit" class="btn btn-primary float-right">
                                                         <i class="menu-icon fa fa-download"></i> Download
                                                     </button>
                                                 </td>

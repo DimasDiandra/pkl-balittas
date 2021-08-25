@@ -67,6 +67,7 @@
 
                 </tbody>
             </table>
+            <a href="{{ url('admin/evaluasi/file') }}" class="btn btn-primary"><i class="fa fa-file"></i> Lihat Semua File</a>
         </div>
     </div>
 </div>

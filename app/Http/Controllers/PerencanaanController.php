@@ -54,6 +54,18 @@ class PerencanaanController extends Controller
         // return view('admin.editperencanaan', compact('title', 'data'));
     }
 
+    public function semuafile()
+    {
+        $analisis = Analisis::orderBy('created_at', 'ASC')->get();
+        $matriks = Matriks::orderBy('created_at', 'ASC')->get();
+        $proposal = Proposal::orderBy('created_at', 'ASC')->get();
+        $rab = RAB::orderBy('created_at', 'ASC')->get();
+        $kak = KAK::orderBy('created_at', 'ASC')->get();
+        return view('admin.PerencanaanSemuaFile', ['analisis' => $analisis, 'kak' => $kak, 'matriks' => $matriks, 'proposal' => $proposal, 'rab' => $rab]);
+
+        // return view('admin.editperencanaan', compact('title', 'data'));
+    }
+
     public function perencanaan()
     {
         $analisis = Analisis::where('user_id', Auth::user()->id)->get();
@@ -291,9 +303,9 @@ class PerencanaanController extends Controller
             // 'kak' => 'required|file|mimes:docx,pdf,|max:15000',
             // 'proposal' => 'required|file|mimes:docx,pdf,|max:15000',
             // 'analisis' => 'required|file|mimes:xlsx,xls,|max:15000',
-            'matriks' => 'required|file|mimes:docx,pdf|max:15000',
-            'rab' => 'required|file|mimes:xlsx,xls,|max:15000',
-            'kak' => 'required|file|mimes:docx,pdf,|max:15000',
+            'matriks' => 'nullable|file|mimes:docx,pdf|max:15000',
+            'rab' => 'nullable|file|mimes:xlsx,xls,|max:15000',
+            'kak' => 'nullable|file|mimes:docx,pdf,|max:15000',
             'proposal' => 'nullable|file|mimes:docx,pdf,|max:15000',
             'analisis' => 'nullable|file|mimes:xlsx,xls,|max:15000',
 
