@@ -78,7 +78,7 @@
             </div>
         </div>
         <!-- pengumuman -->
-        <div class="card shadow" style="height: 45vh;" style="overflow-y: auto;">>
+        <div class="card shadow" style="height: 45vh;" style="overflow-y: auto;">
             <div class="card-header py-3">
                 <h6 class="m-0 text-primary">Pengumuman</h6>
             </div>
