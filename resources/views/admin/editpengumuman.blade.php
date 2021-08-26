@@ -35,7 +35,7 @@
 @endif
 <div class="content mt-3">
     <div>
-        <a href="{{ URL::previous()}}" style="font-weight: 500;"><i class="fa fa-arrow-left"></i> Back
+        <a onclick="goBack()" style="font-weight: 500; cursor:pointer;" class="text-primary"><i class="fa fa-arrow-left"></i> Back
         </a>
     </div>
     <div class="card">

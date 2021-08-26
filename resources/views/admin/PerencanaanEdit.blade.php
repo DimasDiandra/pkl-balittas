@@ -4,18 +4,9 @@
 
 
 @section('content')
-@if (session('success'))
-<div class="alert alert-success">
-    <button type="button" class="close" data-dismiss="alert" aria-label="Close">
-        <i class="material-icons">close</i>
-    </button>
-    <span>
-        {{session('success')}}
-</div>
-@endif
 <div class="container-fluid">
     <div>
-        <a href="{{ URL::previous()}}" style="font-weight: 500;"><i class="fa fa-arrow-left"></i> Back
+        <a onclick="goBack()" style="font-weight: 500; cursor:pointer;" class="text-primary"><i class="fa fa-arrow-left"></i> Back
         </a>
     </div>
     <div class="card">

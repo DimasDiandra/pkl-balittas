@@ -38,15 +38,17 @@ class ReportController extends Controller
         $renaksi = laporan_renaksi::orderBy('created_at', 'DESC')->get();
         $projek = Projek::all();
 
-        if(session('success')){
+        if (session('success')) {
             Alert::success('Sukses!', session('success'));
         }
 
-        return view('report', 
-        [
-            'bulanan' => $bulanan, 'triwulan' => $triwulan, 'tengahTahun' => $tengahTahun, 'akhirTahun' => $akhirTahun, 'destudi' => $destudi,
-            'renaksi' => $renaksi, 'projek' => $projek
-        ]);
+        return view(
+            'report',
+            [
+                'bulanan' => $bulanan, 'triwulan' => $triwulan, 'tengahTahun' => $tengahTahun, 'akhirTahun' => $akhirTahun, 'destudi' => $destudi,
+                'renaksi' => $renaksi, 'projek' => $projek
+            ]
+        );
     }
 
     public function semuafile()
@@ -59,16 +61,18 @@ class ReportController extends Controller
         $renaksi = laporan_renaksi::orderBy('created_at', 'ASC')->get();
         $projek = Projek::all();
 
-        if(session('success')){
+        if (session('success')) {
             Alert::success('Sukses!', session('success'));
         }
 
-        return view('admin.ReportSemuaFile', 
-        [
-            'bulanan' => $bulanan, 'triwulan' => $triwulan, 'tengahTahun' => $tengahTahun, 'akhirTahun' => $akhirTahun, 'destudi' => $destudi,
-            'renaksi' => $renaksi, 'projek' => $projek
-        ]);
-    } 
+        return view(
+            'admin.ReportSemuaFile',
+            [
+                'bulanan' => $bulanan, 'triwulan' => $triwulan, 'tengahTahun' => $tengahTahun, 'akhirTahun' => $akhirTahun, 'destudi' => $destudi,
+                'renaksi' => $renaksi, 'projek' => $projek
+            ]
+        );
+    }
 
     public function viewbulanan($id, Request $request)
     {
@@ -76,7 +80,7 @@ class ReportController extends Controller
         $projek = projek::where('id', $data->projek_id)->first();
         $user = User::where('id', $data->user_id)->first();
         $jenis = $request->jenis;
-        if(session('success')){
+        if (session('success')) {
             Alert::success('Sukses!', session('success'));
         }
         return view('admin.ReportEdit', compact('data', 'projek', 'user', 'jenis'));
@@ -87,7 +91,7 @@ class ReportController extends Controller
         $projek = projek::where('id', $data->projek_id)->first();
         $user = User::where('id', $data->user_id)->first();
         $jenis = $request->jenis;
-        if(session('success')){
+        if (session('success')) {
             Alert::success('Sukses!', session('success'));
         }
         return view('admin.ReportEdit', compact('data', 'projek', 'user', 'jenis'));
@@ -98,7 +102,7 @@ class ReportController extends Controller
         $projek = projek::where('id', $data->projek_id)->first();
         $user = User::where('id', $data->user_id)->first();
         $jenis = $request->jenis;
-        if(session('success')){
+        if (session('success')) {
             Alert::success('Sukses!', session('success'));
         }
         return view('admin.ReportEdit', compact('data', 'projek', 'user', 'jenis'));
@@ -109,7 +113,7 @@ class ReportController extends Controller
         $projek = projek::where('id', $data->projek_id)->first();
         $user = User::where('id', $data->user_id)->first();
         $jenis = $request->jenis;
-        if(session('success')){
+        if (session('success')) {
             Alert::success('Sukses!', session('success'));
         }
         return view('admin.ReportEdit', compact('data', 'projek', 'user', 'jenis'));
@@ -120,7 +124,7 @@ class ReportController extends Controller
         $projek = projek::where('id', $data->projek_id)->first();
         $user = User::where('id', $data->user_id)->first();
         $jenis = $request->jenis;
-        if(session('success')){
+        if (session('success')) {
             Alert::success('Sukses!', session('success'));
         }
         return view('admin.ReportEdit', compact('data', 'projek', 'user', 'jenis'));
@@ -131,7 +135,7 @@ class ReportController extends Controller
         $projek = projek::where('id', $data->projek_id)->first();
         $user = User::where('id', $data->user_id)->first();
         $jenis = $request->jenis;
-        if(session('success')){
+        if (session('success')) {
             Alert::success('Sukses!', session('success'));
         }
         return view('admin.ReportEdit', compact('data', 'projek', 'user', 'jenis'));
@@ -152,7 +156,7 @@ class ReportController extends Controller
         // $data->notify(new StatusNotification($data));
         $user = User::where('id', $data->user_id)->get('id');
         Notification::send($user, new StatusNotification($data));
-        return redirect()->back()->with('success', 'Berhasil Mengubah Data');
+        return redirect('admin/evaluasi')->with('success', 'Data Berhasil Diperbarui');
     }
 
     public function statustriwulan($id, Request $request)
@@ -169,7 +173,7 @@ class ReportController extends Controller
 
         $user = User::where('id', $data->user_id)->get('id');
         Notification::send($user, new StatusNotification($data));
-        return redirect()->back()->with('success', 'Berhasil Mengubah Data');
+        return redirect('admin/evaluasi')->with('success', 'Data Berhasil Diperbarui');
     }
 
     public function statustengah($id, Request $request)
@@ -186,7 +190,7 @@ class ReportController extends Controller
 
         $user = User::where('id', $data->user_id)->get('id');
         Notification::send($user, new StatusNotification($data));
-        return redirect()->back()->with('success', 'Berhasil Mengubah Data');
+        return redirect('admin/evaluasi')->with('success', 'Data Berhasil Diperbarui');
     }
 
     public function statusakhir($id, Request $request)
@@ -203,7 +207,7 @@ class ReportController extends Controller
 
         $user = User::where('id', $data->user_id)->get('id');
         Notification::send($user, new StatusNotification($data));
-        return redirect()->back()->with('success', 'Berhasil Mengubah Data');
+        return redirect('admin/evaluasi')->with('success', 'Data Berhasil Diperbarui');
     }
 
     public function statusdestudi($id, Request $request)
@@ -220,7 +224,7 @@ class ReportController extends Controller
 
         $user = User::where('id', $data->user_id)->get('id');
         Notification::send($user, new StatusNotification($data));
-        return redirect()->back()->with('success', 'Berhasil Mengubah Data');
+        return redirect('admin/evaluasi')->with('success', 'Data Berhasil Diperbarui');
     }
 
     public function statusrenaksi($id, Request $request)
@@ -237,7 +241,7 @@ class ReportController extends Controller
 
         $user = User::where('id', $data->user_id)->get('id');
         Notification::send($user, new StatusNotification($data));
-        return redirect()->back()->with('success', 'Berhasil Mengubah Data');
+        return redirect('admin/evaluasi')->with('success', 'Data Berhasil Diperbarui');
     }
 
     public function deletebulanan($id)
@@ -414,7 +418,7 @@ class ReportController extends Controller
             $projek->renaksi_status = 1;
             $projek->save();
         };
-        if(session('success')){
+        if (session('success')) {
             Alert::success('Sukses!', session('success'));
         }
 
@@ -444,13 +448,13 @@ class ReportController extends Controller
         // $title = 'Data peserta';
         // $data = User::orderBy('name','asc')->get();
         // return view('admin.datauser',compact('title','data'));
-        if(session('success')){
+        if (session('success')) {
             Alert::success('Sukses!', session('success'));
         }
 
         $userdata = DB::table('users')->get();
         $projekdata = Projek::all();
-        
+
         return view('admin.ReportViewUser', compact('userdata', 'projekdata'));
     }
 
@@ -464,8 +468,8 @@ class ReportController extends Controller
         $renaksi = laporan_renaksi::where('user_id', $id)->get();
         $user = User::find($id);
         $projek = Projek::all();
-        
-        if(session('success')){
+
+        if (session('success')) {
             Alert::success('Sukses!', session('success'));
         }
 

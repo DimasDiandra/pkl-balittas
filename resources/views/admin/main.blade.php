@@ -361,6 +361,12 @@ The above copyright notice and this permission notice shall be included in all c
     <script src="https://unpkg.com/sweetalert/dist/sweetalert.min.js"></script>
     @include('sweetalert::alert')
 
+    <script>
+        function goBack() {
+            window.history.back();
+        }
+    </script>
+
 
 </body>
 

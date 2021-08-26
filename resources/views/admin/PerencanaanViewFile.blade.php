@@ -36,11 +36,16 @@
 <div class="container-fluid">
 
     <div>
-        <a href="{{ URL::previous()}}" style="font-weight: 500;"><i class="fa fa-arrow-left"></i> Back
+        <a href="/admin/perencanaan" style="font-weight: 500; cursor:pointer;" class="text-primary"><i class="fa fa-arrow-left"></i> Back
         </a>
     </div>
-    <div class="card card-body">
-        <div class="row">
+    <div class="card">
+        <div class="card-header">
+            <h3 class="text-primary">
+                Data File {{$user->name}}
+            </h3>
+        </div>
+        <div class="row  card-body">
             <div class="col">
                 <ul class="nav nav-pills nav-fill">
                     <li class="nav-item">
