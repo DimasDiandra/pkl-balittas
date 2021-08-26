@@ -87,6 +87,12 @@ The above copyright notice and this permission notice shall be included in all c
                             <p> Revisi Anggaran </p>
                         </a>
                     </li>
+                    <br>
+                    <li>
+                        <a class="nav-link signout" href="{{ route('logout') }}" onclick="event.preventDefault(); document.getElementById('logout-form').submit();">
+                            <i class="menu-icon fa fa-sign-out"></i> <p> Logout </p>
+                        </a>
+                    </li>
                 </ul>
             </div>
         </div>
@@ -177,13 +183,8 @@ The above copyright notice and this permission notice shall be included in all c
                                 </a>
                             </li>
                             <li>
-                                <a href="https://www.creative-tim.com/license">
-                                    Licenses
-                                </a>
-                            </li>
-                            <li>
                                 <a href="https://api.whatsapp.com/send?phone=6285933167404&text=Bagaimana%20cara%20menggunakan%20aplikasi%20ini?" style="font-weight: 500;"><i class="fa fa-whatsapp"></i>
-                                    Whatsapp
+                                    Whatsapp Admin
                                 </a>
                             </li>
                         </ul>
@@ -193,7 +194,9 @@ The above copyright notice and this permission notice shall be included in all c
                         <script>
                             document.write(new Date().getFullYear())
                         </script>, made with <i class="material-icons">favorite</i> by Tim PKL Filkom UB.
+                        <a href="https://api.whatsapp.com/send?phone=6285933167404&text=Bagaimana%20cara%20menggunakan%20aplikasi%20ini?" class="float" target="_blank"><i class="fa fa-whatsapp my-float"></i></a>
                     </div>
+                    
                 </div>
             </footer>
         </div>
