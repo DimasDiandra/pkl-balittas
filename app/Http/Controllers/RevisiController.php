@@ -35,6 +35,18 @@ class RevisiController extends Controller
         return view('admin.PerencanaanViewUser', compact('userdata'));
     }
 
+    public function semuafile()
+    {
+        $semula_menjadi = Semula_Menjadi::orderBy('created_at', 'DESC')->get();
+        $revisi_rab = Revisi_RAB::orderBy('created_at', 'DESC')->get();
+        $projek = Projek::all();
+        if (session('success')) {
+            Alert::success('Sukses!', session('success'));
+        }
+
+        return view('admin.RevisiSemuaFile', ['revisi_rab' => $revisi_rab, 'semula_menjadi' => $semula_menjadi, 'projek' => $projek]);
+    }
+
     public function revisi()
     {
         // $semula_menjadi = Semula_Menjadi::where('user_id', Auth::user()->id)->get();
