@@ -48,11 +48,11 @@
                 {{ method_field('PUT') }}
                 <div class="row">
 
-                    <div class="col-md-6">
+                    <div class="">
                         <div class="box-body">
                             <div class="form-group">
                                 <label for="exampleInputPassword1">Judul</label>
-                                <input type="text" name="judul" class="form-control" id="exampleInputPassword1" placeholder="Name" value="{{ $data->judul }}">
+                                <input type="text" name="judul" class="form-control col-md-6" id="exampleInputPassword1" placeholder="Name" value="{{ $data->judul }}">
                             </div>
                             <div class="form-group">
                                 <label for="exampleInputEmail1">Isi Pengumuman</label>

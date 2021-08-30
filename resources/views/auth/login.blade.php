@@ -42,11 +42,8 @@
 
                                 <div class="form-group">
                                     <label for="password">Password
-                                        <a href="forgot.html" class="float-right">
-                                            Forgot Password?
-                                        </a>
                                     </label>
-                                    <input id="password" type="password" class="form-control{{ $errors->has('password') ? ' is-invalid' : '' }}" name="password" required>
+                                    <input id="password" type="password" class="form-control{{ $errors->has('password') ? ' is-invalid' : '' }}" name="password" autocomplete="off" required>
 
                                     @if ($errors->has('password'))
                                     <span class="invalid-feedback" role="alert">
@@ -55,15 +52,6 @@
                                     @endif
                                 </div>
 
-                                <div class="form-group">
-                                    <div class="form-check">
-                                        <input class="form-check-input" type="checkbox" name="remember" id="remember" {{ old('remember') ? 'checked' : '' }}>
-
-                                        <label class="form-check-label" for="remember">
-                                            {{ __('Remember Me') }}
-                                        </label>
-                                    </div>
-                                </div>
 
                                 <div class="form-group m-0">
                                     <button type="submit" class="btn btn-primary btn-block">
@@ -71,13 +59,13 @@
                                     </button>
                                 </div>
                                 <div class="mt-4 text-center">
-                                    Don't have an account? <a href="/register">Create One</a>
+                                   Belum punya akun? <a href="/register">Buat Akunmu</a>
                                 </div>
                             </form>
                         </div>
                     </div>
                     <div class="footer" style="color: white;">
-                        Copyright &copy; 2017 &mdash; Your Company
+                         &copy; made with <i class="material-icons">favorite</i> by Tim PKL Filkom UB.
                     </div>
                     <!-- end of login form -->
 

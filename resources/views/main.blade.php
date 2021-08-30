@@ -98,8 +98,6 @@ The above copyright notice and this permission notice shall be included in all c
         </div>
         <div class="main-panel">
             <!-- Navbar -->
-
-            {{-- add style="display: none;" if you have to hide it --}}
             <nav class="navbar navbar-expand-lg navbar-transparent navbar-absolute fixed-top ">
                 <div class="container-fluid">
                     <div class="navbar-wrapper">
@@ -147,7 +145,6 @@ The above copyright notice and this permission notice shall be included in all c
                                 </a>
                                 <div class="dropdown-menu dropdown-menu-right" aria-labelledby="navbarDropdownProfile">
                                     <a class="dropdown-item" href="{{route('profile', Auth::user()->id)}}">Profile</a>
-                                    <a class="dropdown-item" href="#">Settings</a>
                                     <div class="dropdown-divider"></div>
 
                                     @if(Auth::user()->hasRole('admin'))
@@ -192,7 +189,7 @@ The above copyright notice and this permission notice shall be included in all c
                     <div class="copyright float-right">
                         &copy;
                         <script>
-                            document.write(new Date().getFullYear())
+                            document.write(new Date().getFullYear());
                         </script>, made with <i class="material-icons">favorite</i> by Tim PKL Filkom UB.
                         <a href="https://api.whatsapp.com/send?phone=6285933167404&text=Bagaimana%20cara%20menggunakan%20aplikasi%20ini?" class="float" target="_blank"><i class="fa fa-whatsapp my-float"></i></a>
                     </div>

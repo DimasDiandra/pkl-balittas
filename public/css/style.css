@@ -84,6 +84,10 @@ body{
     max-width: 100%;
     box-sizing: border-box;
     -webkit-font-smoothing: subpixel-antialiased;
+    background-repeat: no-repeat;
+    background-position: center center;
+    background-attachment: fixed;
+    background-size: cover;
 }
 
 /* Position text in the middle of the page/image */

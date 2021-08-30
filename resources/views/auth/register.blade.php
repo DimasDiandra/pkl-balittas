@@ -57,7 +57,7 @@
                                     <label for="password" class="col-md-12 col-form-label">{{ __('Password') }}</label>
 
                                     <div class="col-md-12">
-                                        <input id="password" type="password" class="form-control{{ $errors->has('password') ? ' is-invalid' : '' }}" name="password" required>
+                                        <input id="password" type="password" class="form-control{{ $errors->has('password') ? ' is-invalid' : '' }}" name="password" autocomplete="off" required>
 
                                         @if ($errors->has('password'))
                                         <span class="invalid-feedback" role="alert">
@@ -71,17 +71,7 @@
                                     <label for="password-confirm" class="col-md-12 col-form-label">{{ __('Confirm Password') }}</label>
 
                                     <div class="col-md-12">
-                                        <input id="password-confirm" type="password" class="form-control" name="password_confirmation" required>
-                                    </div>
-                                </div>
-
-                                <div class="form-group">
-                                    <div class="custom-checkbox custom-control">
-                                        <input type="checkbox" name="agree" id="agree" class="custom-control-input" required="">
-                                        <label for="agree" class="custom-control-label">I agree to the <a href="#">Terms and Conditions</a></label>
-                                        <div class="invalid-feedback">
-                                            You must agree with our Terms and Conditions
-                                        </div>
+                                        <input id="password-confirm" type="password" class="form-control" name="password_confirmation" autocomplete="off" required>
                                     </div>
                                 </div>
 
@@ -91,13 +81,13 @@
                                     </button>
                                 </div>
                                 <div class="mt-4 text-center">
-                                    Already have an account? <a href="/">Login</a>
+                                    Sudah punya akun? <a href="/">Login</a>
                                 </div>
                             </form>
                         </div>
                     </div>
                     <div class="footer">
-                        Copyright &copy; 2017 &mdash; Your Company
+                        &copy; made with <i class="material-icons">favorite</i> by Tim PKL Filkom UB.
                     </div>
                 </div>
             </div>

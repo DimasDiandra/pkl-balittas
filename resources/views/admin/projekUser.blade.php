@@ -153,14 +153,6 @@
     </div>
       <!-- End Modal Delete Pengumuman -->
 </div>
-<script src="https://code.jquery.com/jquery-3.3.1.min.js"></script>
-    <script>
-        $(document).ready( function () {
-        $('#table-datatables').DataTable();
-    } );
-    
-    </script>
-
     <script>
         $(document).ready( function () {
             $('#table-datatables').on('click', '.btn-hapus', function(){

@@ -449,7 +449,7 @@
         <div class="modal-dialog modal-dialog-centered">
             <div class="modal-content">
                 <div class="modal-header">
-                    <h5 class="modal-title" id="exampleModalLabel">Hapus Pengumuman</h5>
+                    <h5 class="modal-title" id="exampleModalLabel">Hapus File</h5>
                     <button type="button" class="close" data-dismiss="modal">&times;</button>
                 </div>
                 <form id="deletemodalform" method="post" class="d-inline">
@@ -472,15 +472,6 @@
     </div>
     <!-- End Modal Delete  -->
 </div>
-<script src="https://code.jquery.com/jquery-3.3.1.min.js"></script>
-<script>
-    jQuery(document).ready(function() {
-        $('#table').DataTable();
-        // $(document).ready( function () {
-        // $('#table-datatables').DataTable();
-    });
-</script>
-
 <!-- jquery bulanan -->
 <script>
     $(document).ready(function() {

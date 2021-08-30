@@ -219,15 +219,6 @@
     </div>
     <!-- End Modal Delete  -->
 </div>
-<script src="https://code.jquery.com/jquery-3.3.1.min.js"></script>
-<script>
-    jQuery(document).ready(function() {
-        $('#table').DataTable();
-        // $(document).ready( function () {
-        // $('#table-datatables').DataTable();
-    });
-</script>
-
 <!-- jquery semula_menjadi -->
 <script>
     $(document).ready(function() {

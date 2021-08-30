@@ -77,6 +77,10 @@ Route::middleware('role:admin')->prefix('admin')->group(function () {
     Route::get('/user/{id}', [App\Http\Controllers\UserController::class, 'edit']);
     Route::put('/user/{id}', [App\Http\Controllers\UserController::class, 'update']);
     Route::delete('admin/user/{id}', [App\Http\Controllers\UserController::class, 'delete']);
+   
+    //Profile
+    Route::get('/profile/{id}', [UserController::class, 'profile_admin'])->name('profile_admin');
+    Route::put('/profile/{id}', [UserController::class, 'updateprofile']);
 
     //Projek User
     Route::get('/projek', [App\Http\Controllers\ProjekController::class, 'show']);

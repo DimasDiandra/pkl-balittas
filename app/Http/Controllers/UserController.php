@@ -76,6 +76,18 @@ class UserController extends Controller
 		return view(('profile'), compact('data'));
 		// return redirect('admin/user')->with('success', 'Data Berhasil Terhapus');
 	}
+
+	public function profile_admin($id)
+	{
+		$data = User::find($id);
+
+		if(session('success')){
+            Alert::success('Sukses!', session('success'));
+        }
+		return view(('admin/profile'), compact('data'));
+		// return redirect('admin/user')->with('success', 'Data Berhasil Terhapus');
+	}
+
 	public function updateprofile(Request $request, $id)
 	{
 		try {
