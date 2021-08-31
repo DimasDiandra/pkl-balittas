@@ -41,6 +41,7 @@ Route::get('/markRead', function () {
 //Profile
 Route::get('/profile/{id}', [UserController::class, 'profile'])->name('profile');
 Route::put('/profile/{id}', [UserController::class, 'updateprofile']);
+Route::post('/profile/{id}', [UserController::class, 'change_password']);
 
 //Perencanaan
 Route::get('/perencanaan', [PerencanaanController::class, 'perencanaan']);
@@ -81,6 +82,7 @@ Route::middleware('role:admin')->prefix('admin')->group(function () {
     //Profile
     Route::get('/profile/{id}', [UserController::class, 'profile_admin'])->name('profile_admin');
     Route::put('/profile/{id}', [UserController::class, 'updateprofile']);
+    Route::post('/profile/{id}', [UserController::class, 'change_password']);
 
     //Projek User
     Route::get('/projek', [App\Http\Controllers\ProjekController::class, 'show']);

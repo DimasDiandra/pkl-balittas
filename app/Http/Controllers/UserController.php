@@ -7,6 +7,8 @@ use App\Models\User;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\DB;
 use RealRashid\SweetAlert\Facades\Alert;
+use App\Rules\MatchOldPassword;
+use Illuminate\Support\Facades\Hash;
 
 class UserController extends Controller
 {
@@ -108,4 +110,16 @@ class UserController extends Controller
 
 		return redirect()->back()->with('success', 'Data Berhasil Diperbarui');
 	}
+
+	public function change_password(Request $request)
+    {
+        $request->validate([
+            'current_password' => ['required', new MatchOldPassword],
+            'new_password' => ['required'],
+            'new_confirm_password' => ['same:new_password'],
+        ]);
+   
+        User::find(auth()->user()->id)->update(['password'=> Hash::make($request->new_password)]);
+		return redirect()->back()->with('success', 'Password Berhasil Diperbarui');
+    }
 }

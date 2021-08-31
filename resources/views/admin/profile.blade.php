@@ -157,11 +157,68 @@
               <div class="clearfix"></div>
             </form>
           </div>
+          <a href="" class="btn btn-success" data-toggle="modal" data-target="#myModal"><i class="fa fa-key"></i> Ubah Password?</a>
         </div>
       </div>
       
     </div>
   </div>
+  <!-- Modal -->
+  <div id="myModal" class="modal fade">
+    <div class="modal-dialog modal-lg">
+        <div class="modal-content">
+            <!-- Ini adalah Bagian Header Modal -->
+            <div class="modal-header">
+                <h4 class="modal-title">Ubah Password</h4>
+                <button type="button" class="close" data-dismiss="modal">&times;</button>
+            </div>
+
+            <!-- Ini adalah Bagian Body Modal -->
+
+            <form action="{{ url('profile/' . $data->id) }}" method="post" enctype="multipart/form-data">
+                @csrf
+                <div class="modal-body">
+                  <div class="card-body">
+                    @foreach ($errors->all() as $error)
+                        <p class="text-danger">{{ $error }}</p>
+                    @endforeach 
+  
+                        <div class="form-group row">
+                            <label for="password" >Current Password</label>
+  
+                            <div class="col-md-12">
+                                <input id="password" type="password" class="form-control" name="current_password" autocomplete="current-password" required>
+                            </div>
+                        </div>
+  
+                        <div class="form-group row">
+                            <label for="password" >New Password</label>
+  
+                            <div class="col-md-12">
+                                <input id="new_password" type="password" class="form-control" name="new_password" autocomplete="current-password" required>
+                            </div>
+                        </div>
+  
+                        <div class="form-group row">
+                            <label for="password" >New Confirm Password</label>
+    
+                            <div class="col-md-12">
+                                <input id="new_confirm_password" type="password" class="form-control" name="new_confirm_password" autocomplete="current-password" required>
+                            </div>
+                        </div>
+                </div>
+                </div>
+                <!-- Ini adalah Bagian Footer Modal -->
+                <div class="modal-footer">
+                    <button type="button" class="btn btn-danger" data-dismiss="modal">Tutup</button>
+                    <button type="submit" class="btn btn-primary">Update Password</button>
+                </div>
+            </form>
+
+
+        </div>
+    </div>
+</div>
 </div>
 
 {{-- <script>
