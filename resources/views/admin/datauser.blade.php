@@ -85,7 +85,7 @@
 
                     <!-- Ini adalah Bagian Body Modal -->
                     <div class="modal-body">
-                        <form method="POST" action="{{ route('register') }}">
+                        <form action="{{ url('admin/user') }}" method="post" enctype="multipart/form-data">
                             @csrf
 
                             <div class="form-group row">

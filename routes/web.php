@@ -77,6 +77,7 @@ Route::middleware('role:admin')->prefix('admin')->group(function () {
     Route::get('/user', [App\Http\Controllers\UserController::class, 'index']);
     Route::get('/user/{id}', [App\Http\Controllers\UserController::class, 'edit']);
     Route::put('/user/{id}', [App\Http\Controllers\UserController::class, 'update']);
+    Route::post('/user', [App\Http\Controllers\UserController::class, 'tambah_user']);
     Route::delete('admin/user/{id}', [App\Http\Controllers\UserController::class, 'delete']);
    
     //Profile

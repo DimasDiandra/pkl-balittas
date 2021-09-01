@@ -28,6 +28,22 @@ class UserController extends Controller
 		return view('admin.datauser', compact('userdata'));
 	}
 
+	public function tambah_user(Request $request)
+    {
+        $this->validate($request, [
+            'name' => 'required',
+            'email' => 'required',
+			'password' => 'required'
+        ]);
+        $user = new user;
+        $user->name = $request->input('name');
+        $user->email = $request->input('email');
+		$user->password = Hash::make('password');
+        $user->save();
+
+        return redirect('admin/user')->with('success', 'User Berhasil Ditambahkan');
+    }
+
 	public function edit($id)
 	{
 		$title = 'Edit Data peserta';
