@@ -27,7 +27,7 @@ class UserController extends Controller
 		$userdata = DB::table('users')->get();
 		return view('admin.datauser', compact('userdata'));
 	}
-
+	
 	public function tambah_user(Request $request)
     {
         $this->validate($request, [
@@ -38,8 +38,8 @@ class UserController extends Controller
         $user = new user;
         $user->name = $request->input('name');
         $user->email = $request->input('email');
-		$user->password = Hash::make('password');
-        $user->save();
+		$user->password = Hash::make($request->input('password'));
+        $user->assignRole('user')->save();
 
         return redirect('admin/user')->with('success', 'User Berhasil Ditambahkan');
     }
