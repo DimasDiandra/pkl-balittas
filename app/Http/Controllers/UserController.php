@@ -13,36 +13,36 @@ use Illuminate\Support\Facades\Hash;
 class UserController extends Controller
 {
 	public function __construct()
-    {
-        $this->middleware('auth');
-    }
+	{
+		$this->middleware('auth');
+	}
 	public function index()
 	{
 		// $title = 'Data peserta';
 		// $data = User::orderBy('name','asc')->get();
 		// return view('admin.datauser',compact('title','data'));
-		if(session('success')){
-            Alert::success('Sukses!', session('success'));
-        }
+		if (session('success')) {
+			Alert::success('Sukses!', session('success'));
+		}
 		$userdata = DB::table('users')->get();
 		return view('admin.datauser', compact('userdata'));
 	}
-	
-	public function tambah_user(Request $request)
-    {
-        $this->validate($request, [
-            'name' => 'required',
-            'email' => 'required',
-			'password' => 'required'
-        ]);
-        $user = new user;
-        $user->name = $request->input('name');
-        $user->email = $request->input('email');
-		$user->password = Hash::make($request->input('password'));
-        $user->assignRole('user')->save();
 
-        return redirect('admin/user')->with('success', 'User Berhasil Ditambahkan');
-    }
+	public function tambah_user(Request $request)
+	{
+		$this->validate($request, [
+			'name' => 'required',
+			'email' => 'required',
+			'password' => 'required'
+		]);
+		$user = new user;
+		$user->name = $request->input('name');
+		$user->email = $request->input('email');
+		$user->password = Hash::make($request->input('password'));
+		$user->assignRole('user')->save();
+
+		return redirect('admin/user')->with('success', 'User Berhasil Ditambahkan');
+	}
 
 	public function edit($id)
 	{
@@ -54,7 +54,7 @@ class UserController extends Controller
 
 	public function update(Request $request, $id)
 	{
-		
+
 		try {
 			// update data kedalam table users
 			$user['email'] = $request->email;
@@ -79,7 +79,7 @@ class UserController extends Controller
 		// $emp->delete();
 		try {
 			User::where('id', $id)->delete();
-		} catch (\Exception $e) {			
+		} catch (\Exception $e) {
 		}
 		return redirect('admin/user')->with('success', 'Data Berhasil Terhapus');
 	}
@@ -87,9 +87,9 @@ class UserController extends Controller
 	{
 		$data = User::find($id);
 
-		if(session('success')){
-            Alert::success('Sukses!', session('success'));
-        }
+		if (session('success')) {
+			Alert::success('Sukses!', session('success'));
+		}
 		return view(('profile'), compact('data'));
 		// return redirect('admin/user')->with('success', 'Data Berhasil Terhapus');
 	}
@@ -98,9 +98,9 @@ class UserController extends Controller
 	{
 		$data = User::find($id);
 
-		if(session('success')){
-            Alert::success('Sukses!', session('success'));
-        }
+		if (session('success')) {
+			Alert::success('Sukses!', session('success'));
+		}
 		return view(('admin/profile'), compact('data'));
 		// return redirect('admin/user')->with('success', 'Data Berhasil Terhapus');
 	}
@@ -126,14 +126,14 @@ class UserController extends Controller
 	}
 
 	public function change_password(Request $request)
-    {
-        $request->validate([
-            'current_password' => ['required', new MatchOldPassword],
-            'new_password' => ['required'],
-            'new_confirm_password' => ['same:new_password'],
-        ]);
-   
-        User::find(auth()->user()->id)->update(['password'=> Hash::make($request->new_password)]);
+	{
+		$request->validate([
+			'current_password' => ['required', new MatchOldPassword],
+			'new_password' => ['required'],
+			'new_confirm_password' => ['same:new_password'],
+		]);
+
+		User::find(auth()->user()->id)->update(['password' => Hash::make($request->new_password)]);
 		return redirect()->back()->with('success', 'Password Berhasil Diperbarui');
-    }
+	}
 }

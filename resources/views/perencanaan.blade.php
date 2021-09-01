@@ -221,7 +221,7 @@
                                     <td>
                                         <input type="file" name="analisis">
                                     </td>
-                                </tr>                                
+                                </tr>
                             </table>
                         </div>
                         <div>
@@ -542,8 +542,8 @@
                 }
             });
         });
-    // DataTables
-    $('#table_matriks').DataTable({
+        // DataTables
+        $('#table_matriks').DataTable({
             "autoWidth": false
         });
         $('#table_rab').DataTable({

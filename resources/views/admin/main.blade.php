@@ -9,16 +9,17 @@ Coded by Creative Tim
 
 =========================================================
 The above copyright notice and this permission notice shall be included in all copies or substantial portions of the Software. -->
+
 <!DOCTYPE html>
 <html lang="en">
 
 <head>
     <meta charset="utf-8" />
-    <link rel="apple-touch-icon" sizes="76x76" href="{{ asset('assets/img/favicon.png') }}">
-    <link rel="icon" type="image/png" href="{{ asset('assets/img/favicon.png')}} ">
-    <meta http-equiv=" X-UA-Compatible" content="IE=edge,chrome=1" />
+    <link rel="apple-touch-icon" sizes="76x76" href="/assets/pkl.png">
+    <link rel="icon" type="image/png" href="/assets/pkl.png">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1" />
     <title>
-        @yield('title') - Admin Balittas
+        @yield('title') - User Balittas
     </title>
     <meta content='width=device-width, initial-scale=1.0, shrink-to-fit=no' name='viewport' />
     <!--     Fonts and icons     -->
@@ -31,9 +32,7 @@ The above copyright notice and this permission notice shall be included in all c
     <link rel="stylesheet" href="https://cdn.datatables.net/1.10.25/css/dataTables.bootstrap5.min.css">
     <link rel="stylesheet" href="https://cdn.datatables.net/buttons/1.7.1/css/buttons.bootstrap5.min.css">
     <!-- CSS Files -->
-    <link href="/assets/css/material-dashboard.css?v=2.1.2" rel="stylesheet" />>
-
-
+    <link href="/assets/css/material-dashboard.css?v=2.1.2" rel="stylesheet" />
 
     <script>
         function jenis() {
@@ -60,7 +59,7 @@ The above copyright notice and this permission notice shall be included in all c
     <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/mdbootstrap/4.19.1/js/mdb.min.js"></script>
 
     <div class="wrapper ">
-        <div class="sidebar" data-color="purple" data-background-color="white" data-image="assets/background.jpg">
+        <div class="sidebar" data-color="purple" data-background-color="white" data-image="/assets/background.jpg">
             <!--
         Tip 1: You can change the color of the sidebar using: data-color="purple | azure | green | orange | danger"
 
@@ -121,8 +120,9 @@ The above copyright notice and this permission notice shall be included in all c
                     </li>
                     <br>
                     <li>
-                        <a class="nav-link signout" href="{{ route('logout') }}" onclick="event.preventDefault(); document.getElementById('logout-form').submit();">
-                            <i class="menu-icon fa fa-sign-out"></i> <p> Logout </p>
+                        <a class="nav-link signout" href="{{ route('logout') }}" onclick="event.preventDefault(); document.getElementById('logout-form').submit();" style="position: absolute; bottom:16px">
+                            <i class="menu-icon fa fa-sign-out" style="color: red;"></i>
+                            <p style="color: red;"> Logout </p>
                         </a>
                     </li>
                 </ul>
@@ -228,9 +228,6 @@ The above copyright notice and this permission notice shall be included in all c
     </div>
 
 
-    <!--   Core JS Files   -->
-    <script src="{{ asset('assets/js/core/jquery.min.js') }} "></script>
-    <script src="{{ asset('assets/js/core/popper.min.js') }} "></script>
     <script src="{{ asset('assets/js/core/bootstrap-material-design.min.js') }} "></script>
     <script src="{{ asset('assets/js/plugins/perfect-scrollbar.jquery.min.js') }} "></script>
     <!-- Plugin for the momentJs  -->
@@ -241,6 +238,7 @@ The above copyright notice and this permission notice shall be included in all c
     <script src="{{ asset('assets/js/plugins/jquery.validate.min.js') }} "></script>
     <!-- Control Center for Material Dashboard: parallax effects, scripts for the example pages etc -->
     <script src="{{ asset('assets/js/material-dashboard.js?v=2.1.2') }}" type="text/javascript"></script>
+
     <script>
         $(document).ready(function() {
             $().ready(function() {
@@ -349,15 +347,6 @@ The above copyright notice and this permission notice shall be included in all c
 
         });
     </script>
-
-    <!-- JS Drag n Drop -->
-    <script src="{{ asset('/js/dragndrop.js') }}"></script>
-    <!-- jQuery -->
-    <script src="https://code.jquery.com/jquery-3.3.1.min.js" integrity="sha256-FgpCb/KJQlLNfOu91ta32o/NMZxltwRo8QtmkMRdAu8= sha256-T+aPohYXbm0fRYDpJLr+zJ9RmYTswGsahAoIsNiMld4=" crossorigin="anonymous"></script>
-    <!-- Popper.JS -->
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.0/umd/popper.min.js" integrity="sha384-cs/chFZiN24E4KMATLdqdvsezGxaGsi4hLGOzlXwp5UZB1LY//20VyM2taTB4QvJ" crossorigin="anonymous"></script>
-    <!-- Bootstrap JS -->
-    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.1.0/js/bootstrap.min.js" integrity="sha384-uefMccjFJAIv6A+rW+L4AHf99KvxDjWSu1z9VI8SKNVmz4sk7buKt/6v9KI65qnm" crossorigin="anonymous"></script>
 
     <script src="https://unpkg.com/sweetalert/dist/sweetalert.min.js"></script>
     @include('sweetalert::alert')

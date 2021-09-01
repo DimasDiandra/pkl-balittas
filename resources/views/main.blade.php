@@ -89,8 +89,9 @@ The above copyright notice and this permission notice shall be included in all c
                     </li>
                     <br>
                     <li>
-                        <a class="nav-link signout" href="{{ route('logout') }}" onclick="event.preventDefault(); document.getElementById('logout-form').submit();">
-                            <i class="menu-icon fa fa-sign-out"></i> <p> Logout </p>
+                        <a class="nav-link signout" href="{{ route('logout') }}" onclick="event.preventDefault(); document.getElementById('logout-form').submit();" style="position: absolute; bottom:16px">
+                            <i class="menu-icon fa fa-sign-out" style="color: red;"></i>
+                            <p style="color: red;"> Logout </p>
                         </a>
                     </li>
                 </ul>
@@ -193,7 +194,7 @@ The above copyright notice and this permission notice shall be included in all c
                         </script>, made with <i class="material-icons">favorite</i> by Tim PKL Filkom UB.
                         <a href="https://api.whatsapp.com/send?phone=6285933167404&text=Bagaimana%20cara%20menggunakan%20aplikasi%20ini?" class="float" target="_blank"><i class="fa fa-whatsapp my-float"></i></a>
                     </div>
-                    
+
                 </div>
             </footer>
         </div>
