@@ -85,7 +85,7 @@
                 <div class="col-md-12">
                   <div class="form-group">
                     <label class="bmd-label-floating">Nama</label>
-                    <input type="text" name="name" class="form-control"  required>
+                    <input type="text" name="name" class="form-control" value="{{ $data->name }}" required>
                   </div>
                 </div>
               </div>
@@ -93,7 +93,7 @@
                 <div class="col-md-12">
                   <div class="form-group">
                     <label class="bmd-label-floating">Email</label>
-                    <input type="text" name="email" class="form-control"  required>
+                    <input type="text" name="email" class="form-control" value="{{ $data->email }}" required>
                   </div>
                 </div>
               </div>

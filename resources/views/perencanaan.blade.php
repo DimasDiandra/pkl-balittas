@@ -184,26 +184,26 @@
                             <table>
                                 <tr>
                                     <td width="50%">
-                                        <a>File Matriks</a>
+                                        <a>File Matriks </a><label style="color:red">*</label>
                                     </td>
                                     <td>
-                                        <input type="file" name="matriks">
-                                    </td>
-                                </tr>
-                                <tr>
-                                    <td>
-                                        <a>File RAB</a>
-                                    </td>
-                                    <td>
-                                        <input type="file" name="rab">
+                                        <input type="file" name="matriks" required>
                                     </td>
                                 </tr>
                                 <tr>
                                     <td>
-                                        <a>File KAK</a>
+                                        <a>File RAB </a><label style="color:red">*</label>
                                     </td>
                                     <td>
-                                        <input type="file" name="kak">
+                                        <input type="file" name="rab" required>
+                                    </td>
+                                </tr>
+                                <tr>
+                                    <td>
+                                        <a>File KAK </a><label style="color:red">*</label>
+                                    </td>
+                                    <td>
+                                        <input type="file" name="kak" required>
                                     </td>
                                 </tr>
                                 <tr>
@@ -221,8 +221,11 @@
                                     <td>
                                         <input type="file" name="analisis">
                                     </td>
-                                </tr>
+                                </tr>                                
                             </table>
+                        </div>
+                        <div>
+                            <a>Keterangan : <label style="color:red">*</label> Kolom Wajib Diisi </a>
                         </div>
                         <div style="position: absolute; bottom: 16px;">
                             <button type="submit" class="btn btn-primary upload"><i class="menu-icon fa fa-upload"></i> Upload</button>
