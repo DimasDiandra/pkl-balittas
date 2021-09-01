@@ -27,7 +27,6 @@ class User extends Authenticatable
         'name',
         'email',
         'jabatan',
-        'gender',
         'tempat_lahir',
         'tanggal_lahir',
         'alamat',

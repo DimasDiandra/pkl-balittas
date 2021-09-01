@@ -56,9 +56,6 @@
                   <span>Jabatan : </span><strong>{{ $data->jabatan }}</strong>
                 </p>
                 <p class="card-description">
-                  <span>Jenis Kelamin : </span><strong>{{ $data->gender }}</strong>
-                </p>
-                <p class="card-description">
                   <span>Tempat Lahir : </span><strong>{{ $data->tempat_lahir }}</strong>
                 </p>
                 <p class="card-description">
@@ -106,15 +103,6 @@
                     <label class="bmd-label-floating">Jabatan</label>
                     <input type="text" name="jabatan" class="form-control"  required>
                   </div>
-                </div>
-              </div>
-              <div class="row">
-                <div class="col-md-12">
-                  <div class="form-group">
-                    <label class="bmd-label-floating" for="gender">Jenis Kelamin</label>
-                    <br />
-                    <input type="radio" name="gender" > Male
-                    <input type="radio" name="gender" > Female
                 </div>
               </div>
               <div class="row">

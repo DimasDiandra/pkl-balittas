@@ -44,7 +44,6 @@ class UserController extends Controller
 			$user['email'] = $request->email;
 			$user['name'] = $request->name;
 			$user['jabatan'] = $request->jabatan;
-			// $user['gender'] = $request->gender;
 			$user['tempat_lahir'] = $request->tempat_lahir;
 			$user['tanggal_lahir'] = $request->tanggal_lahir;
 			$user['alamat'] = $request->alamat;
@@ -97,7 +96,6 @@ class UserController extends Controller
 			$user['email'] = $request->email;
 			$user['name'] = $request->name;
 			$user['jabatan'] = $request->jabatan;
-			// $user['gender'] = $request->gender;
 			$user['tempat_lahir'] = $request->tempat_lahir;
 			$user['tanggal_lahir'] = $request->tanggal_lahir;
 			$user['alamat'] = $request->alamat;
