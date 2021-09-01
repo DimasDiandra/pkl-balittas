@@ -539,26 +539,28 @@
                 }
             });
         });
-    });
-    // function getValue() {
-    //     var id = document.getElementById("projek_id").value;
-    //     console.log(id);
-    //     $.ajax({
-    //         url: 'perencanaan_status/' + id,
-    //         type: 'GET',
-    //         data: {
-    //             "id": id
-    //         },
-    //         success: function(data) {
-    //             console.log(data);
-    //             $("#statusMatriks").html(data.matriks_status)
-    //         }
-    //     });
-    // }
-    $('#table').DataTable();
-    $(".nav a").on("click", function() {
-        $(".nav a").removeClass("active");
-        $(this).addClass("active");
+    // DataTables
+    $('#table_matriks').DataTable({
+            "autoWidth": false
+        });
+        $('#table_rab').DataTable({
+            "autoWidth": false
+        });
+        $('#table_kak').DataTable({
+            "autoWidth": false
+        });
+        $('#table_proposal').DataTable({
+            "autoWidth": false
+        });
+        $('#table_analisis').DataTable({
+            "autoWidth": false
+        });
+        $($.fn.dataTable.tables(true)).DataTable().columns.adjust().responsive.recalc();
+        // Sidebar Active
+        $(".nav a").on("click", function() {
+            $(".nav a").removeClass("active");
+            $(this).addClass("active");
+        });
     });
 </script>
 

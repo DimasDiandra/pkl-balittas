@@ -644,37 +644,24 @@
 
 
         $('#table_bulanan').DataTable({
-            "autoWidth": false,
-            "responsive": true,
+            "autoWidth": false
         });
         $('#table_triwulan').DataTable({
-            "autoWidth": false,
-            "responsive": true,
+            "autoWidth": false
         });
         $('#table_tengah').DataTable({
-            "autoWidth": false,
-            "responsive": true,
+            "autoWidth": false
         });
         $('#table_akhir').DataTable({
-            "autoWidth": false,
-            "responsive": true,
+            "autoWidth": false
         });
         $('#table_renaksi').DataTable({
-            "autoWidth": false,
-            "responsive": true,
+            "autoWidth": false
         });
         $('#table_destudi').DataTable({
-            "autoWidth": false,
-            "responsive": true,
+            "autoWidth": false
         });
-        $('a[data-toggle="tab"]').on('shown.bs.tab', function(e){
-            $($.fn.dataTable.tables({ visible: true, api: true })).DataTable()
-                .columns.adjust()
-                .responsive.recalc();
-        });
-        
-        });
-        // $($.fn.dataTable.tables(true)).DataTable().columns.adjust().responsive.recalc();
+        $($.fn.dataTable.tables(true)).DataTable().columns.adjust().responsive.recalc();
 
         // Sidebar Active
         $(".nav a").on("click", function() {
