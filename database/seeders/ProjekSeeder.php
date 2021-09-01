@@ -16,6 +16,7 @@ class ProjekSeeder extends Seeder
     {
         Projek::create([
             'name' => 'Projek Admin',
+            'periode_projek' => '2022-12-31',
             'all_status' => '0',
             'matriks_status' => '0',
             'rab_status' => '0',
@@ -35,6 +36,7 @@ class ProjekSeeder extends Seeder
 
         Projek::create([
             'name' => 'Projek User',
+            'periode_projek' => '2021-12-31',
             'all_status' => '11',
             'matriks_status' => '1',
             'rab_status' => '1',

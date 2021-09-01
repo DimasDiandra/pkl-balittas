@@ -17,6 +17,7 @@ class Projek extends Migration
             $table->id();
             $table->timestamps();
             $table->string('name');
+            $table->date('periode_projek');
             $table->string('all_status')->nullable();
             $table->integer('matriks_status')->nullable();
             $table->integer('rab_status')->nullable();
