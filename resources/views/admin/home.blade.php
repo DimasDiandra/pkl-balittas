@@ -38,7 +38,7 @@
                     </h3>
                 </div>
                 <div class="card-footer">
-                    <a> Lihat dan Edit data user.</a>
+                    <a> Lihat dan Edit data user</a>
                 </div>
             </a>
         </div>
@@ -94,7 +94,7 @@
                     </h3>
                 </div>
                 <div class="card-footer">
-                    <a> Lihat dan Edit data perencanaan.</a>
+                    <a> Lihat dan Edit data perencanaan</a>
                 </div>
             </a>
         </div>
@@ -131,6 +131,24 @@
                 </div>
                 <div class="card-footer">
                     <a> Lihat dan Edit data template</a>
+                </div>
+            </a>
+        </div>
+    </div>
+    <div class="col">
+        <div class="card card-stats">
+            <a href="/admin/revisi">
+                <div class="card-header card-header-primary card-header-icon">
+                    <div class="card-icon">
+                        <i class="material-icons fa fa-repeat"></i>
+                    </div>
+                    <h6 class="card-category">Data Revisi Anggaran</h6>
+                    <h3 class="card-title">{{$projek->count()}}
+                        <small>Projek</small>
+                    </h3>
+                </div>
+                <div class="card-footer">
+                    <a> Lihat dan Edit data Revisi Anggaran</a>
                 </div>
             </a>
         </div>
