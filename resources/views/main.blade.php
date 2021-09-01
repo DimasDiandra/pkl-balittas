@@ -119,20 +119,22 @@ The above copyright notice and this permission notice shall be included in all c
                                     <span class="notification">{{Auth::user()->unreadNotifications->count()}}</span>
                                 </a>
                                 <div class="dropdown-menu dropdown-menu-right" aria-labelledby="navbarDropdownMenuLink">
-                                    @forelse(Auth::user()->unreadNotifications as $notification)
-                                    <a class="dropdown-item" href="#">
-                                        {{$notification->data['name']}}
-                                        {{$notification->data['status']}}
-                                    </a>
-                                    @endforeach
-                                    @forelse(Auth::user()->readNotifications->take(10) as $notification)
-                                    <a class="dropdown-item" href="#" style="color: gray">
-                                        {{$notification->data['name']}}
-                                        {{$notification->data['status']}}
-                                    </a>
-                                    @empty
-                                    <p class="dropdown-item">Tidak ada Notifikasi</p>
-                                    @endforelse
+                                    <div style="max-height: 500px; overflow:auto">
+                                        @forelse(Auth::user()->unreadNotifications as $notification)
+                                        <a class="dropdown-item" href="#">
+                                            {{$notification->data['name']}}
+                                            {{$notification->data['status']}}
+                                        </a>
+                                        @endforeach
+                                        @forelse(Auth::user()->readNotifications->take(10) as $notification)
+                                        <a class="dropdown-item" href="#" style="color: gray">
+                                            {{$notification->data['name']}}
+                                            {{$notification->data['status']}}
+                                        </a>
+                                        @empty
+                                        <p class="dropdown-item">Tidak ada Notifikasi</p>
+                                        @endforelse
+                                    </div>
                                     <div class="dropdown-divider"></div>
                                     <a href=" {{ url('markRead') }}" class="dropdown-header">Tandai Sudah Dibaca</a>
                                 </div>
