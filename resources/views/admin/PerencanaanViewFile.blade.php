@@ -77,8 +77,8 @@
                                     <tr>
                                         <th hidden>id</th>
                                         <th width=5%>No.</th>
-                                        <th>Date Upload</th>
                                         <th width=30%>File Name</th>
+                                        <th>Date Upload</th>
                                         <th width=20%>Status</th>
                                         <th width=30% colspan="3">Action</th>
                                     </tr>
@@ -126,8 +126,8 @@
                                     <tr>
                                         <th hidden>id</th>
                                         <th width=5%>No.</th>
-                                        <th>Date Upload</th>
                                         <th width=30%>File Name</th>
+                                        <th>Date Upload</th>
                                         <th width=20%>Status</th>
                                         <th width=30% colspan="3">Action</th>
                                     </tr>
@@ -175,8 +175,8 @@
                                     <tr>
                                         <th hidden>id</th>
                                         <th width=5%>No.</th>
-                                        <th>Date Upload</th>
                                         <th width=30%>File Name</th>
+                                        <th>Date Upload</th>
                                         <th width=20%>Status</th>
                                         <th width=30% colspan="3">Action</th>
                                     </tr>
@@ -224,8 +224,8 @@
                                     <tr>
                                         <th hidden>id</th>
                                         <th width=5%>No.</th>
-                                        <th>Date Upload</th>
                                         <th width=30%>File Name</th>
+                                        <th>Date Upload</th>
                                         <th width=20%>Status</th>
                                         <th width=30% colspan="3">Action</th>
                                     </tr>
@@ -273,8 +273,8 @@
                                     <tr>
                                         <th hidden>id</th>
                                         <th width=5%>No.</th>
-                                        <th>Date Upload</th>
                                         <th width=30%>File Name</th>
+                                        <th>Date Upload</th>
                                         <th width=20%>Status</th>
                                         <th width=30% colspan="3">Action</th>
                                     </tr>
