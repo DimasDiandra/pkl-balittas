@@ -79,29 +79,25 @@ class RevisiController extends Controller
 
     public function revisi_upload(Request $request)
     {
-        // $this->validate($request, [
-        //     'semula_menjadi' => 'nullable|file|mimes:docx,pdf|max:15000',
-        //     'revisi_rab' => 'nullable|file|mimes:docx,pdf|max:15000',
-
-        // ]);
-
         $this->validate($request, [
-            'file' => 'required',
-            'keterangan' => 'required',
-            'projek_id' => 'required'
+            'semula_menjadi' => 'nullable|file|mimes:docx,pdf|max:15000',
+            'revisi_rab' => 'nullable|file|mimes:docx,pdf|max:15000',
+
         ]);
 
+        // $this->validate($request, [
+        //     'file' => 'required',
+        //     'keterangan' => 'required',
+        //     'projek_id' => 'required'
+        // ]);
+
         //variable file
-        $file = $request->file('file');
-        $jenis = $request->keterangan;
-        $projek_id = $request->projek_id;
+        $semula_menjadi = $request->file('semula_menjadi');
+        $revisi_rab = $request->file('revisi_rab');
 
         //Projek
         $projek_id = $request->projek_id;
         $projek = Projek::where('id', $projek_id)->first();
-
-        //nama file
-        $namafile = $projek->name . "_" . $file->getClientOriginalName();
 
 
         //get user
@@ -111,37 +107,46 @@ class RevisiController extends Controller
 
         //Path
         $path = "public/$projek->name";
-        $pathFile = Storage::putFileAs($path, $file, $namafile);
+
         // upload ke db
-        if ($jenis == 1) {
-            $projek->semula_menjadi_status = 1;
-            $projek->save();
+        //semula menjadi
+        if (file_exists($semula_menjadi)) {
+            $namaFileSemula_Menjadi = $projek->name . "_" . $semula_menjadi->getClientOriginalName();
+            $pathSemula_Menjadi = Storage::putFileAs($path, $semula_menjadi, $namaFileSemula_Menjadi);
             $data = Semula_Menjadi::create([
-                'path' => $pathFile,
-                'name' => $namafile,
+                'path' => $pathSemula_Menjadi,
+                'name' => $namaFileSemula_Menjadi,
                 'user_id' => $user->id,
-                'projek_id' => $projek_id,
+                'projek_id' => $request->projek_id,
                 'status' => '1'
             ]);
+            Notification::send($admin, new UploadNotification($data));
             $projek->semula_menjadi_status = 1;
             $projek->save();
-        } else if ($jenis == 2) {
+            event(new UpdateStatus($projek));
+        };
+        // rab
+        if (file_exists($revisi_rab)) {
+            $namaFileRevisi_RAB = $projek->name . "_" . $revisi_rab->getClientOriginalName();
+            $pathRevisi_RAB = Storage::putFileAs($path, $revisi_rab, $namaFileRevisi_RAB);
+
             $data = Revisi_RAB::create([
-                'path' => $path,
-                'name' => $namafile,
+                'path' => $pathRevisi_RAB,
+                'name' => $namaFileRevisi_RAB,
                 'user_id' => $user->id,
-                'projek_id' => $projek_id,
+                'projek_id' => $request->projek_id,
                 'status' => '1'
             ]);
+            Notification::send($admin, new UploadNotification($data));
             $projek->revisi_rab_status = 1;
             $projek->save();
+            event(new UpdateStatus($projek));
         };
+       
         if (session('success')) {
             Alert::success('Sukses!', session('success'));
         }
-
-        Notification::send($admin, new UploadNotification($data));
-        event(new UpdateStatus($projek));
+        
         return redirect()->back()->with('success', 'Berhasil Menambahkan Data');
     }
 

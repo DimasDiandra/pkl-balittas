@@ -43,7 +43,6 @@
                 @endforeach
             </select>
         </div>
-
     <div class="row" style="padding-bottom:16px">
         <!-- Card Status-->
 
@@ -51,7 +50,7 @@
 
             <div class="card shadow h-100">
                 <div class="card-header py-3">
-                    <h6 class="m-0  text-primary">Status Monev</h6>
+                    <h6 class="m-0  text-primary">Status Revisi Anggaran</h6>
                 </div>
                 <div class="card-body">
                     <table class="table">
@@ -116,42 +115,48 @@
 
         </div>
         <!-- Card Upload-->
-        <div class="col">
-            
-            <div class="card shadow mb-4" style="height: 100%;">
+        <div class="col-sm-8">
+
+            <div class="card shadow h-100">
                 <div class="card-header py-3">
-                    <h6 class="m-0 text-primary">Upload Revisi Anggaran</h6>
+                    <h6 class="m-0  text-primary">Kelengkapan Document</h6>
                 </div>
                 <div class="card-body">
-                   
-                        {{ csrf_field() }}
-                        
-                        <div class="drop-zone">
-                            <span class="drop-zone__prompt"> Drop File Here or Click to Upload</span>
-                            <input type="file" name="file" class="drop-zone__input">
-                        </div>
-                        <div style="margin-top: 10px">
-                            <select class="custom-select" name="keterangan">
-                                <option selected value="Kosong">Jenis File</option>
-                                <option value="1">Formula Semula Menjadi</option>
-                                <option value="2">Revisi RAB</option>
-                            </select>
-                        </div>
-                        <div>
-                            <button class="btn btn-primary" style="float:right; margin-top: 10px;" type="submit"> <i class="menu-icon fa fa-upload"></i> Upload
-                            </button>
-                        </div>
-                    
+
+                    {{ csrf_field() }}
+                    <div class=" table table-borderless">
+                        <table>
+                            <tr>
+                                <td width="50%">
+                                    <a>File Semula Menjadi </a><label style="color:red">*</label>
+                                </td>
+                                <td>
+                                    <input type="file" name="semula_menjadi">
+                                </td>
+                            </tr>
+                            <tr>
+                                <td>
+                                    <a>File Revisi RAB </a><label style="color:red">*</label>
+                                </td>
+                                <td>
+                                    <input type="file" name="revisi_rab">
+                                </td>
+                            </tr>                            
+                        </table>
+                    </div>
+                    <div>
+                        <a>Keterangan : <label style="color:red">*</label> Kolom Wajib Diisi </a>
+                    </div>
+                    <div style="position: absolute; bottom: 16px;">
+                        <button type="submit" class="btn btn-primary upload"><i class="menu-icon fa fa-upload"></i> Upload</button>
+                    </div>
                 </div>
-            </form>
             </div>
-
-        </div>
-        <!-- End Of Card Upload -->
-
-      
+        </div>      
     </div>
+<!-- End Of Card Upload -->
 
+    <!-- Card History -->
     <div class="card card-body">
         <div class="row">
             <div class="col">

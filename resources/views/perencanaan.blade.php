@@ -187,7 +187,7 @@
                                         <a>File Matriks </a><label style="color:red">*</label>
                                     </td>
                                     <td>
-                                        <input type="file" name="matriks" required>
+                                        <input type="file" name="matriks">
                                     </td>
                                 </tr>
                                 <tr>
@@ -195,7 +195,7 @@
                                         <a>File RAB </a><label style="color:red">*</label>
                                     </td>
                                     <td>
-                                        <input type="file" name="rab" required>
+                                        <input type="file" name="rab">
                                     </td>
                                 </tr>
                                 <tr>
@@ -203,7 +203,7 @@
                                         <a>File KAK </a><label style="color:red">*</label>
                                     </td>
                                     <td>
-                                        <input type="file" name="kak" required>
+                                        <input type="file" name="kak">
                                     </td>
                                 </tr>
                                 <tr>

@@ -12,6 +12,11 @@ use App\Models\laporan_renaksi;
 use App\Models\laporan_tengahtahun;
 use App\Models\laporan_triwulan;
 use App\Models\Projek;
+use App\Models\Analisis;
+use App\Models\KAK;
+use App\Models\Matriks;
+use App\Models\Proposal;
+use App\Models\RAB;
 use App\Models\User;
 use Illuminate\Support\Facades\Auth;
 
@@ -40,7 +45,7 @@ class HomeController extends Controller
         $user = User::find(Auth::user()->id);
         $pengumuman = Pengumuman::orderBy('created_at', 'DESC')->get();
 
-        $userdata = User::join('projek', 'user_id', 'users.id')->select('users.name','bulanan_status','triwulan_status','tengahtahun_status','akhirtahun_status','renaksi_status','destudi_status','projek.name as projek_name')->get();
+        $userdata = User::join('projek', 'user_id', 'users.id')->select('users.name','bulanan_status','triwulan_status','tengahtahun_status','akhirtahun_status','renaksi_status','destudi_status','matriks_status','rab_status','kak_status','proposal_status','analisis_status','projek.name as projek_name')->get();
 
         $bulanan = laporan_bulanan::orderBy('created_at', 'DESC')->get();
         $triwulan = laporan_triwulan::orderBy('created_at', 'DESC')->get();
@@ -48,6 +53,11 @@ class HomeController extends Controller
         $akhirTahun = laporan_akhirtahun::orderBy('created_at', 'DESC')->get();
         $destudi = laporan_destudi::orderBy('created_at', 'DESC')->get();
         $renaksi = laporan_renaksi::orderBy('created_at', 'DESC')->get();
+        $analisis = Analisis::orderBy('created_at', 'DESC')->get();
+        $matriks = Matriks::orderBy('created_at', 'DESC')->get();
+        $proposal = Proposal::orderBy('created_at', 'DESC')->get();
+        $rab = RAB::orderBy('created_at', 'DESC')->get();
+        $kak = KAK::orderBy('created_at', 'DESC')->get();
         $projek = Projek::all();
 
         if(session('success')){
@@ -57,7 +67,7 @@ class HomeController extends Controller
         return view('home', 
         [
             'file' => $file, 'pengumuman'=> $pengumuman,'user'=>$user,'projek'=>$projek,'bulanan' => $bulanan, 'triwulan' => $triwulan, 'tengahTahun' => $tengahTahun, 'akhirTahun' => $akhirTahun, 'destudi' => $destudi,
-            'renaksi' => $renaksi, 'projek' => $projek, 'userdata'=>$userdata,
+            'renaksi' => $renaksi, 'projek' => $projek, 'analisis' => $analisis, 'kak' => $kak, 'matriks' => $matriks, 'proposal' => $proposal, 'rab' => $rab, 'userdata'=>$userdata,
         ]);
     }
 

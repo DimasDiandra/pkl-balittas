@@ -104,15 +104,14 @@
             </div>
         </div>
     </div>
-
-    <!-- Checklist -->
 </div>
+<!-- Checklist Monev -->
 <div class="row">
     <div class="col">
         <div class="card">
             <div class="card-header">
                 <h3 class="text-primary">
-                    Checklist Laporan
+                    Checklist Laporan Monev
                 </h3>
             </div>
             <div class="row card-body">
@@ -341,6 +340,311 @@
                                                 <td>{{ $f->name}}</td>
                                                 <td>{{ $f->projek_name }}</td>
                                                 @if ($f->destudi_status==0)
+                                                <td>
+                                                    <div>
+                                                        <a style="font-weight: 1000;"><i class="fa fa-times"></i>
+                                                        </a>
+                                                    </div>
+                                                </td>
+                                                @else
+                                                <td>
+                                                    <div>
+                                                        <a style="font-weight: 1000;"><i class="fa fa-check"></i>
+                                                        </a>
+                                                    </div>
+                                                </td>
+                                                @endif
+                                            </form>
+                                        </tr>
+                                        @endforeach
+                                    </tbody>
+                                </table>
+                            </div>
+                        </div>
+                        <!-- Renaksi -->
+                        <div class="tab-pane fade show " id="renaksi" role="tabpanel" aria-labelledby="nav-home-tab">
+                            <div class="modal-body">
+                                <table class="table" id="table">
+                                    <thead>
+                                        <tr>
+                                            <th width=1%>No.</th>
+                                            <th width=20%>Nama User</th>
+                                            <th width=50%>Projek Name</th>
+                                            <th width=30%>Status</th>
+                                            <th></th>
+                                        </tr>
+                                    </thead>
+                                    <tbody>
+                                        <!-- Isi dari keluaran data -->
+                                        @foreach($userdata as $f)
+                                        <tr>
+                                            <form action="/perencanaan/download" method="GET">
+                                                <td>{{ $loop->iteration }}</td>
+                                                <input type="hidden" name="path" value=" {{$f->path}}">
+                                                <td>{{ $f->name}}</td>
+                                                <td>{{ $f->projek_name }}</td>
+                                                @if ($f->renaksi_status==0)
+                                                <td>
+                                                    <div>
+                                                        <a style="font-weight: 1000;"><i class="fa fa-times"></i>
+                                                        </a>
+                                                    </div>
+                                                </td>
+                                                @else
+                                                <td>
+                                                    <div>
+                                                        <a style="font-weight: 1000;"><i class="fa fa-check"></i>
+                                                        </a>
+                                                    </div>
+                                                </td>
+                                                @endif
+                                            </form>
+                                        </tr>
+                                        @endforeach
+                                    </tbody>
+                                </table>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+<!-- End Checklist Monev -->
+
+<!-- Checklist Perencanaan -->
+<div class="row">
+    <div class="col">
+        <div class="card">
+            <div class="card-header">
+                <h3 class="text-primary">
+                    Checklist Perencanaan
+                </h3>
+            </div>
+            <div class="row card-body">
+                <div class="col">
+                    <ul class="nav nav-pills nav-fill">
+                        <li class="nav-item">
+                            <a class="nav-link active" href="#matriks" role="tab" data-toggle="tab">Matriks</a>
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link " href="#rab" role="tab" data-toggle="tab">RAB</a>
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link " href="#kak" role="tab" data-toggle="tab">KAK</a>
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link " href="#proposal" role="tab" data-toggle="tab">Proposal</a>
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link " href="#analisis" role="tab" data-toggle="tab">Analisis Resiko</a>
+                        </li>
+                    </ul>
+                </div>
+            </div>
+            <div class="row">
+                <div class="col">
+                    <div class="tab-content" id="nav-tabContent">
+                        <!-- Matriks -->
+                        <div class="tab-pane fade show active" id="matriks" role="tabpanel" aria-labelledby="nav-home-tab">
+                            <div class="modal-body">
+                                <table class="table" id="table">
+                                    <thead>
+                                        <tr>
+                                            <th width=1%>No.</th>
+                                            <th width=20%>Nama User</th>
+                                            <th width=50%>Projek Name</th>
+                                            <th width=30%>Status</th>
+                                            <th></th>
+                                        </tr>
+                                    </thead>
+                                    <tbody>
+                                        <!-- Isi dari keluaran data -->
+                                        @foreach($userdata as $f)
+                                        <tr>
+                                            <form action="/perencanaan/download" method="GET">
+                                                <td>{{ $loop->iteration }}</td>
+                                                <input type="hidden" name="path" value=" {{$f->path}}">
+                                                <td>{{ $f->name}}</td>
+                                                <td>{{ $f->projek_name }}</td>
+                                                @if ($f->matriks_status==0)
+                                                <td>
+                                                    <div>
+                                                        <a style="font-weight: 1000;"><i class="fa fa-times"></i>
+                                                        </a>
+                                                    </div>
+                                                </td>
+                                                @else
+                                                <td>
+                                                    <div>
+                                                        <a style="font-weight: 1000;"><i class="fa fa-check"></i>
+                                                        </a>
+                                                    </div>
+                                                </td>
+                                                @endif
+                                            </form>
+                                        </tr>
+                                        @endforeach
+                                    </tbody>
+                                </table>
+                            </div>
+                        </div>
+                        <!-- RAB -->
+                        <div class="tab-pane fade show " id="rab" role="tabpanel" aria-labelledby="nav-home-tab">
+                            <div class="modal-body">
+                                <table class="table" id="table">
+                                    <thead>
+                                        <tr>
+                                            <th width=1%>No.</th>
+                                            <th width=20%>Nama User</th>
+                                            <th width=50%>Projek Name</th>
+                                            <th width=30%>Status</th>
+                                            <th></th>
+                                        </tr>
+                                    </thead>
+                                    <tbody>
+                                        <!-- Isi dari keluaran data -->
+                                        @foreach($userdata as $f)
+                                        <tr>
+                                            <form action="/perencanaan/download" method="GET">
+                                                <td>{{ $loop->iteration }}</td>
+                                                <input type="hidden" name="path" value=" {{$f->path}}">
+                                                <td>{{ $f->name}}</td>
+                                                <td>{{ $f->projek_name }}</td>
+                                                @if ($f->rab_status==0)
+                                                <td>
+                                                    <div>
+                                                        <a style="font-weight: 1000;"><i class="fa fa-times"></i>
+                                                        </a>
+                                                    </div>
+                                                </td>
+                                                @else
+                                                <td>
+                                                    <div>
+                                                        <a style="font-weight: 1000;"><i class="fa fa-check"></i>
+                                                        </a>
+                                                    </div>
+                                                </td>
+                                                @endif
+                                            </form>
+                                        </tr>
+                                        @endforeach
+                                    </tbody>
+                                </table>
+                            </div>
+                        </div>
+                        <!-- KAK -->
+                        <div class="tab-pane fade show " id="kak" role="tabpanel" aria-labelledby="nav-home-tab">
+                            <div class="modal-body">
+                                <table class="table" id="table">
+                                    <thead>
+                                        <tr>
+                                            <th width=1%>No.</th>
+                                            <th width=20%>Nama User</th>
+                                            <th width=50%>Projek Name</th>
+                                            <th width=30%>Status</th>
+                                            <th></th>
+                                        </tr>
+                                    </thead>
+                                    <tbody>
+                                        <!-- Isi dari keluaran data -->
+                                        @foreach($userdata as $f)
+                                        <tr>
+                                            <form action="/perencanaan/download" method="GET">
+                                                <td>{{ $loop->iteration }}</td>
+                                                <input type="hidden" name="path" value=" {{$f->path}}">
+                                                <td>{{ $f->name}}</td>
+                                                <td>{{ $f->projek_name }}</td>
+                                                @if ($f->kak_status==0)
+                                                <td>
+                                                    <div>
+                                                        <a style="font-weight: 1000;"><i class="fa fa-times"></i>
+                                                        </a>
+                                                    </div>
+                                                </td>
+                                                @else
+                                                <td>
+                                                    <div>
+                                                        <a style="font-weight: 1000;"><i class="fa fa-check"></i>
+                                                        </a>
+                                                    </div>
+                                                </td>
+                                                @endif
+                                            </form>
+                                        </tr>
+                                        @endforeach
+                                    </tbody>
+                                </table>
+                            </div>
+                        </div>
+                        <!-- Proposal -->
+                        <div class="tab-pane fade show " id="proposal" role="tabpanel" aria-labelledby="nav-home-tab">
+                            <div class="modal-body">
+                                <table class="table" id="table">
+                                    <thead>
+                                        <tr>
+                                            <th width=1%>No.</th>
+                                            <th width=20%>Nama User</th>
+                                            <th width=50%>Projek Name</th>
+                                            <th width=30%>Status</th>
+                                            <th></th>
+                                        </tr>
+                                    </thead>
+                                    <tbody>
+                                        <!-- Isi dari keluaran data -->
+                                        @foreach($userdata as $f)
+                                        <tr>
+                                            <form action="/perencanaan/download" method="GET">
+                                                <td>{{ $loop->iteration }}</td>
+                                                <input type="hidden" name="path" value=" {{$f->path}}">
+                                                <td>{{ $f->name}}</td>
+                                                <td>{{ $f->projek_name }}</td>
+                                                @if ($f->proposal_status==0)
+                                                <td>
+                                                    <div>
+                                                        <a style="font-weight: 1000;"><i class="fa fa-times"></i>
+                                                        </a>
+                                                    </div>
+                                                </td>
+                                                @else
+                                                <td>
+                                                    <div>
+                                                        <a style="font-weight: 1000;"><i class="fa fa-check"></i>
+                                                        </a>
+                                                    </div>
+                                                </td>
+                                                @endif
+                                            </form>
+                                        </tr>
+                                        @endforeach
+                                    </tbody>
+                                </table>
+                            </div>
+                        </div>
+                        <!-- Analisis -->
+                        <div class="tab-pane fade show " id="analisis" role="tabpanel" aria-labelledby="nav-home-tab">
+                            <div class="modal-body">
+                                <table class="table" id="table">
+                                    <thead>
+                                        <tr>
+                                            <th width=1%>No.</th>
+                                            <th width=20%>Nama User</th>
+                                            <th width=50%>Projek Name</th>
+                                            <th width=30%>Status</th>
+                                            <th></th>
+                                        </tr>
+                                    </thead>
+                                    <tbody>
+                                        <!-- Isi dari keluaran data -->
+                                        @foreach($userdata as $f)
+                                        <tr>
+                                            <form action="/perencanaan/download" method="GET">
+                                                <td>{{ $loop->iteration }}</td>
+                                                <input type="hidden" name="path" value=" {{$f->path}}">
+                                                <td>{{ $f->name}}</td>
+                                                <td>{{ $f->projek_name }}</td>
+                                                @if ($f->analisis_status==0)
                                                 <td>
                                                     <div>
                                                         <a style="font-weight: 1000;"><i class="fa fa-times"></i>
