@@ -157,7 +157,7 @@ The above copyright notice and this permission notice shall be included in all c
                                             {{$notification->data['status']}}
                                         </a>
                                         @endforeach
-                                        @forelse(Auth::user()->readNotifications->take(10) as $notification)
+                                        @forelse(Auth::user()->readNotifications as $notification)
                                         <a class="dropdown-item" href="#" style="color: gray">
                                             {{$notification->data['name']}}
                                             {{$notification->data['status']}}

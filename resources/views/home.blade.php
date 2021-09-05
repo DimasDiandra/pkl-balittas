@@ -144,14 +144,13 @@
                         <!-- Bulanan -->
                         <div class="tab-pane fade show active" id="bulanan" role="tabpanel" aria-labelledby="nav-home-tab">
                             <div class="modal-body">
-                                <table class="table" id="table">
+                                <table class="table" id="table_bulanan">
                                     <thead>
                                         <tr>
-                                            <th width=1%>No.</th>
+                                            <th width=5%>No.</th>
                                             <th width=20%>Nama User</th>
                                             <th width=50%>Projek Name</th>
-                                            <th width=30%>Status</th>
-                                            <th></th>
+                                            <th width=30% class="text-center">Status</th>
                                         </tr>
                                     </thead>
                                     <tbody>
@@ -163,21 +162,19 @@
                                                 <input type="hidden" name="path" value=" {{$f->path}}">
                                                 <td>{{ $f->name}}</td>
                                                 <td>{{ $f->projek_name }}</td>
-                                                @if ($f->bulanan_status==0)
-                                                <td>
+                                                <td class="text-center">
+                                                    @if ($f->bulanan_status==0)
                                                     <div>
-                                                        <a style="font-weight: 1000;"><i class="fa fa-times"></i>
+                                                        <a style="font-weight: 1000; color:red"><i class="fa fa-times"></i>
                                                         </a>
                                                     </div>
-                                                </td>
-                                                @else
-                                                <td>
+                                                    @else
                                                     <div>
-                                                        <a style="font-weight: 1000;"><i class="fa fa-check"></i>
+                                                        <a style="font-weight: 1000; color:green"><i class="fa fa-check"></i>
                                                         </a>
                                                     </div>
+                                                    @endif
                                                 </td>
-                                                @endif
                                             </form>
                                         </tr>
                                         @endforeach
@@ -188,14 +185,13 @@
                         <!-- Triwulan -->
                         <div class="tab-pane fade show " id="triwulan" role="tabpanel" aria-labelledby="nav-home-tab">
                             <div class="modal-body">
-                                <table class="table" id="table">
+                                <table class="table" id="table_triwulan">
                                     <thead>
                                         <tr>
-                                            <th width=1%>No.</th>
+                                            <th width=5%>No.</th>
                                             <th width=20%>Nama User</th>
                                             <th width=50%>Projek Name</th>
-                                            <th width=30%>Status</th>
-                                            <th></th>
+                                            <th width=30% class="text-center">Status</th>
                                         </tr>
                                     </thead>
                                     <tbody>
@@ -207,21 +203,19 @@
                                                 <input type="hidden" name="path" value=" {{$f->path}}">
                                                 <td>{{ $f->name}}</td>
                                                 <td>{{ $f->projek_name }}</td>
-                                                @if ($f->triwulan_status==0)
-                                                <td>
+                                                <td class="text-center">
+                                                    @if ($f->triwulan_status==0)
                                                     <div>
-                                                        <a style="font-weight: 1000;"><i class="fa fa-times"></i>
+                                                        <a style="font-weight: 1000; color:red"><i class="fa fa-times"></i>
                                                         </a>
                                                     </div>
-                                                </td>
-                                                @else
-                                                <td>
+                                                    @else
                                                     <div>
-                                                        <a style="font-weight: 1000;"><i class="fa fa-check"></i>
+                                                        <a style="font-weight: 1000; color:green"><i class="fa fa-check"></i>
                                                         </a>
                                                     </div>
+                                                    @endif
                                                 </td>
-                                                @endif
                                             </form>
                                         </tr>
                                         @endforeach
@@ -232,14 +226,13 @@
                         <!-- Tengah -->
                         <div class="tab-pane fade show " id="tengah" role="tabpanel" aria-labelledby="nav-home-tab">
                             <div class="modal-body">
-                                <table class="table" id="table">
+                                <table class="table" id="table_tengah">
                                     <thead>
                                         <tr>
-                                            <th width=1%>No.</th>
+                                            <th width=5%>No.</th>
                                             <th width=20%>Nama User</th>
                                             <th width=50%>Projek Name</th>
-                                            <th width=30%>Status</th>
-                                            <th></th>
+                                            <th width=30% class="text-center">Status</th>
                                         </tr>
                                     </thead>
                                     <tbody>
@@ -251,21 +244,19 @@
                                                 <input type="hidden" name="path" value=" {{$f->path}}">
                                                 <td>{{ $f->name}}</td>
                                                 <td>{{ $f->projek_name }}</td>
-                                                @if ($f->tengahtahun_status==0)
-                                                <td>
+                                                <td class="text-center">
+                                                    @if ($f->tengahtahun_status==0)
                                                     <div>
-                                                        <a style="font-weight: 1000;"><i class="fa fa-times"></i>
+                                                        <a style="font-weight: 1000; color:red"><i class="fa fa-times"></i>
                                                         </a>
                                                     </div>
-                                                </td>
-                                                @else
-                                                <td>
+                                                    @else
                                                     <div>
-                                                        <a style="font-weight: 1000;"><i class="fa fa-check"></i>
+                                                        <a style="font-weight: 1000; color:green"><i class="fa fa-check"></i>
                                                         </a>
                                                     </div>
+                                                    @endif
                                                 </td>
-                                                @endif
                                             </form>
                                         </tr>
                                         @endforeach
@@ -276,14 +267,13 @@
                         <!-- Akhir -->
                         <div class="tab-pane fade show " id="akhir" role="tabpanel" aria-labelledby="nav-home-tab">
                             <div class="modal-body">
-                                <table class="table" id="table">
+                                <table class="table" id="table_akhir">
                                     <thead>
                                         <tr>
-                                            <th width=1%>No.</th>
+                                            <th width=5%>No.</th>
                                             <th width=20%>Nama User</th>
                                             <th width=50%>Projek Name</th>
-                                            <th width=30%>Status</th>
-                                            <th></th>
+                                            <th width=30% class="text-center">Status</th>
                                         </tr>
                                     </thead>
                                     <tbody>
@@ -295,21 +285,19 @@
                                                 <input type="hidden" name="path" value=" {{$f->path}}">
                                                 <td>{{ $f->name}}</td>
                                                 <td>{{ $f->projek_name }}</td>
-                                                @if ($f->akhirtahun_status==0)
-                                                <td>
+                                                <td class="text-center">
+                                                    @if ($f->akhirtahun_status==0)
                                                     <div>
-                                                        <a style="font-weight: 1000;"><i class="fa fa-times"></i>
+                                                        <a style="font-weight: 1000; color:red"><i class="fa fa-times"></i>
                                                         </a>
                                                     </div>
-                                                </td>
-                                                @else
-                                                <td>
+                                                    @else
                                                     <div>
-                                                        <a style="font-weight: 1000;"><i class="fa fa-check"></i>
+                                                        <a style="font-weight: 1000; color:green"><i class="fa fa-check"></i>
                                                         </a>
                                                     </div>
+                                                    @endif
                                                 </td>
-                                                @endif
                                             </form>
                                         </tr>
                                         @endforeach
@@ -320,14 +308,13 @@
                         <!-- Destudi -->
                         <div class="tab-pane fade show " id="destudi" role="tabpanel" aria-labelledby="nav-home-tab">
                             <div class="modal-body">
-                                <table class="table" id="table">
+                                <table class="table" id="table_destudi">
                                     <thead>
                                         <tr>
-                                            <th width=1%>No.</th>
+                                            <th width=5%>No.</th>
                                             <th width=20%>Nama User</th>
                                             <th width=50%>Projek Name</th>
-                                            <th width=30%>Status</th>
-                                            <th></th>
+                                            <th width=30% class="text-center">Status</th>
                                         </tr>
                                     </thead>
                                     <tbody>
@@ -339,21 +326,19 @@
                                                 <input type="hidden" name="path" value=" {{$f->path}}">
                                                 <td>{{ $f->name}}</td>
                                                 <td>{{ $f->projek_name }}</td>
-                                                @if ($f->destudi_status==0)
-                                                <td>
+                                                <td class="text-center">
+                                                    @if ($f->destudi_status==0)
                                                     <div>
-                                                        <a style="font-weight: 1000;"><i class="fa fa-times"></i>
+                                                        <a style="font-weight: 1000; color:red"><i class="fa fa-times"></i>
                                                         </a>
                                                     </div>
-                                                </td>
-                                                @else
-                                                <td>
+                                                    @else
                                                     <div>
-                                                        <a style="font-weight: 1000;"><i class="fa fa-check"></i>
+                                                        <a style="font-weight: 1000; color:green"><i class="fa fa-check"></i>
                                                         </a>
                                                     </div>
+                                                    @endif
                                                 </td>
-                                                @endif
                                             </form>
                                         </tr>
                                         @endforeach
@@ -364,14 +349,13 @@
                         <!-- Renaksi -->
                         <div class="tab-pane fade show " id="renaksi" role="tabpanel" aria-labelledby="nav-home-tab">
                             <div class="modal-body">
-                                <table class="table" id="table">
+                                <table class="table" id="table_renaksi">
                                     <thead>
                                         <tr>
-                                            <th width=1%>No.</th>
+                                            <th width=5%>No.</th>
                                             <th width=20%>Nama User</th>
                                             <th width=50%>Projek Name</th>
-                                            <th width=30%>Status</th>
-                                            <th></th>
+                                            <th width=30% class="text-center">Status</th>
                                         </tr>
                                     </thead>
                                     <tbody>
@@ -383,21 +367,19 @@
                                                 <input type="hidden" name="path" value=" {{$f->path}}">
                                                 <td>{{ $f->name}}</td>
                                                 <td>{{ $f->projek_name }}</td>
-                                                @if ($f->renaksi_status==0)
-                                                <td>
+                                                <td class="text-center">
+                                                    @if ($f->renaksi_status==0)
                                                     <div>
-                                                        <a style="font-weight: 1000;"><i class="fa fa-times"></i>
+                                                        <a style="font-weight: 1000; color:red"><i class="fa fa-times"></i>
                                                         </a>
                                                     </div>
-                                                </td>
-                                                @else
-                                                <td>
+                                                    @else
                                                     <div>
-                                                        <a style="font-weight: 1000;"><i class="fa fa-check"></i>
+                                                        <a style="font-weight: 1000; color:green"><i class="fa fa-check"></i>
                                                         </a>
                                                     </div>
+                                                    @endif
                                                 </td>
-                                                @endif
                                             </form>
                                         </tr>
                                         @endforeach
@@ -449,14 +431,13 @@
                         <!-- Matriks -->
                         <div class="tab-pane fade show active" id="matriks" role="tabpanel" aria-labelledby="nav-home-tab">
                             <div class="modal-body">
-                                <table class="table" id="table">
+                                <table class="table" id="table_matriks">
                                     <thead>
                                         <tr>
-                                            <th width=1%>No.</th>
+                                            <th width=5%>No.</th>
                                             <th width=20%>Nama User</th>
                                             <th width=50%>Projek Name</th>
-                                            <th width=30%>Status</th>
-                                            <th></th>
+                                            <th width=30% class="text-center">Status</th>
                                         </tr>
                                     </thead>
                                     <tbody>
@@ -468,21 +449,19 @@
                                                 <input type="hidden" name="path" value=" {{$f->path}}">
                                                 <td>{{ $f->name}}</td>
                                                 <td>{{ $f->projek_name }}</td>
-                                                @if ($f->matriks_status==0)
-                                                <td>
+                                                <td class="text-center">
+                                                    @if ($f->matriks_status==0)
                                                     <div>
-                                                        <a style="font-weight: 1000;"><i class="fa fa-times"></i>
+                                                        <a style="font-weight: 1000; color:red"><i class="fa fa-times"></i>
                                                         </a>
                                                     </div>
-                                                </td>
-                                                @else
-                                                <td>
+                                                    @else
                                                     <div>
-                                                        <a style="font-weight: 1000;"><i class="fa fa-check"></i>
+                                                        <a style="font-weight: 1000; color:green"><i class="fa fa-check"></i>
                                                         </a>
                                                     </div>
+                                                    @endif
                                                 </td>
-                                                @endif
                                             </form>
                                         </tr>
                                         @endforeach
@@ -493,14 +472,13 @@
                         <!-- RAB -->
                         <div class="tab-pane fade show " id="rab" role="tabpanel" aria-labelledby="nav-home-tab">
                             <div class="modal-body">
-                                <table class="table" id="table">
+                                <table class="table" id="table_rab">
                                     <thead>
                                         <tr>
-                                            <th width=1%>No.</th>
+                                            <th width=5%>No.</th>
                                             <th width=20%>Nama User</th>
                                             <th width=50%>Projek Name</th>
-                                            <th width=30%>Status</th>
-                                            <th></th>
+                                            <th width=30% class="text-center">Status</th>
                                         </tr>
                                     </thead>
                                     <tbody>
@@ -512,21 +490,19 @@
                                                 <input type="hidden" name="path" value=" {{$f->path}}">
                                                 <td>{{ $f->name}}</td>
                                                 <td>{{ $f->projek_name }}</td>
-                                                @if ($f->rab_status==0)
-                                                <td>
+                                                <td class="text-center">
+                                                    @if ($f->rab_status==0)
                                                     <div>
-                                                        <a style="font-weight: 1000;"><i class="fa fa-times"></i>
+                                                        <a style="font-weight: 1000; color:red"><i class="fa fa-times"></i>
                                                         </a>
                                                     </div>
-                                                </td>
-                                                @else
-                                                <td>
+                                                    @else
                                                     <div>
-                                                        <a style="font-weight: 1000;"><i class="fa fa-check"></i>
+                                                        <a style="font-weight: 1000; color:green"><i class="fa fa-check"></i>
                                                         </a>
                                                     </div>
+                                                    @endif
                                                 </td>
-                                                @endif
                                             </form>
                                         </tr>
                                         @endforeach
@@ -537,14 +513,13 @@
                         <!-- KAK -->
                         <div class="tab-pane fade show " id="kak" role="tabpanel" aria-labelledby="nav-home-tab">
                             <div class="modal-body">
-                                <table class="table" id="table">
+                                <table class="table" id="table_kak">
                                     <thead>
                                         <tr>
-                                            <th width=1%>No.</th>
+                                            <th width=5%>No.</th>
                                             <th width=20%>Nama User</th>
                                             <th width=50%>Projek Name</th>
-                                            <th width=30%>Status</th>
-                                            <th></th>
+                                            <th width=30% class="text-center">Status</th>
                                         </tr>
                                     </thead>
                                     <tbody>
@@ -556,21 +531,19 @@
                                                 <input type="hidden" name="path" value=" {{$f->path}}">
                                                 <td>{{ $f->name}}</td>
                                                 <td>{{ $f->projek_name }}</td>
-                                                @if ($f->kak_status==0)
-                                                <td>
+                                                <td class="text-center">
+                                                    @if ($f->kak_status==0)
                                                     <div>
-                                                        <a style="font-weight: 1000;"><i class="fa fa-times"></i>
+                                                        <a style="font-weight: 1000; color:red"><i class="fa fa-times"></i>
                                                         </a>
                                                     </div>
-                                                </td>
-                                                @else
-                                                <td>
+                                                    @else
                                                     <div>
-                                                        <a style="font-weight: 1000;"><i class="fa fa-check"></i>
+                                                        <a style="font-weight: 1000; color:green"><i class="fa fa-check"></i>
                                                         </a>
                                                     </div>
+                                                    @endif
                                                 </td>
-                                                @endif
                                             </form>
                                         </tr>
                                         @endforeach
@@ -581,14 +554,13 @@
                         <!-- Proposal -->
                         <div class="tab-pane fade show " id="proposal" role="tabpanel" aria-labelledby="nav-home-tab">
                             <div class="modal-body">
-                                <table class="table" id="table">
+                                <table class="table" id="table_proposal">
                                     <thead>
                                         <tr>
-                                            <th width=1%>No.</th>
+                                            <th width=5%>No.</th>
                                             <th width=20%>Nama User</th>
                                             <th width=50%>Projek Name</th>
-                                            <th width=30%>Status</th>
-                                            <th></th>
+                                            <th width=30% class="text-center">Status</th>
                                         </tr>
                                     </thead>
                                     <tbody>
@@ -600,21 +572,19 @@
                                                 <input type="hidden" name="path" value=" {{$f->path}}">
                                                 <td>{{ $f->name}}</td>
                                                 <td>{{ $f->projek_name }}</td>
-                                                @if ($f->proposal_status==0)
-                                                <td>
+                                                <td class="text-center">
+                                                    @if ($f->proposal_status==0)
                                                     <div>
-                                                        <a style="font-weight: 1000;"><i class="fa fa-times"></i>
+                                                        <a style="font-weight: 1000; color:red"><i class="fa fa-times"></i>
                                                         </a>
                                                     </div>
-                                                </td>
-                                                @else
-                                                <td>
+                                                    @else
                                                     <div>
-                                                        <a style="font-weight: 1000;"><i class="fa fa-check"></i>
+                                                        <a style="font-weight: 1000; color:green"><i class="fa fa-check"></i>
                                                         </a>
                                                     </div>
+                                                    @endif
                                                 </td>
-                                                @endif
                                             </form>
                                         </tr>
                                         @endforeach
@@ -625,14 +595,13 @@
                         <!-- Analisis -->
                         <div class="tab-pane fade show " id="analisis" role="tabpanel" aria-labelledby="nav-home-tab">
                             <div class="modal-body">
-                                <table class="table" id="table">
+                                <table class="table" id="table_analisis">
                                     <thead>
                                         <tr>
-                                            <th width=1%>No.</th>
+                                            <th width=5%>No.</th>
                                             <th width=20%>Nama User</th>
                                             <th width=50%>Projek Name</th>
-                                            <th width=30%>Status</th>
-                                            <th></th>
+                                            <th width=30% class="text-center">Status</th>
                                         </tr>
                                     </thead>
                                     <tbody>
@@ -644,21 +613,19 @@
                                                 <input type="hidden" name="path" value=" {{$f->path}}">
                                                 <td>{{ $f->name}}</td>
                                                 <td>{{ $f->projek_name }}</td>
-                                                @if ($f->analisis_status==0)
-                                                <td>
+                                                <td class="text-center">
+                                                    @if ($f->analisis_status==0)
                                                     <div>
-                                                        <a style="font-weight: 1000;"><i class="fa fa-times"></i>
+                                                        <a style="font-weight: 1000; color:red"><i class="fa fa-times"></i>
                                                         </a>
                                                     </div>
-                                                </td>
-                                                @else
-                                                <td>
+                                                    @else
                                                     <div>
-                                                        <a style="font-weight: 1000;"><i class="fa fa-check"></i>
+                                                        <a style="font-weight: 1000; color:green"><i class="fa fa-check"></i>
                                                         </a>
                                                     </div>
+                                                    @endif
                                                 </td>
-                                                @endif
                                             </form>
                                         </tr>
                                         @endforeach
@@ -669,14 +636,13 @@
                         <!-- Renaksi -->
                         <div class="tab-pane fade show " id="renaksi" role="tabpanel" aria-labelledby="nav-home-tab">
                             <div class="modal-body">
-                                <table class="table" id="table">
+                                <table class="table" id="table_renaksi">
                                     <thead>
                                         <tr>
-                                            <th width=1%>No.</th>
+                                            <th width=5%>No.</th>
                                             <th width=20%>Nama User</th>
                                             <th width=50%>Projek Name</th>
-                                            <th width=30%>Status</th>
-                                            <th></th>
+                                            <th width=30% class="text-center">Status</th>
                                         </tr>
                                     </thead>
                                     <tbody>
@@ -688,21 +654,19 @@
                                                 <input type="hidden" name="path" value=" {{$f->path}}">
                                                 <td>{{ $f->name}}</td>
                                                 <td>{{ $f->projek_name }}</td>
-                                                @if ($f->renaksi_status==0)
-                                                <td>
+                                                <td class="text-center">
+                                                    @if ($f->renaksi_status==0)
                                                     <div>
-                                                        <a style="font-weight: 1000;"><i class="fa fa-times"></i>
+                                                        <a style="font-weight: 1000; color:red"><i class="fa fa-times"></i>
                                                         </a>
                                                     </div>
-                                                </td>
-                                                @else
-                                                <td>
+                                                    @else
                                                     <div>
-                                                        <a style="font-weight: 1000;"><i class="fa fa-check"></i>
+                                                        <a style="font-weight: 1000; color:green"><i class="fa fa-check"></i>
                                                         </a>
                                                     </div>
+                                                    @endif
                                                 </td>
-                                                @endif
                                             </form>
                                         </tr>
                                         @endforeach
@@ -798,8 +762,44 @@
 </div>
 
 <script>
-    //dynamic modal
     jQuery(document).ready(function() {
+        // DataTables
+        $('#table_bulanan').DataTable({
+            "autoWidth": false
+        });
+        $('#table_triwulan').DataTable({
+            "autoWidth": false
+        });
+        $('#table_tengah').DataTable({
+            "autoWidth": false
+        });
+        $('#table_akhir').DataTable({
+            "autoWidth": false
+        });
+        $('#table_renaksi').DataTable({
+            "autoWidth": false
+        });
+        $('#table_destudi').DataTable({
+            "autoWidth": false
+        });
+        $('#table_matriks').DataTable({
+            "autoWidth": false
+        });
+        $('#table_rab').DataTable({
+            "autoWidth": false
+        });
+        $('#table_kak').DataTable({
+            "autoWidth": false
+        });
+        $('#table_proposal').DataTable({
+            "autoWidth": false
+        });
+        $('#table_analisis').DataTable({
+            "autoWidth": false
+        });
+        $($.fn.dataTable.tables(true)).DataTable().columns.adjust().responsive.recalc();
+
+        //dynamic modal
         $('.detail-btn').click(function() {
             const id = $(this).attr('data-id');
             console.log(id)
