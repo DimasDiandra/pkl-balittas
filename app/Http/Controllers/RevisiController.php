@@ -49,17 +49,17 @@ class RevisiController extends Controller
 
     public function revisi()
     {
-        // $semula_menjadi = Semula_Menjadi::where('user_id', Auth::user()->id)->get();
-        // $revisi_rab = Revisi_RAB::where('user_id', Auth::user()->id)->get();
-        // $user = User::get();
-        $semula_menjadi = Semula_Menjadi::orderBy('created_at', 'DESC')->get();
-        $revisi_rab = Revisi_RAB::orderBy('created_at', 'DESC')->get();
-        $projek = Projek::all();
+        $semula_menjadi = Semula_Menjadi::where('user_id', Auth::user()->id)->get();
+        $revisi_rab = Revisi_RAB::where('user_id', Auth::user()->id)->get();
+        $user = User::get();
+        // $semula_menjadi = Semula_Menjadi::orderBy('created_at', 'DESC')->get();
+        // $revisi_rab = Revisi_RAB::orderBy('created_at', 'DESC')->get();
+        $projek = Projek::where('user_id', Auth::user()->id)->get();
         if (session('success')) {
             Alert::success('Sukses!', session('success'));
         }
 
-        return view('revisi', ['revisi_rab' => $revisi_rab, 'semula_menjadi' => $semula_menjadi, 'projek' => $projek]);
+        return view('revisi', ['revisi_rab' => $revisi_rab, 'semula_menjadi' => $semula_menjadi, 'user' => $user, 'projek' => $projek]);
     }
 
     public function revisi_status($id)
