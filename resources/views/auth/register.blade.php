@@ -7,11 +7,8 @@
     <meta name="viewport" content="width=device-width,initial-scale=1">
     <title>Register &mdash; Balittas</title>
     <link rel="stylesheet" href="{{ asset('style/assets/css/normalize.css') }}">
-    <link rel="stylesheet" href="{{ asset('style/assets/css/bootstrap.min.css') }}">
-    <link rel="stylesheet" href="{{ asset('style/assets/css/font-awesome.min.css') }}">
-    <link rel="stylesheet" href="{{ asset('style/assets/scss/style.css') }}">
+    <link href="../assets/css/material-dashboard.css?v=2.1.2" rel="stylesheet" />
     <link rel="stylesheet" href="css/style.css">
-    <link rel="stylesheet" href="css/dragndrop.css">
 </head>
 
 <body class="my-login-page">
@@ -86,7 +83,7 @@
                             </form>
                         </div>
                     </div>
-                    <div class="footer">
+                    <div class="footer" style="text-align: center">
                         &copy; made with <i class="material-icons">favorite</i> by Tim PKL Filkom UB.
                     </div>
                 </div>

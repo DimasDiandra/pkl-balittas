@@ -121,7 +121,20 @@ body.my-login-page {
 	height: 90px;
 	overflow: hidden;
 	border-radius: 50%;
-	margin: 40px auto;
+	margin-left: auto;
+    margin-right: auto;
+    text-align: center;
+	box-shadow: 0 4px 8px rgba(0,0,0,.05);
+	position: relative;
+	z-index: 1;
+}
+
+.my-login-page .brands {
+	text-align : center;
+    overflow: hidden;
+    color:white ;
+	margin-top: 10px;
+    margin-bottom: 30px;
 	box-shadow: 0 4px 8px rgba(0,0,0,.05);
 	position: relative;
 	z-index: 1;

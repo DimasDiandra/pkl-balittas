@@ -7,11 +7,8 @@
     <meta name="viewport" content="width=device-width,initial-scale=1">
     <title>Login &mdash; Balittas</title>
     <link rel="stylesheet" href="{{ asset('style/assets/css/normalize.css') }}">
-    <link rel="stylesheet" href="{{ asset('style/assets/css/bootstrap.min.css') }}">
-    <link rel="stylesheet" href="{{ asset('style/assets/css/font-awesome.min.css') }}">
-    <link rel="stylesheet" href="{{ asset('style/assets/scss/style.css') }}">
+    <link href="../assets/css/material-dashboard.css?v=2.1.2" rel="stylesheet" />
     <link rel="stylesheet" href="css/style.css">
-    <link rel="stylesheet" href="css/dragndrop.css">
 </head>
 
 <body class="my-login-page">
@@ -23,6 +20,9 @@
                 <div class="card-wrapper">
                     <div class="brand">
                         <img src="assets/pkl.png" alt="logo">
+                    </div>
+                    <div class="brands">
+                        <h2>SIPERTA BALITTAS</h2>
                     </div>
                     <!-- login form -->
                     <div class="card fat">
