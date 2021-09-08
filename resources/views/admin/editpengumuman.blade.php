@@ -52,11 +52,12 @@
                         <div class="box-body">
                             <div class="form-group">
                                 <label for="exampleInputPassword1">Judul</label>
-                                <input type="text" name="judul" class="form-control col-md-6" id="exampleInputPassword1" placeholder="Name" value="{{ $data->judul }}">
+                                <input type="text" name="judul" class="form-control col-md-6" id="exampleInputPassword1" placeholder="Judul Pengumuman" value="{{ $data->judul }}">
                             </div>
                             <div class="form-group">
                                 <label for="exampleInputEmail1">Isi Pengumuman</label>
-                                <input type="text" name="isi_pengumuman" class="form-control" id="exampleInputEmail1" placeholder="Enter email" value="{{ $data->isi_pengumuman }}">
+                                
+                                <textarea name="isi_pengumuman" class="form-control" id="exampleInputEmail1" rows="5" value="{{ $data->isi_pengumuman }}">{{ $data->isi_pengumuman }}</textarea>
                             </div>
                         </div>
                     </div>

@@ -163,7 +163,7 @@ class PerencanaanController extends Controller
         // $data->notify(new StatusNotification($data));
         $user = User::where('id', $data->user_id)->get('id');
         Notification::send($user, new StatusNotification($data));
-        return redirect('admin/perencanaan')->with('success', 'Data Berhasil Diperbarui');
+        return redirect()->back()->with('success', 'Data Berhasil Diperbarui');
     }
 
     public function statusrab($id, Request $request)
@@ -181,7 +181,7 @@ class PerencanaanController extends Controller
         // $data->notify(new StatusNotification($data));
         $user = User::where('id', $data->user_id)->get('id');
         Notification::send($user, new StatusNotification($data));
-        return redirect('admin/perencanaan')->with('success', 'Data Berhasil Diperbarui');
+        return redirect()->back()->with('success', 'Data Berhasil Diperbarui');
     }
 
     public function statuskak($id, Request $request)
@@ -199,7 +199,7 @@ class PerencanaanController extends Controller
         // $data->notify(new StatusNotification($data));
         $user = User::where('id', $data->user_id)->get('id');
         Notification::send($user, new StatusNotification($data));
-        return redirect('admin/perencanaan')->with('success', 'Data Berhasil Diperbarui');
+        return redirect()->back()->with('success', 'Data Berhasil Diperbarui');
     }
 
     public function statusanalisis($id, Request $request)
@@ -217,7 +217,7 @@ class PerencanaanController extends Controller
         // $data->notify(new StatusNotification($data));
         $user = User::where('id', $data->user_id)->get('id');
         Notification::send($user, new StatusNotification($data));
-        return redirect('admin/perencanaan')->with('success', 'Data Berhasil Diperbarui');
+        return redirect()->back()->with('success', 'Data Berhasil Diperbarui');
     }
 
     public function statusproposal($id, Request $request)
@@ -235,7 +235,7 @@ class PerencanaanController extends Controller
         // $data->notify(new StatusNotification($data));
         $user = User::where('id', $data->user_id)->get('id');
         Notification::send($user, new StatusNotification($data));
-        return redirect('admin/perencanaan')->with('success', 'Data Berhasil Diperbarui');
+        return redirect()->back()->with('success', 'Data Berhasil Diperbarui');
     }
 
     public function deletematriks($id)

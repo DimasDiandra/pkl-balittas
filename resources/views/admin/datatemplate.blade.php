@@ -85,9 +85,10 @@
                     @csrf
                     <div class="modal-body">
                         <div class="form-group row">
-                            <label for="nama_file" class="col-md-4 col-form-label text-md-right">{{ __('Pilih File') }}</label>
-                            <div class="col-md-6">
-                                <input type="file" class="form-control" name="nama_file" id="nama_file" required>
+                            <label>Pilih file :</label>
+                            <div class="custom-file">
+                                <input type="file" name="nama_file" class="form-control custom-file-input" id="nama_file">
+                                <label class="custom-file-label col-md-8" for="nama_file">Pilih file</label>
                             </div>
                         </div>
                     </div>
