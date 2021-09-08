@@ -156,7 +156,7 @@ class ReportController extends Controller
         // $data->notify(new StatusNotification($data));
         $user = User::where('id', $data->user_id)->get('id');
         Notification::send($user, new StatusNotification($data));
-        return redirect('admin/evaluasi')->with('success', 'Data Berhasil Diperbarui');
+        return redirect()->back()->with('success', 'Data Berhasil Diperbarui');
     }
 
     public function statustriwulan($id, Request $request)
@@ -173,7 +173,7 @@ class ReportController extends Controller
 
         $user = User::where('id', $data->user_id)->get('id');
         Notification::send($user, new StatusNotification($data));
-        return redirect('admin/evaluasi')->with('success', 'Data Berhasil Diperbarui');
+        return redirect()->back()->with('success', 'Data Berhasil Diperbarui');
     }
 
     public function statustengah($id, Request $request)
@@ -190,7 +190,7 @@ class ReportController extends Controller
 
         $user = User::where('id', $data->user_id)->get('id');
         Notification::send($user, new StatusNotification($data));
-        return redirect('admin/evaluasi')->with('success', 'Data Berhasil Diperbarui');
+        return redirect()->back()->with('success', 'Data Berhasil Diperbarui');
     }
 
     public function statusakhir($id, Request $request)
@@ -207,7 +207,7 @@ class ReportController extends Controller
 
         $user = User::where('id', $data->user_id)->get('id');
         Notification::send($user, new StatusNotification($data));
-        return redirect('admin/evaluasi')->with('success', 'Data Berhasil Diperbarui');
+        return redirect()->back()->with('success', 'Data Berhasil Diperbarui');
     }
 
     public function statusdestudi($id, Request $request)
@@ -224,7 +224,7 @@ class ReportController extends Controller
 
         $user = User::where('id', $data->user_id)->get('id');
         Notification::send($user, new StatusNotification($data));
-        return redirect('admin/evaluasi')->with('success', 'Data Berhasil Diperbarui');
+        return redirect()->back()->with('success', 'Data Berhasil Diperbarui');
     }
 
     public function statusrenaksi($id, Request $request)
@@ -241,7 +241,7 @@ class ReportController extends Controller
 
         $user = User::where('id', $data->user_id)->get('id');
         Notification::send($user, new StatusNotification($data));
-        return redirect('admin/evaluasi')->with('success', 'Data Berhasil Diperbarui');
+        return redirect()->back()->with('success', 'Data Berhasil Diperbarui');
     }
 
     public function deletebulanan($id)

@@ -152,13 +152,13 @@ The above copyright notice and this permission notice shall be included in all c
                                 <div class="dropdown-menu dropdown-menu-right" aria-labelledby="navbarDropdownMenuLink">
                                     <div style="max-height: 500px; overflow:auto">
                                         @forelse(Auth::user()->unreadNotifications as $notification)
-                                        <a class="dropdown-item" href="#">
+                                        <a class="dropdown-item" href="#" data-toggle="modal" data-target="#notif">
                                             {{$notification->data['name']}}
                                             {{$notification->data['status']}}
                                         </a>
                                         @endforeach
                                         @forelse(Auth::user()->readNotifications as $notification)
-                                        <a class="dropdown-item" href="#" style="color: gray">
+                                        <a class="dropdown-item" href="#" style="color: gray" data-toggle="modal" data-target="#notif">
                                             {{$notification->data['name']}}
                                             {{$notification->data['status']}}
                                         </a>
@@ -359,7 +359,39 @@ The above copyright notice and this permission notice shall be included in all c
         }
     </script>
 
+    <!-- Modal Notification-->
+    <div id="notif" class="modal fade">
+        <div class="modal-dialog modal-lg">
+            <div class="modal-content">
+                <!-- Ini adalah Bagian Header Modal -->
+                <div class="modal-header">
+                    <h4 class="modal-title">Notifikasi</h4>
+                    <button type="button" class="close" data-dismiss="modal">&times;</button>
+                </div>
+                <!-- Ini adalah Bagian Body Modal -->
+                    <div class="modal-body">
+                        <div class="mb-3">
+                            <label class="form-label">Notifikasi</label>
+                            {{$notification->data['name']}}
+                        </div>
+                        <div class="mb-3">
+                            <label class="form-label">Keterangan File:</label>
+                            {{$notification->data['status']}}
+                        </div>
+                        <div class="mb-3">
+                            <label class="form-label">Keterangan File:</label>
+                            {{$notification->data['status']}}
+                        </div>
 
+                    </div>
+                    <!-- Ini adalah Bagian Footer Modal -->
+                    <div class="modal-footer">
+                        <button type="button" class="btn btn-danger" data-dismiss="modal">Tutup</button>
+                    </div>
+            </div>
+        </div>
+    </div>
+    <!-- End Modal buat Pengumuman -->
 </body>
 
 </html>

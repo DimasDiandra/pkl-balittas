@@ -93,7 +93,7 @@
                         </div>
                         <div class="mb-3">
                             <label for="isi_pengumuman" class="form-label">Isi Pengumuman</label>
-                            <textarea name="isi_pengumuman" class="form-control" id="isi_pengumuman" placeholder="Isikan Pengumuman Disini" required oninvalid="this.setCustomValidity('Masukkan Isi Pengumuman Terlebih Dahulu')" oninput="setCustomValidity('')"></textarea>
+                            <textarea name="isi_pengumuman" class="form-control" id="isi_pengumuman" rows="5" placeholder="Isikan Pengumuman Disini" required oninvalid="this.setCustomValidity('Masukkan Isi Pengumuman Terlebih Dahulu')" oninput="setCustomValidity('')"></textarea>
                         </div>
 
                     </div>

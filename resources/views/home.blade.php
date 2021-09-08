@@ -683,55 +683,6 @@
 
 <!-- End of Main Content -->
 
-<!-- Modal Download -->
-<div id="myModal" class="modal fade" role="dialog">
-    <div class="modal-dialog modal-lg">
-        <div class="modal-content">
-
-            <!-- Ini adalah Bagian Header Modal -->
-            <div class="modal-header">
-                <h4 class="modal-title">Download Template</h4>
-                <button type="button" class="close" data-dismiss="modal">&times;</button>
-            </div>
-
-            <!-- Ini adalah Bagian Body Modal -->
-            <div class="modal-body">
-                <table class="table table-bordered table-striped" id="templateTable">
-                    <thead>
-                        <tr>
-                            <th>No.</th>
-                            <th>File Name</th>
-                            <th>Download</th>
-                        </tr>
-                    </thead>
-                    <tbody>
-                        <!-- Isi dari keluaran data -->
-                        @foreach($file as $f)
-                        <tr>
-                            <form action="/home/download" method="GET">
-                                <td>{{ $loop->iteration }}</td>
-                                <input type="hidden" name="path" value=" {{$f->path}}">
-                                <td>{{ $f->nama_file }}</td>
-                                <td>
-                                    <button type="submit" class="btn btn-primary">
-                                        <i class="menu-icon fa fa-download"></i> Download
-                                    </button>
-                                </td>
-                            </form>
-                        </tr>
-                        @endforeach
-                    </tbody>
-                </table>
-            </div>
-
-            <!-- Ini adalah Bagian Footer Modal -->
-            <div class="modal-footer">
-                <button type="button" class="btn btn-danger" data-dismiss="modal">Tutup</button>
-            </div>
-
-        </div>
-    </div>
-</div>
 
 <!-- Modal Pengumuman -->
 <div id="pengumumanModal" class="modal fade" role="dialog">
