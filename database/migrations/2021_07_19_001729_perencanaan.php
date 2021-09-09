@@ -19,7 +19,7 @@ class Perencanaan extends Migration
             $table->string('name');
             $table->string('path');
             $table->integer('status');
-
+            $table->string('keterangan')->nullable();
             $table->unsignedBigInteger('user_id');
             $table->unsignedBigInteger('projek_id');
             $table->foreign('user_id')->references('id')->on('users');
@@ -31,7 +31,7 @@ class Perencanaan extends Migration
             $table->string('name');
             $table->string('path');
             $table->integer('status');
-
+            $table->string('keterangan')->nullable();
             $table->unsignedBigInteger('user_id');
             $table->unsignedBigInteger('projek_id');
             $table->foreign('user_id')->references('id')->on('users');
@@ -43,7 +43,7 @@ class Perencanaan extends Migration
             $table->string('name');
             $table->string('path');
             $table->integer('status');
-
+            $table->string('keterangan')->nullable();
             $table->unsignedBigInteger('user_id');
             $table->unsignedBigInteger('projek_id');
             $table->foreign('user_id')->references('id')->on('users');
@@ -55,7 +55,7 @@ class Perencanaan extends Migration
             $table->string('name');
             $table->string('path');
             $table->integer('status');
-
+            $table->string('keterangan')->nullable();
             $table->unsignedBigInteger('user_id');
             $table->unsignedBigInteger('projek_id');
             $table->foreign('user_id')->references('id')->on('users');
@@ -67,7 +67,7 @@ class Perencanaan extends Migration
             $table->string('name');
             $table->string('path');
             $table->integer('status');
-
+            $table->string('keterangan')->nullable();
             $table->unsignedBigInteger('user_id');
             $table->unsignedBigInteger('projek_id');
             $table->foreign('user_id')->references('id')->on('users');
