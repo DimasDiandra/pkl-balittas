@@ -22,6 +22,7 @@ class StatusNotification extends Notification
         $this->data = $data;
     }
 
+    protected $table = "notifications";
     /**
      * Get the notification's delivery channels.
      *
@@ -66,7 +67,8 @@ class StatusNotification extends Notification
             'name' => $this->data->name,
             'user_id' => $this->data->user_id,
             'projek_id' => $this->data->projek_id,
-            'status' => $status
+            'status' => $status,
+            'keterangan' => $this->data->keterangan
         ];
     }
 }

@@ -152,13 +152,14 @@ The above copyright notice and this permission notice shall be included in all c
                                 <div class="dropdown-menu dropdown-menu-right" aria-labelledby="navbarDropdownMenuLink">
                                     <div style="max-height: 500px; overflow:auto">
                                         @forelse(Auth::user()->unreadNotifications as $notification)
-                                        <a class="dropdown-item" href="#" data-toggle="modal" data-target="#notif">
+                                        <a class="dropdown-item detail-btn" href="#" data-toggle="modal" data-target="#notif" data-id="{{ $notification->id }}" style="background-color: #17b169; color:white">
                                             {{$notification->data['name']}}
                                             {{$notification->data['status']}}
+
                                         </a>
                                         @endforeach
                                         @forelse(Auth::user()->readNotifications as $notification)
-                                        <a class="dropdown-item" href="#" style="color: gray" data-toggle="modal" data-target="#notif">
+                                        <a class="dropdown-item detail-btn" href="#" data-toggle="modal" data-target="#notif" data-id="{{ $notification->id }}">
                                             {{$notification->data['name']}}
                                             {{$notification->data['status']}}
                                         </a>
@@ -371,15 +372,13 @@ The above copyright notice and this permission notice shall be included in all c
                 <!-- Ini adalah Bagian Body Modal -->
                 <div class="modal-body">
                     <div class="mb-3">
-                        <label class="form-label">Notifikasi</label>
+                        <label class="form-label">Nama File</label>
+                        <p class="form-label" id="name"></p>
                     </div>
                     <div class="mb-3">
-                        <label class="form-label">Keterangan File:</label>
+                        <label class="form-label">Keterangan</label>
+                        <p id="detail"></p>
                     </div>
-                    <div class="mb-3">
-                        <label class="form-label">Keterangan File:</label>
-                    </div>
-
                 </div>
                 <!-- Ini adalah Bagian Footer Modal -->
                 <div class="modal-footer">
@@ -390,5 +389,25 @@ The above copyright notice and this permission notice shall be included in all c
     </div>
     <!-- End Modal buat Pengumuman -->
 </body>
+<script>
+    //dynamic modal
+    $('.detail-btn').click(function() {
+        const id = $(this).attr('data-id');
+        console.log(id)
+        $.ajax({
+            url: '/admin/notification/' + id,
+            type: 'GET',
+            data: {
+                'id': id,
+            },
+            success: function(data) {
+                var json = $.parseJSON(data.data)
+                console.log(data);
+                $('#name').html(json.name);
+                $('#detail').html(json.keterangan)
+            }
+        });
+    });
+</script>
 
 </html>

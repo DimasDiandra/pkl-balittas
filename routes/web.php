@@ -73,13 +73,14 @@ Route::middleware('role:admin')->get('/admin', [App\Http\Controllers\HomeControl
 Route::middleware('role:admin')->prefix('admin')->group(function () {
     Route::get('/admin', [App\Http\Controllers\HomeController::class, 'admin'])->name('admin');
 
+    Route::get('/notification/{id}', [HomeController::class, 'show_notification']);
     // List data User
     Route::get('/user', [App\Http\Controllers\UserController::class, 'index']);
     Route::get('/user/{id}', [App\Http\Controllers\UserController::class, 'edit']);
     Route::put('/user/{id}', [App\Http\Controllers\UserController::class, 'update']);
     Route::post('/user', [App\Http\Controllers\UserController::class, 'tambah_user']);
     Route::delete('admin/user/{id}', [App\Http\Controllers\UserController::class, 'delete']);
-   
+
     //Profile
     Route::get('/profile/{id}', [UserController::class, 'profile_admin'])->name('profile_admin');
     Route::put('/profile/{id}', [UserController::class, 'updateprofile']);

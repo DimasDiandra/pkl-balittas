@@ -18,6 +18,7 @@ use App\Models\Matriks;
 use App\Models\Proposal;
 use App\Models\RAB;
 use App\Models\User;
+use App\Models\Notification;
 use Illuminate\Support\Facades\Auth;
 
 class HomeController extends Controller
@@ -45,7 +46,7 @@ class HomeController extends Controller
         $user = User::find(Auth::user()->id);
         $pengumuman = Pengumuman::orderBy('created_at', 'DESC')->get();
 
-        $userdata = User::join('projek', 'user_id', 'users.id')->select('users.name','bulanan_status','triwulan_status','tengahtahun_status','akhirtahun_status','renaksi_status','destudi_status','matriks_status','rab_status','kak_status','proposal_status','analisis_status','projek.name as projek_name')->get();
+        $userdata = User::join('projek', 'user_id', 'users.id')->select('users.name', 'bulanan_status', 'triwulan_status', 'tengahtahun_status', 'akhirtahun_status', 'renaksi_status', 'destudi_status', 'matriks_status', 'rab_status', 'kak_status', 'proposal_status', 'analisis_status', 'projek.name as projek_name')->get();
 
         $bulanan = laporan_bulanan::orderBy('created_at', 'DESC')->get();
         $triwulan = laporan_triwulan::orderBy('created_at', 'DESC')->get();
@@ -60,15 +61,17 @@ class HomeController extends Controller
         $kak = KAK::orderBy('created_at', 'DESC')->get();
         $projek = Projek::all();
 
-        if(session('success')){
+        if (session('success')) {
             Alert::success('Sukses!', session('success'));
         }
 
-        return view('home', 
-        [
-            'file' => $file, 'pengumuman'=> $pengumuman,'user'=>$user,'projek'=>$projek,'bulanan' => $bulanan, 'triwulan' => $triwulan, 'tengahTahun' => $tengahTahun, 'akhirTahun' => $akhirTahun, 'destudi' => $destudi,
-            'renaksi' => $renaksi, 'projek' => $projek, 'analisis' => $analisis, 'kak' => $kak, 'matriks' => $matriks, 'proposal' => $proposal, 'rab' => $rab, 'userdata'=>$userdata,
-        ]);
+        return view(
+            'home',
+            [
+                'file' => $file, 'pengumuman' => $pengumuman, 'user' => $user, 'projek' => $projek, 'bulanan' => $bulanan, 'triwulan' => $triwulan, 'tengahTahun' => $tengahTahun, 'akhirTahun' => $akhirTahun, 'destudi' => $destudi,
+                'renaksi' => $renaksi, 'projek' => $projek, 'analisis' => $analisis, 'kak' => $kak, 'matriks' => $matriks, 'proposal' => $proposal, 'rab' => $rab, 'userdata' => $userdata,
+            ]
+        );
     }
 
     public function admin()
@@ -84,5 +87,10 @@ class HomeController extends Controller
     public function show_pengumuman($id)
     {
         return Pengumuman::find($id);
+    }
+
+    public function show_notification($id)
+    {
+        return Notification::find($id);
     }
 }

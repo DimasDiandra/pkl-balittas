@@ -1,13 +1,13 @@
 @extends('admin/main')
 
-@section('title', 'Edit Perencanaan')
+@section('title', 'Edit report')
 
 @section('breadcrumbs')
 <div class="breadcrumbs">
     <div class="col-sm-4">
         <div class="page-header float-left">
             <div class="page-title">
-                <h1>Detail Perencanaan</h1>
+                <h1>Detail report</h1>
             </div>
         </div>
     </div>
@@ -36,7 +36,7 @@
 <div class="container-fluid">
 
     <div>
-        <a href="/admin/perencanaan" style="font-weight: 500; cursor:pointer;" class="text-primary"><i class="fa fa-arrow-left"></i> Back
+        <a href="/admin/report" style="font-weight: 500; cursor:pointer;" class="text-primary"><i class="fa fa-arrow-left"></i> Back
         </a>
     </div>
     <div class="card">
@@ -91,7 +91,6 @@
                                     @foreach($bulanan as $f)
                                     <tr>
                                         <td>{{ $loop->iteration }}</td>
-                                        <input type="hidden" name="path" value=" {{$f->path}}">
                                         <td>{{ $f->name }}</td>
                                         <td>{{ $date = substr($f->created_at, 2, 8) }}</td>
                                         <td>
@@ -116,7 +115,8 @@
                                                 <a href="javascript:void(0)" id="deletebtn" class="btn btn-danger btn-xs btn-hapus hapusbulanan" data-id="{{$f->id}}"><i class="fa fa-trash-o"></i></a>
                                             </div>
                                             <div style="float: left;">
-                                                <form action="/perencanaan/download" method="GET">
+                                                <form action="/report/download" method="GET">
+                                                    <input type="hidden" name="path" value=" {{$f->path}}">
                                                     <button type="submit" class="btn btn-primary">
                                                         <i class="menu-icon fa fa-download"></i>
                                                     </button>
@@ -173,7 +173,8 @@
                                                 <a href="javascript:void(0)" id="deletebtn" class="btn btn-danger btn-xs btn-hapus hapusbulanan" data-id="{{$f->id}}"><i class="fa fa-trash-o"></i></a>
                                             </div>
                                             <div style="float: left;">
-                                                <form action="/perencanaan/download" method="GET">
+                                                <form action="/report/download" method="GET">
+                                                    <input type="hidden" name="path" value=" {{$f->path}}">
                                                     <button type="submit" class="btn btn-primary">
                                                         <i class="menu-icon fa fa-download"></i>
                                                     </button>
@@ -230,7 +231,8 @@
                                                 <a href="javascript:void(0)" id="deletebtn" class="btn btn-danger btn-xs btn-hapus hapusbulanan" data-id="{{$f->id}}"><i class="fa fa-trash-o"></i></a>
                                             </div>
                                             <div style="float: left;">
-                                                <form action="/perencanaan/download" method="GET">
+                                                <form action="/report/download" method="GET">
+                                                    <input type="hidden" name="path" value=" {{$f->path}}">
                                                     <button type="submit" class="btn btn-primary">
                                                         <i class="menu-icon fa fa-download"></i>
                                                     </button>
@@ -262,7 +264,6 @@
                                     @foreach($akhirTahun as $f)
                                     <tr>
                                         <td>{{ $loop->iteration }}</td>
-                                        <input type="hidden" name="path" value=" {{$f->path}}">
                                         <td>{{ $f->name }}</td>
                                         <td>{{ $date = substr($f->created_at, 2, 8) }}</td>
                                         <td>
@@ -287,7 +288,8 @@
                                                 <a href="javascript:void(0)" id="deletebtn" class="btn btn-danger btn-xs btn-hapus hapusbulanan" data-id="{{$f->id}}"><i class="fa fa-trash-o"></i></a>
                                             </div>
                                             <div style="float: left;">
-                                                <form action="/perencanaan/download" method="GET">
+                                                <form action="/report/download" method="GET">
+                                                    <input type="hidden" name="path" value=" {{$f->path}}">
                                                     <button type="submit" class="btn btn-primary">
                                                         <i class="menu-icon fa fa-download"></i>
                                                     </button>
@@ -345,7 +347,8 @@
                                                 <a href="javascript:void(0)" id="deletebtn" class="btn btn-danger btn-xs btn-hapus hapusbulanan" data-id="{{$f->id}}"><i class="fa fa-trash-o"></i></a>
                                             </div>
                                             <div style="float: left;">
-                                                <form action="/perencanaan/download" method="GET">
+                                                <form action="/report/download" method="GET">
+                                                    <input type="hidden" name="path" value=" {{$f->path}}">
                                                     <button type="submit" class="btn btn-primary">
                                                         <i class="menu-icon fa fa-download"></i>
                                                     </button>
@@ -377,7 +380,6 @@
                                     @foreach($destudi as $f)
                                     <tr>
                                         <td>{{ $loop->iteration }}</td>
-                                        <input type="hidden" name="path" value=" {{$f->path}}">
                                         <td>{{ $f->name }}</td>
                                         <td>{{ $date = substr($f->created_at, 2, 8) }}</td>
                                         <td>
@@ -391,8 +393,8 @@
                                         </td>
                                         <td>
                                             <div style="float: left;">
-                                                <form action="renaksi/{{$f->id}}" method="GET">
-                                                    <input type="hidden" value="renaksi" name="jenis">
+                                                <form action="destudi/{{$f->id}}" method="GET">
+                                                    <input type="hidden" value="destudi" name="jenis">
                                                     <button class="btn btn-warning btn-xs btn-edit" type="submit">
                                                         <i class="menu-icon fa fa-pencil"></i>
                                                     </button>
@@ -402,7 +404,8 @@
                                                 <a href="javascript:void(0)" id="deletebtn" class="btn btn-danger btn-xs btn-hapus hapusbulanan" data-id="{{$f->id}}"><i class="fa fa-trash-o"></i></a>
                                             </div>
                                             <div style="float: left;">
-                                                <form action="/perencanaan/download" method="GET">
+                                                <form action="/report/download" method="GET">
+                                                    <input type="hidden" name="path" value="{{$f->path}}">
                                                     <button type="submit" class="btn btn-primary">
                                                         <i class="menu-icon fa fa-download"></i>
                                                     </button>
