@@ -87,31 +87,39 @@
                                     <!-- Isi dari keluaran data -->
                                     @foreach($matriks as $f)
                                     <tr>
-                                        <form action="/perencanaan/download" method="GET">
-                                            <td>{{ $loop->iteration }}</td>
-                                            <input type="hidden" name="path" value=" {{$f->path}}">
-                                            <td>{{ $f->name }}</td>
-                                            <td>{{ $f->created_at }}</td>
-                                            <td>
-                                                @if ($f->status==1)
-                                                Menunggu Review
-                                                @elseif($f->status==2)
-                                                Revisi
-                                                @elseif($f->status==3)
-                                                Diterima
-                                                @endif
-                                            </td>
-                                            <td>
-                                                <input type="hidden" value="matriks" name="jenis">
-                                                <button class="btn btn-warning btn-xs btn-edit" type="submit">
-                                                    <i class="menu-icon fa fa-pencil"></i>
-                                                </button>
+                                        <td>{{ $loop->iteration }}</td>
+                                        <input type="hidden" name="path" value=" {{$f->path}}">
+                                        <td>{{ $f->name }}</td>
+                                        <td>{{ $date = substr($f->created_at, 2, 8) }}</td>
+                                        <td>
+                                            @if ($f->status==1)
+                                            Menunggu Review
+                                            @elseif($f->status==2)
+                                            Revisi
+                                            @elseif($f->status==3)
+                                            Diterima
+                                            @endif
+                                        </td>
+                                        <td>
+                                            <div style="float: left;">
+                                                <form action="matriks/{{$f->id}}" method="GET">
+                                                    <input type="hidden" value="matriks" name="jenis">
+                                                    <button class="btn btn-warning btn-xs btn-edit" type="submit">
+                                                        <i class="menu-icon fa fa-pencil"></i>
+                                                    </button>
+                                                </form>
+                                            </div>
+                                            <div style="float: left;">
                                                 <a href="javascript:void(0)" id="deletebtn" class="btn btn-danger btn-xs btn-hapus hapusmatriks" data-id="{{$f->id}}"><i class="fa fa-trash-o"></i></a>
-                                                <button type="submit" class="btn btn-primary">
-                                                    <i class="menu-icon fa fa-download"></i>
-                                                </button>
-                                            </td>
-                                        </form>
+                                            </div>
+                                            <div style="float: left;">
+                                                <form action="/perencanaan/download" method="GET">
+                                                    <button type="submit" class="btn btn-primary">
+                                                        <i class="menu-icon fa fa-download"></i>
+                                                    </button>
+                                                </form>
+                                            </div>
+                                        </td>
                                     </tr>
                                     @endforeach
                                 </tbody>
@@ -140,7 +148,7 @@
                                             <td>{{ $loop->iteration }}</td>
                                             <input type="hidden" name="path" value=" {{$f->path}}">
                                             <td>{{ $f->name }}</td>
-                                            <td>{{ $f->created_at }}</td>
+                                            <td>{{ $date = substr($f->created_at, 2, 8) }}</td>
                                             <td>
                                                 @if ($f->status==1)
                                                 Menunggu Review
@@ -151,14 +159,24 @@
                                                 @endif
                                             </td>
                                             <td>
-                                                <input type="hidden" value="matriks" name="jenis">
-                                                <button class="btn btn-warning btn-xs btn-edit" type="submit">
-                                                    <i class="menu-icon fa fa-pencil"></i>
-                                                </button>
-                                                <a href="javascript:void(0)" id="deletebtn" class="btn btn-danger btn-xs btn-hapus hapusmatriks" data-id="{{$f->id}}"><i class="fa fa-trash-o"></i></a>
-                                                <button type="submit" class="btn btn-primary">
-                                                    <i class="menu-icon fa fa-download"></i>
-                                                </button>
+                                                <div style="float: left;">
+                                                    <form action="rab/{{$f->id}}" method="GET">
+                                                        <input type="hidden" value="rab" name="jenis">
+                                                        <button class="btn btn-warning btn-xs btn-edit" type="submit">
+                                                            <i class="menu-icon fa fa-pencil"></i>
+                                                        </button>
+                                                    </form>
+                                                </div>
+                                                <div style="float: left;">
+                                                    <a href="javascript:void(0)" id="deletebtn" class="btn btn-danger btn-xs btn-hapus hapusmatriks" data-id="{{$f->id}}"><i class="fa fa-trash-o"></i></a>
+                                                </div>
+                                                <div style="float: left;">
+                                                    <form action="/perencanaan/download" method="GET">
+                                                        <button type="submit" class="btn btn-primary">
+                                                            <i class="menu-icon fa fa-download"></i>
+                                                        </button>
+                                                    </form>
+                                                </div>
                                             </td>
                                         </form>
                                     </tr>
@@ -189,7 +207,7 @@
                                             <td>{{ $loop->iteration }}</td>
                                             <input type="hidden" name="path" value=" {{$f->path}}">
                                             <td>{{ $f->name }}</td>
-                                            <td>{{ $f->created_at }}</td>
+                                            <td>{{ $date = substr($f->created_at, 2, 8) }}</td>
                                             <td>
                                                 @if ($f->status==1)
                                                 Menunggu Review
@@ -200,14 +218,24 @@
                                                 @endif
                                             </td>
                                             <td>
-                                                <input type="hidden" value="matriks" name="jenis">
-                                                <button class="btn btn-warning btn-xs btn-edit" type="submit">
-                                                    <i class="menu-icon fa fa-pencil"></i>
-                                                </button>
-                                                <a href="javascript:void(0)" id="deletebtn" class="btn btn-danger btn-xs btn-hapus hapusmatriks" data-id="{{$f->id}}"><i class="fa fa-trash-o"></i></a>
-                                                <button type="submit" class="btn btn-primary">
-                                                    <i class="menu-icon fa fa-download"></i>
-                                                </button>
+                                                <div style="float: left;">
+                                                    <form action="kak/{{$f->id}}" method="GET">
+                                                        <input type="hidden" value="kak" name="jenis">
+                                                        <button class="btn btn-warning btn-xs btn-edit" type="submit">
+                                                            <i class="menu-icon fa fa-pencil"></i>
+                                                        </button>
+                                                    </form>
+                                                </div>
+                                                <div style="float: left;">
+                                                    <a href="javascript:void(0)" id="deletebtn" class="btn btn-danger btn-xs btn-hapus hapusmatriks" data-id="{{$f->id}}"><i class="fa fa-trash-o"></i></a>
+                                                </div>
+                                                <div style="float: left;">
+                                                    <form action="/perencanaan/download" method="GET">
+                                                        <button type="submit" class="btn btn-primary">
+                                                            <i class="menu-icon fa fa-download"></i>
+                                                        </button>
+                                                    </form>
+                                                </div>
                                             </td>
                                         </form>
                                     </tr>
@@ -238,7 +266,7 @@
                                             <td>{{ $loop->iteration }}</td>
                                             <input type="hidden" name="path" value=" {{$f->path}}">
                                             <td>{{ $f->name }}</td>
-                                            <td>{{ $f->created_at }}</td>
+                                            <td>{{ $date = substr($f->created_at, 2, 8) }}</td>
                                             <td>
                                                 @if ($f->status==1)
                                                 Menunggu Review
@@ -249,14 +277,24 @@
                                                 @endif
                                             </td>
                                             <td>
-                                                <input type="hidden" value="matriks" name="jenis">
-                                                <button class="btn btn-warning btn-xs btn-edit" type="submit">
-                                                    <i class="menu-icon fa fa-pencil"></i>
-                                                </button>
-                                                <a href="javascript:void(0)" id="deletebtn" class="btn btn-danger btn-xs btn-hapus hapusmatriks" data-id="{{$f->id}}"><i class="fa fa-trash-o"></i></a>
-                                                <button type="submit" class="btn btn-primary">
-                                                    <i class="menu-icon fa fa-download"></i>
-                                                </button>
+                                                <div style="float: left;">
+                                                    <form action="proposal/{{$f->id}}" method="GET">
+                                                        <input type="hidden" value="proposal" name="jenis">
+                                                        <button class="btn btn-warning btn-xs btn-edit" type="submit">
+                                                            <i class="menu-icon fa fa-pencil"></i>
+                                                        </button>
+                                                    </form>
+                                                </div>
+                                                <div style="float: left;">
+                                                    <a href="javascript:void(0)" id="deletebtn" class="btn btn-danger btn-xs btn-hapus hapusmatriks" data-id="{{$f->id}}"><i class="fa fa-trash-o"></i></a>
+                                                </div>
+                                                <div style="float: left;">
+                                                    <form action="/perencanaan/download" method="GET">
+                                                        <button type="submit" class="btn btn-primary">
+                                                            <i class="menu-icon fa fa-download"></i>
+                                                        </button>
+                                                    </form>
+                                                </div>
                                             </td>
                                         </form>
                                     </tr>
@@ -287,7 +325,7 @@
                                             <td>{{ $loop->iteration }}</td>
                                             <input type="hidden" name="path" value=" {{$f->path}}">
                                             <td>{{ $f->name }}</td>
-                                            <td>{{ $f->created_at }}</td>
+                                            <td>{{ $date = substr($f->created_at, 2, 8) }}</td>
                                             <td>
                                                 @if ($f->status==1)
                                                 Menunggu Review
@@ -298,14 +336,24 @@
                                                 @endif
                                             </td>
                                             <td>
-                                                <input type="hidden" value="matriks" name="jenis">
-                                                <a class="btn btn-warning btn-xs btn-edit" type="submit">
-                                                    <i class="menu-icon fa fa-pencil"></i>
-                                                </a>
-                                                <a href="javascript:void(0)" id="deletebtn" class="btn btn-danger btn-xs btn-hapus hapusmatriks" data-id="{{$f->id}}"><i class="fa fa-trash-o"></i></a>
-                                                <button type="submit" class="btn btn-primary">
-                                                    <i class="menu-icon fa fa-download"></i>
-                                                </button>
+                                                <div style="float: left;">
+                                                    <form action="analisis/{{$f->id}}" method="GET">
+                                                        <input type="hidden" value="analisis" name="jenis">
+                                                        <button class="btn btn-warning btn-xs btn-edit" type="submit">
+                                                            <i class="menu-icon fa fa-pencil"></i>
+                                                        </button>
+                                                    </form>
+                                                </div>
+                                                <div style="float: left;">
+                                                    <a href="javascript:void(0)" id="deletebtn" class="btn btn-danger btn-xs btn-hapus hapusmatriks" data-id="{{$f->id}}"><i class="fa fa-trash-o"></i></a>
+                                                </div>
+                                                <div style="float: left;">
+                                                    <form action="/perencanaan/download" method="GET">
+                                                        <button type="submit" class="btn btn-primary">
+                                                            <i class="menu-icon fa fa-download"></i>
+                                                        </button>
+                                                    </form>
+                                                </div>
                                             </td>
                                         </form>
                                     </tr>

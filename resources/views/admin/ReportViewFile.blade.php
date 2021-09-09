@@ -75,13 +75,13 @@
                     <!-- Bulanan -->
                     <div class="tab-pane fade show active" id="bulanan" role="tabpanel" aria-labelledby="nav-home-tab">
                         <div class="modal-body">
-                            <table class="table" id="table">
+                            <table class="table" id="table_bulanan">
                                 <thead>
                                     <tr>
                                         <th hidden>id</th>
                                         <th width=5%>No.</th>
-                                        <th>Date Upload</th>
                                         <th width=30%>File Name</th>
+                                        <th>Date Upload</th>
                                         <th width=20%>Status</th>
                                         <th width=30% colspan="3">Action</th>
                                     </tr>
@@ -92,9 +92,9 @@
                                     <tr>
                                         <td hidden="true">{{ $f->id }}</td>
                                         <td>{{ $loop->iteration }}</td>
+                                        <td>{{ $f->name }}</td>
                                         <td>{{ $date = substr($f->created_at, 2, 8) }}
                                         </td>
-                                        <td>{{ $f->name }}</td>
                                         <td>
                                             @if ($f->status==1)
                                             Menunggu Review
@@ -105,23 +105,24 @@
                                             @endif
                                         </td>
                                         <td>
-                                            <form action="bulanan/{{$f->id}}" method="GET">
-                                                <input type="hidden" value="bulanan" name="jenis">
-                                                <button class="btn btn-warning btn-xs btn-edit" type="submit">
-                                                    <i class="menu-icon fa fa-pencil"></i>
-                                                </button>
-                                            </form>
-                                        </td>
-                                        <td>
-                                            <a href="javascript:void(0)" id="deletebtn" class="btn btn-danger btn-xs btn-hapus hapusbulanan" data-id="{{$f->id}}"><i class="fa fa-trash-o"></i></a>
-
-                                        </td>
-                                        <td>
-                                            <input type="hidden" name="path" value=" {{ $f->path }}">
-                                            <button type="submit" class="btn btn-primary">
-                                                <i class="menu-icon fa fa-download"></i>
-                                            </button>
-                                            </form>
+                                            <div style="float: left;">
+                                                <form action="bulanan/{{$f->id}}" method="GET">
+                                                    <input type="hidden" value="bulanan" name="jenis">
+                                                    <button class="btn btn-warning btn-xs btn-edit" type="submit">
+                                                        <i class="menu-icon fa fa-pencil"></i>
+                                                    </button>
+                                                </form>
+                                            </div>
+                                            <div style="float: left;">
+                                                <a href="javascript:void(0)" id="deletebtn" class="btn btn-danger btn-xs btn-hapus hapusmatriks" data-id="{{$f->id}}"><i class="fa fa-trash-o"></i></a>
+                                            </div>
+                                            <div style="float: left;">
+                                                <form action="/perencanaan/download" method="GET">
+                                                    <button type="submit" class="btn btn-primary">
+                                                        <i class="menu-icon fa fa-download"></i>
+                                                    </button>
+                                                </form>
+                                            </div>
                                         </td>
                                     </tr>
                                     @endforeach
@@ -133,7 +134,7 @@
                     <!-- Triwulan -->
                     <div class="tab-pane fade show " id="triwulan" role="tabpanel" aria-labelledby="nav-home-tab">
                         <div class="modal-body">
-                            <table class="table" id="table-triwulan">
+                            <table class="table" id="table_triwulan">
                                 <thead>
                                     <tr>
                                         <th hidden>id</th>
@@ -154,15 +155,19 @@
                                         </td>
                                         <input type="hidden" name="path" value=" {{ $f->path }}">
                                         <td>{{ $f->name }}</td>
+                                        @if ($f->status==1)
                                         <td>
-                                            @if ($f->status==1)
                                             Menunggu Review
-                                            @elseif($f->status==2)
-                                            Revisi
-                                            @elseif($f->status==3)
-                                            Diterima
-                                            @endif
                                         </td>
+                                        @elseif($f->status==2)
+                                        <td>
+                                            Revisi
+                                        </td>
+                                        @elseif($f->status==3)
+                                        <td>
+                                            Diterima
+                                        </td>
+                                        @endif
                                         <td>
                                             <form action="triwulan/{{$f->id}}" method="GET">
                                                 <input type="hidden" value="triwulan" name="jenis">
@@ -192,7 +197,7 @@
                     <!-- Tengah -->
                     <div class="tab-pane fade show " id="tengah" role="tabpanel" aria-labelledby="nav-home-tab">
                         <div class="modal-body">
-                            <table class="table" id="table-tengah">
+                            <table class="table" id="table_tengah">
                                 <thead>
                                     <tr>
                                         <th hidden>id</th>
@@ -213,15 +218,19 @@
                                         </td>
                                         <input type="hidden" name="path" value=" {{ $f->path }}">
                                         <td>{{ $f->name }}</td>
+                                        @if ($f->status==1)
                                         <td>
-                                            @if ($f->status==1)
                                             Menunggu Review
-                                            @elseif($f->status==2)
-                                            Revisi
-                                            @elseif($f->status==3)
-                                            Diterima
-                                            @endif
                                         </td>
+                                        @elseif($f->status==2)
+                                        <td>
+                                            Revisi
+                                        </td>
+                                        @elseif($f->status==3)
+                                        <td>
+                                            Diterima
+                                        </td>
+                                        @endif
                                         <td>
                                             <form action="tengah/{{$f->id}}" method="GET">
                                                 <input type="hidden" value="tengah" name="jenis">
@@ -250,7 +259,7 @@
                     <!-- Akhir -->
                     <div class="tab-pane fade show " id="akhir" role="tabpanel" aria-labelledby="nav-home-tab">
                         <div class="modal-body">
-                            <table class="table" id="table-akhir">
+                            <table class="table" id="table_akhir">
                                 <thead>
                                     <tr>
                                         <th hidden>id</th>
@@ -271,15 +280,19 @@
                                         </td>
                                         <input type="hidden" name="path" value=" {{ $f->path }}">
                                         <td>{{ $f->name }}</td>
+                                        @if ($f->status==1)
                                         <td>
-                                            @if ($f->status==1)
                                             Menunggu Review
-                                            @elseif($f->status==2)
-                                            Revisi
-                                            @elseif($f->status==3)
-                                            Diterima
-                                            @endif
                                         </td>
+                                        @elseif($f->status==2)
+                                        <td>
+                                            Revisi
+                                        </td>
+                                        @elseif($f->status==3)
+                                        <td>
+                                            Diterima
+                                        </td>
+                                        @endif
                                         <td>
                                             <form action="akhir/{{$f->id}}" method="GET">
                                                 <input type="hidden" value="akhir" name="jenis">
@@ -308,7 +321,7 @@
                     <!-- Destudi -->
                     <div class="tab-pane fade show " id="destudi" role="tabpanel" aria-labelledby="nav-home-tab">
                         <div class="modal-body">
-                            <table class="table" id="table-destudi">
+                            <table class="table" id="table_destudi">
                                 <thead>
                                     <tr>
                                         <th hidden>id</th>
@@ -329,15 +342,19 @@
                                         </td>
                                         <input type="hidden" name="path" value=" {{ $f->path }}">
                                         <td>{{ $f->name }}</td>
+                                        @if ($f->status==1)
                                         <td>
-                                            @if ($f->status==1)
                                             Menunggu Review
-                                            @elseif($f->status==2)
-                                            Revisi
-                                            @elseif($f->status==3)
-                                            Diterima
-                                            @endif
                                         </td>
+                                        @elseif($f->status==2)
+                                        <td>
+                                            Revisi
+                                        </td>
+                                        @elseif($f->status==3)
+                                        <td>
+                                            Diterima
+                                        </td>
+                                        @endif
                                         <td>
                                             <form action="destudi/{{$f->id}}" method="GET">
                                                 <input type="hidden" value="destudi" name="jenis">
@@ -366,7 +383,7 @@
                     <!-- Renaksi -->
                     <div class="tab-pane fade show " id="renaksi" role="tabpanel" aria-labelledby="nav-home-tab">
                         <div class="modal-body">
-                            <table class="table" id="table-renaksi">
+                            <table class="table" id="table_renaksi">
                                 <thead>
                                     <tr>
                                         <th hidden>id</th>
@@ -387,15 +404,19 @@
                                         </td>
                                         <input type="hidden" name="path" value=" {{ $f->path }}">
                                         <td>{{ $f->name }}</td>
+                                        @if ($f->status==1)
                                         <td>
-                                            @if ($f->status==1)
                                             Menunggu Review
-                                            @elseif($f->status==2)
-                                            Revisi
-                                            @elseif($f->status==3)
-                                            Diterima
-                                            @endif
                                         </td>
+                                        @elseif($f->status==2)
+                                        <td>
+                                            Revisi
+                                        </td>
+                                        @elseif($f->status==3)
+                                        <td>
+                                            Diterima
+                                        </td>
+                                        @endif
                                         <td>
                                             <form action="renaksi/{{$f->id}}" method="GET">
                                                 <input type="hidden" value="renaksi" name="jenis">
@@ -453,11 +474,33 @@
     </div>
     <!-- End Modal Delete  -->
 </div>
+<script>
+    $(document).ready(function() {
+        // DataTables
+
+        $('#table_bulanan').DataTable({
+            "autoWidth": false
+        });
+        $('#table_rab').DataTable({
+            "autoWidth": false
+        });
+        $('#table_kak').DataTable({
+            "autoWidth": false
+        });
+        $('#table_proposal').DataTable({
+            "autoWidth": false
+        });
+        $('#table_analisis').DataTable({
+            "autoWidth": false
+        });
+        $($.fn.dataTable.tables(true)).DataTable().columns.adjust().responsive.recalc();
+    });
+</script>
 
 <!-- jquery bulanan -->
 <script>
     $(document).ready(function() {
-        $('#table').on('click', '.hapusbulanan', function() {
+        $('#table_bulanan').on('click', '.hapusbulanan', function() {
             const id = $(this).attr('data-id');
             console.log(id);
             // var col2=currentRow.find("td:eq(1)").text();
@@ -477,7 +520,7 @@
 <!-- jquery triwulan -->
 <script>
     $(document).ready(function() {
-        $('#table-triwulan').on('click', '.hapustriwulan', function() {
+        $('#table_triwulan').on('click', '.hapustriwulan', function() {
             const id = $(this).attr('data-id');
             console.log(id);
             // var col2=currentRow.find("td:eq(1)").text();
@@ -497,7 +540,7 @@
 <!-- jquery tengah tahun -->
 <script>
     $(document).ready(function() {
-        $('#table-tengah').on('click', '.hapustengah', function() {
+        $('#table_tengah').on('click', '.hapustengah', function() {
             const id = $(this).attr('data-id');
             console.log(id);
             // var col2=currentRow.find("td:eq(1)").text();
@@ -517,7 +560,7 @@
 <!-- jquery akhir tahun -->
 <script>
     $(document).ready(function() {
-        $('#table-akhir').on('click', '.hapusakhir', function() {
+        $('#table_akhir').on('click', '.hapusakhir', function() {
             const id = $(this).attr('data-id');
             console.log(id);
             // var col2=currentRow.find("td:eq(1)").text();
@@ -537,7 +580,7 @@
 <!-- jquery destudi -->
 <script>
     $(document).ready(function() {
-        $('#table-destudi').on('click', '.hapusdestudi', function() {
+        $('#table_destudi').on('click', '.hapusdestudi', function() {
             const id = $(this).attr('data-id');
             console.log(id);
             // var col2=currentRow.find("td:eq(1)").text();
@@ -557,7 +600,7 @@
 <!-- jquery renaksi -->
 <script>
     $(document).ready(function() {
-        $('#table-renaksi').on('click', '.hapusrenaksi', function() {
+        $('#table_renaksi').on('click', '.hapusrenaksi', function() {
             const id = $(this).attr('data-id');
             console.log(id);
             // var col2=currentRow.find("td:eq(1)").text();
