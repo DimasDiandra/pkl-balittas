@@ -170,7 +170,7 @@
                                                 </form>
                                             </div>
                                             <div style="float: left;">
-                                                <a href="javascript:void(0)" id="deletebtn" class="btn btn-danger btn-xs btn-hapus hapusbulanan" data-id="{{$f->id}}"><i class="fa fa-trash-o"></i></a>
+                                                <a href="javascript:void(0)" id="deletebtn" class="btn btn-danger btn-xs btn-hapus hapustriwulan" data-id="{{$f->id}}"><i class="fa fa-trash-o"></i></a>
                                             </div>
                                             <div style="float: left;">
                                                 <form action="/perencanaan/download" method="GET">
@@ -227,7 +227,7 @@
                                                 </form>
                                             </div>
                                             <div style="float: left;">
-                                                <a href="javascript:void(0)" id="deletebtn" class="btn btn-danger btn-xs btn-hapus hapusbulanan" data-id="{{$f->id}}"><i class="fa fa-trash-o"></i></a>
+                                                <a href="javascript:void(0)" id="deletebtn" class="btn btn-danger btn-xs btn-hapus hapustengahTahun" data-id="{{$f->id}}"><i class="fa fa-trash-o"></i></a>
                                             </div>
                                             <div style="float: left;">
                                                 <form action="/perencanaan/download" method="GET">
@@ -284,7 +284,7 @@
                                                 </form>
                                             </div>
                                             <div style="float: left;">
-                                                <a href="javascript:void(0)" id="deletebtn" class="btn btn-danger btn-xs btn-hapus hapusbulanan" data-id="{{$f->id}}"><i class="fa fa-trash-o"></i></a>
+                                                <a href="javascript:void(0)" id="deletebtn" class="btn btn-danger btn-xs btn-hapus hapusakhirTahun" data-id="{{$f->id}}"><i class="fa fa-trash-o"></i></a>
                                             </div>
                                             <div style="float: left;">
                                                 <form action="/perencanaan/download" method="GET">
@@ -342,7 +342,7 @@
                                                 </form>
                                             </div>
                                             <div style="float: left;">
-                                                <a href="javascript:void(0)" id="deletebtn" class="btn btn-danger btn-xs btn-hapus hapusbulanan" data-id="{{$f->id}}"><i class="fa fa-trash-o"></i></a>
+                                                <a href="javascript:void(0)" id="deletebtn" class="btn btn-danger btn-xs btn-hapus hapusrenaksi" data-id="{{$f->id}}"><i class="fa fa-trash-o"></i></a>
                                             </div>
                                             <div style="float: left;">
                                                 <form action="/perencanaan/download" method="GET">
@@ -361,7 +361,7 @@
                     <!-- deskstudi -->
                     <div class="tab-pane fade" id="destudi" role="tabpanel" aria-labelledby="nav-contact-tab">
                         <div class="modal-body">
-                            <table class="table" id="table_destudigit">
+                            <table class="table" id="table_destudi">
                                 <thead>
                                     <tr>
                                         <th hidden>id</th>
@@ -399,7 +399,7 @@
                                                 </form>
                                             </div>
                                             <div style="float: left;">
-                                                <a href="javascript:void(0)" id="deletebtn" class="btn btn-danger btn-xs btn-hapus hapusbulanan" data-id="{{$f->id}}"><i class="fa fa-trash-o"></i></a>
+                                                <a href="javascript:void(0)" id="deletebtn" class="btn btn-danger btn-xs btn-hapus hapusdestudi" data-id="{{$f->id}}"><i class="fa fa-trash-o"></i></a>
                                             </div>
                                             <div style="float: left;">
                                                 <form action="/perencanaan/download" method="GET">
@@ -576,4 +576,24 @@
     });
 </script>
 
+<!-- jquery destudi -->
+<script>
+    $(document).ready(function() {
+        $('#table_destudi').on('click', '.hapusdestudi', function() {
+            const id = $(this).attr('data-id');
+            console.log(id);
+            // var col2=currentRow.find("td:eq(1)").text();
+            // var datajudul=col2;
+
+            $tr = $(this).closest("tr");
+            var dataid = $tr.children("td").map(function() {
+                return $(this).text();
+            }).get();
+            // $('#inputjudul').val(datajudul);
+            $('#inputid').val(dataid[0]);
+            $('#deletemodalform').attr('action', 'destudi/' + dataid[0]);
+            $('#deletemodal').modal('show');
+        });
+    });
+</script>
 @endsection

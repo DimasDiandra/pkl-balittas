@@ -183,6 +183,7 @@
     </div>
       <!-- End Modal Delete Pengumuman -->
     </div>
+</div>
 
     <script>
         $(document).ready( function () {

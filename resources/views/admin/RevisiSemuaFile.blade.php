@@ -58,7 +58,7 @@
                     <!-- Semula Menjadi -->
                     <div class="tab-pane fade show active" id="semula_menjadi" role="tabpanel" aria-labelledby="nav-home-tab">
                         <div class="modal-body">
-                            <table class="table" id="table">
+                            <table class="table" id="table-semula_menjadi">
                                 <thead>
                                     <tr>
                                         <th hidden>id</th>
@@ -215,7 +215,7 @@
 <!-- jquery semula_menjadi -->
 <script>
     $(document).ready(function() {
-        $('#table').on('click', '.hapussemula_menjadi', function() {
+        $('#table-semula_menjadi').on('click', '.hapussemula_menjadi', function() {
             const id = $(this).attr('data-id');
             console.log(id);
             // var col2=currentRow.find("td:eq(1)").text();

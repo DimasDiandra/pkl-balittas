@@ -155,7 +155,7 @@
                                                 <button class="btn btn-warning btn-xs btn-edit" type="submit">
                                                     <i class="menu-icon fa fa-pencil"></i>
                                                 </button>
-                                                <a href="javascript:void(0)" id="deletebtn" class="btn btn-danger btn-xs btn-hapus hapusmatriks" data-id="{{$f->id}}"><i class="fa fa-trash-o"></i></a>
+                                                <a href="javascript:void(0)" id="deletebtn" class="btn btn-danger btn-xs btn-hapus hapusrab" data-id="{{$f->id}}"><i class="fa fa-trash-o"></i></a>
                                                 <button type="submit" class="btn btn-primary">
                                                     <i class="menu-icon fa fa-download"></i>
                                                 </button>
@@ -204,7 +204,7 @@
                                                 <button class="btn btn-warning btn-xs btn-edit" type="submit">
                                                     <i class="menu-icon fa fa-pencil"></i>
                                                 </button>
-                                                <a href="javascript:void(0)" id="deletebtn" class="btn btn-danger btn-xs btn-hapus hapusmatriks" data-id="{{$f->id}}"><i class="fa fa-trash-o"></i></a>
+                                                <a href="javascript:void(0)" id="deletebtn" class="btn btn-danger btn-xs btn-hapus hapuskak" data-id="{{$f->id}}"><i class="fa fa-trash-o"></i></a>
                                                 <button type="submit" class="btn btn-primary">
                                                     <i class="menu-icon fa fa-download"></i>
                                                 </button>
@@ -253,7 +253,7 @@
                                                 <button class="btn btn-warning btn-xs btn-edit" type="submit">
                                                     <i class="menu-icon fa fa-pencil"></i>
                                                 </button>
-                                                <a href="javascript:void(0)" id="deletebtn" class="btn btn-danger btn-xs btn-hapus hapusmatriks" data-id="{{$f->id}}"><i class="fa fa-trash-o"></i></a>
+                                                <a href="javascript:void(0)" id="deletebtn" class="btn btn-danger btn-xs btn-hapus hapusproposal" data-id="{{$f->id}}"><i class="fa fa-trash-o"></i></a>
                                                 <button type="submit" class="btn btn-primary">
                                                     <i class="menu-icon fa fa-download"></i>
                                                 </button>
@@ -302,7 +302,7 @@
                                                 <button class="btn btn-warning btn-xs btn-edit" type="submit">
                                                     <i class="menu-icon fa fa-pencil"></i>
                                                 </button>
-                                                <a href="javascript:void(0)" id="deletebtn" class="btn btn-danger btn-xs btn-hapus hapusmatriks" data-id="{{$f->id}}"><i class="fa fa-trash-o"></i></a>
+                                                <a href="javascript:void(0)" id="deletebtn" class="btn btn-danger btn-xs btn-hapus hapusanalisis" data-id="{{$f->id}}"><i class="fa fa-trash-o"></i></a>
                                                 <button type="submit" class="btn btn-primary">
                                                     <i class="menu-icon fa fa-download"></i>
                                                 </button>

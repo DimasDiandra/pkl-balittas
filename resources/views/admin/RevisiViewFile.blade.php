@@ -63,7 +63,7 @@
                     <!-- Semula Menjadi -->
                     <div class="tab-pane fade show active" id="semula_menjadi" role="tabpanel" aria-labelledby="nav-home-tab">
                         <div class="modal-body">
-                            <table class="table" id="table">
+                            <table class="table" id="table-semula_menjadi">
                                 <thead>
                                     <tr>
                                         <th hidden>id</th>
@@ -222,7 +222,7 @@
 <!-- jquery semula_menjadi -->
 <script>
     $(document).ready(function() {
-        $('#table').on('click', '.hapussemula_menjadi', function() {
+        $('#table-semula_menjadi').on('click', '.hapussemula_menjadi', function() {
             const id = $(this).attr('data-id');
             console.log(id);
             // var col2=currentRow.find("td:eq(1)").text();
@@ -255,86 +255,6 @@
             // $('#inputjudul').val(datajudul);
             $('#inputid').val(dataid[0]);
             $('#deletemodalform').attr('action', 'revisi_rab/' + dataid[0]);
-            $('#deletemodal').modal('show');
-        });
-    });
-</script>
-<!-- jquery tengah tahun -->
-<script>
-    $(document).ready(function() {
-        $('#table-tengah').on('click', '.hapustengah', function() {
-            const id = $(this).attr('data-id');
-            console.log(id);
-            // var col2=currentRow.find("td:eq(1)").text();
-            // var datajudul=col2;
-
-            $tr = $(this).closest("tr");
-            var dataid = $tr.children("td").map(function() {
-                return $(this).text();
-            }).get();
-            // $('#inputjudul').val(datajudul);
-            $('#inputid').val(dataid[0]);
-            $('#deletemodalform').attr('action', 'tengah/' + dataid[0]);
-            $('#deletemodal').modal('show');
-        });
-    });
-</script>
-<!-- jquery akhir tahun -->
-<script>
-    $(document).ready(function() {
-        $('#table-akhir').on('click', '.hapusakhir', function() {
-            const id = $(this).attr('data-id');
-            console.log(id);
-            // var col2=currentRow.find("td:eq(1)").text();
-            // var datajudul=col2;
-
-            $tr = $(this).closest("tr");
-            var dataid = $tr.children("td").map(function() {
-                return $(this).text();
-            }).get();
-            // $('#inputjudul').val(datajudul);
-            $('#inputid').val(dataid[0]);
-            $('#deletemodalform').attr('action', 'akhir/' + dataid[0]);
-            $('#deletemodal').modal('show');
-        });
-    });
-</script>
-<!-- jquery destudi -->
-<script>
-    $(document).ready(function() {
-        $('#table-destudi').on('click', '.hapusdestudi', function() {
-            const id = $(this).attr('data-id');
-            console.log(id);
-            // var col2=currentRow.find("td:eq(1)").text();
-            // var datajudul=col2;
-
-            $tr = $(this).closest("tr");
-            var dataid = $tr.children("td").map(function() {
-                return $(this).text();
-            }).get();
-            // $('#inputjudul').val(datajudul);
-            $('#inputid').val(dataid[0]);
-            $('#deletemodalform').attr('action', 'destudi/' + dataid[0]);
-            $('#deletemodal').modal('show');
-        });
-    });
-</script>
-<!-- jquery renaksi -->
-<script>
-    $(document).ready(function() {
-        $('#table-renaksi').on('click', '.hapusrenaksi', function() {
-            const id = $(this).attr('data-id');
-            console.log(id);
-            // var col2=currentRow.find("td:eq(1)").text();
-            // var datajudul=col2;
-
-            $tr = $(this).closest("tr");
-            var dataid = $tr.children("td").map(function() {
-                return $(this).text();
-            }).get();
-            // $('#inputjudul').val(datajudul);
-            $('#inputid').val(dataid[0]);
-            $('#deletemodalform').attr('action', 'renaksi/' + dataid[0]);
             $('#deletemodal').modal('show');
         });
     });

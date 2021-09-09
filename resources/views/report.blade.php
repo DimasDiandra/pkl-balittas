@@ -294,7 +294,7 @@
                                     @foreach($bulanan as $f)
                                     @if($f->user_id==Auth::user()->id)
                                     <tr>
-                                        <form action="/perencanaan/download" method="GET">
+                                        <form action="/report/download" method="GET">
                                             <td>{{ $loop->iteration }}</td>
                                             <input type="hidden" name="path" value=" {{$f->path}}">
                                             <td>{{ $f->name }}</td>
@@ -343,7 +343,7 @@
                                     @foreach($triwulan as $f)
                                     @if($f->user_id==Auth::user()->id)
                                     <tr>
-                                        <form action="/perencanaan/download" method="GET">
+                                        <form action="/report/download" method="GET">
                                             <td>{{ $loop->iteration }}</td>
                                             <input type="hidden" name="path" value=" {{$f->path}}">
                                             <td>{{ $f->name }}</td>
@@ -392,7 +392,7 @@
                                     @foreach($tengahTahun as $f)
                                     @if($f->user_id==Auth::user()->id)
                                     <tr>
-                                        <form action="/perencanaan/download" method="GET">
+                                        <form action="/report/download" method="GET">
                                             <td>{{ $loop->iteration }}</td>
                                             <input type="hidden" name="path" value=" {{$f->path}}">
                                             <td>{{ $f->name }}</td>
@@ -441,7 +441,7 @@
                                     @foreach($akhirTahun as $f)
                                     @if($f->user_id==Auth::user()->id)
                                     <tr>
-                                        <form action="/perencanaan/download" method="GET">
+                                        <form action="/report/download" method="GET">
                                             <td>{{ $loop->iteration }}</td>
                                             <input type="hidden" name="path" value=" {{$f->path}}">
                                             <td>{{ $f->name }}</td>
@@ -490,7 +490,7 @@
                                     @foreach($destudi as $f)
                                     @if($f->user_id==Auth::user()->id)
                                     <tr>
-                                        <form action="/perencanaan/download" method="GET">
+                                        <form action="/report/download" method="GET">
                                             <td>{{ $loop->iteration }}</td>
                                             <input type="hidden" name="path" value=" {{$f->path}}">
                                             <td>{{ $f->name }}</td>
@@ -539,7 +539,7 @@
                                     @foreach($renaksi as $f)
                                     @if($f->user_id==Auth::user()->id)
                                     <tr>
-                                        <form action="/perencanaan/download" method="GET">
+                                        <form action="/report/download" method="GET">
                                             <td>{{ $loop->iteration }}</td>
                                             <input type="hidden" name="path" value=" {{$f->path}}">
                                             <td>{{ $f->name }}</td>
