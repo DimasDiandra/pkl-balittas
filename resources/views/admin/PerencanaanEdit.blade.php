@@ -42,6 +42,10 @@
                                 Status File saat ini sudah <b> Diterima </b></span>
                         </div>
                         @endif
+                        <div>
+                            <label for="exampleInputEmail1">Keterangan</label>
+                            <textarea name="keterangan" style="width: 100%;" rows="5">{{$data->keterangan}}</textarea>
+                        </div>
                     </div>
                     <div class="col">
                         <div class="form-group">
