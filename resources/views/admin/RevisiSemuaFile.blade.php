@@ -33,68 +33,91 @@
             <span>
                 {{ session('success') }}
         </div>
-        <div class="row">
-            <div class="col">
-                <div class="tab-content" id="nav-tabContent">
-                    <!-- Semula Menjadi -->
-                    <div class="tab-pane fade show active" id="semula_menjadi" role="tabpanel" aria-labelledby="nav-home-tab">
-                        <div class="modal-body">
-                            <table class="table" id="table-semula_menjadi">
-                                <thead>
-                                    <tr>
-                                        <th hidden>id</th>
-                                        <th width=5%>No.</th>
-                                        <th>Date Upload</th>
-                                        <th width=30%>File Name</th>
-                                        <th width=20%>Status</th>
-                                        <th width=30% colspan="3">Action</th>
-                                    </tr>
-                                </thead>
-                                <tbody>
-                                    <!-- Isi dari keluaran data -->
-                                    @foreach ($semula_menjadi as $f)
-                                    <tr>
-                                        <td hidden="true">{{ $f->id }}</td>
-                                        <td>{{ $loop->iteration }}</td>
-                                        <td>{{ $f->created_at }}
-                                        </td>
-                                        <td>{{ $f->name }}</td>
-                                        @if ($f->status==1)
-                                        <td>
-                                            Menunggu Review
-                                        </td>
-                                        @elseif($f->status==2)
-                                        <td>
-                                            Revisi
-                                        </td>
-                                        @elseif($f->status==3)
-                                        <td>
-                                            Diterima
-                                        </td>
-                                        @endif
-                                        <td>
-                                            <form action="semula_menjadi/{{$f->id}}" method="GET">
-                                                <input type="hidden" value="semula_menjadi" name="jenis">
-                                                <button class="btn btn-warning btn-xs btn-edit" type="submit">
-                                                    <i class="menu-icon fa fa-pencil"></i>
-                                                </button>
-                                            </form>
-                                        </td>
-                                        <td>
-                                            <a href="javascript:void(0)" id="deletebtn" class="btn btn-danger btn-xs btn-hapus hapussemula_menjadi" data-id="{{$f->id}}"><i class="fa fa-trash-o"></i></a>
-
-                                        </td>
-                                        <td>
-                                            <input type="hidden" name="path" value=" {{ $f->path }}">
-                                            <button type="submit" class="btn btn-primary">
-                                                <i class="menu-icon fa fa-download"></i>
-                                            </button>
-                                            </form>
-                                        </td>
-                                    </tr>
-                                    @endforeach
-                                </tbody>
-                            </table>
+    @endif
+    <div class="container-fluid">
+        <div>
+            <a href="/admin/revisi" style="font-weight: 500; cursor:pointer;" class="text-primary"><i
+                    class="fa fa-arrow-left"></i> Back
+            </a>
+        </div>
+        <div class="card">
+            <div class="row card-body">
+                <div class="col">
+                    <ul class="nav nav-pills nav-fill">
+                        <li class="nav-item">
+                            <a class="nav-link active" href="#semula_menjadi" role="tab" data-toggle="tab">Semula
+                                Menjadi</a>
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link " href="#revisi_rab" role="tab" data-toggle="tab">Revisi RAB</a>
+                        </li>
+                    </ul>
+                </div>
+            </div>
+            <div class="row">
+                <div class="col">
+                    <div class="tab-content" id="nav-tabContent">
+                        <!-- Semula Menjadi -->
+                        <div class="tab-pane fade show active" id="semula_menjadi" role="tabpanel"
+                            aria-labelledby="nav-home-tab">
+                            <div class="modal-body">
+                                <table class="table" id="table-semula_menjadi">
+                                    <thead>
+                                        <tr>
+                                            <th hidden>id</th>
+                                            <th width=5%>No.</th>
+                                            <th>Date Upload</th>
+                                            <th width=30%>File Name</th>
+                                            <th width=20%>Status</th>
+                                            <th width=30% colspan="3">Action</th>
+                                        </tr>
+                                    </thead>
+                                    <tbody>
+                                        <!-- Isi dari keluaran data -->
+                                        @foreach ($semula_menjadi as $f)
+                                            <tr>
+                                                <td>{{ $loop->iteration }}</td>
+                                                <input type="hidden" name="path" value=" {{ $f->path }}">
+                                                <td>{{ $date = substr($f->created_at, 2, 8) }}
+                                                </td>
+                                                <input type="hidden" name="path" value=" {{ $f->path }}">
+                                                <td>{{ $f->name }}</td>
+                                                <td>
+                                                    @if ($f->status == 1)
+                                                        Menunggu Review
+                                                    @elseif($f->status==2)
+                                                        Revisi
+                                                    @elseif($f->status==3)
+                                                        Diterima
+                                                    @endif
+                                                <td>
+                                                    <div style="float: left;">
+                                                        <form action="semula_menjadi/{{ $f->id }}" method="GET">
+                                                            <input type="hidden" value="semula_menjadi" name="jenis">
+                                                            <button class="btn btn-warning btn-xs btn-edit" type="submit">
+                                                                <i class="menu-icon fa fa-pencil"></i>
+                                                            </button>
+                                                        </form>
+                                                    </div>
+                                                    <div style="float: left;">
+                                                        <a href="javascript:void(0)" id="deletebtn"
+                                                            class="btn btn-danger btn-xs btn-hapus hapussemula_menjadi"
+                                                            data-id="{{ $f->id }}"><i class="fa fa-trash-o"></i></a>
+                                                    </div>
+                                                    <div style="float: left;">
+                                                        <form action="/revisi/download" method="GET">
+                                                            <input type="hidden" name="path" value=" {{ $f->path }}">
+                                                            <button type="submit" class="btn btn-primary">
+                                                                <i class="menu-icon fa fa-download"></i>
+                                                            </button>
+                                                        </form>
+                                                    </div>
+                                                </td>
+                                            </tr>
+                                        @endforeach
+                                    </tbody>
+                                </table>
+                            </div>
                         </div>
 
                         <!-- Revisi RAB -->
@@ -192,17 +215,17 @@
         </div>
         <!-- End Modal Delete  -->
     </div>
-    <!-- End Modal Delete  -->
-</div>
-<!-- jquery semula_menjadi -->
-<script>
-    $(document).ready(function() {
-        $('#table-semula_menjadi').on('click', '.hapussemula_menjadi', function() {
-            const id = $(this).attr('data-id');
-            console.log(id);
-            // var col2=currentRow.find("td:eq(1)").text();
-            // var datajudul=col2;
-
+    <!-- jquery semula_menjadi -->
+    <script>
+        $(document).ready(function() {
+            $('#table-semula_menjadi').DataTable({
+            "autoWidth": false
+        });
+            $('#table-semula_menjadi').on('click', '.hapussemula_menjadi', function() {
+                const id = $(this).attr('data-id');
+                console.log(id);
+                // var col2=currentRow.find("td:eq(1)").text();
+                // var datajudul=col2;
                 $tr = $(this).closest("tr");
                 var dataid = $tr.children("td").map(function() {
                     return $(this).text();
@@ -213,17 +236,18 @@
                 $('#deletemodal').modal('show');
             });
         });
-
     </script>
     <!-- jquery revisi_rab -->
     <script>
         $(document).ready(function() {
+            $('#table-revisi_rab').DataTable({
+            "autoWidth": false
+        });
             $('#table-revisi_rab').on('click', '.hapusrevisi_rab', function() {
                 const id = $(this).attr('data-id');
                 console.log(id);
                 // var col2=currentRow.find("td:eq(1)").text();
                 // var datajudul=col2;
-
                 $tr = $(this).closest("tr");
                 var dataid = $tr.children("td").map(function() {
                     return $(this).text();
@@ -234,7 +258,6 @@
                 $('#deletemodal').modal('show');
             });
         });
-
     </script>
 
 @endsection

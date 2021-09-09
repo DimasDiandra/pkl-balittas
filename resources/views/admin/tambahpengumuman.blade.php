@@ -42,7 +42,7 @@
             </div>
 
             <div class="card-body table-responsive">
-                <table class="table table-borderless" id="table-datatables">
+                <table class="table table-borderless" id="table-pengumuman">
                     <thead>
                         <tr>
                             <th hidden>id</th>
@@ -141,7 +141,10 @@
 </div>
 <script>
     $(document).ready(function() {
-        $('#table-datatables').on('click', '.btn-hapus', function() {
+        $('#table-pengumuman').DataTable({
+            "autoWidth": false
+        });
+        $('#table-pengumuman').on('click', '.btn-hapus', function() {
             const id = $(this).attr('data-id');
             console.log(id);
             // var col2=currentRow.find("td:eq(1)").text();

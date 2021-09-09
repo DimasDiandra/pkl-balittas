@@ -41,7 +41,7 @@
                 <h3 class="m-0  text-primary">Projek</h3>
             </div>
             <div class="card-body table-responsive table-wrapper-scroll-y scrollbar">
-                <table class="table table-borderless" id="table-datatables">
+                <table class="table table-borderless" id="table-projek">
                     <thead>
                         <tr>
                             <th hidden>id</th>
@@ -162,7 +162,10 @@
 </div>
 <script>
     $(document).ready(function() {
-        $('#table-datatables').on('click', '.btn-hapus', function() {
+        $('#table-projek').DataTable({
+            "autoWidth": false
+        });
+        $('#table-projek').on('click', '.btn-hapus', function() {
             const id = $(this).attr('data-id');
             console.log(id);
             // var col2=currentRow.find("td:eq(1)").text();

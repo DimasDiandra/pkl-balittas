@@ -41,7 +41,7 @@
             </div>
 
             <div class="card-body table-responsive">
-                <table class="table table-bordered" id="table-datatables">
+                <table class="table table-borderless" id="table-template">
                     <thead>
                         <tr>
                             <th hidden>id</th>
@@ -135,7 +135,10 @@
 
 <script>
     $(document).ready( function () {
-        $('#table-datatables').on('click', '.btn-hapus', function(){
+        $('#table-template').DataTable({
+            "autoWidth": false
+        });
+        $('#table-template').on('click', '.btn-hapus', function(){
         const id = $(this).attr('data-id');
         console.log(id);
         // var col2=currentRow.find("td:eq(1)").text();

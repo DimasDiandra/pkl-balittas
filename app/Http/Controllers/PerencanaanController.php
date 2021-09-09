@@ -153,11 +153,11 @@ class PerencanaanController extends Controller
         $status = $request->status;
         $data = Matriks::find($id);
         $data->status = $status;
-        $data->save();
 
         $projek = Projek::where('id', $data->projek_id)->first();
         $projek->matriks_status = $data->status;
         $data->keterangan = $request->input('keterangan');
+        $data->save();
         $projek->save();
 
         event(new UpdateStatus($projek));
@@ -172,11 +172,11 @@ class PerencanaanController extends Controller
         $status = $request->status;
         $data = RAB::find($id);
         $data->status = $status;
-        $data->save();
 
         $projek = Projek::where('id', $data->projek_id)->first();
         $projek->rab_status = $data->status;
-        $data->keterangan = $request->input('keterangan');
+        $data->keterangan = $request->input('keterangan');        
+        $data->save();
         $projek->save();
 
         event(new UpdateStatus($projek));
@@ -191,11 +191,12 @@ class PerencanaanController extends Controller
         $status = $request->status;
         $data = KAK::find($id);
         $data->status = $status;
-        $data->save();
+       
 
         $projek = Projek::where('id', $data->projek_id)->first();
         $projek->kak_status = $data->status;
         $data->keterangan = $request->input('keterangan');
+        $data->save();
         $projek->save();
 
         event(new UpdateStatus($projek));
@@ -211,10 +212,10 @@ class PerencanaanController extends Controller
         $data = Analisis::find($id);
         $data->status = $status;
         $data->keterangan = $request->input('keterangan');
-        $data->save();
-
+        
         $projek = Projek::where('id', $data->projek_id)->first();
         $projek->analisis_status = $data->status;
+        $data->save();
         $projek->save();
 
         event(new UpdateStatus($projek));
@@ -230,10 +231,10 @@ class PerencanaanController extends Controller
         $data = Proposal::find($id);
         $data->status = $status;
         $data->keterangan = $request->input('keterangan');
-        $data->save();
-
+        
         $projek = Projek::where('id', $data->projek_id)->first();
         $projek->proposal_status = $data->status;
+        $data->save();
         $projek->save();
 
         event(new UpdateStatus($projek));

@@ -32,6 +32,8 @@ Auth::routes();
 Route::get('/home', [HomeController::class, 'index'])->name('home');
 Route::get('/home/download', [TemplatesController::class, 'template_download']);
 Route::get('/home/pengumuman/{id}', [HomeController::class, 'show_pengumuman']);
+Route::get('/notification/{id}', [HomeController::class, 'show_notification']);
+
 Route::get('/markRead', function () {
     Auth::user()->unreadNotifications->markAsRead();
 

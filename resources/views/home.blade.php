@@ -59,7 +59,7 @@
             <div class="card-header py-3">
                 <h6 class="m-0 text-primary">Template Download</h6>
             </div>
-            <div class="card-body table-wrapper-scroll-y scrollbar">
+            <div class="card-body table-wrapper-scroll-y scrollbar" style="overflow-y: auto;">
                 <table>
                     @foreach($file as $f)
                     <tr>
@@ -67,8 +67,8 @@
                             <input type="hidden" name="path" value=" {{$f->path}}">
                             <td>{{ $f->nama_file }}</td>
                             <td style="width: 10%;">
-                                <button type="submit" class="btn">
-                                    <i class="menu-icon fa fa-download" style="color: blue;"></i>
+                                <button type="submit" class="btn-primary">
+                                    <i class="menu-icon fa fa-download"></i>
                                 </button>
                             </td>
                         </form>

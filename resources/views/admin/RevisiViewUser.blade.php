@@ -34,7 +34,7 @@
         <h3 class="m-0  text-primary">Revisi Anggaran</h3>
     </div>
     <div class="card-body table-responsive">
-        <table class="table table-borderless" id="table-datatables">
+        <table class="table table-borderless" id="table-revisi">
             <thead>
                 <tr>
                     <th width="1%">No.</th>
@@ -71,5 +71,14 @@
     </div>
 </div>
 </div>
+
+<script>
+    $(document).ready(function() {
+        $('#table-revisi').DataTable({
+            "autoWidth": false
+        });
+        
+    });
+</script>
 
 @endsection
