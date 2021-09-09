@@ -375,7 +375,7 @@ class ReportController extends Controller
             $projek->save();
         } else if ($jenis == 2) {
             $data = laporan_triwulan::create([
-                'path' => $path,
+                'path' => $pathFile,
                 'name' => $namafile,
                 'user_id' => $user->id,
                 'projek_id' => $projek_id,
@@ -385,7 +385,7 @@ class ReportController extends Controller
             $projek->save();
         } else if ($jenis == 3) {
             $data = laporan_tengahtahun::create([
-                'path' => $path,
+                'path' => $pathFile,
                 'name' => $namafile,
                 'user_id' => $user->id,
                 'projek_id' => $projek_id,
@@ -395,7 +395,7 @@ class ReportController extends Controller
             $projek->save();
         } else if ($jenis == 4) {
             $data = laporan_akhirtahun::create([
-                'path' => $path,
+                'path' => $pathFile,
                 'name' => $namafile,
                 'user_id' => $user->id,
                 'projek_id' => $projek_id,
@@ -405,7 +405,7 @@ class ReportController extends Controller
             $projek->save();
         } else if ($jenis == 5) {
             $data = laporan_destudi::create([
-                'path' => $path,
+                'path' => $pathFile,
                 'name' => $namafile,
                 'user_id' => $user->id,
                 'projek_id' => $projek_id,
@@ -415,7 +415,7 @@ class ReportController extends Controller
             $projek->save();
         } else if ($jenis == 6) {
             $data = laporan_renaksi::create([
-                'path' => $path,
+                'path' => $pathFile,
                 'name' => $namafile,
                 'user_id' => $user->id,
                 'projek_id' => $projek_id,

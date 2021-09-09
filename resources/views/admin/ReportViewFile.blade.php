@@ -1,13 +1,13 @@
 @extends('admin/main')
 
-@section('title', 'Edit Perencanaan')
+@section('title', 'Edit Monev')
 
 @section('breadcrumbs')
 <div class="breadcrumbs">
     <div class="col-sm-4">
         <div class="page-header float-left">
             <div class="page-title">
-                <h1>Detail Perencanaan</h1>
+                <h1>Detail Monev</h1>
             </div>
         </div>
     </div>
@@ -36,7 +36,7 @@
 <div class="container-fluid">
 
     <div>
-        <a href="/admin/perencanaan" style="font-weight: 500; cursor:pointer;" class="text-primary"><i class="fa fa-arrow-left"></i> Back
+        <a href="/admin/evaluasi" style="font-weight: 500; cursor:pointer;" class="text-primary"><i class="fa fa-arrow-left"></i> Back
         </a>
     </div>
     <div class="card">
@@ -116,7 +116,8 @@
                                                 <a href="javascript:void(0)" id="deletebtn" class="btn btn-danger btn-xs btn-hapus hapusbulanan" data-id="{{$f->id}}"><i class="fa fa-trash-o"></i></a>
                                             </div>
                                             <div style="float: left;">
-                                                <form action="/perencanaan/download" method="GET">
+                                                <form action="/report/download" method="GET">
+                                                    <input type="hidden" name="path" value=" {{$f->path}}">
                                                     <button type="submit" class="btn btn-primary">
                                                         <i class="menu-icon fa fa-download"></i>
                                                     </button>
@@ -173,7 +174,8 @@
                                                 <a href="javascript:void(0)" id="deletebtn" class="btn btn-danger btn-xs btn-hapus hapusbulanan" data-id="{{$f->id}}"><i class="fa fa-trash-o"></i></a>
                                             </div>
                                             <div style="float: left;">
-                                                <form action="/perencanaan/download" method="GET">
+                                                <form action="/report/download" method="GET">
+                                                    <input type="hidden" name="path" value=" {{$f->path}}">
                                                     <button type="submit" class="btn btn-primary">
                                                         <i class="menu-icon fa fa-download"></i>
                                                     </button>
@@ -230,7 +232,8 @@
                                                 <a href="javascript:void(0)" id="deletebtn" class="btn btn-danger btn-xs btn-hapus hapusbulanan" data-id="{{$f->id}}"><i class="fa fa-trash-o"></i></a>
                                             </div>
                                             <div style="float: left;">
-                                                <form action="/perencanaan/download" method="GET">
+                                                <form action="/report/download" method="GET">
+                                                    <input type="hidden" name="path" value=" {{$f->path}}">
                                                     <button type="submit" class="btn btn-primary">
                                                         <i class="menu-icon fa fa-download"></i>
                                                     </button>
@@ -287,7 +290,8 @@
                                                 <a href="javascript:void(0)" id="deletebtn" class="btn btn-danger btn-xs btn-hapus hapusbulanan" data-id="{{$f->id}}"><i class="fa fa-trash-o"></i></a>
                                             </div>
                                             <div style="float: left;">
-                                                <form action="/perencanaan/download" method="GET">
+                                                <form action="/report/download" method="GET">
+                                                    <input type="hidden" name="path" value=" {{$f->path}}">
                                                     <button type="submit" class="btn btn-primary">
                                                         <i class="menu-icon fa fa-download"></i>
                                                     </button>
@@ -345,7 +349,8 @@
                                                 <a href="javascript:void(0)" id="deletebtn" class="btn btn-danger btn-xs btn-hapus hapusbulanan" data-id="{{$f->id}}"><i class="fa fa-trash-o"></i></a>
                                             </div>
                                             <div style="float: left;">
-                                                <form action="/perencanaan/download" method="GET">
+                                                <form action="/report/download" method="GET">
+                                                    <input type="hidden" name="path" value=" {{$f->path}}">
                                                     <button type="submit" class="btn btn-primary">
                                                         <i class="menu-icon fa fa-download"></i>
                                                     </button>
@@ -402,7 +407,8 @@
                                                 <a href="javascript:void(0)" id="deletebtn" class="btn btn-danger btn-xs btn-hapus hapusbulanan" data-id="{{$f->id}}"><i class="fa fa-trash-o"></i></a>
                                             </div>
                                             <div style="float: left;">
-                                                <form action="/perencanaan/download" method="GET">
+                                                <form action="/report/download" method="GET">
+                                                    <input type="hidden" name="path" value=" {{$f->path}}">
                                                     <button type="submit" class="btn btn-primary">
                                                         <i class="menu-icon fa fa-download"></i>
                                                     </button>
