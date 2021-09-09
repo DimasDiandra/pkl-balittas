@@ -146,6 +146,7 @@ class ReportController extends Controller
         $status = $request->status;
         $data = laporan_bulanan::find($id);
         $data->status = $status;
+        $data->keterangan = $request->input('keterangan');
         $data->save();
 
         $projek = Projek::where('id', $data->projek_id)->first();
@@ -164,6 +165,7 @@ class ReportController extends Controller
         $status = $request->status;
         $data = laporan_triwulan::find($id);
         $data->status = $status;
+        $data->keterangan = $request->input('keterangan');
         $data->save();
 
         $projek = Projek::where('id', $data->projek_id)->first();
@@ -181,6 +183,7 @@ class ReportController extends Controller
         $status = $request->status;
         $data = laporan_tengahtahun::find($id);
         $data->status = $status;
+        $data->keterangan = $request->input('keterangan');
         $data->save();
 
         $projek = Projek::where('id', $data->projek_id)->first();
@@ -198,6 +201,7 @@ class ReportController extends Controller
         $status = $request->status;
         $data = laporan_akhirtahun::find($id);
         $data->status = $status;
+        $data->keterangan = $request->input('keterangan');
         $data->save();
 
         $projek = Projek::where('id', $data->projek_id)->first();
@@ -215,6 +219,7 @@ class ReportController extends Controller
         $status = $request->status;
         $data = laporan_destudi::find($id);
         $data->status = $status;
+        $data->keterangan = $request->input('keterangan');
         $data->save();
 
         $projek = Projek::where('id', $data->projek_id)->first();
@@ -232,6 +237,7 @@ class ReportController extends Controller
         $status = $request->status;
         $data = laporan_renaksi::find($id);
         $data->status = $status;
+        $data->keterangan = $request->input('keterangan');
         $data->save();
 
         $projek = Projek::where('id', $data->projek_id)->first();

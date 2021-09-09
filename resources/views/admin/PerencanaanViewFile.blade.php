@@ -299,9 +299,9 @@
                                             </td>
                                             <td>
                                                 <input type="hidden" value="matriks" name="jenis">
-                                                <button class="btn btn-warning btn-xs btn-edit" type="submit">
+                                                <a class="btn btn-warning btn-xs btn-edit" type="submit">
                                                     <i class="menu-icon fa fa-pencil"></i>
-                                                </button>
+                                                </a>
                                                 <a href="javascript:void(0)" id="deletebtn" class="btn btn-danger btn-xs btn-hapus hapusmatriks" data-id="{{$f->id}}"><i class="fa fa-trash-o"></i></a>
                                                 <button type="submit" class="btn btn-primary">
                                                     <i class="menu-icon fa fa-download"></i>

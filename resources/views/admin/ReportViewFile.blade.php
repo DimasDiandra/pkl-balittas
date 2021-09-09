@@ -95,19 +95,15 @@
                                         <td>{{ $date = substr($f->created_at, 2, 8) }}
                                         </td>
                                         <td>{{ $f->name }}</td>
-                                        @if ($f->status==1)
                                         <td>
+                                            @if ($f->status==1)
                                             Menunggu Review
-                                        </td>
-                                        @elseif($f->status==2)
-                                        <td>
+                                            @elseif($f->status==2)
                                             Revisi
-                                        </td>
-                                        @elseif($f->status==3)
-                                        <td>
+                                            @elseif($f->status==3)
                                             Diterima
+                                            @endif
                                         </td>
-                                        @endif
                                         <td>
                                             <form action="bulanan/{{$f->id}}" method="GET">
                                                 <input type="hidden" value="bulanan" name="jenis">
@@ -158,19 +154,15 @@
                                         </td>
                                         <input type="hidden" name="path" value=" {{ $f->path }}">
                                         <td>{{ $f->name }}</td>
-                                        @if ($f->status==1)
                                         <td>
+                                            @if ($f->status==1)
                                             Menunggu Review
-                                        </td>
-                                        @elseif($f->status==2)
-                                        <td>
+                                            @elseif($f->status==2)
                                             Revisi
-                                        </td>
-                                        @elseif($f->status==3)
-                                        <td>
+                                            @elseif($f->status==3)
                                             Diterima
+                                            @endif
                                         </td>
-                                        @endif
                                         <td>
                                             <form action="triwulan/{{$f->id}}" method="GET">
                                                 <input type="hidden" value="triwulan" name="jenis">
@@ -221,19 +213,15 @@
                                         </td>
                                         <input type="hidden" name="path" value=" {{ $f->path }}">
                                         <td>{{ $f->name }}</td>
-                                        @if ($f->status==1)
                                         <td>
+                                            @if ($f->status==1)
                                             Menunggu Review
-                                        </td>
-                                        @elseif($f->status==2)
-                                        <td>
+                                            @elseif($f->status==2)
                                             Revisi
-                                        </td>
-                                        @elseif($f->status==3)
-                                        <td>
+                                            @elseif($f->status==3)
                                             Diterima
+                                            @endif
                                         </td>
-                                        @endif
                                         <td>
                                             <form action="tengah/{{$f->id}}" method="GET">
                                                 <input type="hidden" value="tengah" name="jenis">
@@ -283,19 +271,15 @@
                                         </td>
                                         <input type="hidden" name="path" value=" {{ $f->path }}">
                                         <td>{{ $f->name }}</td>
-                                        @if ($f->status==1)
                                         <td>
+                                            @if ($f->status==1)
                                             Menunggu Review
-                                        </td>
-                                        @elseif($f->status==2)
-                                        <td>
+                                            @elseif($f->status==2)
                                             Revisi
-                                        </td>
-                                        @elseif($f->status==3)
-                                        <td>
+                                            @elseif($f->status==3)
                                             Diterima
+                                            @endif
                                         </td>
-                                        @endif
                                         <td>
                                             <form action="akhir/{{$f->id}}" method="GET">
                                                 <input type="hidden" value="akhir" name="jenis">
@@ -345,19 +329,15 @@
                                         </td>
                                         <input type="hidden" name="path" value=" {{ $f->path }}">
                                         <td>{{ $f->name }}</td>
-                                        @if ($f->status==1)
                                         <td>
+                                            @if ($f->status==1)
                                             Menunggu Review
-                                        </td>
-                                        @elseif($f->status==2)
-                                        <td>
+                                            @elseif($f->status==2)
                                             Revisi
-                                        </td>
-                                        @elseif($f->status==3)
-                                        <td>
+                                            @elseif($f->status==3)
                                             Diterima
+                                            @endif
                                         </td>
-                                        @endif
                                         <td>
                                             <form action="destudi/{{$f->id}}" method="GET">
                                                 <input type="hidden" value="destudi" name="jenis">
@@ -407,19 +387,15 @@
                                         </td>
                                         <input type="hidden" name="path" value=" {{ $f->path }}">
                                         <td>{{ $f->name }}</td>
-                                        @if ($f->status==1)
                                         <td>
+                                            @if ($f->status==1)
                                             Menunggu Review
-                                        </td>
-                                        @elseif($f->status==2)
-                                        <td>
+                                            @elseif($f->status==2)
                                             Revisi
-                                        </td>
-                                        @elseif($f->status==3)
-                                        <td>
+                                            @elseif($f->status==3)
                                             Diterima
+                                            @endif
                                         </td>
-                                        @endif
                                         <td>
                                             <form action="renaksi/{{$f->id}}" method="GET">
                                                 <input type="hidden" value="renaksi" name="jenis">

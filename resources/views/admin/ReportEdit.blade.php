@@ -54,9 +54,8 @@
                         </div>
                         @endif
                         <div>
-                            <textarea name="keterangan">
-
-                            </textarea>
+                            <label for="exampleInputEmail1">Keterangan</label>
+                            <textarea name="keterangan" style="width: 100%;" rows="5">{{$data->keterangan}}</textarea>
                         </div>
                     </div>
                     <div class="col">

@@ -157,6 +157,7 @@ class PerencanaanController extends Controller
 
         $projek = Projek::where('id', $data->projek_id)->first();
         $projek->matriks_status = $data->status;
+        $data->keterangan = $request->input('keterangan');
         $projek->save();
 
         event(new UpdateStatus($projek));
@@ -175,6 +176,7 @@ class PerencanaanController extends Controller
 
         $projek = Projek::where('id', $data->projek_id)->first();
         $projek->rab_status = $data->status;
+        $data->keterangan = $request->input('keterangan');
         $projek->save();
 
         event(new UpdateStatus($projek));
@@ -193,6 +195,7 @@ class PerencanaanController extends Controller
 
         $projek = Projek::where('id', $data->projek_id)->first();
         $projek->kak_status = $data->status;
+        $data->keterangan = $request->input('keterangan');
         $projek->save();
 
         event(new UpdateStatus($projek));
@@ -207,6 +210,7 @@ class PerencanaanController extends Controller
         $status = $request->status;
         $data = Analisis::find($id);
         $data->status = $status;
+        $data->keterangan = $request->input('keterangan');
         $data->save();
 
         $projek = Projek::where('id', $data->projek_id)->first();
@@ -225,6 +229,7 @@ class PerencanaanController extends Controller
         $status = $request->status;
         $data = Proposal::find($id);
         $data->status = $status;
+        $data->keterangan = $request->input('keterangan');
         $data->save();
 
         $projek = Projek::where('id', $data->projek_id)->first();
