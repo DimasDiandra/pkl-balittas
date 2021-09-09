@@ -219,8 +219,8 @@
                                         </td>
                                         <td>
                                             <div style="float: left;">
-                                                <form action="tengahTahun/{{$f->id}}" method="GET">
-                                                    <input type="hidden" value="tengahTahun" name="jenis">
+                                                <form action="tengah/{{$f->id}}" method="GET">
+                                                    <input type="hidden" value="tengah" name="jenis">
                                                     <button class="btn btn-warning btn-xs btn-edit" type="submit">
                                                         <i class="menu-icon fa fa-pencil"></i>
                                                     </button>
@@ -276,8 +276,8 @@
                                         </td>
                                         <td>
                                             <div style="float: left;">
-                                                <form action="akhirTahun/{{$f->id}}" method="GET">
-                                                    <input type="hidden" value="akhirTahun" name="jenis">
+                                                <form action="akhir/{{$f->id}}" method="GET">
+                                                    <input type="hidden" value="akhir" name="jenis">
                                                     <button class="btn btn-warning btn-xs btn-edit" type="submit">
                                                         <i class="menu-icon fa fa-pencil"></i>
                                                     </button>
