@@ -1,14 +1,13 @@
 @extends('admin/main')
 
-@section('title', 'Edit Monev')
-
+@section('title', 'Edit Perencanaan')
 
 @section('breadcrumbs')
 <div class="breadcrumbs">
     <div class="col-sm-4">
         <div class="page-header float-left">
             <div class="page-title">
-                <h1>Detail Monitoring dan Evaluasi</h1>
+                <h1>Detail Perencanaan</h1>
             </div>
         </div>
     </div>
@@ -35,31 +34,37 @@
 </div>
 @endif
 <div class="container-fluid">
+
     <div>
-        <a href="/admin/evaluasi" style="font-weight: 500; cursor:pointer;" class="text-primary"><i class="fa fa-arrow-left"></i> Back
+        <a href="/admin/perencanaan" style="font-weight: 500; cursor:pointer;" class="text-primary"><i class="fa fa-arrow-left"></i> Back
         </a>
     </div>
     <div class="card">
-        <div class="row card-body">
+        <div class="card-header">
+            <h3 class="text-primary">
+                Data File Semua Laporan
+            </h3>
+        </div>
+        <div class="row  card-body">
             <div class="col">
                 <ul class="nav nav-pills nav-fill">
                     <li class="nav-item">
-                        <a class="nav-link active" href="#bulanan" role="tab" data-toggle="tab">Laporan Bulanan</a>
+                        <a class="nav-link active" href="#bulanan" role="tab" data-toggle="tab">Bulanan</a>
                     </li>
                     <li class="nav-item">
-                        <a class="nav-link " href="#triwulan" role="tab" data-toggle="tab">Laporan Triwulan</a>
+                        <a class="nav-link " href="#triwulan" role="tab" data-toggle="tab">Triwulan</a>
                     </li>
                     <li class="nav-item">
-                        <a class="nav-link " href="#tengah" role="tab" data-toggle="tab">Laporan Tengah Tahun</a>
+                        <a class="nav-link " href="#tengahTahun" role="tab" data-toggle="tab">Tengah Tahun</a>
                     </li>
                     <li class="nav-item">
-                        <a class="nav-link " href="#akhir" role="tab" data-toggle="tab">Laporan Akhir Tahun</a>
+                        <a class="nav-link " href="#akhirTahun" role="tab" data-toggle="tab">Akhir Tahun</a>
                     </li>
                     <li class="nav-item">
-                        <a class="nav-link " href="#destudi" role="tab" data-toggle="tab">Laporan Destudi</a>
+                        <a class="nav-link " href="#renaksi" role="tab" data-toggle="tab">Renaksi</a>
                     </li>
                     <li class="nav-item">
-                        <a class="nav-link " href="#renaksi" role="tab" data-toggle="tab">Laporan Renaksi</a>
+                        <a class="nav-link " href="#destudi" role="tab" data-toggle="tab">Deskstudi</a>
                     </li>
                 </ul>
             </div>
@@ -67,60 +72,56 @@
         <div class="row">
             <div class="col">
                 <div class="tab-content" id="nav-tabContent">
-                    <!-- Bulanan -->
+                    <!-- bulanan -->
                     <div class="tab-pane fade show active" id="bulanan" role="tabpanel" aria-labelledby="nav-home-tab">
                         <div class="modal-body">
-                            <table class="table" id="table">
+                            <table class="table" id="table_bulanan">
                                 <thead>
                                     <tr>
                                         <th hidden>id</th>
                                         <th width=5%>No.</th>
-                                        <th>Date Upload</th>
                                         <th width=30%>File Name</th>
+                                        <th>Date Upload</th>
                                         <th width=20%>Status</th>
                                         <th width=30% colspan="3">Action</th>
                                     </tr>
                                 </thead>
                                 <tbody>
                                     <!-- Isi dari keluaran data -->
-                                    @foreach ($bulanan as $f)
+                                    @foreach($bulanan as $f)
                                     <tr>
-                                        <td hidden="true">{{ $f->id }}</td>
                                         <td>{{ $loop->iteration }}</td>
-                                        <td>{{ $f->created_at }}
-                                        </td>
+                                        <input type="hidden" name="path" value=" {{$f->path}}">
                                         <td>{{ $f->name }}</td>
-                                        @if ($f->status==1)
+                                        <td>{{ $date = substr($f->created_at, 2, 8) }}</td>
                                         <td>
+                                            @if ($f->status==1)
                                             Menunggu Review
-                                        </td>
-                                        @elseif($f->status==2)
-                                        <td>
+                                            @elseif($f->status==2)
                                             Revisi
-                                        </td>
-                                        @elseif($f->status==3)
-                                        <td>
+                                            @elseif($f->status==3)
                                             Diterima
-                                        </td>
-                                        @endif
-                                        <td>
-                                            <form action="bulanan/{{$f->id}}" method="GET">
-                                                <input type="hidden" value="bulanan" name="jenis">
-                                                <button class="btn btn-warning btn-xs btn-edit" type="submit">
-                                                    <i class="menu-icon fa fa-pencil"></i>
-                                                </button>
-                                            </form>
+                                            @endif
                                         </td>
                                         <td>
-                                            <a href="javascript:void(0)" id="deletebtn" class="btn btn-danger btn-xs btn-hapus hapusbulanan" data-id="{{$f->id}}"><i class="fa fa-trash-o"></i></a>
-
-                                        </td>
-                                        <td>
-                                            <input type="hidden" name="path" value=" {{ $f->path }}">
-                                            <button type="submit" class="btn btn-primary">
-                                                <i class="menu-icon fa fa-download"></i>
-                                            </button>
-                                            </form>
+                                            <div style="float: left;">
+                                                <form action="bulanan/{{$f->id}}" method="GET">
+                                                    <input type="hidden" value="bulanan" name="jenis">
+                                                    <button class="btn btn-warning btn-xs btn-edit" type="submit">
+                                                        <i class="menu-icon fa fa-pencil"></i>
+                                                    </button>
+                                                </form>
+                                            </div>
+                                            <div style="float: left;">
+                                                <a href="javascript:void(0)" id="deletebtn" class="btn btn-danger btn-xs btn-hapus hapusbulanan" data-id="{{$f->id}}"><i class="fa fa-trash-o"></i></a>
+                                            </div>
+                                            <div style="float: left;">
+                                                <form action="/perencanaan/download" method="GET">
+                                                    <button type="submit" class="btn btn-primary">
+                                                        <i class="menu-icon fa fa-download"></i>
+                                                    </button>
+                                                </form>
+                                            </div>
                                         </td>
                                     </tr>
                                     @endforeach
@@ -128,62 +129,56 @@
                             </table>
                         </div>
                     </div>
-
-                    <!-- Triwulan -->
-                    <div class="tab-pane fade show " id="triwulan" role="tabpanel" aria-labelledby="nav-home-tab">
+                    <!-- triwulan -->
+                    <div class="tab-pane fade" id="triwulan" role="tabpanel" aria-labelledby="nav-profile-tab">
                         <div class="modal-body">
-                            <table class="table" id="table-triwulan">
+                            <table class="table" id="table_triwulan">
                                 <thead>
                                     <tr>
                                         <th hidden>id</th>
                                         <th width=5%>No.</th>
-                                        <th>Date Upload</th>
                                         <th width=30%>File Name</th>
+                                        <th>Date Upload</th>
                                         <th width=20%>Status</th>
                                         <th width=30% colspan="3">Action</th>
                                     </tr>
                                 </thead>
                                 <tbody>
                                     <!-- Isi dari keluaran data -->
-                                    @foreach ($triwulan as $f)
+                                    @foreach($triwulan as $f)
                                     <tr>
-                                        <td hidden="true">{{ $f->id }}</td>
                                         <td>{{ $loop->iteration }}</td>
-                                        <td>{{ $f->created_at }}
-                                        </td>
-                                        <input type="hidden" name="path" value=" {{ $f->path }}">
+                                        <input type="hidden" name="path" value=" {{$f->path}}">
                                         <td>{{ $f->name }}</td>
-                                        @if ($f->status==1)
+                                        <td>{{ $date = substr($f->created_at, 2, 8) }}</td>
                                         <td>
+                                            @if ($f->status==1)
                                             Menunggu Review
-                                        </td>
-                                        @elseif($f->status==2)
-                                        <td>
+                                            @elseif($f->status==2)
                                             Revisi
-                                        </td>
-                                        @elseif($f->status==3)
-                                        <td>
+                                            @elseif($f->status==3)
                                             Diterima
-                                        </td>
-                                        @endif
-                                        <td>
-                                            <form action="triwulan/{{$f->id}}" method="GET">
-                                                <input type="hidden" value="triwulan" name="jenis">
-                                                <button class="btn btn-warning btn-xs btn-edit" type="submit">
-                                                    <i class="menu-icon fa fa-pencil"></i>
-                                                </button>
-                                            </form>
+                                            @endif
                                         </td>
                                         <td>
-                                            <a href="javascript:void(0)" id="deletebtn" class="btn btn-danger btn-xs btn-hapus hapustriwulan" data-id="{{$f->id}}"><i class="fa fa-trash-o"></i></a>
-
-                                        </td>
-                                        <td>
-                                            <input type="hidden" name="path" value=" {{ $f->path }}">
-                                            <button type="submit" class="btn btn-primary">
-                                                <i class="menu-icon fa fa-download"></i>
-                                            </button>
-                                            </form>
+                                            <div style="float: left;">
+                                                <form action="triwulan/{{$f->id}}" method="GET">
+                                                    <input type="hidden" value="triwulan" name="jenis">
+                                                    <button class="btn btn-warning btn-xs btn-edit" type="submit">
+                                                        <i class="menu-icon fa fa-pencil"></i>
+                                                    </button>
+                                                </form>
+                                            </div>
+                                            <div style="float: left;">
+                                                <a href="javascript:void(0)" id="deletebtn" class="btn btn-danger btn-xs btn-hapus hapusbulanan" data-id="{{$f->id}}"><i class="fa fa-trash-o"></i></a>
+                                            </div>
+                                            <div style="float: left;">
+                                                <form action="/perencanaan/download" method="GET">
+                                                    <button type="submit" class="btn btn-primary">
+                                                        <i class="menu-icon fa fa-download"></i>
+                                                    </button>
+                                                </form>
+                                            </div>
                                         </td>
                                     </tr>
                                     @endforeach
@@ -191,61 +186,56 @@
                             </table>
                         </div>
                     </div>
-
-                    <!-- Tengah -->
-                    <div class="tab-pane fade show " id="tengah" role="tabpanel" aria-labelledby="nav-home-tab">
+                    <!-- tengahTahun -->
+                    <div class="tab-pane fade" id="tengahTahun" role="tabpanel" aria-labelledby="nav-contact-tab">
                         <div class="modal-body">
-                            <table class="table" id="table-tengah">
+                            <table class="table" id="table_tengahTahun">
                                 <thead>
                                     <tr>
                                         <th hidden>id</th>
                                         <th width=5%>No.</th>
-                                        <th>Date Upload</th>
                                         <th width=30%>File Name</th>
+                                        <th>Date Upload</th>
                                         <th width=20%>Status</th>
                                         <th width=30% colspan="3">Action</th>
                                     </tr>
                                 </thead>
                                 <tbody>
                                     <!-- Isi dari keluaran data -->
-                                    @foreach ($tengahTahun as $f)
+                                    @foreach($tengahTahun as $f)
                                     <tr>
-                                        <td hidden="true">{{ $f->id }}</td>
                                         <td>{{ $loop->iteration }}</td>
-                                        <td>{{ $f->created_at }}
-                                        </td>
-                                        <input type="hidden" name="path" value=" {{ $f->path }}">
+                                        <input type="hidden" name="path" value=" {{$f->path}}">
                                         <td>{{ $f->name }}</td>
-                                        @if ($f->status==1)
+                                        <td>{{ $date = substr($f->created_at, 2, 8) }}</td>
                                         <td>
+                                            @if ($f->status==1)
                                             Menunggu Review
-                                        </td>
-                                        @elseif($f->status==2)
-                                        <td>
+                                            @elseif($f->status==2)
                                             Revisi
-                                        </td>
-                                        @elseif($f->status==3)
-                                        <td>
+                                            @elseif($f->status==3)
                                             Diterima
-                                        </td>
-                                        @endif
-                                        <td>
-                                            <form action="tengah/{{$f->id}}" method="GET">
-                                                <input type="hidden" value="tengah" name="jenis">
-                                                <button class="btn btn-warning btn-xs btn-edit" type="submit">
-                                                    <i class="menu-icon fa fa-pencil"></i>
-                                                </button>
-                                            </form>
+                                            @endif
                                         </td>
                                         <td>
-                                            <a href="javascript:void(0)" id="deletebtn" class="btn btn-danger btn-xs btn-hapus hapustengah" data-id="{{$f->id}}"><i class="fa fa-trash-o"></i></a>
-                                        </td>
-                                        <td>
-                                            <input type="hidden" name="path" value=" {{ $f->path }}">
-                                            <button type="submit" class="btn btn-primary">
-                                                <i class="menu-icon fa fa-download"></i>
-                                            </button>
-                                            </form>
+                                            <div style="float: left;">
+                                                <form action="tengahTahun/{{$f->id}}" method="GET">
+                                                    <input type="hidden" value="tengahTahun" name="jenis">
+                                                    <button class="btn btn-warning btn-xs btn-edit" type="submit">
+                                                        <i class="menu-icon fa fa-pencil"></i>
+                                                    </button>
+                                                </form>
+                                            </div>
+                                            <div style="float: left;">
+                                                <a href="javascript:void(0)" id="deletebtn" class="btn btn-danger btn-xs btn-hapus hapusbulanan" data-id="{{$f->id}}"><i class="fa fa-trash-o"></i></a>
+                                            </div>
+                                            <div style="float: left;">
+                                                <form action="/perencanaan/download" method="GET">
+                                                    <button type="submit" class="btn btn-primary">
+                                                        <i class="menu-icon fa fa-download"></i>
+                                                    </button>
+                                                </form>
+                                            </div>
                                         </td>
                                     </tr>
                                     @endforeach
@@ -253,61 +243,114 @@
                             </table>
                         </div>
                     </div>
-
-                    <!-- Akhir -->
-                    <div class="tab-pane fade show " id="akhir" role="tabpanel" aria-labelledby="nav-home-tab">
+                    <!-- akhirTahun -->
+                    <div class="tab-pane fade" id="akhirTahun" role="tabpanel" aria-labelledby="nav-profile-tab">
                         <div class="modal-body">
-                            <table class="table" id="table-akhir">
+                            <table class="table" id="table_akhirTahun">
                                 <thead>
                                     <tr>
                                         <th hidden>id</th>
                                         <th width=5%>No.</th>
-                                        <th>Date Upload</th>
                                         <th width=30%>File Name</th>
+                                        <th>Date Upload</th>
                                         <th width=20%>Status</th>
                                         <th width=30% colspan="3">Action</th>
                                     </tr>
                                 </thead>
                                 <tbody>
                                     <!-- Isi dari keluaran data -->
-                                    @foreach ($akhirTahun as $f)
+                                    @foreach($akhirTahun as $f)
                                     <tr>
-                                        <td hidden="true">{{ $f->id }}</td>
                                         <td>{{ $loop->iteration }}</td>
-                                        <td>{{ $f->created_at }}
-                                        </td>
-                                        <input type="hidden" name="path" value=" {{ $f->path }}">
+                                        <input type="hidden" name="path" value=" {{$f->path}}">
                                         <td>{{ $f->name }}</td>
-                                        @if ($f->status==1)
+                                        <td>{{ $date = substr($f->created_at, 2, 8) }}</td>
                                         <td>
+                                            @if ($f->status==1)
                                             Menunggu Review
-                                        </td>
-                                        @elseif($f->status==2)
-                                        <td>
+                                            @elseif($f->status==2)
                                             Revisi
-                                        </td>
-                                        @elseif($f->status==3)
-                                        <td>
+                                            @elseif($f->status==3)
                                             Diterima
-                                        </td>
-                                        @endif
-                                        <td>
-                                            <form action="akhir/{{$f->id}}" method="GET">
-                                                <input type="hidden" value="akhir" name="jenis">
-                                                <button class="btn btn-warning btn-xs btn-edit" type="submit">
-                                                    <i class="menu-icon fa fa-pencil"></i>
-                                                </button>
-                                            </form>
+                                            @endif
                                         </td>
                                         <td>
-                                            <a href="javascript:void(0)" id="deletebtn" class="btn btn-danger btn-xs btn-hapus hapusakhir" data-id="{{$f->id}}"><i class="fa fa-trash-o"></i></a>
+                                            <div style="float: left;">
+                                                <form action="akhirTahun/{{$f->id}}" method="GET">
+                                                    <input type="hidden" value="akhirTahun" name="jenis">
+                                                    <button class="btn btn-warning btn-xs btn-edit" type="submit">
+                                                        <i class="menu-icon fa fa-pencil"></i>
+                                                    </button>
+                                                </form>
+                                            </div>
+                                            <div style="float: left;">
+                                                <a href="javascript:void(0)" id="deletebtn" class="btn btn-danger btn-xs btn-hapus hapusbulanan" data-id="{{$f->id}}"><i class="fa fa-trash-o"></i></a>
+                                            </div>
+                                            <div style="float: left;">
+                                                <form action="/perencanaan/download" method="GET">
+                                                    <button type="submit" class="btn btn-primary">
+                                                        <i class="menu-icon fa fa-download"></i>
+                                                    </button>
+                                                </form>
+                                            </div>
+                                        </td>
+                                        </form>
+                                    </tr>
+                                    @endforeach
+                                </tbody>
+                            </table>
+                        </div>
+                    </div>
+                    <!-- renaksi -->
+                    <div class="tab-pane fade" id="renaksi" role="tabpanel" aria-labelledby="nav-contact-tab">
+                        <div class="modal-body">
+                            <table class="table" id="table_renaksi">
+                                <thead>
+                                    <tr>
+                                        <th hidden>id</th>
+                                        <th width=5%>No.</th>
+                                        <th width=30%>File Name</th>
+                                        <th>Date Upload</th>
+                                        <th width=20%>Status</th>
+                                        <th width=30% colspan="3">Action</th>
+                                    </tr>
+                                </thead>
+                                <tbody>
+                                    <!-- Isi dari keluaran data -->
+                                    @foreach($renaksi as $f)
+                                    <tr>
+                                        <td>{{ $loop->iteration }}</td>
+                                        <input type="hidden" name="path" value=" {{$f->path}}">
+                                        <td>{{ $f->name }}</td>
+                                        <td>{{ $date = substr($f->created_at, 2, 8) }}</td>
+                                        <td>
+                                            @if ($f->status==1)
+                                            Menunggu Review
+                                            @elseif($f->status==2)
+                                            Revisi
+                                            @elseif($f->status==3)
+                                            Diterima
+                                            @endif
                                         </td>
                                         <td>
-                                            <input type="hidden" name="path" value=" {{ $f->path }}">
-                                            <button type="submit" class="btn btn-primary">
-                                                <i class="menu-icon fa fa-download"></i>
-                                            </button>
-                                            </form>
+                                            <div style="float: left;">
+                                                <form action="renaksi/{{$f->id}}" method="GET">
+                                                    <input type="hidden" value="renaksi" name="jenis">
+                                                    <button class="btn btn-warning btn-xs btn-edit" type="submit">
+                                                        <i class="menu-icon fa fa-pencil"></i>
+                                                    </button>
+                                                </form>
+                                            </div>
+                                            <div style="float: left;">
+                                                <a href="javascript:void(0)" id="deletebtn" class="btn btn-danger btn-xs btn-hapus hapusbulanan" data-id="{{$f->id}}"><i class="fa fa-trash-o"></i></a>
+                                            </div>
+                                            <div style="float: left;">
+                                                <form action="/perencanaan/download" method="GET">
+                                                    <button type="submit" class="btn btn-primary">
+                                                        <i class="menu-icon fa fa-download"></i>
+                                                    </button>
+                                                </form>
+                                            </div>
                                         </td>
                                     </tr>
                                     @endforeach
@@ -315,123 +358,56 @@
                             </table>
                         </div>
                     </div>
-
-                    <!-- Destudi -->
-                    <div class="tab-pane fade show " id="destudi" role="tabpanel" aria-labelledby="nav-home-tab">
+                    <!-- deskstudi -->
+                    <div class="tab-pane fade" id="destudi" role="tabpanel" aria-labelledby="nav-contact-tab">
                         <div class="modal-body">
-                            <table class="table" id="table-destudi">
+                            <table class="table" id="table_destudigit">
                                 <thead>
                                     <tr>
                                         <th hidden>id</th>
                                         <th width=5%>No.</th>
-                                        <th>Date Upload</th>
                                         <th width=30%>File Name</th>
+                                        <th>Date Upload</th>
                                         <th width=20%>Status</th>
                                         <th width=30% colspan="3">Action</th>
                                     </tr>
                                 </thead>
                                 <tbody>
                                     <!-- Isi dari keluaran data -->
-                                    @foreach ($destudi as $f)
+                                    @foreach($destudi as $f)
                                     <tr>
-                                        <td hidden="true">{{ $f->id }}</td>
                                         <td>{{ $loop->iteration }}</td>
-                                        <td>{{ $f->created_at }}
-                                        </td>
-                                        <input type="hidden" name="path" value=" {{ $f->path }}">
+                                        <input type="hidden" name="path" value=" {{$f->path}}">
                                         <td>{{ $f->name }}</td>
-                                        @if ($f->status==1)
+                                        <td>{{ $date = substr($f->created_at, 2, 8) }}</td>
                                         <td>
+                                            @if ($f->status==1)
                                             Menunggu Review
-                                        </td>
-                                        @elseif($f->status==2)
-                                        <td>
+                                            @elseif($f->status==2)
                                             Revisi
-                                        </td>
-                                        @elseif($f->status==3)
-                                        <td>
+                                            @elseif($f->status==3)
                                             Diterima
-                                        </td>
-                                        @endif
-                                        <td>
-                                            <form action="destudi/{{$f->id}}" method="GET">
-                                                <input type="hidden" value="destudi" name="jenis">
-                                                <button class="btn btn-warning btn-xs btn-edit" type="submit">
-                                                    <i class="menu-icon fa fa-pencil"></i>
-                                                </button>
-                                            </form>
+                                            @endif
                                         </td>
                                         <td>
-                                            <a href="javascript:void(0)" id="deletebtn" class="btn btn-danger btn-xs btn-hapus hapusdestudi" data-id="{{$f->id}}"><i class="fa fa-trash-o"></i></a>
-                                        </td>
-                                        <td>
-                                            <input type="hidden" name="path" value=" {{ $f->path }}">
-                                            <button type="submit" class="btn btn-primary">
-                                                <i class="menu-icon fa fa-download"></i>
-                                            </button>
-                                            </form>
-                                        </td>
-                                    </tr>
-                                    @endforeach
-                                </tbody>
-                            </table>
-                        </div>
-                    </div>
-
-                    <!-- Renaksi -->
-                    <div class="tab-pane fade show " id="renaksi" role="tabpanel" aria-labelledby="nav-home-tab">
-                        <div class="modal-body">
-                            <table class="table" id="table-renaksi">
-                                <thead>
-                                    <tr>
-                                        <th hidden>id</th>
-                                        <th width=5%>No.</th>
-                                        <th>Date Upload</th>
-                                        <th width=30%>File Name</th>
-                                        <th width=20%>Status</th>
-                                        <th width=30% colspan="3">Action</th>
-                                    </tr>
-                                </thead>
-                                <tbody>
-                                    <!-- Isi dari keluaran data -->
-                                    @foreach ($renaksi as $f)
-                                    <tr>
-                                        <td hidden="true">{{ $f->id }}</td>
-                                        <td>{{ $loop->iteration }}</td>
-                                        <td>{{ $f->created_at }}
-                                        </td>
-                                        <input type="hidden" name="path" value=" {{ $f->path }}">
-                                        <td>{{ $f->name }}</td>
-                                        @if ($f->status==1)
-                                        <td>
-                                            Menunggu Review
-                                        </td>
-                                        @elseif($f->status==2)
-                                        <td>
-                                            Revisi
-                                        </td>
-                                        @elseif($f->status==3)
-                                        <td>
-                                            Diterima
-                                        </td>
-                                        @endif
-                                        <td>
-                                            <form action="renaksi/{{$f->id}}" method="GET">
-                                                <input type="hidden" value="renaksi" name="jenis">
-                                                <button class="btn btn-warning btn-xs btn-edit" type="submit">
-                                                    <i class="menu-icon fa fa-pencil"></i>
-                                                </button>
-                                            </form>
-                                        </td>
-                                        <td>
-                                            <a href="javascript:void(0)" id="deletebtn" class="btn btn-danger btn-xs btn-hapus hapusrenaksi" data-id="{{$f->id}}"><i class="fa fa-trash-o"></i></a>
-                                        </td>
-                                        <td>
-                                            <input type="hidden" name="path" value=" {{ $f->path }}">
-                                            <button type="submit" class="btn btn-primary">
-                                                <i class="menu-icon fa fa-download"></i>
-                                            </button>
-                                            </form>
+                                            <div style="float: left;">
+                                                <form action="renaksi/{{$f->id}}" method="GET">
+                                                    <input type="hidden" value="renaksi" name="jenis">
+                                                    <button class="btn btn-warning btn-xs btn-edit" type="submit">
+                                                        <i class="menu-icon fa fa-pencil"></i>
+                                                    </button>
+                                                </form>
+                                            </div>
+                                            <div style="float: left;">
+                                                <a href="javascript:void(0)" id="deletebtn" class="btn btn-danger btn-xs btn-hapus hapusbulanan" data-id="{{$f->id}}"><i class="fa fa-trash-o"></i></a>
+                                            </div>
+                                            <div style="float: left;">
+                                                <form action="/perencanaan/download" method="GET">
+                                                    <button type="submit" class="btn btn-primary">
+                                                        <i class="menu-icon fa fa-download"></i>
+                                                    </button>
+                                                </form>
+                                            </div>
                                         </td>
                                     </tr>
                                     @endforeach
@@ -440,10 +416,10 @@
                         </div>
                     </div>
                 </div>
+
             </div>
         </div>
     </div>
-
     <!-- Modal Confirm Delete -->
     <div class="modal fade" id="deletemodal" tabindex="-1">
         <div class="modal-dialog modal-dialog-centered">
@@ -472,10 +448,37 @@
     </div>
     <!-- End Modal Delete  -->
 </div>
+<!-- script -->
+<script>
+    $(document).ready(function() {
+        // DataTables
+
+        $('#table_bulanan').DataTable({
+            "autoWidth": false
+        });
+        $('#table_triwulan').DataTable({
+            "autoWidth": false
+        });
+        $('#table_tengahTahun').DataTable({
+            "autoWidth": false
+        });
+        $('#table_akhirTahun').DataTable({
+            "autoWidth": false
+        });
+        $('#table_renaksi').DataTable({
+            "autoWidth": false
+        });
+        $('#table_destudi').DataTable({
+            "autoWidth": false
+        });
+        $($.fn.dataTable.tables(true)).DataTable().columns.adjust().responsive.recalc();
+    });
+</script>
+
 <!-- jquery bulanan -->
 <script>
     $(document).ready(function() {
-        $('#table').on('click', '.hapusbulanan', function() {
+        $('#table_bulanan').on('click', '.hapusbulanan', function() {
             const id = $(this).attr('data-id');
             console.log(id);
             // var col2=currentRow.find("td:eq(1)").text();
@@ -495,7 +498,7 @@
 <!-- jquery triwulan -->
 <script>
     $(document).ready(function() {
-        $('#table-triwulan').on('click', '.hapustriwulan', function() {
+        $('#table_triwulan').on('click', '.hapustriwulan', function() {
             const id = $(this).attr('data-id');
             console.log(id);
             // var col2=currentRow.find("td:eq(1)").text();
@@ -512,10 +515,10 @@
         });
     });
 </script>
-<!-- jquery tengah tahun -->
+<!-- jquery tengahTahun -->
 <script>
     $(document).ready(function() {
-        $('#table-tengah').on('click', '.hapustengah', function() {
+        $('#table_tengahTahun').on('click', '.hapustengahTahun', function() {
             const id = $(this).attr('data-id');
             console.log(id);
             // var col2=currentRow.find("td:eq(1)").text();
@@ -527,15 +530,15 @@
             }).get();
             // $('#inputjudul').val(datajudul);
             $('#inputid').val(dataid[0]);
-            $('#deletemodalform').attr('action', 'tengah/' + dataid[0]);
+            $('#deletemodalform').attr('action', 'tengahTahun/' + dataid[0]);
             $('#deletemodal').modal('show');
         });
     });
 </script>
-<!-- jquery akhir tahun -->
+<!-- jquery akhirTahun -->
 <script>
     $(document).ready(function() {
-        $('#table-akhir').on('click', '.hapusakhir', function() {
+        $('#table_akhirTahun').on('click', '.hapusakhirTahun', function() {
             const id = $(this).attr('data-id');
             console.log(id);
             // var col2=currentRow.find("td:eq(1)").text();
@@ -547,27 +550,7 @@
             }).get();
             // $('#inputjudul').val(datajudul);
             $('#inputid').val(dataid[0]);
-            $('#deletemodalform').attr('action', 'akhir/' + dataid[0]);
-            $('#deletemodal').modal('show');
-        });
-    });
-</script>
-<!-- jquery destudi -->
-<script>
-    $(document).ready(function() {
-        $('#table-destudi').on('click', '.hapusdestudi', function() {
-            const id = $(this).attr('data-id');
-            console.log(id);
-            // var col2=currentRow.find("td:eq(1)").text();
-            // var datajudul=col2;
-
-            $tr = $(this).closest("tr");
-            var dataid = $tr.children("td").map(function() {
-                return $(this).text();
-            }).get();
-            // $('#inputjudul').val(datajudul);
-            $('#inputid').val(dataid[0]);
-            $('#deletemodalform').attr('action', 'destudi/' + dataid[0]);
+            $('#deletemodalform').attr('action', 'akhirTahun/' + dataid[0]);
             $('#deletemodal').modal('show');
         });
     });
@@ -575,7 +558,7 @@
 <!-- jquery renaksi -->
 <script>
     $(document).ready(function() {
-        $('#table-renaksi').on('click', '.hapusrenaksi', function() {
+        $('#table_renaksi').on('click', '.hapusrenaksi', function() {
             const id = $(this).attr('data-id');
             console.log(id);
             // var col2=currentRow.find("td:eq(1)").text();
@@ -592,4 +575,5 @@
         });
     });
 </script>
+
 @endsection

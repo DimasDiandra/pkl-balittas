@@ -361,7 +361,7 @@
                     <!-- deskstudi -->
                     <div class="tab-pane fade" id="destudi" role="tabpanel" aria-labelledby="nav-contact-tab">
                         <div class="modal-body">
-                            <table class="table" id="table_destudi">
+                            <table class="table" id="table_destudigit">
                                 <thead>
                                     <tr>
                                         <th hidden>id</th>
