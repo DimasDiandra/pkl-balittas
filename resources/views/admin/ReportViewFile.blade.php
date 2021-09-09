@@ -91,7 +91,6 @@
                                     @foreach($bulanan as $f)
                                     <tr>
                                         <td>{{ $loop->iteration }}</td>
-                                        <input type="hidden" name="path" value=" {{$f->path}}">
                                         <td>{{ $f->name }}</td>
                                         <td>{{ $date = substr($f->created_at, 2, 8) }}</td>
                                         <td>
@@ -265,7 +264,6 @@
                                     @foreach($akhirTahun as $f)
                                     <tr>
                                         <td>{{ $loop->iteration }}</td>
-                                        <input type="hidden" name="path" value=" {{$f->path}}">
                                         <td>{{ $f->name }}</td>
                                         <td>{{ $date = substr($f->created_at, 2, 8) }}</td>
                                         <td>
@@ -382,7 +380,6 @@
                                     @foreach($destudi as $f)
                                     <tr>
                                         <td>{{ $loop->iteration }}</td>
-                                        <input type="hidden" name="path" value=" {{$f->path}}">
                                         <td>{{ $f->name }}</td>
                                         <td>{{ $date = substr($f->created_at, 2, 8) }}</td>
                                         <td>
@@ -396,8 +393,8 @@
                                         </td>
                                         <td>
                                             <div style="float: left;">
-                                                <form action="renaksi/{{$f->id}}" method="GET">
-                                                    <input type="hidden" value="renaksi" name="jenis">
+                                                <form action="destudi/{{$f->id}}" method="GET">
+                                                    <input type="hidden" value="destudi" name="jenis">
                                                     <button class="btn btn-warning btn-xs btn-edit" type="submit">
                                                         <i class="menu-icon fa fa-pencil"></i>
                                                     </button>

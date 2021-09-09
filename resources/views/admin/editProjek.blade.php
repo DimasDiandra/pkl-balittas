@@ -57,9 +57,14 @@
                                 <input type="text" name="projek_id" class="form-control" id="exampleInputPassword1" placeholder="Name" value="{{ $projekdata->name }}" readonly>
                             </div>
                             <div class="form-group">
+                                <label for=>Tenggat Projek</label>
+                                <br>
+                                <input type="date" name="projek_date" class="form-control" id="exampleInputPassword1" placeholder="Name" value="{{ $projekdata->periode_projek }}">
+                            </div>
+                            <div class="form-group">
                                 <label for="exampleInputEmail1">User</label>
                                 <select class="custom-select" name="user_id">
-                                    <option selected value="Kosong">
+                                    <option selected value="{{$projekdata->user_id}}">
                                         {{ $user = trim(
                                     $userdata->where('id',$projekdata->user_id)->pluck('id'),
                                     '[""]') }} - {{ $user = trim(

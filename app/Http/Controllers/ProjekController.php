@@ -28,14 +28,17 @@ class ProjekController extends Controller
 
         $this->validate($request, [
             'projek_name' => 'required',
+            'projek_date' => 'required',
             'user_id' => 'required'
         ]);
 
         $name = $request->projek_name;
+        $periode = $request->projek_date;
         $user_id = $request->user_id;
 
         Projek::create([
             'name' => $name,
+            'periode_projek' => $periode,
             'user_id' => $user_id,
             'all_status' => 0
         ]);
@@ -54,15 +57,13 @@ class ProjekController extends Controller
 
     public function update(Request $request, $id)
     {
-        try {
-            // update data kedalam table users
-            $user['user_id'] = $request->user_id;
-            $user['updated_at'] = date('Y-m-d H:i:s');
-            // dd($request->user_id);
-
-            Projek::where('id', $id)->update($user);
-        } catch (\Exception $e) {
-        }
+        $projek = Projek::find($id);
+        $name = $request->projek_name;
+        $periode = $request->projek_date;
+        $user_id = $request->user_id;
+        $projek-> periode_projek=$periode;
+        $projek-> user_id=$user_id;
+        $projek->save();
 
         return redirect('admin/projek')->with('success', 'Projek Berhasil Diperbarui');
     }

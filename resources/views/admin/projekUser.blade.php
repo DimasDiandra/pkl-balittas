@@ -103,6 +103,10 @@
                                         <input type="text" name="projek_name" class="form-control" id="exampleInputPassword1" placeholder="Name" value="" required oninvalid="this.setCustomValidity('Masukkan Nama Projek Terlebih Dahulu')" oninput="setCustomValidity('')">
                                     </div>
                                     <div class="form-group">
+                                        <label for="exampleInputPassword1">Periode Projek</label>
+                                        <input type="date" name="projek_date" class="form-control"  placeholder="Name" value="" required oninvalid="this.setCustomValidity('Masukkan Periode Projek Terlebih Dahulu')" oninput="setCustomValidity('')">
+                                    </div>
+                                    <div class="form-group">
                                         <label for="exampleInputEmail1">Assign User</label>
                                         <select class="custom-select" name="user_id">
                                             <option selected value="Kosong" disabled selected hidden> Assign User
