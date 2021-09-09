@@ -16,17 +16,15 @@
     <div class="bg-image"></div>
     <section class="bg-box h-100">
         <div class="container h-100">
-            <div class="row justify-content-md-center h-100">
+            <div class="row justify-content-center h-100">
                 <div class="card-wrapper">
-                    <div class="brand">
-                        <img src="assets/pkl.png" alt="logo">
-                    </div>
-                    <div class="brands">
-                        <h2>SIPERTA BALITTAS</h2>
-                    </div>
                     <!-- login form -->
                     <div class="card fat">
                         <div class="card-body">
+                            <div class="brand">
+                                <img src="assets/pkl.png" alt="logo">
+                            </div>
+                            <h4 style="font-weight:600; text-align:center; padding:16px">SIPERTA BALITTAS</h4>
                             <h4 class="card-title">Login</h4>
                             <form method="POST" action="{{ route('login') }}">
                                 @csrf
@@ -59,13 +57,13 @@
                                     </button>
                                 </div>
                                 <div class="mt-4 text-center">
-                                   Belum punya akun? <a href="/register">Buat Akunmu</a>
+                                    Belum punya akun? <a href="/register">Buat Akunmu</a>
                                 </div>
                             </form>
                         </div>
                     </div>
                     <div class="footer" style="color: white;">
-                         &copy; made with <i class="material-icons">favorite</i> by Tim PKL Filkom UB.
+                        &copy; made with <i class="material-icons">favorite</i> by Tim PKL Filkom UB.
                     </div>
                     <!-- end of login form -->
 

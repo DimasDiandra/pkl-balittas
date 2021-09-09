@@ -82,7 +82,7 @@
 </div>
 <div class="row">
     <div class="col">
-        <div class="card card-stats">
+        <div class="card card-stats h-75">
             <a href="/admin/perencanaan">
                 <div class="card-header card-header-primary card-header-icon">
                     <div class="card-icon">
@@ -100,7 +100,7 @@
         </div>
     </div>
     <div class="col">
-        <div class="card card-stats">
+        <div class="card card-stats h-75">
             <a href="/admin/evaluasi">
                 <div class="card-header card-header-primary card-header-icon">
                     <div class="card-icon">
@@ -118,7 +118,7 @@
         </div>
     </div>
     <div class="col">
-        <div class="card card-stats">
+        <div class="card card-stats h-75">
             <a href="/admin/template">
                 <div class="card-header card-header-primary card-header-icon">
                     <div class="card-icon">
@@ -136,7 +136,7 @@
         </div>
     </div>
     <div class="col">
-        <div class="card card-stats">
+        <div class="card card-stats h-75">
             <a href="/admin/revisi">
                 <div class="card-header card-header-primary card-header-icon">
                     <div class="card-icon">

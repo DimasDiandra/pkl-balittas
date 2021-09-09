@@ -329,25 +329,22 @@ The above copyright notice and this permission notice shall be included in all c
                     <button type="button" class="close" data-dismiss="modal">&times;</button>
                 </div>
                 <!-- Ini adalah Bagian Body Modal -->
-                    <div class="modal-body">
-                        <div class="mb-3">
-                            <label class="form-label">Notifikasi</label>
-                            {{$notification->data['name']}}
-                        </div>
-                        <div class="mb-3">
-                            <label class="form-label">Keterangan File:</label>
-                            {{$notification->data['status']}}
-                        </div>
-                        <div class="mb-3">
-                            <label class="form-label">Keterangan File:</label>
-                            {{$notification->data['status']}}
-                        </div>
+                <div class="modal-body">
+                    <div class="mb-3">
+                        <label class="form-label">Notifikasi</label>
+                    </div>
+                    <div class="mb-3">
+                        <label class="form-label">Keterangan File:</label>
+                    </div>
+                    <div class="mb-3">
+                        <label class="form-label">Keterangan File:</label>
+                    </div>
 
-                    </div>
-                    <!-- Ini adalah Bagian Footer Modal -->
-                    <div class="modal-footer">
-                        <button type="button" class="btn btn-danger" data-dismiss="modal">Tutup</button>
-                    </div>
+                </div>
+                <!-- Ini adalah Bagian Footer Modal -->
+                <div class="modal-footer">
+                    <button type="button" class="btn btn-danger" data-dismiss="modal">Tutup</button>
+                </div>
             </div>
         </div>
     </div>

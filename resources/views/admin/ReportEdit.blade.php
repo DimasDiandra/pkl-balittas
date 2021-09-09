@@ -53,6 +53,11 @@
                                 Status File saat ini sudah <b> Diterima </b></span>
                         </div>
                         @endif
+                        <div>
+                            <textarea name="keterangan">
+
+                            </textarea>
+                        </div>
                     </div>
                     <div class="col">
                         <div class="form-group">
