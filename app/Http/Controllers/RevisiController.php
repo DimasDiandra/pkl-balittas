@@ -80,8 +80,8 @@ class RevisiController extends Controller
     public function revisi_upload(Request $request)
     {
         $this->validate($request, [
-            'semula_menjadi' => 'nullable|file|mimes:docx,pdf|max:15000',
-            'revisi_rab' => 'nullable|file|mimes:docx,pdf|max:15000',
+            'semula_menjadi' => 'nullable|file|mimes:docx,pdf,xlsx,xls|max:15000',
+            'revisi_rab' => 'nullable|file|mimes:docx,pdf,xlsx,xls|max:15000',
 
         ]);
 
