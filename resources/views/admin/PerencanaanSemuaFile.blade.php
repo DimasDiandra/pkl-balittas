@@ -71,7 +71,7 @@
                 <div class="col">
                     <div class="tab-content" id="nav-tabContent">
                         <!-- Matriks -->
-                        <div class="tab-pane fade show active" id="matriks" role="tabpanel" aria-labelledby="nav-home-tab">
+                        <div class="tab-pane fade show active" id="matriks" role="tabpanel" aria-labelledby="nav-profile-tab">
                             <div class="modal-body">
                                 <table class="table" id="table_matriks">
                                     <thead>
@@ -86,55 +86,39 @@
                                     </thead>
                                     <tbody>
                                         <!-- Isi dari keluaran data -->
-                                        @foreach ($matriks as $f)
-                                            <tr>
-                                                    <td>{{ $loop->iteration }}</td>
-                                                    <input type="hidden" name="path" value=" {{ $f->path }}">
-                                                    <td>{{ $f->name }}</td>
-                                                    <td>{{ $f->created_at }}</td>
-                                                    <td>
-                                                        @if ($f->status == 1)
-                                                            Menunggu Review
-                                                        @elseif($f->status==2)
-                                                            Revisi
-                                                        @elseif($f->status==3)
-                                                            Diterima
-                                                        @endif
-                                                    </td>
-                                                    <td>
-                                                        <div style="float: left;">
-                                                            <form action="matriks/{{ $f->id }}" method="GET">
-                                                                <input type="hidden" value="matriks" name="jenis">
-                                                                <button class="btn btn-warning btn-xs btn-edit"
-                                                                    type="submit">
-                                                                    <i class="menu-icon fa fa-pencil"></i>
-                                                                </button>
-                                                            </form>
-                                                        </div>
-                                                        <div style="float: left;">
-                                                            <a href="javascript:void(0)" id="deletebtn"
-                                                                class="btn btn-danger btn-xs btn-hapus hapusmatriks"
-                                                                data-id="{{ $f->id }}"><i
-                                                                    class="fa fa-trash-o"></i></a>
-                                                        </div>
-                                                        <div style="float: left;">
-                                                            <form action="/perencanaan/download" method="GET">
-                                                                <input type="hidden" name="path"
-                                                                    value=" {{ $f->path }}">
-                                                                <button type="submit" class="btn btn-primary">
-                                                                    <i class="menu-icon fa fa-download"></i>
-                                                                </button>
-                                                            </form>
-                                                        </div>
-                                                    </td>
-                                                </form>
-                                            </tr>
+                                        @foreach($matriks as $f)
+                                        <tr>
+                                            <form action="/perencanaan/download" method="GET">
+                                                <td>{{ $loop->iteration }}</td>
+                                                <input type="hidden" name="path" value=" {{$f->path}}">
+                                                <td>{{ $f->name }}</td>
+                                                <td>{{ $f->created_at }}</td>
+                                                <td>
+                                                    @if ($f->status==1)
+                                                    Menunggu Review
+                                                    @elseif($f->status==2)
+                                                    Revisi
+                                                    @elseif($f->status==3)
+                                                    Diterima
+                                                    @endif
+                                                </td>
+                                                <td>
+                                                    <input type="hidden" value="matriks" name="jenis">
+                                                    <button class="btn btn-warning btn-xs btn-edit" type="submit">
+                                                        <i class="menu-icon fa fa-pencil"></i>
+                                                    </button>
+                                                    <a href="javascript:void(0)" id="deletebtn" class="btn btn-danger btn-xs btn-hapus hapusmatriks" data-id="{{$f->id}}"><i class="fa fa-trash-o"></i></a>
+                                                    <button type="submit" class="btn btn-primary">
+                                                        <i class="menu-icon fa fa-download"></i>
+                                                    </button>
+                                                </td>
+                                            </form>
+                                        </tr>
                                         @endforeach
                                     </tbody>
                                 </table>
                             </div>
                         </div>
-                    </div>
                     <!-- RAB -->
                     <div class="tab-pane fade" id="rab" role="tabpanel" aria-labelledby="nav-profile-tab">
                         <div class="modal-body">

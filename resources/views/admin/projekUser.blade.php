@@ -85,7 +85,7 @@
             <div class="modal-content">
                 <!-- Ini adalah Bagian Header Modal -->
                 <div class="modal-header">
-                    <h4 class="modal-title">Tambah User</h4>
+                    <h4 class="modal-title">Tambah Projek</h4>
                     <button type="button" class="close" data-dismiss="modal">&times;</button>
                 </div>
 
@@ -137,7 +137,7 @@
         <div class="modal-dialog modal-dialog-centered">
             <div class="modal-content">
                 <div class="modal-header">
-                    <h5 class="modal-title" id="exampleModalLabel">Hapus Pengumuman</h5>
+                    <h5 class="modal-title" id="exampleModalLabel">Hapus Projek</h5>
                     <button type="button" class="close" data-dismiss="modal">&times;</button>
                 </div>
                 <form id="deletemodalform" method="post" class="d-inline">
