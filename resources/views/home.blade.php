@@ -748,8 +748,7 @@
         $('#table_analisis').DataTable({
             "autoWidth": false
         });
-        $($.fn.dataTable.tables(true)).DataTable().columns.adjust().responsive.recalc();
-
+        $($.fn.dataTable.tables(true)).DataTable().columns.adjust();
         //dynamic modal
         $('.detail-btn').click(function() {
             const id = $(this).attr('data-id');
